@@ -17,7 +17,6 @@
         background-size: 85%;
         background-position: 50% 50%;
         background-repeat: no-repeat;
-        height: 100vh;
       }
       .imgBG {
         height: 100vh;
@@ -125,24 +124,25 @@
           flex-wrap: nowrap;
           justify-content: flex-end;
         }
+        .correction,
+        #button-d2607e45,
+        #button-d2607e45,
+        .btnExo {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
         .inline-elements > div:nth-child(3) {
           order: 3;
         }
+
         input.InputFill {
           width: 50%;
           margin: 2px 3px 5px 0;
+          height: 50px;
         }
         .vocabulary {
           margin: 0 auto;
-        }
-        button.btnExo.submit,
-        button.btnExo.reset {
-          margin: 25px 5px;
-          padding: 10px 35px;
-        }
-        button#button-d2607e45 {
-          padding: 5px;
-          margin: 5px 0px;
         }
       }
 
@@ -164,11 +164,12 @@
       }
 
       .btnExo {
+        width: 40%;
         margin: 50px 5px;
         border: 1px solid #bf9b30;
         border-radius: 10px;
         box-shadow: 0px 0px 10px #bf9b30;
-        padding: 10px 55px;
+        padding: 10px;
         background-image: linear-gradient(
           to right,
           #bf9b30 0%,
@@ -177,17 +178,18 @@
         );
         transition: 0.5s;
         background-size: 270% auto;
-        color: white;
+        color: #4c2a02;
         transition-duration: 400ms;
         transform: scale(1);
       }
       .btnVocab,
       #button-d2607e45 {
-        margin: 50px auto;
+        width: 40%;
+        margin: 50px 5px;
         border: 1px solid #bf9b30;
         border-radius: 10px;
         box-shadow: 0px 0px 10px #bf9b30;
-        padding: 10px 55px;
+        padding: 10px;
         background-image: linear-gradient(
           to right,
           #bf9b30 0%,
@@ -196,8 +198,7 @@
         );
         transition: 0.5s;
         background-size: 270% auto;
-        color: white;
-        display: block;
+        color: #4c2a02;
         transition-duration: 400ms;
         transform: scale(1);
       }
@@ -206,7 +207,7 @@
       .btnVocab:hover,
       #button-d2607e45:hover {
         background-position: right center;
-        color: #f1f1f1;
+        color: #4c2a02;
         text-decoration: #683f19;
         transform: scale(0.98);
         background-color: #683f19;
@@ -1664,7 +1665,284 @@
         </div>
       </div>
     </section>
-
+    <section id="exercice-6">
+      <div id="vocabLI" class="exercice">
+        <fieldset style="background: rgba(255, 255, 255, 0.7)">
+          <legend class="vocabFR">vocabulaires 6</legend>
+          <form id="exo" name="exo">
+            <div class="vocabulary">
+              <label class="vocabFR">Commencer, Débuter :</label>
+              <div class="inline-elements">
+                <span class="vocabAR">بَدَأَ</span>
+              </div>
+            </div>
+            <div class="vocabulary">
+              <label class="vocabFR">Chercher qqch/qqn :</label>
+              <div class="inline-elements">
+                <span class="vocabAR">(عَنْ)</span>
+                <span class="vocabAR">بَحَثَ</span>
+              </div>
+            </div>
+            <div class="vocabulary">
+              <label class="vocabFR">Fille(s) : </label>
+              <div class="inline-elements">
+                <span class="vocabAR">بَنَات</span>
+                <span class="vocabAR or">/</span>
+                <span class="vocabAR">بِنْت</span>
+              </div>
+            </div>
+            <div class="vocabulary">
+              <label class="vocabFR">Mosquée(s) :</label>
+              <div class="inline-elements">
+                <span class="vocabAR">مَسَاجِد</span>
+                <span class="vocabAR or">/</span>
+                <span class="vocabAR">مَسْجِد</span>
+              </div>
+            </div>
+            <div class="vocabulary">
+              <label class="vocabFR">Studieux (singulier), assidu :</label>
+              <div class="inline-elements">
+                <span class="vocabAR">مُجْْتَهِد</span>
+              </div>
+            </div>
+            <div class="vocabulary">
+              <label class="vocabFR">Assister à :</label>
+              <div class="inline-elements">
+                <span class="vocabAR">حَضَرَ</span>
+              </div>
+            </div>
+            <div class="vocabulary">
+              <label class="vocabFR">Envoyer :</label>
+              <div class="inline-elements">
+                <span class="vocabAR">بَعَثَ</span>
+              </div>
+            </div>
+            <div class="vocabulary">
+              <label class="vocabFR">Voisin(s) :</label>
+              <div class="inline-elements">
+                <span class="vocabAR">جِيرَان</span>
+                <span class="vocabAR or">/</span>
+                <span class="vocabAR">جَار</span>
+              </div>
+            </div>
+            <div class="vocabulary">
+              <label class="vocabFR">Imam(s), guide(s) :</label>
+              <div class="inline-elements">
+                <span class="vocabAR">أَئِمَّة</span>
+                <span class="vocabAR or">/</span>
+                <span class="vocabAR">إِمَام</span>
+              </div>
+            </div>
+            <div class="vocabulary">
+              <label class="vocabFR">Sourate(s) :</label>
+              <div class="inline-elements">
+                <span class="vocabAR">سُوَر</span>
+                <span class="vocabAR or">/</span>
+                <span class="vocabAR">سُرورَة</span>
+              </div>
+            </div>
+          </form>
+        </fieldset>
+      </div>
+      <button class="btnVocab" type="button">Cacher le vocabulaire</button>
+      <div id="exerciceSection">
+        <div class="exercice">
+          <fieldset style="background: rgba(255, 255, 255, 0.7)">
+            <legend class="vocabFR">exercices</legend>
+            <form id="exo" name="exo">
+              <div class="vocabulary">
+                <label class="vocabFR">Commencer, Débuter :</label>
+                <div class="inline-elements">
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… "
+                    class="InputFill"
+                    id="0"
+                    autocomplete="off"
+                  />
+                </div>
+                >
+              </div>
+              <div class="vocabulary">
+                <label class="vocabFR">Chercher qqch/qqn :</label>
+                <div class="inline-elements">
+                  <span class="vocabAR">(عَنْ)</span>
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… "
+                    class="InputFill"
+                    id="1"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="vocabulary">
+                <label class="vocabFR">Fille(s) :</label>
+                <div class="inline-elements">
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… / اَلْجَمْعُ"
+                    class="InputFill"
+                    id="2"
+                    autocomplete="off"
+                  />
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… "
+                    class="InputFill"
+                    id="3"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="vocabulary">
+                <label class="vocabFR">Mosquée(s) :</label>
+                <div class="inline-elements">
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… / اَلْجَمْعُ"
+                    class="InputFill"
+                    id="4"
+                    autocomplete="off"
+                  />
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… "
+                    class="InputFill"
+                    id="5"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="vocabulary">
+                <label class="vocabFR">Studieux (singulier), assidu :</label>
+                <div class="inline-elements">
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… "
+                    class="InputFill"
+                    id="6"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="vocabulary">
+                <label class="vocabFR">Assister à :</label>
+                <div class="inline-elements">
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… "
+                    class="InputFill"
+                    id="7"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="vocabulary">
+                <label class="vocabFR">Envoyer :</label>
+                <div class="inline-elements">
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… "
+                    class="InputFill"
+                    id="8"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="vocabulary">
+                <label class="vocabFR">Voisin(s) :</label>
+                <div class="inline-elements">
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… / اَلْجَمْعُ"
+                    class="InputFill"
+                    id="9"
+                    autocomplete="off"
+                  />
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… "
+                    class="InputFill"
+                    id="10"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="vocabulary">
+                <label class="vocabFR">Imam(s), guide(s) :</label>
+                <div class="inline-elements">
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… / اَلْجَمْعُ"
+                    class="InputFill"
+                    id="11"
+                    autocomplete="off"
+                  />
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… "
+                    class="InputFill"
+                    id="12"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="vocabulary">
+                <label class="vocabFR">Sourate(s) :</label>
+                <div class="inline-elements">
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… / اَلْجَمْعُ"
+                    class="InputFill"
+                    id="13"
+                    autocomplete="off"
+                  />
+                  <input
+                    type="text"
+                    required=""
+                    placeholder="… "
+                    class="InputFill"
+                    id="14"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div id="Aff"></div>
+              <div class="correction">
+                <button class="btnExo submit" type="button" onclick="vocab();">
+                  Valider
+                </button>
+                <button
+                  class="btnExo correct"
+                  type="button"
+                  onclick="showCorrections()"
+                >
+                  Corriger
+                </button>
+                <button class="btnExo reset" onclick="resetForm()">
+                  Réessayer
+                </button>
+              </div>
+            </form>
+          </fieldset>
+        </div>
+      </div>
+    </section>
     <script>
       // Fonction qui fais defiler la page jusqu'au vocabulaire
       setTimeout(function () {
@@ -1681,20 +1959,23 @@
         "exercice-3",
         "exercice-4",
         "exercice-5",
+        "exercice-6",
       ];
 
       // Définir les URL des scripts correspondant à chaque exercice
       const scriptUrls = {
         "exercice-1":
-          "https://d1yei2z3i6k35z.cloudfront.net/3164252/643bf3e162d38_app1.js",
+          "https://d1yei2z3i6k35z.cloudfront.net/3164252/643db93361ae6_app1.js",
         "exercice-2":
-          "https://d1yei2z3i6k35z.cloudfront.net/3164252/643bf3d4289f9_app2.js",
+          "https://d1yei2z3i6k35z.cloudfront.net/3164252/643db9276f467_app2.js",
         "exercice-3":
-          "https://d1yei2z3i6k35z.cloudfront.net/3164252/643bf3c76423f_app3.js",
+          "https://d1yei2z3i6k35z.cloudfront.net/3164252/643db907f1a99_app3.js",
         "exercice-4":
-          "https://d1yei2z3i6k35z.cloudfront.net/3164252/643bf3bb3ab05_app4.js",
+          "https://d1yei2z3i6k35z.cloudfront.net/3164252/643db8f2edf89_app4.js",
         "exercice-5":
-          "https://d1yei2z3i6k35z.cloudfront.net/3164252/643bf39b621bf_app5.js",
+          "https://d1yei2z3i6k35z.cloudfront.net/3164252/643db8e41cd34_app5.js",
+        "exercice-6":
+          "https://d1yei2z3i6k35z.cloudfront.net/3164252/643db827a581d_app6.js",
       };
 
       // Récupérer l'index de l'exercice actuel stocké dans le localStorage
