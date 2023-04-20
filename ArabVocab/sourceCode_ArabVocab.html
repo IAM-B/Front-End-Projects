@@ -12,7 +12,307 @@
 
       body {
         background-color: #f1efe4;
+        margin-top: 100px;
       }
+
+      .nav{
+	font-family:'Dancing Script', cursive;
+}
+a{
+	text-decoration: none;
+}
+.nav ul,.navmobile ul{
+	list-style: none;                 /* remove dots of li */
+	margin: 0;
+	padding: 0;
+}
+.nav li.navmobile li{
+	display: inline-block;            /* to allign nav items horizontally */
+}
+.nav a,.navmobile a{
+	color: black;
+}
+
+.navwrapper .notonhomepage {
+  color: white;
+}
+
+
+/***************************************************************************/
+.logo h1{
+	font-weight: 700;
+    text-shadow: 3px 2px 0px #fff;
+    line-height: 0.87;
+}
+/***************************for fixed nav*********************/
+.header{
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+.page2content,.page3content{
+	margin-top: 0px;                                 /*****/
+}
+
+
+/************************** MEDIA QUERIES ************************************/
+
+/************************** MOBILES ******************************************/
+
+@media screen and (max-width: 480px){
+/*******************************************************************************/
+/*********************** hamburger menu for mobile******************************/
+/*******************************************************************************/
+
+	.hideme{                      /* hides the logo after certain scroll*/
+		display: none;
+	}
+	.nav{
+		display: none;
+	}
+	.toggleMenu{
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		padding: 15px 20px 15px 15px;
+		cursor: pointer;
+		background: #648B79;
+		opacity: 1;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.sidemenu{
+		position: fixed;
+		top: 0px;
+		width: 240px;
+		margin-left: -250px;
+		overflow: hidden;
+		height: 100vh;
+		background: rgba(17,17,17,0.9);  /* for opacity of side bar without affecting anything */
+		opacity: 0.9;                    /* to see background image*/
+
+		transition: all 0.3s ease-in-out;
+	}
+
+	.cross{
+		position: absolute;
+		top: 10px;
+		right: 10px;
+
+		cursor: pointer;
+		opacity: 0.7;
+
+		transition: all 0.3s ease-in-out;
+	}
+	.cross:hover{
+		opacity: 1;
+	}
+	.mobilelogoinsidebar h1 {
+		margin: 0;
+	    font-weight: 700;
+	    text-shadow: 3px 2px 0px #fff;
+	    line-height: 0.87;
+	}
+	.mobilelogoinsidebar a{
+		color: black;
+	}
+	.mobilelogoinsidebar{
+		margin-top: 70px;
+	}
+	.mobilelogo{
+		font-size: 2em;
+		margin: 0;
+	    font-weight: 700;
+	    text-shadow: 3px 2px 0px #fff;
+	    line-height: 0.87;
+	    margin-top: 20px;
+	    transition: all 10s ease-in-out;
+	}
+	.mobilelogo a{
+		color: black;
+	}
+	.navmobile{
+		width: 100vw;
+	}
+	.signup{
+		font-size: 1.6rem;
+		width: 200px;
+		padding: 3px 0px;
+		border: solid 1px white;
+		color: white;
+		text-align: center;
+		margin:30px auto 20px auto;
+		transition: all 0.3s ease-in-out;
+	}
+	.signup:hover{
+		background-color: white;
+		color: #111;
+		transition: all 0.3s ease-in-out;
+	}
+	.signup a:hover{
+		color: black;
+	}
+	.navmobile .navlistmobile{
+		font-size: 1.4rem;
+		margin:20px;
+		display: block;
+		width: 200px;
+		margin-left:auto;
+		margin-right: auto;
+	}
+	.navlistmobile li{
+		padding: 12px 0px;
+		margin-left: 10px;
+		margin-right: 10px;
+		color: #D8D8D8;
+		border-bottom:solid 1px #D8D8D8;
+		cursor: pointer;
+
+		transition: all 0.3s ease-in-out;
+	}
+
+	.showmenu{
+		margin-left: 0px;
+	}
+
+	.changeopacity{
+		opacity: 0;
+	}
+
+}
+/*************************mobile ham ends *******************************/
+/***************************************************************************/
+
+
+/******************************** TABLETS *******************************/
+
+@media screen and (min-width: 481px) and (max-width: 768px){
+	.navmobile{
+		display: none;
+	}
+	.hideme{                      /* hides the logo after certain scroll*/
+		display: none;
+	}
+
+	.page2content,.page3content{
+		margin-top: 60px;          /* set margin top equal to header ka height*/
+	}
+
+	.navlist li{
+		font-size: 1.13rem;
+	}
+	.iamselected{                           /* add this class to whichever li to focus*/
+		border-bottom: 1.5px solid white;          /* adds underline to li*/
+		margin-bottom: -12px;
+		padding-bottom: 10.5px;
+	}
+	.logo{
+		transition: all 0.3s ease-in-out;
+		padding-bottom: 4%;
+	}
+	.navwrapper{
+		transition: all 0.3s ease-in-out;
+		padding-top:3rem;
+	    padding-right: 1rem;
+	    padding-bottom: 0.7rem;
+	    padding-left: 1rem;
+	}
+	                          /******** for trans to black scrolling of nav ******/
+	.navwrapper{
+		background: transparent;
+		padding-top:1rem;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.notonhomepage{             /* add this class when you want to shift to black nav*/
+		background: rgba(0, 0, 0, 0.7);
+		border-bottom: 0.1px solid rgba(255, 255, 255, 0.2);
+		padding-top: 1.3rem;
+	}
+
+	.navlist li a{
+		padding: 20%;
+	}
+	.navlist{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	}
+	
+	.navlist li{
+		flex-grow: 1;
+	}
+
+}
+
+/******************************** DESKTOPS ******************************/
+@media screen and (min-width:769px ){
+
+	.navmobile{
+		display: none;
+	}
+
+	.page2content,.page3content{
+		margin-top: 62px;          /* set margin top equal to header ka height*/
+	}
+
+
+	.navwrapper{
+		transition: all 0.3s ease-in-out;
+		padding-top: 3.5rem;
+    	padding-right: 1rem;
+    	padding-bottom: 0.7rem;
+    	padding-left: 1rem;
+	}                                  /***** scrolling trans to black***********/
+	.navwrapper{
+		background: transparent;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.notonhomepage{             /* add this class when you want to shift to black nav*/
+		background: rgba(0, 0, 0, 0.7);
+		border-bottom: 0.1px solid rgba(255, 255, 255, 0.2);
+		padding-top: 1.2rem;
+	}
+
+
+	.nav{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	}
+	.logo{
+		transition: all 0.3s ease-in-out;
+		flex-basis: 20%;
+	}	
+	.navlist{
+		flex-basis: 55%;
+	}
+	.navlist li{
+		font-size: 1.3rem;
+	}
+	.navlist li a{
+		padding: 20%;
+	}
+	.navlist{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-end;
+		align-items: flex-end;
+	}
+	.navlist li{
+		flex-grow: 1;
+	}
+	.iamselected{                          /* add this class to whichever li to focus*/
+								           /* adds underline to li*/
+		border-bottom: 3px solid white;
+		margin-bottom: -12px;
+		padding-bottom: 9px;
+	}
+}
 
       legend {
         float: none !important;
@@ -230,7 +530,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #fefefe;
+        background-color: #F1EFE4;
         z-index: 9999;
       }
       .loader-wrapper.hide {
@@ -316,7 +616,50 @@
           />
         </g>
       </svg>
+</div>
+<div class="page1 page">
+  <!----------------------------- NAV BEGINS ------------------>
+  <div class="header">
+    <div class="navwrapper">
+      <div class="nav">
+        <div class="logo">
+          <h1 style="margin: 0;"><a href="#">DRIVE</a></h1>
+        </div>					
+        <ul class="navlist">
+          <li class="iamselected"><a href="#">Home</a></li>
+          <li><a href="#iamabout">About</a></li>
+          <li><a href="#iamgallery">Gallery</a></li>
+          <li><a href="#">Work</a></li>
+          <li><a href="#" style=" padding-right: 0px;">Contact-us</a></li>
+        </ul>
+      </div>
     </div>
+    <!-------------------- MOBILE NAV BEGINS ------------------------>
+    
+    <div class="navmobile">
+      <div class="mobilelogo"><a href="#">DRIVE</a></div>
+      <div class="toggleMenu"><img src="https://lh3.googleusercontent.com/3Tzf5ICP6hBXeVf1HDVet5GW6Yxp0DA27i51kqEbMKwZVl51YK1-WF-4DrcstNmE-3gR2R9b6NhsoZ7O3oKcVXcMKzXdSBewqMSbLtaVKQSW_N7K-OgwA0c-ycg4gDDwKcNEof4aRfkwkDUle3grstMtWeGFV1A_AKoNEjloSyBxluD67ZK1SZ4rvBEwIWiulL4hYVeeJnaAwBAgnrKILYGJ4_2_w_dTZCDD6a-mZfo88Y26oSH-K794FORGfpwwpYJppOX3tmG7j5gaY7LmXwX0zn6-Kco3hm525gc9qjKYf-w7QKWrn25gwTZiPup0vbgu5iCHFvHdtS_saNxCzZQXWXPAdZA2GTXIGHwRLUdUFU8sSm9WsJo57vrxMUC_U2Axg93l10o-ODaeP_WW2UBrScM07-iTKleOoO3I2m4XFTJX9uVQZUG3em11RlmUc9LPfkw9id7RppkSBTPn06a06x-3urIz0w1lyOS3lBJ1qq5BhWbR3LxNhR1UDujwPyC8t4v8NBgcut7kj2MOSgUjPKcSjPQ1NpSjWuvqdGlekw7tHN35h0kNRsoYDfqoHuSpl_BakFWKbuldYxULWwNopCVu4rgKCPZmevl_Vjam7KBj0M4UxFQwwXFctdNI8fmj3oKS1xSSNrZsUw_lw_OV1Tjn8LNlZBR-3oZC=s300-no" width="30"></div>
+      <div class="sidemenu">
+        <img class="cross" src="https://lh3.googleusercontent.com/iY0bTr9W_jdRLrqwXshfmqbflUi1Rlo2knWWLvQ5g-V-xdvByUrRtV7DVGYQ9VuK5A_h-AbHFxum1zubtabYAzgLOwGrIMaLPuJarkYHWm6a7h5HMIkhwlYhSBLq8JoW2MsDDRvyYzZMbesUr2EvqNW6yQTzygJbapw8hvxZo4e7t2u6v6_ptGmbmlCP6s0mV3jIHhca4TvQEp_UyGV6hhVzSmb0KhqguSpzdcPv3Z7G3-4tK88y6wtCUp1FKBfZkeBlHiSrBchIC8dDGNx4EvSC3_nd17x-vQRu9LlZWvM9KUbBdGMwSQKHXH7Uw9wtuqRVzQ2To024bFayR2uGAQ0MoM1YsFUStFB0NV_mJ_AtLSljfoAph0hu7uozenJASjI8oj2w1xtYrB3L0rcIBzOjC4R0bOw_jB5KOhYz7bB-LZax-KUvnrvaQS9LqG3UCEXzLdO81_mFWV_1pAuPv4DxFap8f5_WQy0-iyhq_76GRGswm2_pA1QwNlGtDgFZd2nqz36LBcbuuV8V3FELFOVZe_4KXULgcoFqL0zdhfEW4jhF28oGJ6ErnThvTMb6VR6_GknX5_2smz3cd9Yc6kkHv0pklcvFbKGIJpw9wrYYB8r5DOVxmGR0u7u5x-ZQoRjpwlhMHSNKAW4u4FeHnZYgJF6-_guWZwIWO1s7=s256-no" width="20">
+        <div class="mobilelogoinsidebar">
+          <h1><a href="#">DRIVE</a></h1>
+        </div>
+        <ul class="navlistmobile">
+          <li><a href="#">Home</a></li>
+          <li><a href="#iamabout">About</a></li>
+          <li><a href="#iamgallery">Gallery</a></li>
+          <li><a href="#">Work</a></li>
+          <li><a href="#">Contact-us</a></li>
+        </ul>
+        <h1 class="signup"><a href="#">Sign Up</a></h1>
+      </div>
+    </div>
+    <!-------------------- MOBILE NAV ENDS -------------------------->
+  </div>
+  <!------------------------------- NAV ENDS ---------------------->
+  <div class="page1content">
+  </div>
+</div>
     <section id="exercice-1">
       <div id="vocabLI" class="exercice">
         <fieldset style="background: rgba(255, 255, 255, 0.7)">
@@ -1102,7 +1445,7 @@
               <div class="vocabulary">
                 <label class="vocabFR">Mentir (à qqn) :</label>
                 <div class="inline-input">
-                  <span class="or">(عَلَى)</span>
+                  <span class="vocabAR">(عَلَى)</span>
                   <input
                     type="text"
                     required=""
@@ -1230,7 +1573,7 @@
             <div class="vocabulary">
               <label class="vocabFR">Pardonner à qqn : </label>
               <div class="inline-vocabulary">
-                <span class="vocabAR or">(لِ)</span>
+                <span class="vocabAR">(لِ)</span>
                 <span class="vocabAR">غَفَرَ</span>
               </div>
             </div>
@@ -2034,6 +2377,81 @@
       </div>
     </section>
     <script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+console.log(document.querySelectorAll('.navlist li'));
+
+/************************ to highlight on which section you are ****************/
+
+const navListItems = document.querySelectorAll('.navlist li');
+navListItems.forEach(navListItem => {
+    navListItem.addEventListener('click', () => {
+        navListItem.classList.add('iamselected');
+        navListItems.forEach(otherNavItem => {
+            if (otherNavItem !== navListItem) {
+                otherNavItem.classList.remove('iamselected');
+            }
+        });
+    });
+});
+
+/********************* highlight active link when scrolled **************************/
+
+window.addEventListener('scroll', () => {
+    console.log(window.pageYOffset);
+    const sections = document.querySelectorAll('.page');
+    sections.forEach(section => {
+        const sectionOffset = document.querySelector(section.hash).offsetTop;
+        if (sectionOffset <= window.pageYOffset) {
+            section.classList.add('iamselected');
+        } else {
+            section.classList.remove('iamselected');
+        }
+    });
+});
+
+/**************** to change from trans to black when scrolled *************/
+
+console.log(window.pageYOffset);
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 95) {
+        document.querySelector('.navwrapper').classList.add('notonhomepage');
+        document.querySelector('.logo').classList.add('hideme');
+    } else {
+        document.querySelector('.navwrapper').classList.remove('notonhomepage');
+        document.querySelector('.logo').classList.remove('hideme');
+    }
+});
+
+/******************** hide n show nav *************************/
+
+document.querySelector('.toggleMenu').addEventListener('click', () => {
+    document.querySelector('.sidemenu').classList.add('showmenu');
+    document.querySelector('.toggleMenu').classList.add('changeopacity');
+});
+
+document.querySelector('.cross').addEventListener('click', () => {
+    document.querySelector('.sidemenu').classList.remove('showmenu');
+    document.querySelector('.toggleMenu').classList.remove('changeopacity');
+});
+
+/************************* menu scales when scrolled ****************************/
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 250) {
+        document.querySelector('.mobilelogo').classList.add('hideme');
+        document.querySelector('.toggleMenu').style.padding = '9px 12px 9px 9px';
+    } else {
+        document.querySelector('.mobilelogo').classList.remove('hideme');
+        document.querySelector('.toggleMenu').style.padding = '15px 20px 15px 15px';
+    }
+});
+
+});
+
+
       // Fonction qui fait disparaitre le loader
       window.addEventListener("load", function () {
         const loader = document.querySelector(".loader-wrapper");
