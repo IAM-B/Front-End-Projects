@@ -33,6 +33,11 @@
       .nav a,
       .navmobile a {
         color: black;
+        font-family: "Cairo", sans-serif;
+      }
+      .notonhomepage .nav a {
+        color: white;
+        font-family: "Cairo", sans-serif;
       }
 
       .navwrapper .notonhomepage {
@@ -49,6 +54,7 @@
       .header {
         position: fixed;
         top: 0;
+        left: 0;
         width: 100%;
       }
       .page2content,
@@ -114,30 +120,7 @@
         .cross:hover {
           opacity: 1;
         }
-        .mobilelogoinsidebar h1 {
-          margin: 0;
-          font-weight: 700;
-          text-shadow: 3px 2px 0px #fff;
-          line-height: 0.87;
-        }
-        .mobilelogoinsidebar a {
-          color: black;
-        }
-        .mobilelogoinsidebar {
-          margin-top: 70px;
-        }
-        .mobilelogo {
-          font-size: 2em;
-          margin: 0;
-          font-weight: 700;
-          text-shadow: 3px 2px 0px #fff;
-          line-height: 0.87;
-          margin-top: 20px;
-          transition: all 10s ease-in-out;
-        }
-        .mobilelogo a {
-          color: black;
-        }
+        
         .navmobile {
           width: 100vw;
         }
@@ -210,7 +193,7 @@
         }
         .iamselected {
           /* add this class to whichever li to focus*/
-          border-bottom: 1.5px solid white; /* adds underline to li*/
+          border-bottom: 1.5px solid #4c2a02; /* adds underline to li*/
           margin-bottom: -12px;
           padding-bottom: 10.5px;
         }
@@ -222,7 +205,7 @@
           transition: all 0.3s ease-in-out;
           padding-top: 3rem;
           padding-right: 1rem;
-          padding-bottom: 0.7rem;
+          padding-bottom: 3rem;
           padding-left: 1rem;
         }
         /******** for trans to black scrolling of nav ******/
@@ -234,9 +217,10 @@
 
         .notonhomepage {
           /* add this class when you want to shift to black nav*/
-          background: rgba(0, 0, 0, 0.7);
-          border-bottom: 0.1px solid rgba(255, 255, 255, 0.2);
-          padding-top: 1.3rem;
+          background: #bf9b30;
+    border-bottom: 0.1px solid rgb(255 255 255 / 0%);
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
         }
 
         .navlist li a {
@@ -267,9 +251,9 @@
 
         .navwrapper {
           transition: all 0.3s ease-in-out;
-          padding-top: 3.5rem;
+          padding-top: 2.5rem;
           padding-right: 1rem;
-          padding-bottom: 0.7rem;
+          padding-bottom: 3.5rem;
           padding-left: 1rem;
         } /***** scrolling trans to black***********/
         .navwrapper {
@@ -279,10 +263,14 @@
 
         .notonhomepage {
           /* add this class when you want to shift to black nav*/
-          background: rgba(0, 0, 0, 0.7);
-          border-bottom: 0.1px solid rgba(255, 255, 255, 0.2);
-          padding-top: 1.2rem;
+          background: #bf9b30;
+    border-bottom: 0.1px solid rgb(255 255 255 / 0%);
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
         }
+        .notonhomepage li.iamselected {
+    display: none;
+}
 
         .nav {
           display: flex;
@@ -313,10 +301,15 @@
         .navlist li {
           flex-grow: 1;
         }
+        .navlist li:hover {
+          border-bottom: 3px solid #4c2a02;
+          margin-bottom: -12px;
+          padding-bottom: 9px;
+        }
         .iamselected {
           /* add this class to whichever li to focus*/
           /* adds underline to li*/
-          border-bottom: 3px solid white;
+          border-bottom: 3px solid #4c2a02;
           margin-bottom: -12px;
           padding-bottom: 9px;
         }
@@ -645,7 +638,7 @@
         <!-------------------- MOBILE NAV BEGINS ------------------------>
 
         <div class="navmobile">
-          <div class="mobilelogo"><a href="#">DRIVE</a></div>
+          
           <div class="toggleMenu">
             <img
               src="https://lh3.googleusercontent.com/3Tzf5ICP6hBXeVf1HDVet5GW6Yxp0DA27i51kqEbMKwZVl51YK1-WF-4DrcstNmE-3gR2R9b6NhsoZ7O3oKcVXcMKzXdSBewqMSbLtaVKQSW_N7K-OgwA0c-ycg4gDDwKcNEof4aRfkwkDUle3grstMtWeGFV1A_AKoNEjloSyBxluD67ZK1SZ4rvBEwIWiulL4hYVeeJnaAwBAgnrKILYGJ4_2_w_dTZCDD6a-mZfo88Y26oSH-K794FORGfpwwpYJppOX3tmG7j5gaY7LmXwX0zn6-Kco3hm525gc9qjKYf-w7QKWrn25gwTZiPup0vbgu5iCHFvHdtS_saNxCzZQXWXPAdZA2GTXIGHwRLUdUFU8sSm9WsJo57vrxMUC_U2Axg93l10o-ODaeP_WW2UBrScM07-iTKleOoO3I2m4XFTJX9uVQZUG3em11RlmUc9LPfkw9id7RppkSBTPn06a06x-3urIz0w1lyOS3lBJ1qq5BhWbR3LxNhR1UDujwPyC8t4v8NBgcut7kj2MOSgUjPKcSjPQ1NpSjWuvqdGlekw7tHN35h0kNRsoYDfqoHuSpl_BakFWKbuldYxULWwNopCVu4rgKCPZmevl_Vjam7KBj0M4UxFQwwXFctdNI8fmj3oKS1xSSNrZsUw_lw_OV1Tjn8LNlZBR-3oZC=s300-no"
@@ -3052,24 +3045,7 @@
           });
         });
 
-        /********************* highlight active link when scrolled **************************/
-
-        window.addEventListener("scroll", () => {
-          console.log(window.pageYOffset);
-          const sections = document.querySelectorAll(".page");
-          sections.forEach((section) => {
-            const sectionOffset = document.querySelector(
-              section.hash
-            ).offsetTop;
-            if (sectionOffset <= window.pageYOffset) {
-              section.classList.add("iamselected");
-            } else {
-              section.classList.remove("iamselected");
-            }
-          });
-        });
-
-        /**************** to change from trans to black when scrolled *************/
+        /**************** to change from trans to color when scrolled *************/
 
         console.log(window.pageYOffset);
 
@@ -3078,16 +3054,18 @@
             document
               .querySelector(".navwrapper")
               .classList.add("notonhomepage");
+              document.querySelector(".nav a").style.color = "white";
             document.querySelector(".logo").classList.add("hideme");
           } else {
             document
               .querySelector(".navwrapper")
               .classList.remove("notonhomepage");
+              document.querySelector(".nav a").style.color = "black";
             document.querySelector(".logo").classList.remove("hideme");
           }
         });
 
-        /******************** hide n show nav *************************/
+        /******************** hide and show nav *************************/
 
         document.querySelector(".toggleMenu").addEventListener("click", () => {
           document.querySelector(".sidemenu").classList.add("showmenu");
@@ -3105,11 +3083,11 @@
 
         window.addEventListener("scroll", () => {
           if (window.pageYOffset > 250) {
-            document.querySelector(".mobilelogo").classList.add("hideme");
+            
             document.querySelector(".toggleMenu").style.padding =
               "9px 12px 9px 9px";
           } else {
-            document.querySelector(".mobilelogo").classList.remove("hideme");
+            
             document.querySelector(".toggleMenu").style.padding =
               "15px 20px 15px 15px";
           }
