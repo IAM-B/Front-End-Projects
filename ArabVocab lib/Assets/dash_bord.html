@@ -1,0 +1,458 @@
+<style>
+  /*Image compte formateur*/
+  .course-info .course-info__instructor-image img {
+    display: none;
+  }
+
+  nav.navbar.navbar-systeme.navbar-expand-md {
+    background-color: #f1efe4;
+  }
+
+  aside.membership-layout__sidebar {
+    border: 1px solid #bf9b30;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #bf9b30;
+  }
+
+  .bouton-display,
+  .btn.btn-course-primary,
+  .btn.btn-course-secondary {
+    margin: 50px 5px;
+    border: 1px solid #bf9b30;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #bf9b30;
+    background-image: linear-gradient(
+      to right,
+      #bf9b30 0%,
+      #dccb96 51%,
+      #bf9b30 100%
+    );
+    transition: 0.5s;
+    background-size: 270% auto;
+    color: #4c2a02;
+    transition-duration: 400ms;
+    transform: scale(1);
+  }
+
+  span.btn-course-primary.text-center {
+    margin: 50px 5px;
+    border: 1px solid #bf9b30;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #bf9b30;
+    background-image: linear-gradient(
+      to right,
+      #bf9b30 0%,
+      #dccb96 51%,
+      #bf9b30 100%
+    );
+    transition: 0.5s;
+    background-size: 270% auto;
+    color: #4c2a02;
+    transition-duration: 400ms;
+    transform: scale(1);
+  }
+
+  .membership-layout__content-wrapper.membership-layout__content-wrapper_buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .course-info__module-title {
+    background-image: linear-gradient(
+      to right,
+      #bf9b30 0%,
+      #dccb96 51%,
+      #bf9b30 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    display: block;
+    transition-duration: 400ms;
+    transform: scale(1);
+  }
+
+  span.btn-course-primary.text-center:hover {
+    background-position: right center;
+    color: #f1f1f1;
+    text-decoration: #683f19;
+    transform: scale(0.98);
+    background-color: #683f19;
+    border-color: #ae6e32;
+    box-shadow: 0px 0px 5px #83691e;
+  }
+
+  .bouton-display:hover {
+    background-position: right center;
+    color: #f1f1f1;
+    text-decoration: #683f19;
+    transform: scale(0.98);
+    background-color: #683f19;
+    border-color: #ae6e32;
+    box-shadow: 0px 0px 5px #83691e;
+  }
+
+  .btn.btn-course-primary:hover {
+    background-position: right center;
+    color: #f1f1f1;
+    text-decoration: #683f19;
+    transform: scale(0.98);
+    background-color: #683f19;
+    border-color: #ae6e32;
+    box-shadow: 0px 0px 5px #83691e;
+  }
+  .course-info__module-title:hover {
+    background-position: right center;
+    color: #f1f1f1;
+    text-decoration: #683f19;
+    transform: scale(0.98);
+    background-color: #683f19;
+    border-color: #ae6e32;
+    box-shadow: 0px 0px 5px #83691e;
+  }
+
+  .btn.btn-course-secondary:hover {
+    background-position: right center;
+    color: #f1f1f1;
+    text-decoration: #683f19;
+    transform: scale(0.98);
+    background-color: #683f19;
+    border-color: #ae6e32;
+    box-shadow: 0px 0px 5px #83691e;
+  }
+
+  .membership-layout__button-container {
+    padding: 0px !important;
+  }
+
+  .membership-layout__content-wrapper.membership-layout__content-wrapper_buttons {
+    background-color: transparent !important;
+  }
+
+  @media (min-width: 992px) {
+    .course-info .course-info__buttons-container {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 414px) {
+    .membership-layout__content-wrapper.membership-layout__content-wrapper_buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+    .bouton-display,
+    .btn.btn-course-primary,
+    .btn.btn-course-secondary {
+      margin: 0px 5px;
+    }
+    span.btn-course-primary.text-center {
+      margin: 0px 5px;
+    }
+  }
+</style>
+<!-- Bibliothèque des icones -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<style>
+  /*Image compte formateur*/
+  .course-info .course-info__instructor-image img {
+    display: none;
+  }
+
+  nav.navbar.navbar-systeme.navbar-expand-md {
+    background-color: #e7f0f3;
+  }
+
+  nav {
+    font-size: 1.7rem;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    list-style: none;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  nav ul li a {
+    /*couleur réseaux sociaux*/
+    background-image: linear-gradient(
+      to right,
+      #149efc 0%,
+      #2fa0fb 51%,
+      #0173ef 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    display: block;
+    transition-duration: 400ms;
+    transform: scale(1);
+  }
+  nav ul li a:hover {
+    background-position: right center;
+    color: #f1f1f1;
+    text-decoration: white;
+    transform: scale(0.98);
+  }
+
+  .bouton-display,
+  .btn.btn-course-primary,
+  .btn.btn-course-secondary {
+    margin-top: 10px;
+    padding: 5px;
+    background-image: linear-gradient(
+      to right,
+      #149efc 0%,
+      #2fa0fb 51%,
+      #0173ef 100%
+    );
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    display: block;
+    transition-duration: 400ms;
+    transform: scale(1);
+  }
+
+  .course-info__module-title {
+    background-image: linear-gradient(
+      to right,
+      #149efc 0%,
+      #2fa0fb 51%,
+      #0173ef 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    display: block;
+    transition-duration: 400ms;
+    transform: scale(1);
+  }
+
+  .bouton-display:hover {
+    background-position: right center;
+    color: #f1f1f1;
+    text-decoration: white;
+    transform: scale(0.98);
+  }
+
+  .btn.btn-course-primary:hover {
+    background-position: right center;
+    color: #f1f1f1;
+    text-decoration: white;
+    transform: scale(0.98);
+  }
+  .course-info__module-title:hover {
+    background-position: right center;
+    color: #f1f1f1;
+    text-decoration: white;
+    transform: scale(0.98);
+  }
+
+  .btn.btn-course-secondary:hover {
+    background-position: right center;
+    color: #f1f1f1;
+    text-decoration: white;
+    transform: scale(0.98);
+  }
+
+  @media (min-width: 992px) {
+    .course-info .course-info__buttons-container {
+      margin-top: 0;
+    }
+  }
+
+  .displayAds {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  .displayAds .displayImag,
+  .displayVideo {
+    cursor: pointer;
+    max-width: 265px;
+    border-radius: 7px;
+  }
+</style>
+
+<script>
+  // Reseaux sociaux et boutton
+  function getElementsByClass(tagType, className) {
+    var elems = document.getElementsByTagName(tagType);
+    var returns = [];
+    for (var i in elems) {
+      if (
+        (" " + elems[i].className + " ").indexOf(" " + className + " ") > -1
+      ) {
+        returns.push(elems[i]);
+      }
+    }
+    return returns;
+  }
+
+  var dynamic = document.createElement("div");
+  dynamic.innerHTML =
+    "<nav><ul>" +
+    //Site web
+    '<li><a href="https://www.itstrategy.io/" target="_blank"><i class="fa fa-globe" title="Mon Site"></i></a></li>' +
+    //Youtube
+    '<li><a href="https://" target="_blank"><i class="fa fa-youtube-play" title="YouTube"></i></a></li>' +
+    //Instagram
+    '<li><a href="https://" target="_blank"><i class="fa fa-instagram" title="Instagram"></i></a></li>' +
+    //Telegram
+    '<li><a href="https://" target="_blank"><i class="fa fa-telegram" title="Telegram"></i></a></li>' +
+    //Facebook
+    '<li><a href="https://" target="_blank"><i class="fa-brands fa-facebook" title="Facebook"></i></a></li>' +
+    //Twitter
+    '<li><a href="https://" target="_blank"><i class="fa-brands fa-twitter" title="twitter"></i></a></li>' +
+    //En savoir plus
+    '</ul><a href="https://systeme.io/?sa=sa003744180142de86910a8974315dc3f268d2bd72" target="_blank" class="btn btn-course-primary bouton-display">Creer mon compte systeme.io</a></nav>';
+
+  var elements = getElementsByClass("div", "course-info__instructor-container");
+  if (elements.length > 0) {
+    // just change the first, as you did in your post
+    elements[0].parentNode.insertBefore(dynamic, elements[0].nextSibling);
+  }
+</script>
+
+<!--PUBLICITÉ-->
+
+<script>
+  // Pub story 1920x1080
+  function getElementsByClass(tagType, className) {
+    var elems = document.getElementsByTagName(tagType);
+    var returns = [];
+    for (var i in elems) {
+      if (
+        (" " + elems[i].className + " ").indexOf(" " + className + " ") > -1
+      ) {
+        returns.push(elems[i]);
+      }
+    }
+    return returns;
+  }
+
+  var dynamic = document.createElement("div");
+  dynamic.innerHTML =
+    '<div class="displayAds">' +
+    '<a href="https://">' +
+    '<img src="https://" class="displayImag">' +
+    "</a></div>";
+
+  var elements = getElementsByClass("div", "course-info__modules");
+  if (elements.length > 0) {
+    elements[0].parentNode.insertBefore(dynamic, elements[0].nextSibling);
+  }
+
+  // Pub image 500x500
+  function getElementsByClass(tagType, className) {
+    var elems = document.getElementsByTagName(tagType);
+    var returns = [];
+    for (var i in elems) {
+      if (
+        (" " + elems[i].className + " ").indexOf(" " + className + " ") > -1
+      ) {
+        returns.push(elems[i]);
+      }
+    }
+    return returns;
+  }
+
+  var dynamic = document.createElement("div");
+  dynamic.innerHTML =
+    '<div class="displayAds">' +
+    '<a href="https://" target="_blank">' +
+    '<img src="https://" class="displayImag">' +
+    "</a></div>";
+
+  var elements = getElementsByClass("div", "course-info__modules");
+  if (elements.length > 0) {
+    elements[0].parentNode.insertBefore(dynamic, elements[0].nextSibling);
+  }
+
+  // Pub gif 500x500
+  function getElementsByClass(tagType, className) {
+    var elems = document.getElementsByTagName(tagType);
+    var returns = [];
+    for (var i in elems) {
+      if (
+        (" " + elems[i].className + " ").indexOf(" " + className + " ") > -1
+      ) {
+        returns.push(elems[i]);
+      }
+    }
+    return returns;
+  }
+
+  var dynamic = document.createElement("div");
+  dynamic.innerHTML =
+    '<div class="displayAds">' +
+    '<a href="" target="_blank">' +
+    '<img src="https://" class="displayImag">' +
+    "</a></div>";
+
+  var elements = getElementsByClass("div", "course-info__modules");
+  if (elements.length > 0) {
+    elements[0].parentNode.insertBefore(dynamic, elements[0].nextSibling);
+  }
+
+  // Pub video 500x500
+  function getElementsByClass(tagType, className) {
+    var elems = document.getElementsByTagName(tagType);
+    var returns = [];
+    for (var i in elems) {
+      if (
+        (" " + elems[i].className + " ").indexOf(" " + className + " ") > -1
+      ) {
+        returns.push(elems[i]);
+      }
+    }
+    return returns;
+  }
+
+  var dynamic = document.createElement("div");
+  dynamic.innerHTML =
+    '<div class="displayAds">' +
+    '<a href="https://" id="box" target="_blank">' +
+    "</a></div>";
+
+  var elements = getElementsByClass("div", "course-info__modules");
+  if (elements.length > 0) {
+    elements[0].parentNode.insertBefore(dynamic, elements[0].nextSibling);
+  }
+
+  const video = document.createElement("video");
+  video.classList.add("displayVideo");
+
+  video.src = "https://";
+
+  video.autoplay = true;
+  video.controls = false;
+  video.muted = true;
+  video.loop = true;
+  video.height = 265;
+  video.width = 265;
+
+  const box = document.getElementById("box");
+
+  box.appendChild(video);
+</script>
