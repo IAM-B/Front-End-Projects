@@ -36,12 +36,12 @@
         font-family: "Cairo", sans-serif;
       }
       .notonhomepage .nav a {
-        color: white;
+        color: black;
         font-family: "Cairo", sans-serif;
       }
 
       .navwrapper .notonhomepage {
-        color: white;
+        color: black;
       }
 
       /***************************************************************************/
@@ -54,6 +54,7 @@
         top: 0;
         left: 0;
         width: 100%;
+        z-index: 9999;
       }
       .page2content,
       .page3content {
@@ -218,11 +219,12 @@
         }
 
         .notonhomepage {
-          /* add this class when you want to shift to black nav*/
-          background: #bf9b30;
-    border-bottom: 0.1px solid rgb(255 255 255 / 0%);
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
+          padding: 10px 20px;
+          border: 1px solid #bf9b30;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #bf9b30;
+          background: rgb(255 255 255 / 95%) !important;
+          margin: 5px;
         }
 
         .navlist li a {
@@ -262,15 +264,16 @@
         }
 
         .notonhomepage {
-          /* add this class when you want to shift to black nav*/
-          background: #bf9b30;
-    border-bottom: 0.1px solid rgb(255 255 255 / 0%);
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
+          padding: 10px 20px;
+          border: 1px solid #bf9b30;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #bf9b30;
+          background: rgb(255 255 255 / 95%) !important;
+          margin: 5px;
         }
         .notonhomepage li.iamselected {
-    display: none;
-}
+          display: none;
+        }
 
         .nav {
           display: flex;
@@ -579,6 +582,12 @@
       .oVYRo::after {
         background-color: #d1b971;
       }
+
+      .imgBG {
+        width: 100vw;
+        height: 100vh;
+        z-index: 99998;
+      }
       /*Loader*/
       .loader-wrapper {
         position: fixed;
@@ -587,7 +596,7 @@
         width: 100%;
         height: 100%;
         background-color: #f1efe4;
-        z-index: 9999;
+        z-index: 99999;
       }
       .loader-wrapper.hide {
         opacity: 0;
@@ -673,7 +682,7 @@
         </g>
       </svg>
     </div>
-    <div class="page1 page">
+    <header class="page1 page">
       <!----------------------------- NAV BEGINS ------------------>
       <div class="header">
         <div class="navwrapper">
@@ -727,7 +736,10 @@
       </div>
       <!------------------------------- NAV ENDS ---------------------->
       <div class="page1content"></div>
-    </div>
+      <div class="imgBG">
+      <img class="imgBG" src="ArabVocabBoard/Assets/img/salamuAlykum.png" alt="Salamu Alykum Wa Rahmatullahi Wa Barakatuh"/>
+      </div>
+    </header>
     <section id="exercice-1">
       <div id="vocabLI" class="exercice">
         <fieldset style="background: rgba(255, 255, 255, 0.7)">
