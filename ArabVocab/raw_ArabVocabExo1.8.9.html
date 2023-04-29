@@ -1,632 +1,641 @@
 <style>
-      @import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Cairo&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Cairo&display=swap");
 
-      body {
-        background-color: #f1efe4;
-        margin-top: 100px;
-      }
-      .AffiliateBadgeUi-wzepun-0.hqxcir {
-        display: none;
-      }
-      .nav {
-        font-family: "Dancing Script", cursive;
-      }
-      a {
-        text-decoration: none;
-      }
-      .nav ul,
-      .navmobile ul {
-        list-style: none; /* remove dots of li */
-        margin: 0;
-        padding: 0;
-      }
-      .nav li.navmobile li {
-        display: inline-block; /* to allign nav items horizontally */
-      }
-      .nav a,
-      .navmobile a {
-        color: black;
-        font-family: "Cairo", sans-serif;
-      }
-      .notonhomepage .nav a {
-        color: white;
-        font-family: "Cairo", sans-serif;
-      }
+  body {
+    background-color: #f1efe4;
+    margin-top: 100px;
+  }
 
-      .navwrapper .notonhomepage {
-        color: white;
-      }
+  .nav {
+    font-family: "Dancing Script", cursive;
+  }
+  a {
+    text-decoration: none;
+  }
+  .nav ul,
+  .navmobile ul {
+    list-style: none; /* remove dots of li */
+    margin: 0;
+    padding: 0;
+  }
+  .nav li.navmobile li {
+    display: inline-block; /* to allign nav items horizontally */
+  }
+  .nav a,
+  .navmobile a {
+    color: black;
+    font-family: "Cairo", sans-serif;
+  }
+  .notonhomepage .nav a {
+    color: black;
+    font-family: "Cairo", sans-serif;
+  }
 
-      /***************************************************************************/
-      .logo h1 {
-        font-weight: 700;
-      }
-      /***************************for fixed nav*********************/
-      .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-      }
-      .page2content,
-      .page3content {
-        margin-top: 0px; /*****/
-      }
+  .navwrapper .notonhomepage {
+    color: black;
+  }
 
-      /************************** MEDIA QUERIES ************************************/
+  /***************************************************************************/
+  .logo h1 {
+    font-weight: 700;
+  }
+  /***************************for fixed nav*********************/
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+  .page2content,
+  .page3content {
+    margin-top: 0px; /*****/
+  }
 
-      /************************** MOBILES ******************************************/
+  /************************** MEDIA QUERIES ************************************/
 
-      @media screen and (max-width: 480px) {
-        /*******************************************************************************/
-        /*********************** hamburger menu for mobile******************************/
-        /*******************************************************************************/
+  /************************** MOBILES ******************************************/
 
-        .hideme {
-          /* hides the logo after certain scroll*/
-          display: none;
-        }
-        .nav {
-          display: none;
-        }
-        .toggleMenu {
-          position: fixed;
-          top: 0px;
-          left: 0px;
-          padding: 15px 20px 15px 15px;
-          cursor: pointer;
-          background: #648b79;
-          opacity: 1;
-          transition: all 0.3s ease-in-out;
-        }
+  @media screen and (max-width: 480px) {
+    /*******************************************************************************/
+    /*********************** hamburger menu for mobile******************************/
+    /*******************************************************************************/
 
-        .sidemenu {
-          position: fixed;
-          top: 0px;
-          width: 240px;
-          margin-left: -250px;
-          overflow: hidden;
-          height: 100vh;
-          background: rgba(
-            17,
-            17,
-            17,
-            0.9
-          ); /* for opacity of side bar without affecting anything */
-          opacity: 0.9; /* to see background image*/
+    .hideme {
+      /* hides the logo after certain scroll*/
+      display: none;
+    }
+    .nav {
+      display: none;
+    }
+    .toggleMenu {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      padding: 15px 20px 15px 15px;
+      cursor: pointer;
+      background: #648b79;
+      opacity: 1;
+      transition: all 0.3s ease-in-out;
+    }
 
-          transition: all 0.3s ease-in-out;
-        }
+    .sidemenu {
+      position: fixed;
+      top: 0px;
+      width: 240px;
+      margin-left: -250px;
+      overflow: hidden;
+      height: 100vh;
+      background: rgba(
+        17,
+        17,
+        17,
+        0.9
+      ); /* for opacity of side bar without affecting anything */
+      opacity: 0.9; /* to see background image*/
 
-        .cross {
-          position: absolute;
-          top: 10px;
-          right: 10px;
+      transition: all 0.3s ease-in-out;
+    }
 
-          cursor: pointer;
-          opacity: 0.7;
+    .cross {
+      position: absolute;
+      top: 10px;
+      right: 10px;
 
-          transition: all 0.3s ease-in-out;
-        }
-        .cross:hover {
-          opacity: 1;
-        }
-        
-        .navmobile {
-          width: 100vw;
-        }
-        .signup {
-          font-size: 1.6rem;
-          width: 200px;
-          padding: 3px 0px;
-          border: solid 1px white;
-          color: white;
-          text-align: center;
-          margin: 30px auto 20px auto;
-          transition: all 0.3s ease-in-out;
-        }
-        .signup:hover {
-          background-color: white;
-          color: #111;
-          transition: all 0.3s ease-in-out;
-        }
-        .signup a:hover {
-          color: black;
-        }
-        .navmobile .navlistmobile {
-          font-size: 1.4rem;
-          margin: 20px;
-          display: block;
-          width: 200px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-        .navlistmobile li {
-          padding: 12px 0px;
-          margin-left: 10px;
-          margin-right: 10px;
-          color: #d8d8d8;
-          border-bottom: solid 1px #d8d8d8;
-          cursor: pointer;
+      cursor: pointer;
+      opacity: 0.7;
 
-          transition: all 0.3s ease-in-out;
-        }
+      transition: all 0.3s ease-in-out;
+    }
+    .cross:hover {
+      opacity: 1;
+    }
+    
+    .navmobile {
+      width: 100vw;
+    }
+    .signup {
+      font-size: 1.6rem;
+      width: 200px;
+      padding: 3px 0px;
+      border: solid 1px white;
+      color: white;
+      text-align: center;
+      margin: 30px auto 20px auto;
+      transition: all 0.3s ease-in-out;
+    }
+    .signup:hover {
+      background-color: white;
+      color: #111;
+      transition: all 0.3s ease-in-out;
+    }
+    .signup a:hover {
+      color: black;
+    }
+    .navmobile .navlistmobile {
+      font-size: 1.4rem;
+      margin: 20px;
+      display: block;
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .navlistmobile li {
+      padding: 12px 0px;
+      margin-left: 10px;
+      margin-right: 10px;
+      color: #d8d8d8;
+      border-bottom: solid 1px #d8d8d8;
+      cursor: pointer;
 
-        .showmenu {
-          margin-left: 0px;
-        }
+      transition: all 0.3s ease-in-out;
+    }
 
-        .changeopacity {
-          opacity: 0;
-        }
-      }
-      /*************************mobile ham ends *******************************/
-      /***************************************************************************/
+    .showmenu {
+      margin-left: 0px;
+    }
 
-      /******************************** TABLETS *******************************/
+    .changeopacity {
+      opacity: 0;
+    }
+  }
+  /*************************mobile ham ends *******************************/
+  /***************************************************************************/
 
-      @media screen and (min-width: 481px) and (max-width: 768px) {
-        .navmobile {
-          display: none;
-        }
-        .hideme {
-          /* hides the logo after certain scroll*/
-          display: none;
-        }
+  /******************************** TABLETS *******************************/
 
-        .page2content,
-        .page3content {
-          margin-top: 60px; /* set margin top equal to header ka height*/
-        }
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .navmobile {
+      display: none;
+    }
+    .hideme {
+      /* hides the logo after certain scroll*/
+      display: none;
+    }
 
-        .navlist li {
-          font-size: 1.13rem;
-        }
-        .iamselected {
-          /* add this class to whichever li to focus*/
-          border-bottom: 1.5px solid #4c2a02; /* adds underline to li*/
-          margin-bottom: -12px;
-          padding-bottom: 10.5px;
-        }
-        .logo {
-          transition: all 0.3s ease-in-out;
-          padding-bottom: 4%;
-        }
-        .navwrapper {
-          transition: all 0.3s ease-in-out;
-          padding-top: 3rem;
-          padding-right: 1rem;
-          padding-bottom: 3rem;
-          padding-left: 1rem;
-        }
-        /******** for trans to black scrolling of nav ******/
-        .navwrapper {
-          background: transparent;
-          padding-top: 1rem;
-          transition: all 0.3s ease-in-out;
-        }
+    .page2content,
+    .page3content {
+      margin-top: 60px; /* set margin top equal to header ka height*/
+    }
 
-        .notonhomepage {
-          /* add this class when you want to shift to black nav*/
-          background: #bf9b30;
-    border-bottom: 0.1px solid rgb(255 255 255 / 0%);
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
-        }
+    .navlist li {
+      font-size: 1.13rem;
+    }
+    .iamselected {
+      /* add this class to whichever li to focus*/
+      border-bottom: 1.5px solid #4c2a02; /* adds underline to li*/
+      margin-bottom: -12px;
+      padding-bottom: 10.5px;
+    }
+    .notonhomepage li.iamselected{
+      display: none;
+    }
+    .logo {
+      transition: all 0.3s ease-in-out;
+      padding-bottom: 4%;
+      display: none;
+    }
+    .navwrapper {
+      transition: all 0.3s ease-in-out;
+      padding-top: 3rem;
+      padding-right: 1rem;
+      padding-bottom: 3rem;
+      padding-left: 1rem;
+    }
+    /******** for trans to black scrolling of nav ******/
+    .navwrapper {
+      background: transparent;
+      padding-top: 1rem;
+      transition: all 0.3s ease-in-out;
+    }
 
-        .navlist li a {
-          padding: 20%;
-        }
-        .navlist {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          justify-content: space-between;
-        }
+    .notonhomepage {
+      border: 1px solid #bf9b30;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px #bf9b30;
+      background: rgb(255 255 255 / 95%) !important;
+      margin: 5px;
+    }
 
-        .navlist li {
-          flex-grow: 1;
-        }
-      }
+    .navlist li a {
+      padding: 20%;
+    }
+    .navlist {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
 
-      /******************************** DESKTOPS ******************************/
-      @media screen and (min-width: 769px) {
-        .navmobile {
-          display: none;
-        }
+    .navlist li {
+      flex-grow: 1;
+    }
+  }
 
-        .page2content,
-        .page3content {
-          margin-top: 62px; /* set margin top equal to header ka height*/
-        }
+  /******************************** DESKTOPS ******************************/
+  @media screen and (min-width: 769px) {
+    .navmobile {
+      display: none;
+    }
 
-        .navwrapper {
-          transition: all 0.3s ease-in-out;
-          padding-right: 1rem;
-          padding-left: 1rem;
-        } /***** scrolling trans to black***********/
-        .navwrapper {
-          background: transparent;
-          transition: all 0.3s ease-in-out;
-        }
+    .page2content,
+    .page3content {
+      margin-top: 62px; /* set margin top equal to header ka height*/
+    }
 
-        .notonhomepage {
-          /* add this class when you want to shift to black nav*/
-          background: #bf9b30;
-    border-bottom: 0.1px solid rgb(255 255 255 / 0%);
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
-        }
-        .notonhomepage li.iamselected {
-    display: none;
-}
+    .navwrapper {
+      transition: all 0.3s ease-in-out;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    } /***** scrolling trans to black***********/
+    .navwrapper {
+      background: transparent;
+      transition: all 0.3s ease-in-out;
+    }
 
-        .nav {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          justify-content: space-between;
-        }
-        .logo {
-          transition: all 0.3s ease-in-out;
-          flex-basis: 20%;
-        }
-        .navlist {
-          flex-basis: 55%;
-        }
-        .navlist li {
-          font-size: 1.3rem;
-        }
-        .navlist li a {
-          padding: 20%;
-        }
-        .navlist {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          justify-content: flex-end;
-          align-items: flex-end;
-        }
-        .navlist li {
-          flex-grow: 1;
-        }
-        .navlist li:hover {
-          border-bottom: 3px solid #4c2a02;
-          margin-bottom: -12px;
-          padding-bottom: 9px;
-        }
-        .iamselected {
-          /* add this class to whichever li to focus*/
-          /* adds underline to li*/
-          border-bottom: 3px solid #4c2a02;
-          margin-bottom: -12px;
-          padding-bottom: 9px;
-        }
-      }
+    .notonhomepage {
+      border: 1px solid #bf9b30;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px #bf9b30;
+      background: rgb(255 255 255 / 95%) !important;
+      margin: 5px;
+    }
+    .notonhomepage li.iamselected {
+      display: none;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+    .logo {
+      transition: all 0.3s ease-in-out;
+      flex-basis: 20%;
+    }
+    .navlist {
+      flex-basis: 55%;
+    }
+    .navlist li {
+      font-size: 1.3rem;
+    }
+    .navlist li a {
+      padding: 20%;
+    }
+    .navlist {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+    .navlist li {
+      flex-grow: 1;
+    }
+    .navlist li:hover {
+      border-bottom: 3px solid #4c2a02;
+      margin-bottom: -12px;
+      padding-bottom: 9px;
+    }
+    .iamselected {
+      /* add this class to whichever li to focus*/
+      /* adds underline to li*/
+      border-bottom: 3px solid #4c2a02;
+      margin-bottom: -12px;
+      padding-bottom: 9px;
+    }
+  }
 
 .burger {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
 }
 
 .burger svg {
-  width: 50px;
-  height: 50px;
-  stroke: #000;
-  fill: none;
-  transition: all 0.5s ease;
+width: 50px;
+height: 50px;
+stroke: #000;
+fill: none;
+transition: all 0.5s ease;
 }
 
 .burger .line1 {
-  transform-origin: 50% 50%;
-  transition: transform 0.5s ease;
-  border-radius: 50%;
+transform-origin: 50% 50%;
+transition: transform 0.5s ease;
+border-radius: 50%;
 }
 
 .burger .line2 {
-  opacity: 1;
-  transition: opacity 0.25s ease;
+opacity: 1;
+transition: opacity 0.25s ease;
 }
 
 .burger .line3 {
-  transform-origin: 50% 50%;
-  transition: transform 0.5s ease;
+transform-origin: 50% 50%;
+transition: transform 0.5s ease;
 }
 
 .burger .circle1 {
-  opacity: 1;
-  transition: opacity 0.25s ease;
+opacity: 1;
+transition: opacity 0.25s ease;
 }
 
 .burger.active .line1 {
-  transform: rotate(45deg);
-  transform-origin: 37% 45%;
+transform: rotate(45deg);
+transform-origin: 37% 45%;
 }
 
 .burger.active .line2 {
-  opacity: 0;
+opacity: 0;
 }
 
 .burger.active .line3 {
-  transform: rotate(-45deg);
-  transform-origin: 35% 55%
+transform: rotate(-45deg);
+transform-origin: 35% 55%
 }
 
 .burger.active .circle1 {
-  opacity: 0;
+opacity: 0;
 }
 
 
-      legend {
-        float: none !important;
-        padding: initial !important;
-        width: initial !important;
-      }
+  legend {
+    float: none !important;
+    padding: initial !important;
+    width: initial !important;
+  }
 
-      .inline-vocabulary,
-      .inline-input {
-        display: block;
-        text-align: right;
-        margin: 10px 5px 15px 5px;
-      }
+  .inline-vocabulary,
+  .inline-input {
+    display: block;
+    text-align: right;
+    margin: 10px 5px 15px 5px;
+  }
 
-      .exercice {
-        font-size: 1em;
-        font-weight: bold;
-      }
+  .exercice {
+    font-size: 1em;
+    font-weight: bold;
+  }
 
-      /* Style oriental */
-      .exercice fieldset {
-        padding: 10px 20px;
-        border: 1px solid #bf9b30;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px #bf9b30;
-        background: rgb(255 255 255 / 95%) !important;
-      }
+  /* Style oriental */
+  .exercice fieldset {
+    padding: 10px 20px;
+    border: 1px solid #bf9b30;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #bf9b30;
+    background: rgb(255 255 255 / 95%) !important;
+  }
 
-      #popup-f1e084dd {
-        border: 1px solid #bf9b30;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px #bf9b30;
-        background: #4c2a02;
-      }
+  #popup-f1e084dd {
+    border: 1px solid #bf9b30;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #bf9b30;
+    background: #4c2a02;
+  }
 
-      .exercice legend {
-        color: #4c2a02;
-        font-size: 24px;
-        font-weight: bold;
-        text-shadow: 1px 1px 1px #bf9b30;
-        text-align: left;
-      }
+  .exercice legend {
+    color: #4c2a02;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #bf9b30;
+    text-align: left;
+  }
 
-      .vocabulaire {
-        white-space: nowrap;
-      }
+  .vocabulaire {
+    white-space: nowrap;
+  }
 
-      .vocabulary {
-        color: #755503;
-        font-weight: bold;
-        font-size: 1.2em;
-        margin: 5px 10px;
-        text-align: left !important;
-      }
+  .vocabulary {
+    color: #755503;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 5px 10px;
+    text-align: left !important;
+  }
 
-      .vocabAR {
-        font-size: 1em;
-        font-weight: bold;
-        display: inline-block;
-        font-family: "Amiri Quran", serif;
-        font-size: 1.3em;
-      }
+  .vocabAR {
+    font-size: 1em;
+    font-weight: bold;
+    display: inline-block;
+    font-family: "Amiri Quran", serif;
+    font-size: 1.3em;
+  }
 
-      .vocabFR {
-        font-family: "Cairo", sans-serif;
-      }
+  .vocabFR {
+    font-family: "Cairo", sans-serif;
+  }
 
-      span.vocabAR.or {
-        width: 0px;
-        margin: 0 15px 0 10px;
-      }
+  span.vocabAR.or {
+    width: 0px;
+    margin: 0 15px 0 10px;
+  }
 
-      span.vocabAR.and {
-        width: 0px;
-        margin: 0 35px 0 10px;
-      }
+  span.vocabAR.and {
+    width: 0px;
+    margin: 0 35px 0 10px;
+  }
 
-      .InputFill {
-        font-family: "Amiri Quran", serif;
-        text-align: right !important;
-        font-size: 1.1em;
-        font-weight: bold;
-        border: 1px solid #bf9b30;
-        border-radius: 5px;
-        font-weight: bold;
-        width: 25%;
-        padding: 2px 5px;
-      }
+  .InputFill {
+    font-family: "Amiri Quran", serif;
+    text-align: right !important;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: 1px solid #bf9b30;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 25%;
+    padding: 2px 5px;
+  }
 
-      @media screen and (min-width: 1100px) {
-        .vocabulary label {
-          display: inline-block;
-          width: 325px;
-          vertical-align: top;
-          white-space: nowrap;
-        }
-        .vocabAR {
-          font-family: "Amiri Quran", serif;
-        }
-      }
-      @media screen and (max-width: 768px) {
-        .inline-vocabulary {
-          width: 100%;
-          display: inline-table;
-        }
-        .inline-input {
-          width: 100%;
-          display: flex;
-          flex-wrap: nowrap;
-          justify-content: flex-end;
-        }
-        .correction,
-        #button-d2607e45,
-        #button-d2607e45,
-        .btnExo {
-          width: 100%;
-          display: flex;
-          justify-content: center;
-        }
-        .inline-input > div:nth-child(3) {
-          order: 3;
-        }
+  @media screen and (min-width: 1100px) {
+    .vocabulary label {
+      display: inline-block;
+      width: 325px;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+    .vocabAR {
+      font-family: "Amiri Quran", serif;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .inline-vocabulary {
+      width: 100%;
+      display: inline-table;
+    }
+    .inline-input {
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+    }
+    .correction,
+    #button-d2607e45,
+    #button-d2607e45,
+    .btnExo {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .inline-input > div:nth-child(3) {
+      order: 3;
+    }
 
-        input.InputFill {
-          width: 50%;
-          margin: 2px 3px 5px 0;
-          height: 50px;
-        }
-        .vocabulary {
-          margin: 0 auto;
-        }
-      }
+    input.InputFill {
+      width: 50%;
+      margin: 2px 3px 5px 0;
+      height: 50px;
+    }
+    .vocabulary {
+      margin: 0 auto;
+    }
+  }
 
-      .Vocab-hidden {
-        display: none;
-      }
+  .Vocab-hidden {
+    display: none;
+  }
 
-      .reset {
-        display: none;
-      }
+  .reset {
+    display: none;
+  }
 
-      .correction {
-        text-align: center;
-        margin: 0 auto;
-      }
+  .correction {
+    text-align: center;
+    margin: 0 auto;
+  }
 
-      .correct {
-        display: none;
-      }
+  .correct {
+    display: none;
+  }
 
-      .btnExo {
-        margin: 5px 5px;
-        border: 1px solid #bf9b30;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px #bf9b30;
-        padding: 10px;
-        background-image: linear-gradient(
-          to right,
-          #bf9b30 0%,
-          #dccb96 51%,
-          #bf9b30 100%
-        );
-        transition: 0.5s;
-        background-size: 270% auto;
-        color: #4c2a02;
-        transition-duration: 400ms;
-        transform: scale(1);
-      }
-      .btnVocab,
-      #button-d2607e45 {
-        display: block;
-        margin: 5px auto;
-        border: 1px solid #bf9b30;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px #bf9b30;
-        padding: 10px;
-        background-image: linear-gradient(
-          to right,
-          #bf9b30 0%,
-          #dccb96 51%,
-          #bf9b30 100%
-        );
-        transition: 0.5s;
-        background-size: 270% auto;
-        color: #4c2a02;
-        transition-duration: 400ms;
-        transform: scale(1);
-      }
+  .btnExo {
+    margin: 5px 5px;
+    border: 1px solid #bf9b30;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #bf9b30;
+    padding: 10px;
+    background-image: linear-gradient(
+      to right,
+      #bf9b30 0%,
+      #dccb96 51%,
+      #bf9b30 100%
+    );
+    transition: 0.5s;
+    background-size: 270% auto;
+    color: #4c2a02;
+    transition-duration: 400ms;
+    transform: scale(1);
+  }
+  .btnVocab,
+  #button-d2607e45 {
+    display: block;
+    margin: 5px auto;
+    border: 1px solid #bf9b30;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #bf9b30;
+    padding: 10px;
+    background-image: linear-gradient(
+      to right,
+      #bf9b30 0%,
+      #dccb96 51%,
+      #bf9b30 100%
+    );
+    transition: 0.5s;
+    background-size: 270% auto;
+    color: #4c2a02;
+    transition-duration: 400ms;
+    transform: scale(1);
+  }
 
-      .btnExo:hover,
-      .btnVocab:hover,
-      #button-d2607e45:hover {
-        background-position: right center;
-        color: #4c2a02;
-        text-decoration: #683f19;
-        transform: scale(0.98);
-        background-color: #683f19;
-        border-color: #ae6e32;
-        box-shadow: 0px 0px 5px #83691e;
-      }
+  .btnExo:hover,
+  .btnVocab:hover,
+  #button-d2607e45:hover {
+    background-position: right center;
+    color: #4c2a02;
+    text-decoration: #683f19;
+    transform: scale(0.98);
+    background-color: #683f19;
+    border-color: #ae6e32;
+    box-shadow: 0px 0px 5px #83691e;
+  }
 
-      #Aff {
-        color: #bf9b30;
-        font-weight: bold;
-        margin-top: 10px;
-      }
-      .oVYRo::before,
-      .oVYRo::after {
-        background-color: #d1b971;
-      }
-      /*Loader*/
-      .loader-wrapper {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #f1efe4;
-        z-index: 9999;
-      }
-      .loader-wrapper.hide {
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-      }
-      #logo {
-        top: 0%;
-        left: 3%;
-        width: 95%;
-        height: 100vh;
-        position: fixed;
-        z-index: 99999;
-        animation: fill 2s ease forwards 2.2s;
-      }
-      #logo-a {
-        stroke-dasharray: 6000;
-        stroke-dashoffset: 6000;
-        animation: anime 4s ease forwards;
-      }
-      #logo path:nth-child(2) {
-        stroke-dasharray: (3 1);
-        stroke-dashoffset: (1);
-        animation: anime 4s ease forwards 0.5s;
-      }
-      #logo path:nth-child(3) {
-        stroke-dasharray: (3 1);
-        stroke-dashoffset: (1);
-        animation: anime 4s ease forwards 1s;
-      }
-      #logo path:nth-child(4) {
-        stroke-dasharray: (3 1);
-        stroke-dashoffset: (1);
-        animation: anime 4s ease forwards 1.5s;
-      }
+  #Aff {
+    color: #bf9b30;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .oVYRo::before,
+  .oVYRo::after {
+    background-color: #d1b971;
+  }
 
-      @keyframes anime {
-        100% {
-          stroke-dashoffset: 1000;
-        }
-      }
+  .imgBG {
+    width: 100%;
+    height: 80vh;
+    z-index: 99998;
+  }
+  /*Loader*/
+  .loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f1efe4;
+    z-index: 99999;
+  }
+  .loader-wrapper.hide {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  #logo {
+    top: 0%;
+    left: 3%;
+    width: 95%;
+    height: 100vh;
+    position: fixed;
+    z-index: 99999;
+    animation: fill 2s ease forwards 2.2s;
+  }
+  #logo-a {
+    stroke-dasharray: 6000;
+    stroke-dashoffset: 6000;
+    animation: anime 4s ease forwards;
+  }
+  #logo path:nth-child(2) {
+    stroke-dasharray: (3 1);
+    stroke-dashoffset: (1);
+    animation: anime 4s ease forwards 0.5s;
+  }
+  #logo path:nth-child(3) {
+    stroke-dasharray: (3 1);
+    stroke-dashoffset: (1);
+    animation: anime 4s ease forwards 1s;
+  }
+  #logo path:nth-child(4) {
+    stroke-dasharray: (3 1);
+    stroke-dashoffset: (1);
+    animation: anime 4s ease forwards 1.5s;
+  }
 
-      @keyframes fill {
-        from {
-          fill: transparent;
-        }
-        to {
-          fill: #83691e;
-          stroke: #4c2a02;
-        }
-      }
+  @keyframes anime {
+    100% {
+      stroke-dashoffset: 1000;
+    }
+  }
+
+  @keyframes fill {
+    from {
+      fill: transparent;
+    }
+    to {
+      fill: #83691e;
+      stroke: #4c2a02;
+    }
+  }
 </style>
 <div class="loader-wrapper">
   <svg
@@ -662,7 +671,7 @@
     </g>
   </svg>
 </div>
-<div class="page1 page">
+<header class="page1 page">
   <!----------------------------- NAV BEGINS ------------------>
   <div class="header">
     <div class="navwrapper">
@@ -716,7 +725,10 @@
   </div>
   <!------------------------------- NAV ENDS ---------------------->
   <div class="page1content"></div>
-</div>
+  <div class="imgBG">
+  <img class="imgBG" src="https://d1yei2z3i6k35z.cloudfront.net/3164252/644c1ab14d6f1_salamuAlykum.png" alt="Salamu Alykum Wa Rahmatullahi Wa Barakatuh"/>
+  </div>
+</header>
 <section id="exercice-1">
   <div id="vocabLI" class="exercice">
     <fieldset style="background: rgba(255, 255, 255, 0.7)">
