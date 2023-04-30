@@ -1,3 +1,25 @@
+function initLoader() {
+  const loader = document.querySelector(".loader-wrapper");
+  if (loader) {
+    setTimeout(function () {
+      loader.classList.add("hide");
+      setTimeout(function () {
+        const imgBG = document.querySelector(".loader-wrapper");
+        if (imgBG) {
+          imgBG.remove();
+          setTimeout(function () {
+            redirectToSection();
+          }, 1000);
+        }
+      }, 1000);
+    }, 5000);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  initLoader();
+});
+
 function initArabVocab() {
   // Définir les IDs des exercices dans un tableau
   const exerciceIds = [
