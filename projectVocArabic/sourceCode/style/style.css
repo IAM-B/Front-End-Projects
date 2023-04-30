@@ -153,6 +153,7 @@ span.vocabAR.and {
   margin: 0 35px 0 10px;
 }
 .InputFill {
+  margin-right: 5px;
   font-family: "Amiri Quran", serif;
   text-align: right !important;
   font-size: 1.1em;
