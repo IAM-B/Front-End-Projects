@@ -1,3 +1,9 @@
+function redirectToSection() {
+  const section = document.getElementById("vocabLI");
+  const offset = section.offsetTop - 70;
+  window.scrollTo({ top: offset, behavior: "smooth" });
+}
+
 window.addEventListener("load", function () {
   const loader = document.querySelector(".loader-wrapper");
   if (loader) {
@@ -16,18 +22,8 @@ window.addEventListener("load", function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  initLoader();
-});
-
-function redirectToSection() {
-  const section = document.querySelector(".vocabFR");
-  const offset = section.offsetTop + 0;
-  window.scrollTo({ top: offset, behavior: "smooth" });
-}
-
 window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
+  window.scrollTo(0, 0, {behavior: "smooth"});
 };
 
 const burger = document.querySelector(".burger");
