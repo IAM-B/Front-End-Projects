@@ -211,6 +211,8 @@ const vocab = () => {
     ChampTxt.innerHTML =
       '<p style="color:#ff0000;text-align: center;font-size: 20px;font-weight: bolder;margin: 50px auto;">بارك الله فيك<br/>Rempli tous les champs</p>';
   }
+  const section = document.querySelector(".btnExo");
+  window.scrollTo({ top: section.offsetTop, behavior: "smooth" });  
 };
 
 // Fonction qui montre les corrections
