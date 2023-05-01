@@ -178,6 +178,7 @@ span.vocabAR.and {
   display: none;
 }
 .btnExo {
+  width: 15%;
   margin: 5px 5px;
   border: 1px solid #bf9b30;
   border-radius: 5px;
@@ -198,6 +199,7 @@ span.vocabAR.and {
 .btnVocab,
 #button-d2607e45 {
   display: block;
+  width: 15%;
   margin: 5px auto;
   border: 1px solid #bf9b30;
   border-radius: 5px;
@@ -378,6 +380,9 @@ span.vocabAR.and {
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+  .btnVocab {
+    width: auto;
   }
   .inline-input > div:nth-child(3) {
     order: 3;

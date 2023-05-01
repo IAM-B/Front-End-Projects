@@ -4,13 +4,44 @@ const vocabularies = [
     ar: ["أَقْوَال", "/", "قَوْل", "ou", "كَلَام"],
   },
   {
-    fr: "Chameau(x) :",
-    ar: ["جَمَل", "/", "جِمَال"],
+    fr: "Lettre(s) de l’alphabet, particule(s) :",
+    ar: ["حُرُوف", "/", "حَرْف"],
   },
-  // Ajouter d'autres objets pour chaque section de vocabulaire
+  {
+    fr: "Verbe(s) :",
+    ar: ["أفْعَال", "/", "فِعْل"],
+  },
+  {
+    fr: "Langue(s) vivante(s) :",
+    ar: ["لُغَات", "/", "لُغَة"],
+  },
+  {
+    fr: "Mot(s) :",
+    ar: ["كَلِمَات", "/", "كَلِمَة"],
+  },
+  {
+    fr: "Nom(s) :",
+    ar: ["أَسْمَاء", "/", "اِسْم"],
+  },
+  {
+    fr: "Phrase(s) :",
+    ar: ["جُمَل", "/", "جُمْلَة"],
+  },
+  {
+    fr: "L’arabe (langue) :",
+    ar: ["الْعَرَبِيَّة"],
+  },
+  {
+    fr: "Masculin :",
+    ar: ["مُذَكَّر"],
+  },
+  {
+    fr: "Féminin :",
+    ar: ["مُؤَنَّث"],
+  },
 ];
 
-// Fonction pour créer les éléments HTML pour une section de vocabulaire
+// Fonction pour créer les éléments span HTML pour la section vocabulaire
 function createVocabularySection(vocabulary) {
   const vocabDiv = document.createElement("div");
   vocabDiv.classList.add("vocabulary");
@@ -55,6 +86,10 @@ function generateVocabularies() {
 // Appel de la fonction pour générer les éléments HTML
 generateVocabularies();
 
+
+// Fonction pour créer les éléments input HTML pour la section exercice
+let counter = -1;
+
 vocabularies.forEach((vocab, index) => {
   const vocabularyDiv = document.createElement("div");
   vocabularyDiv.classList.add("vocabulary");
@@ -65,36 +100,48 @@ vocabularies.forEach((vocab, index) => {
 
   const inputDiv = document.createElement("div");
   inputDiv.classList.add("inline-input");
-
+  
   vocab.ar.reverse().forEach((word, i) => {
-    if (word !== '/' && word !== 'ou') {
+    if (word !== "/" && word !== "ou") {
       const vocabInput = document.createElement("input");
       vocabInput.setAttribute("type", "text");
       vocabInput.setAttribute("required", "");
       vocabInput.classList.add("InputFill");
       vocabInput.setAttribute("autocomplete", "off");
   
-      if (i > 0 && (vocab.ar[i-1] === '/' || vocab.ar[i-1] === 'ou')) {
-        if (vocab.ar[i-1] === '/') {
-          vocabInput.setAttribute("placeholder", `...${vocab.ar[i-1]} اَلْجَمْعُ`);
-          console.log(`Input ${i}-${index} correspond à : ...${vocab.ar[i-1]} اَلْجَمْعُ ${word}`);
+      vocabInput.setAttribute("id", `input-${counter}`);
+      counter++;
+
+      if (i > 0 && (vocab.ar[i - 1] === "/" || vocab.ar[i - 1] === "ou")) {
+        if (vocab.ar[i - 1] === "/") {
+          vocabInput.setAttribute(
+            "placeholder",
+            `...${vocab.ar[i - 1]} اَلْجَمْعُ`
+          );
+          console.log(
+            `input-${counter}correspond à : ...${
+              vocab.ar[i - 1]
+            } اَلْجَمْعُ ${word}`
+          );
         } else {
-          vocabInput.setAttribute("placeholder", `...${vocab.ar[i-1]}`);
-          console.log(`Input ${i}-${index} correspond à : ...${vocab.ar[i-1]} ${word}`);
+          vocabInput.setAttribute("placeholder", `...${vocab.ar[i - 1]}`);
+          console.log(
+            `input-${counter}correspond à : ...${vocab.ar[i - 1]} ${word}`
+          );
         }
       } else {
-        vocabInput.setAttribute("placeholder", '...');
-        console.log(`Input ${i}-${index} correspond à : ${word}`);
+        vocabInput.setAttribute("placeholder", "...");
+        console.log(`input-${counter}correspond à : ${word}`);
       }
-  
-      vocabInput.setAttribute("id", `${i}-${index}`);
+
+      vocabInput.setAttribute("id", `${counter}`);
       inputDiv.insertBefore(vocabInput, inputDiv.firstChild);
     }
-  });  
-  
+  });
 
   vocabularyDiv.appendChild(vocabLabel);
   vocabularyDiv.appendChild(inputDiv);
   document.querySelector("#exo").appendChild(vocabularyDiv);
 });
+
 
