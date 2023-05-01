@@ -130,27 +130,29 @@
           <button class="btnVocab" type="button">Cacher le vocabulaire</button>
         </fieldset>
       </div>
-      <div class="exercice">
-        <fieldset style="background: rgba(255, 255, 255, 0.7)">
-          <legend class="vocabFR">EXERCICES</legend>
-          <form id="exo" name="exo"></form>
-          <div id="Aff"></div>
-          <div class="correction">
-            <button class="btnExo submit" type="button" onclick="vocab();">
-              Valider
-            </button>
-            <button
-              class="btnExo correct"
-              type="button"
-              onclick="showCorrections()"
-            >
-              Corriger
-            </button>
-            <button class="btnExo reset" onclick="resetForm()">
-              Réessayer
-            </button>
-          </div>
-        </fieldset>
+      <div id="exerciceSection">
+        <div class="exercice">
+          <fieldset style="background: rgba(255, 255, 255, 0.7)">
+            <legend class="vocabFR">EXERCICES</legend>
+            <form id="exo" name="exo"></form>
+            <div id="Aff"></div>
+            <div class="correction">
+              <button class="btnExo submit" type="button" onclick="vocab();">
+                Valider
+              </button>
+              <button
+                class="btnExo correct"
+                type="button"
+                onclick="showCorrections()"
+              >
+                Corriger
+              </button>
+              <button class="btnExo reset" onclick="resetForm()">
+                Réessayer
+              </button>
+            </div>
+          </fieldset>
+        </div>
       </div>
     </section>
     <script src="../script/template.js"></script>
