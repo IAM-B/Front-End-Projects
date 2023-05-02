@@ -1,3 +1,4 @@
+// Tableau des vocabulaires
 const vocabularies = [
   {
     fr: "Parole(s), propos :",
@@ -114,20 +115,16 @@ vocabularies.forEach((vocab) => {
             "placeholder",
             `...${vocab.ar[i - 1]} اَلْجَمْعُ`
           );
-          console.log(
-            `input-${counter}correspond à : ...${
-              vocab.ar[i - 1]
-            } اَلْجَمْعُ ${word}`
-          );
+          console.log(`input-${counter} correspond à : اَلْجَمْعُ/... ${word}`);
         } else {
           vocabInput.setAttribute("placeholder", `...${vocab.ar[i - 1]}`);
           console.log(
-            `input-${counter}correspond à : ...${vocab.ar[i - 1]} ${word}`
+            `input-${counter} correspond à : ${word} ...${vocab.ar[i - 1]}`
           );
         }
       } else {
         vocabInput.setAttribute("placeholder", "...");
-        console.log(`input-${counter}correspond à : ${word}`);
+        console.log(`input-${counter} correspond à : ${word} ...`);
       }
 
       vocabInput.setAttribute("id", `${counter}`);
@@ -161,7 +158,6 @@ const vocab = () => {
   let score = 0;
   let goodRep = [];
   let goodRep2 = [];
-
   for (let i = 0; i < vocabularies.length; i++) {
     const arVocabulary = vocabularies[i].ar;
     const filteredArVocabulary = arVocabulary
@@ -175,8 +171,6 @@ const vocab = () => {
   }
 
   const n = goodRep.length;
-
-  // Vérifier si tous les champs sont remplis
   let allAnswersProvided = true;
   for (let i = 0; i < results.length; i++) {
     if (!results[i]) {
@@ -198,21 +192,19 @@ const vocab = () => {
         document.getElementById(i).classList.add("correct-answer");
       }
     }
-
-    // Vérifier le score
     if (score == n) {
       ChampTxt.innerHTML =
-        '<p style="color:#00ff00;text-align: center;font-size: 20px;font-weight: bolder;margin: 50px auto;">الله بارك<br/>Toutes les r&eacute;ponses sont correctes</p>';
+        '<p style="color:#00ff00;text-align: center;font-size: 20px;font-weight: bolder;margin: 50px auto;">اللهم بارك<br/>Toutes les r&eacute;ponses sont correctes</p>';
     } else {
       ChampTxt.innerHTML =
-        '<p style="color:#683f19;text-align: center;font-size: 20px;font-weight: bolder;margin: 50px 0 10px;">الله يسهل عليك<br/>Corrigez les r&eacute;ponses fausses en rouge et r&eacute;essayez</p><br><p style="color:#ff0000;text-align: center;font-size: 20px;font-weight: bolder;margin: 10px auto;">ATTENTION<br>L\'auto-complétion compte pour une erreur</p>';
+        '<p style="color:#683f19;text-align: center;font-size: 20px;font-weight: bolder;margin: 50px 0 10px;">اللهم يسهل عليك<br/>Corrigez les r&eacute;ponses fausses en rouge et r&eacute;essayez</p><br><p style="color:#ff0000;text-align: center;font-size: 20px;font-weight: bolder;margin: 10px auto;">ATTENTION<br>L\'auto-complétion compte pour une erreur</p>';
     }
   } else {
     ChampTxt.innerHTML =
       '<p style="color:#ff0000;text-align: center;font-size: 20px;font-weight: bolder;margin: 50px auto;">بارك الله فيك<br/>Rempli tous les champs</p>';
   }
   const section = document.querySelector(".btnExo");
-  window.scrollTo({ top: section.offsetTop, behavior: "smooth" });  
+  window.scrollTo({ top: section.offsetTop, behavior: "smooth" });
 };
 
 // Fonction qui montre les corrections
@@ -274,25 +266,20 @@ const submitButton = document.querySelector(".submit");
 const correctionButton = document.querySelector(".correct");
 const resetButton = document.querySelector(".reset");
 const resetForm = () => {
-  // Effacer les valeurs des champs de saisie
   for (let i = 0; i <= counter; i++) {
     document.getElementById(i).value = "";
   }
-
-  // Réinitialiser la couleur des textes en noir
   const allInputs = document.querySelectorAll("input[type='text']");
   allInputs.forEach((input) => {
     input.style.color = "black";
     input.classList.add("correct-answer");
   });
-
-  // Fais defiler la page vers le haut de la section exercice
   const section = document.getElementById("exerciceSection");
   const offset = section.offsetTop - 70;
   window.scrollTo({ top: offset, behavior: "smooth" });
 };
 
-// Fonction qui affiche la section exercice
+// Fonction qui cache le vocabulaires et affiche la section exercice
 const showExerciseSection = () => {
   const vocabSection = document.querySelector("#vocabLI");
   const exerciseSection = document.querySelector("#exerciceSection");
