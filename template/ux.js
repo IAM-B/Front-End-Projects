@@ -29,12 +29,6 @@ window.addEventListener("load", function () {
   }
 });
 
-// Ecoute evenement click menu burger
-const burger = document.querySelector(".burger");
-burger.addEventListener("click", () => {
-  burger.classList.toggle("active");
-});
-
 // Ecoute evenement click nav bar
 const navListItems = document.querySelectorAll(".navlist li");
 navListItems.forEach((navListItem) => {
@@ -52,32 +46,26 @@ navListItems.forEach((navListItem) => {
 window.addEventListener("scroll", () => {
   if (window.pageYOffset > 95) {
     document.querySelector(".navwrapper").classList.add("notonhomepage");
-    document.querySelector(".nav a").style.color = "white";
-    document.querySelector(".logo").classList.add("hideme");
+    document.querySelector(".nav a").style.color = "black";
+    document.querySelector(".logo").classList.add("hidLogo");
   } else {
     document.querySelector(".navwrapper").classList.remove("notonhomepage");
     document.querySelector(".nav a").style.color = "black";
-    document.querySelector(".logo").classList.remove("hideme");
+    document.querySelector(".logo").classList.remove("hidLogo");
   }
 });
 
 // Ecoute evenement click toggle menu burger
-document.querySelector(".toggleMenu").addEventListener("click", () => {
-  document.querySelector(".sidemenu").classList.add("showmenu");
-  document.querySelector(".toggleMenu").classList.add("changeopacity");
-});
+const toggleMenu = document.querySelector(".toggleMenu");
+const sidemenu = document.querySelector(".sidemenu");
 
-// Ecoute evenement click croix menu burger
-document.querySelector(".cross").addEventListener("click", () => {
-  document.querySelector(".sidemenu").classList.remove("showmenu");
-  document.querySelector(".toggleMenu").classList.remove("changeopacity");
-});
-
-// Ecoute evenement scroll toggle menu burger
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 250) {
-    document.querySelector(".toggleMenu").style.padding = "9px 12px 9px 9px";
+toggleMenu.addEventListener("click", () => {
+  if (!toggleMenu.classList.contains("active")) {
+    sidemenu.classList.add("showmenu");
+    toggleMenu.classList.add("active");
   } else {
-    document.querySelector(".toggleMenu").style.padding = "15px 20px 15px 15px";
+    sidemenu.classList.remove("showmenu");
+    toggleMenu.classList.remove("active");
   }
 });
+

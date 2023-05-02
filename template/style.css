@@ -4,32 +4,30 @@ body {
   background-color: #f1efe4;
   margin-top: 100px;
 }
-.nav {
-  font-family: "Dancing Script", cursive;
-}
 a {
   text-decoration: none;
 }
+.nav {
+  font-family: "Cairo", sans-serif;
+}
 .nav ul,
-.navmobile ul {
+.showPubul {
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
-.nav li.navmobile li {
+.nav li.showPubli {
   display: inline-block;
 }
 .nav a,
-.navmobile a {
+.showPuba {
   color: black;
   font-family: "Cairo", sans-serif;
 }
 .notonhomepage .nav a {
   color: black;
   font-family: "Cairo", sans-serif;
-}
-.logo h1 {
-  font-weight: 700;
 }
 .header {
   position: fixed;
@@ -41,15 +39,15 @@ a {
 header.page1.page {
   height: 100vh;
 }
-.page2content,
-.page3content {
-  margin-top: 0px;
-}
-.burger {
+.toggleMenu {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  flex-direction: row-reverse;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+.burger .toggleMenu {
+  display: flex;
+  flex-direction: row-reverse;
 }
 .burger svg {
   width: 50px;
@@ -87,6 +85,61 @@ header.page1.page {
   transform-origin: 35% 55%;
 }
 .burger.active .circle1 {
+  opacity: 0;
+}
+.sidemenu {
+  position: fixed;
+  top: 0px;
+  width: 240px;
+  margin-left: -250px;
+  overflow: hidden;
+  height: 100vh;
+  background: rgba(17, 17, 17, 0.9);
+  opacity: 0.9;
+  transition: all 0.3s ease-in-out;
+}
+.showPub {
+  width: 100vw;
+}
+.signup {
+  font-size: 1.6rem;
+  width: 200px;
+  padding: 3px 0px;
+  border: solid 1px white;
+  color: white;
+  text-align: center;
+  margin: 30px auto 20px auto;
+  transition: all 0.3s ease-in-out;
+}
+.signup:hover {
+  background-color: white;
+  color: #111;
+  transition: all 0.3s ease-in-out;
+}
+.signup a:hover {
+  color: black;
+}
+.showPub.navlistPub {
+  font-size: 1.4rem;
+  margin: 20px;
+  display: block;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.navlistPub li {
+  padding: 12px 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #d8d8d8;
+  border-bottom: solid 1px #d8d8d8;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.showmenu {
+  margin-left: 0px;
+}
+.changeopacity {
   opacity: 0;
 }
 legend {
@@ -305,12 +358,8 @@ span.vocabAR.and {
   }
 }
 @media screen and (min-width: 769px) {
-  .navmobile {
-    display: none;
-  }
-  .page2content,
-  .page3content {
-    margin-top: 62px;
+  .burger.toggleMenu {
+    margin: 3.5%;
   }
   .navwrapper {
     padding-right: 1rem;
@@ -325,9 +374,6 @@ span.vocabAR.and {
     background: rgb(255 255 255 / 95%) !important;
     margin: 10px;
   }
-  .notonhomepage li.iamselected {
-    display: none;
-  }
   .nav {
     display: flex;
     flex-direction: row;
@@ -339,39 +385,26 @@ span.vocabAR.and {
     flex-basis: 20%;
   }
   .navlist {
-    flex-basis: 55%;
-  }
-  .navlist li {
-    font-size: 1.3rem;
-  }
-  .navlist li a {
-    padding: 20%;
-  }
-  .navlist {
     display: flex;
+    flex-basis: 55%;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
     align-items: flex-end;
   }
   .navlist li {
+    font-size: 1.3rem;
     flex-grow: 1;
+    margin: 5%;
   }
-  .navlist li:hover {
-    border-bottom: 3px solid #4c2a02;
-    margin-bottom: -12px;
-    padding-bottom: 9px;
-  }
-  .iamselected {
-    border-bottom: 3px solid #4c2a02;
-    margin-bottom: -12px;
-    padding-bottom: 9px;
+  .navlist li a {
+    padding: 20%;
   }
 }
 @media screen and (max-width: 768px) {
   .imgBG {
     width: 140%;
-  } 
+  }
   .inline-vocabulary {
     width: 100%;
     display: inline-table;
@@ -407,34 +440,16 @@ span.vocabAR.and {
   }
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
-  .navmobile {
-    display: none;
+  .burger.toggleMenu {
+    margin: -1% 0 0 1%;
   }
-  .hideme {
-    display: none;
-  }
-  .page2content,
-  .page3content {
-    margin-top: 60px;
-  }
-  .navlist li {
-    font-size: 1.13rem;
-  }
-  .iamselected {
-    border-bottom: 1.5px solid #4c2a02;
-    margin-bottom: -12px;
-    padding-bottom: 10.5px;
-  }
-  .notonhomepage li.iamselected {
+  .hidLogo {
     display: none;
   }
   .logo {
     transition: all 0.3s ease-in-out;
     padding-bottom: 4%;
     display: none;
-  }
-  .navwrapper .notonhomepage {
-    color: black;
   }
   .navwrapper {
     transition: all 0.3s ease-in-out;
@@ -444,15 +459,15 @@ span.vocabAR.and {
     background: transparent;
     transition: all 0.3s ease-in-out;
   }
+  .navwrapper .notonhomepage {
+    color: black;
+  }
   .notonhomepage {
     border: 1px solid #bf9b30;
     border-radius: 10px;
     box-shadow: 0px 0px 10px #bf9b30;
     background: rgb(255 255 255 / 95%) !important;
     margin: 10px;
-  }
-  .navlist li a {
-    padding: 20%;
   }
   .navlist {
     display: flex;
@@ -462,91 +477,18 @@ span.vocabAR.and {
   }
   .navlist li {
     flex-grow: 1;
+    font-size: 1.13rem;
+  }
+  .navlist li a {
+    padding: 20%;
   }
 }
 @media screen and (max-width: 480px) {
-  .hideme {
+  .hidLogo {
     display: none;
   }
   .nav {
     display: none;
-  }
-  .toggleMenu {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    padding: 15px 20px 15px 15px;
-    cursor: pointer;
-    background: #648b79;
-    opacity: 1;
-    transition: all 0.3s ease-in-out;
-  }
-  .sidemenu {
-    position: fixed;
-    top: 0px;
-    width: 240px;
-    margin-left: -250px;
-    overflow: hidden;
-    height: 100vh;
-    background: rgba(17, 17, 17, 0.9);
-    opacity: 0.9;
-    transition: all 0.3s ease-in-out;
-  }
-  .cross {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: all 0.3s ease-in-out;
-  }
-  .cross:hover {
-    opacity: 1;
-  }
-  .navmobile {
-    width: 100vw;
-  }
-  .signup {
-    font-size: 1.6rem;
-    width: 200px;
-    padding: 3px 0px;
-    border: solid 1px white;
-    color: white;
-    text-align: center;
-    margin: 30px auto 20px auto;
-    transition: all 0.3s ease-in-out;
-  }
-  .signup:hover {
-    background-color: white;
-    color: #111;
-    transition: all 0.3s ease-in-out;
-  }
-  .signup a:hover {
-    color: black;
-  }
-  .navmobile .navlistmobile {
-    font-size: 1.4rem;
-    margin: 20px;
-    display: block;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .navlistmobile li {
-    padding: 12px 0px;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: #d8d8d8;
-    border-bottom: solid 1px #d8d8d8;
-    cursor: pointer;
-
-    transition: all 0.3s ease-in-out;
-  }
-  .showmenu {
-    margin-left: 0px;
-  }
-  .changeopacity {
-    opacity: 0;
   }
 }
 @keyframes anime {
