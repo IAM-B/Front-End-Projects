@@ -1,9 +1,15 @@
-// Fonction qui redirige en haut de page au rechargement
+// Fonction qui redirige a la section vocabulaire apres chargement
 function redirectToSection() {
   const section = document.getElementById("vocabLI");
   const offset = section.offsetTop - 70;
   window.scrollTo({ top: offset, behavior: "smooth" });
 }
+
+// Fonction qui redirige en haut de page au rechargement
+window.onbeforeunload = function() {
+    window.scrollTo( 0, 0);
+};
+
 // Fonction qui fait disparaitre le loader
 window.addEventListener("load", function () {
   const loader = document.querySelector(".loader-wrapper");
