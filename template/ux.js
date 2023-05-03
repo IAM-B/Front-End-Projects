@@ -1,7 +1,7 @@
 // Fonction qui redirige a la section vocabulaire apres chargement
 function redirectToSection() {
   const section = document.getElementById("vocabLI");
-  const offset = section.offsetTop - 70;
+  const offset = section.offsetTop - 120;
   window.scrollTo({ top: offset, behavior: "smooth" });
 }
 
@@ -46,11 +46,9 @@ navListItems.forEach((navListItem) => {
 window.addEventListener("scroll", () => {
   if (window.pageYOffset > 95) {
     document.querySelector(".navwrapper").classList.add("notonhomepage");
-    document.querySelector(".nav a").style.color = "black";
     document.querySelector(".logo").classList.add("hidLogo");
   } else {
     document.querySelector(".navwrapper").classList.remove("notonhomepage");
-    document.querySelector(".nav a").style.color = "black";
     document.querySelector(".logo").classList.remove("hidLogo");
   }
 });
@@ -58,14 +56,29 @@ window.addEventListener("scroll", () => {
 // Ecoute evenement click toggle menu burger
 const toggleMenu = document.querySelector(".toggleMenu");
 const sidemenu = document.querySelector(".sidemenu");
+const overlay = document.querySelector(".sidemenu-overlay");
 
 toggleMenu.addEventListener("click", () => {
   if (!toggleMenu.classList.contains("active")) {
     sidemenu.classList.add("showmenu");
     toggleMenu.classList.add("active");
+    overlay.style.display = "block";
   } else {
     sidemenu.classList.remove("showmenu");
     toggleMenu.classList.remove("active");
+    overlay.style.display = "none";
+  }
+});
+
+const burger = document.querySelector(".burger");
+const svgDecoration = burger.querySelector("svg");
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 250) {
+    document.querySelector(".toggleMenu").style.padding = "9px 12px 9px 9px";
+    svgDecoration.classList.add("hideBg");
+  } else {
+    document.querySelector(".toggleMenu").style.padding = "15px 20px 15px 15px";
+    svgDecoration.classList.remove("hideBg");
   }
 });
 

@@ -275,7 +275,7 @@ const resetForm = () => {
     input.classList.add("correct-answer");
   });
   const section = document.getElementById("exerciceSection");
-  const offset = section.offsetTop - 70;
+  const offset = section.offsetTop - 120;
   window.scrollTo({ top: offset, behavior: "smooth" });
 };
 
@@ -290,7 +290,7 @@ const showExerciseSection = () => {
   setTimeout(() => {
     vocabSection.style.display = "none";
     exerciseSection.style.display = "block";
-    const offset = exerciseSection.offsetTop - 70;
+    const offset = exerciseSection.offsetTop - 120;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 500);
 };
