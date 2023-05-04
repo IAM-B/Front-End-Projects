@@ -7,11 +7,17 @@ body {
 a {
   text-decoration: none;
 }
-.nav {
+nav.navwrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-family: "Cairo", sans-serif;
 }
-h1.brandLogo a, h1.brandPub a {
-  margin-left: 35%;
+h1.brandLogo a,
+h1.brandPub a {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
   color: #4c2a02;
   text-shadow: 1px 1px 1px #bf9b30;
 }
@@ -23,14 +29,14 @@ ul.navlist a:hover {
   text-shadow: 1px 1px 1px #bf9b30;
   transition: 0.1s ease-in-out;
 }
-.nav ul,
+.navwrapper ul,
 .showPubul {
   list-style: none;
   margin: 0;
   padding: 0;
   align-items: center;
 }
-.nav li.showPubli {
+li.showPubli {
   display: inline-block;
 }
 .header {
@@ -45,7 +51,7 @@ header.page1.page {
 }
 .toggleMenu {
   display: flex;
-  margin: 3%;
+  margin-left: 3%;
   flex-direction: row-reverse;
   opacity: 1;
   transition: all 0.3s ease-in-out;
@@ -64,6 +70,11 @@ header.page1.page {
   border: 1px solid #bf9b30;
   border-radius: 0 10px;
   box-shadow: 0px 0px 10px #bf9b30;
+}
+.burger.toggleMenu.active svg {
+  stroke: rgb(255, 255, 0);
+  border: 1px solid rgb(255, 255, 0);
+  box-shadow: 0px 0px 10px rgb(255, 255, 0);
 }
 .burger .line1 {
   transform-origin: 50% 50%;
@@ -206,6 +217,34 @@ legend {
   float: none !important;
   padding: initial !important;
   width: initial !important;
+}
+.p1 {
+  font-family: "Cairo", sans-serif;
+  font-weight: bold;
+  color: #08f417;
+  text-shadow: 1px 1px 1px #4c2a02;
+  text-align: center;
+  font-size: 2em;
+  margin: 50px auto;
+}
+.p2 {
+  font-family: "Cairo", sans-serif;
+  font-weight: bold;
+  color: #bf9b30;
+  text-shadow: 0 0 1px #d1b971;
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 0px;
+}
+.p3, .p4 {
+  font-family: "Cairo", sans-serif;
+  font-weight: bold;
+  color: #d04c4c;
+  text-shadow: 0 0 1px #d1b971;
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 50px;
 }
 .inline-vocabulary,
 .inline-input {
@@ -411,7 +450,6 @@ span.vocabAR.and {
   .navlist li {
     font-size: 1.3rem;
     flex-grow: 1;
-    margin: 10%;
   }
   .vocabulary label {
     display: inline-block;
@@ -424,6 +462,9 @@ span.vocabAR.and {
   }
 }
 @media screen and (min-width: 769px) {
+  .navlistPub {
+    display: none;
+  }
   .navwrapper {
     padding-right: 1rem;
     padding-left: 1rem;
@@ -436,12 +477,6 @@ span.vocabAR.and {
     box-shadow: 0px 0px 10px #bf9b30;
     background: rgb(255 255 255 / 95%) !important;
     margin: 10px;
-  }
-  .nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
   }
   .logo {
     transition: all 0.3s ease-in-out;
@@ -465,6 +500,17 @@ span.vocabAR.and {
   }
 }
 @media screen and (max-width: 768px) {
+  .navListLi {
+    display: none;
+  }
+  svg {
+    background-color: #fff;
+  }
+  svg.hideBg {
+    border: none;
+    background-color: transparent;
+    box-shadow: 0 0 0 0;
+  }
   .imgBG {
     width: 140%;
   }
@@ -506,24 +552,15 @@ span.vocabAR.and {
   .burger.toggleMenu {
     margin: 0 1%;
   }
-  .hidLogo {
-    display: none;
-  }
   .logo {
     transition: all 0.3s ease-in-out;
-    padding-bottom: 4%;
-    display: none;
   }
   .navwrapper {
     transition: all 0.3s ease-in-out;
-    padding: 20px 0;
     padding-right: 1rem;
     padding-left: 1rem;
     background: transparent;
     transition: all 0.3s ease-in-out;
-  }
-  .navwrapper .notonhomepage {
-    color: #f00;
   }
   .notonhomepage {
     border: 1px solid #bf9b30;
@@ -534,6 +571,7 @@ span.vocabAR.and {
   }
   .navlist {
     display: flex;
+    right: 3%;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -546,23 +584,40 @@ span.vocabAR.and {
     padding: 20%;
   }
 }
-@media (min-width: 480px) {
-  .navlistPub {
-    display: none;
-  }
-}
 @media screen and (max-width: 480px) {
-  h1.brandLogo a,
-  .navListLi {
-    display: none;
+  .burger.toggleMenu {
+    margin: 0 1%;
   }
-  svg {
-    background-color: #fff;
+  .logo {
+    transition: all 0.3s ease-in-out;
   }
-  svg.hideBg {
-    border: none;
-    background-color: transparent;
-    box-shadow: 0 0 0 0;
+  .navwrapper {
+    transition: all 0.3s ease-in-out;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+  }
+  .notonhomepage {
+    border: 1px solid #bf9b30;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #bf9b30;
+    background: rgb(255 255 255 / 95%) !important;
+    margin: 10px;
+  }
+  .navlist {
+    display: flex;
+    right: 3%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .navlist li {
+    flex-grow: 1;
+    font-size: 1.13rem;
+  }
+  .navlist li a {
+    padding: 20%;
   }
 }
 @keyframes anime {

@@ -44,61 +44,56 @@
     </div>
     <header class="page1 page">
       <div class="header">
-        <div class="navwrapper">
-          <div class="nav">
-            <div class="logo">
-              <h1 class="brandLogo"><a href="#">TAعLAM</a></h1>
-            </div>
-            <div class="showPub"></div>
-            <ul class="navlist">
-              <li class="iamselected navListLi"><a href="#">Tom1</a></li>
-              <li class="navListLi"><a href="#">Partager</a></li>
-              <li class="navListLi"><a href="#">Inscription</a></li>
-              <li class="navListLi"><a href="#">Connexion</a></li>
-              <li class="navListLi"><a href="#">Contact</a></li>
-              <div class="burger toggleMenu">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <g class="burger-lines">
-                    <line
-                      class="line1"
-                      x1="25"
-                      y1="35"
-                      x2="80"
-                      y2="35"
-                      stroke-width="10"
-                      stroke-linecap="round"
-                    />
-                    <line
-                      class="line2"
-                      x1="25"
-                      y1="50"
-                      x2="80"
-                      y2="50"
-                      stroke-width="10"
-                      stroke-linecap="round"
-                    />
-                    <line
-                      class="line3"
-                      x1="25"
-                      y1="65"
-                      x2="80"
-                      y2="65"
-                      stroke-width="10"
-                      stroke-linecap="round"
-                    />
-                  </g>
-                </svg>
-              </div>
-            </ul>
+        <nav class="navwrapper">
+          <div class="logo">
+            <h1 class="brandLogo"><a href="#">TAعLAM</a></h1>
           </div>
-        </div>
-
+          <div class="showPub"></div>
+          <ul class="navlist">
+            <li class="iamselected navListLi"><a href="#">Tom1</a></li>
+            <li class="navListLi"><a href="#">Partager</a></li>
+            <li class="navListLi"><a href="#">Inscription</a></li>
+            <li class="navListLi"><a href="#">Connexion</a></li>
+            <li class="navListLi"><a href="#">Contact</a></li>
+          </ul>
+          <div class="burger toggleMenu">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <g class="burger-lines">
+                <line
+                  class="line1"
+                  x1="25"
+                  y1="35"
+                  x2="80"
+                  y2="35"
+                  stroke-width="10"
+                  stroke-linecap="round"
+                />
+                <line
+                  class="line2"
+                  x1="25"
+                  y1="50"
+                  x2="80"
+                  y2="50"
+                  stroke-width="10"
+                  stroke-linecap="round"
+                />
+                <line
+                  class="line3"
+                  x1="25"
+                  y1="65"
+                  x2="80"
+                  y2="65"
+                  stroke-width="10"
+                  stroke-linecap="round"
+                />
+              </g>
+            </svg>
+          </div>
+        </nav>
         <div class="sidemenu-overlay"></div>
         <div class="sidemenu">
           <div class="sidemenu-content">
-            <div class="mobilelogoinsidebar">
-              <h1 class="brandPub"><a href="#">PUB</a></h1>
-            </div>
+            <h1 class="brandPub"><a href="#">PUB</a></h1>
             <ul class="navlistPub">
               <li><a href="#">Tome1</a></li>
               <li><a href="#">Partager</a></li>
@@ -140,8 +135,9 @@
         <div class="exercice">
           <fieldset style="background: rgba(255, 255, 255, 0.7)">
             <legend class="vocabFR">EXERCICES</legend>
-            <form id="exo" name="exo"></form>
             <div id="Aff"></div>
+            <form id="exo" name="exo"></form>
+
             <div class="correction">
               <button class="btnExo submit" type="button" onclick="vocab();">
                 Valider

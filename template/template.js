@@ -153,6 +153,9 @@ const vocab = () => {
       removePunctuation(document.getElementById(i).value.toUpperCase())
     );
   }
+  const section = document.getElementById("exerciceSection");
+  const offset = section.offsetTop - 100;
+  window.scrollTo({ top: offset, behavior: "smooth" });
 
   const ChampTxt = document.getElementById("Aff");
   let score = 0;
@@ -194,17 +197,15 @@ const vocab = () => {
     }
     if (score == n) {
       ChampTxt.innerHTML =
-        '<p style="color:#00ff00;text-align: center;font-size: 20px;font-weight: bolder;margin: 50px auto;">اللهم بارك<br/>Toutes les r&eacute;ponses sont correctes</p>';
+        '<p class="alert p1">اللهم بارك<br/>Toutes les r&eacute;ponses sont correctes</p>';
     } else {
       ChampTxt.innerHTML =
-        '<p style="color:#683f19;text-align: center;font-size: 20px;font-weight: bolder;margin: 50px 0 10px;">اللهم يسهل عليك<br/>Corrigez les r&eacute;ponses fausses en rouge et r&eacute;essayez</p><br><p style="color:#ff0000;text-align: center;font-size: 20px;font-weight: bolder;margin: 10px auto;">ATTENTION<br>L\'auto-complétion compte pour une erreur</p>';
+        '<p class="alert p2">اللهم يسهل عليك<br/>Corrigez les r&eacute;ponses fausses en rouge et r&eacute;essayez</p><br><p class="alert p3">ATTENTION<br>L\'auto-complétion compte pour une erreur</p>';
     }
   } else {
     ChampTxt.innerHTML =
-      '<p style="color:#ff0000;text-align: center;font-size: 20px;font-weight: bolder;margin: 50px auto;">بارك الله فيك<br/>Rempli tous les champs</p>';
+      '<p class="alert p4">بارك الله فيك<br/>Rempli tous les champs</p>';
   }
-  const section = document.querySelector(".btnExo");
-  window.scrollTo({ top: section.offsetTop, behavior: "smooth" });
 };
 
 // Fonction qui montre les corrections
@@ -215,6 +216,9 @@ const showCorrections = () => {
       removePunctuation(document.getElementById(i).value.toUpperCase())
     );
   }
+  const section = document.getElementById("exerciceSection");
+  const offset = section.offsetTop - 100;
+  window.scrollTo({ top: offset, behavior: "smooth" });
 
   const ChampTxt = document.getElementById("Aff");
   let score = 0;
@@ -275,8 +279,13 @@ const resetForm = () => {
     input.classList.add("correct-answer");
   });
   const section = document.getElementById("exerciceSection");
-  const offset = section.offsetTop - 120;
+  const offset = section.offsetTop - 100;
   window.scrollTo({ top: offset, behavior: "smooth" });
+
+  const alertElement = document.querySelectorAll(".alert");
+  alertElement.forEach((alert) => {
+    alert.remove();
+  });
 };
 
 // Fonction qui cache le vocabulaires et affiche la section exercice
@@ -290,7 +299,7 @@ const showExerciseSection = () => {
   setTimeout(() => {
     vocabSection.style.display = "none";
     exerciseSection.style.display = "block";
-    const offset = exerciseSection.offsetTop - 120;
+    const offset = exerciseSection.offsetTop - 100;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 500);
 };
