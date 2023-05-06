@@ -19,7 +19,7 @@ h1.brandPub a {
   justify-content: center;
   font-weight: bold;
   color: #4c2a02;
-  text-shadow: 1px 1px 1px #bf9b30;
+  text-shadow: 1px 1px 1px #bf9b30; 
 }
 ul.navlist a {
   color: #4c2a02;
@@ -36,9 +36,7 @@ ul.navlist a:hover {
   padding: 0;
   align-items: center;
 }
-li.showPubli {
-  display: inline-block;
-}
+
 .header {
   position: fixed;
   top: 0;
@@ -72,9 +70,9 @@ header.page1.page {
   box-shadow: 0px 0px 10px #bf9b30;
 }
 .burger.toggleMenu.active svg {
-  stroke: rgb(255, 255, 0);
-  border: 1px solid rgb(255, 255, 0);
-  box-shadow: 0px 0px 10px rgb(255, 255, 0);
+  stroke: #b68c0e;
+  border: 1px solid #4C2A02;
+  box-shadow: 0px 0px 10px #b68c0e;
 }
 .burger .line1 {
   transform-origin: 50% 50%;
@@ -88,10 +86,6 @@ header.page1.page {
 .burger .line3 {
   transform-origin: 50% 50%;
   transition: transform 0.5s ease;
-}
-.burger .circle1 {
-  opacity: 1;
-  transition: opacity 0.25s ease;
 }
 .burger.active .line1 {
   transform: rotate(45deg);
@@ -202,16 +196,12 @@ ul.navlistPub a {
   padding: 12px 0px;
   margin-left: 10px;
   margin-right: 10px;
-  color: #d8d8d8;
-  border-bottom: solid 1px #d8d8d8;
+  color: #4C2A02;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 .showmenu {
   margin-left: 0px;
-}
-.changeopacity {
-  opacity: 0;
 }
 legend {
   float: none !important;
@@ -236,7 +226,8 @@ legend {
   font-size: 1.5em;
   margin-bottom: 0px;
 }
-.p3, .p4 {
+.p3,
+.p4 {
   font-family: "Cairo", sans-serif;
   font-weight: bold;
   color: #d04c4c;
@@ -287,9 +278,6 @@ legend {
   font-weight: bold;
   text-shadow: 1px 1px 1px #bf9b30;
   text-align: left;
-}
-.vocabulaire {
-  white-space: nowrap;
 }
 .vocabulary {
   color: #755503;
@@ -418,11 +406,13 @@ span.vocabAR.and {
   transition: opacity 1s ease-in-out;
 }
 #logo {
-  top: 0%;
-  left: 3%;
-  width: 95%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
   height: 100vh;
   position: fixed;
+  background-color: transparent;
   z-index: 99999;
   animation: fill 2s ease forwards 2.2s;
 }
