@@ -82,7 +82,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Sélectionner tous les éléments avec la classe "button"
+// Sélectionner tous les éléments avec la classe "buttonModal"
 const buttons = document.querySelectorAll(".buttonModal");
 
 // Ajouter un écouteur d'événement click à chaque bouton
