@@ -67,7 +67,6 @@ function createVocabularySection(vocabulary) {
   buttonModalDiv.id = "one";
   buttonModalDiv.classList.add("buttonModal");
   buttonModalDiv.innerHTML = `<img style="width: 30px; margin: 5px;" src="https://d1yei2z3i6k35z.cloudfront.net/3164252/6457c2ea8e1c7_dialog.png" alt="dialog" />`;
-  
 
   for (let i = 0; i < vocabulary.ar.length; i++) {
     const span = document.createElement("span");
@@ -97,8 +96,8 @@ function createVocabularySection(vocabulary) {
   const modal = document.createElement("div");
   modal.classList.add("modal");
   modal.innerHTML = `
-    <h2>I'm a Modal</h2>
-    <p>Hear me roar.</p>
+    <h2>بسم الله الرحمن الريم</h2>
+    <p>السلام عليكم ورحمة الله وبركته</p>
     <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
       <rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
     </svg>
