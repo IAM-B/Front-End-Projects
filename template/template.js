@@ -8,32 +8,32 @@ const vocabularies = [
   {
     fr: "Lettre(s) de l’alphabet, particule(s) :",
     ar: ["حُرُوف", "/", "حَرْف"],
-    context: ["سيفباسفاسقفا سيبليبل" ,"يفباسفاسقفا سيبليبلو"],
+    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو"],
   },
   {
     fr: "Verbe(s) :",
     ar: ["أَفْعَال", "/", "فِعْل"],
-    context: ["سيفباسفاسقفا سيبليبل" ,"يفباسفاسقفا سيبليبلو"],
+    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو"],
   },
   {
     fr: "Langue(s) vivante(s) :",
     ar: ["لُغَات", "/", "لُغَة"],
-    context: ["سيفباسفاسقفا سيبليبل" ,"يفباسفاسقفا سيبليبلو"],
+    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو"],
   },
   {
     fr: "Mot(s) :",
     ar: ["كَلِمَات", "/", "كَلِمَة"],
-    context: ["سيفباسفاسقفا سيبليبل" ,"يفباسفاسقفا سيبليبلو"],
+    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو"],
   },
   {
     fr: "Nom(s) :",
     ar: ["أَسْمَاء", "/", "اِسْم"],
-    context: ["سيفباسفاسقفا سيبليبل" ,"يفباسفاسقفا سيبليبلو"],
+    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو"],
   },
   {
     fr: "Phrase(s) :",
     ar: ["جُمَل", "/", "جُمْلَة"],
-    context: ["سيفباسفاسقفا سيبليبل" ,"يفباسفاسقفا سيبليبلو"],
+    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو"],
   },
   {
     fr: "L’arabe (langue) :",
@@ -48,11 +48,12 @@ const vocabularies = [
   {
     fr: "Féminin :",
     ar: ["مُؤَنَّث"],
-    context: ["سيفباسفاسقفا سيبليبل"]
+    context: ["سيفباسفاسقفا سيبليبل"],
   },
 ];
 
 // Fonction pour créer les éléments span HTML pour la section vocabulaire
+let buttonModalCounter = 1;
 function createVocabularySection(vocabulary) {
   const vocabDiv = document.createElement("div");
   vocabDiv.classList.add("vocabulary");
@@ -73,31 +74,30 @@ function createVocabularySection(vocabulary) {
   inlineVocabDiv.appendChild(contentDiv);
 
   const buttonModalDiv = document.createElement("div");
-  buttonModalDiv.id = "one";
+  buttonModalDiv.id = `buttonModal${buttonModalCounter}`;
   buttonModalDiv.classList.add("buttonModal");
   buttonModalDiv.innerHTML = `<img style="width: 30px; margin: 5px;" src="https://d1yei2z3i6k35z.cloudfront.net/3164252/6457c2ea8e1c7_dialog.png" alt="dialog" />`;
 
-
-  for (let i = 0; i < vocabulary.ar.length; i++) {
-    
+  for (let j = 0; j < vocabulary.ar.length; j++) {
     const span = document.createElement("span");
     span.classList.add("vocabAR");
-    span.textContent = vocabulary.ar[i];
+    span.textContent = vocabulary.ar[j];
 
-    if (vocabulary.ar[i] === "/") {
+    if (vocabulary.ar[j] === "/") {
       span.classList.add("or");
-    } else if (vocabulary.ar[i] === "ou") {
+    } else if (vocabulary.ar[j] === "ou") {
       span.classList.add("and");
     }
 
     buttonsDiv.appendChild(span);
-    span.appendChild(buttonModalDiv);
   }
+
+  buttonsDiv.appendChild(buttonModalDiv);
 
   vocabDiv.appendChild(inlineVocabDiv);
 
   const modalContainer = document.createElement("div");
-  modalContainer.id = "modal-container";
+  modalContainer.classList.add("modal-container");
 
   const modalBackground = document.createElement("div");
   modalBackground.classList.add("modal-background");
@@ -106,33 +106,36 @@ function createVocabularySection(vocabulary) {
   modal.classList.add("modal");
 
   let validIndex = 0;
-  for (let i = 0; i < vocabulary.ar.length; i++) {
-    if (/[\/ou]/.test(vocabulary.ar[i])) {
+  for (let j = vocabulary.ar.length - 1; j >= 0; j--) {
+    if (/[\/ou]/.test(vocabulary.ar[j])) {
       continue;
     }
-    
+
     const h1 = document.createElement("h1");
-    h1.textContent = vocabulary.ar[i];
+    h1.textContent = vocabulary.ar[j];
     modal.appendChild(h1);
-    
+
     const h2 = document.createElement("h2");
     h2.textContent = vocabulary.context[validIndex];
     modal.appendChild(h2);
     validIndex++;
   }
-  
+
   modalBackground.appendChild(modal);
   modalContainer.appendChild(modalBackground);
 
   vocabDiv.appendChild(modalContainer);
 
+  buttonModalCounter++;
+
   const buttons = vocabDiv.querySelectorAll(".buttonModal");
   buttons.forEach((modal) => {
     modal.addEventListener("click", function () {
       const buttonId = this.getAttribute("id");
-      const modalContainer = document.getElementById("modal-container");
-      modalContainer.removeAttribute("class");
-      modalContainer.classList.add(buttonId);
+      const modalContainer =
+        this.closest(".vocabulary").querySelector(".modal-container");
+      modalContainer.classList.remove("out");
+      modalContainer.classList.add(buttonId, "one");
       document.body.classList.add("modal-active");
     });
   });

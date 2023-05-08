@@ -607,7 +607,7 @@ span.vocabAR.and {
     padding: 20%;
   }
 }
-#modal-container {
+.modal-container {
   position: fixed;
   display: table;
   height: 100vh;
@@ -617,25 +617,25 @@ span.vocabAR.and {
   transform: scale(0);
   z-index: 1;
 }
-#modal-container.one {
+.modal-container.one {
   transform: scaleY(0.05) scaleX(0);
   animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   z-index: 3;
 }
-#modal-container.one .modal-background .modal {
+.modal-container.one .modal-background .modal {
   transform: scale(0);
   animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  font-family: "Cairo", sans-serif;
+  font-family: "Amiri Quran", serif;
 }
-#modal-container.one.out {
+.modal-container.one.out {
   transform: scale(1);
   animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-#modal-container.one.out .modal-background .modal {
+.modal-container.one.out .modal-background .modal {
   animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
-#modal-container .modal-background {
+.modal-container .modal-background {
   display: table-cell;
   background: rgba(0, 0, 0, 0.8);
   text-align: center;
@@ -649,16 +649,16 @@ span.vocabAR.and {
   font-weight: 300;
   position: relative;
 }
-#modal-container .modal-background .modal h2 {
+.modal-container .modal-background .modal h2 {
   font-size: 25px;
   line-height: 25px;
   margin-bottom: 15px;
 }
-#modal-container .modal-background .modal p {
+.modal-container .modal-background .modal p {
   font-size: 18px;
   line-height: 22px;
 }
-#modal-container .modal-background .modal .modal-svg {
+.modal-container .modal-background .modal .modal-svg {
   position: absolute;
   top: 0;
   left: 0;
