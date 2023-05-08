@@ -3,42 +3,52 @@ const vocabularies = [
   {
     fr: "Parole(s), propos :",
     ar: ["أَقْوَال", "/", "قَوْل", "ou", "كَلَام"],
+    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو", "فباسفاسقفا سيبليبلو"],
   },
   {
     fr: "Lettre(s) de l’alphabet, particule(s) :",
     ar: ["حُرُوف", "/", "حَرْف"],
+    context: ["سيفباسفاسقفا سيبليبل" ,"يفباسفاسقفا سيبليبلو"],
   },
   {
     fr: "Verbe(s) :",
     ar: ["أَفْعَال", "/", "فِعْل"],
+    context: ["سيفباسفاسقفا سيبليبل" ,"يفباسفاسقفا سيبليبلو"],
   },
   {
     fr: "Langue(s) vivante(s) :",
     ar: ["لُغَات", "/", "لُغَة"],
+    context: ["سيفباسفاسقفا سيبليبل" ,"يفباسفاسقفا سيبليبلو"],
   },
   {
     fr: "Mot(s) :",
     ar: ["كَلِمَات", "/", "كَلِمَة"],
+    context: ["سيفباسفاسقفا سيبليبل" ,"يفباسفاسقفا سيبليبلو"],
   },
   {
     fr: "Nom(s) :",
     ar: ["أَسْمَاء", "/", "اِسْم"],
+    context: ["سيفباسفاسقفا سيبليبل" ,"يفباسفاسقفا سيبليبلو"],
   },
   {
     fr: "Phrase(s) :",
     ar: ["جُمَل", "/", "جُمْلَة"],
+    context: ["سيفباسفاسقفا سيبليبل" ,"يفباسفاسقفا سيبليبلو"],
   },
   {
     fr: "L’arabe (langue) :",
     ar: ["الْعَرَبِيَّة"],
+    context: ["سيفباسفاسقفا سيبليبل"],
   },
   {
     fr: "Masculin :",
     ar: ["مُذَكَّر"],
+    context: ["سيفباسفاسقفا سيبليبل"],
   },
   {
     fr: "Féminin :",
     ar: ["مُؤَنَّث"],
+    context: ["سيفباسفاسقفا سيبليبل"]
   },
 ];
 
@@ -62,13 +72,14 @@ function createVocabularySection(vocabulary) {
   contentDiv.appendChild(buttonsDiv);
   inlineVocabDiv.appendChild(contentDiv);
 
-  // Ajout de l'élément div avec les propriétés spécifiées
   const buttonModalDiv = document.createElement("div");
   buttonModalDiv.id = "one";
   buttonModalDiv.classList.add("buttonModal");
   buttonModalDiv.innerHTML = `<img style="width: 30px; margin: 5px;" src="https://d1yei2z3i6k35z.cloudfront.net/3164252/6457c2ea8e1c7_dialog.png" alt="dialog" />`;
 
+
   for (let i = 0; i < vocabulary.ar.length; i++) {
+    
     const span = document.createElement("span");
     span.classList.add("vocabAR");
     span.textContent = vocabulary.ar[i];
@@ -85,24 +96,31 @@ function createVocabularySection(vocabulary) {
 
   vocabDiv.appendChild(inlineVocabDiv);
 
-  // Ajout du code HTML supplémentaire
   const modalContainer = document.createElement("div");
   modalContainer.id = "modal-container";
-  modalContainer.classList.add("modal-container");
 
   const modalBackground = document.createElement("div");
   modalBackground.classList.add("modal-background");
 
   const modal = document.createElement("div");
   modal.classList.add("modal");
-  modal.innerHTML = `
-    <h2>بسم الله الرحمن الريم</h2>
-    <p>السلام عليكم ورحمة الله وبركته</p>
-    <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
-      <rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
-    </svg>
-  `;
 
+  let validIndex = 0;
+  for (let i = 0; i < vocabulary.ar.length; i++) {
+    if (/[\/ou]/.test(vocabulary.ar[i])) {
+      continue;
+    }
+    
+    const h1 = document.createElement("h1");
+    h1.textContent = vocabulary.ar[i];
+    modal.appendChild(h1);
+    
+    const h2 = document.createElement("h2");
+    h2.textContent = vocabulary.context[validIndex];
+    modal.appendChild(h2);
+    validIndex++;
+  }
+  
   modalBackground.appendChild(modal);
   modalContainer.appendChild(modalBackground);
 

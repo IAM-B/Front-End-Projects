@@ -346,7 +346,7 @@ span.vocabAR.and {
 .btnVocab,
 #button-d2607e45 {
   display: block;
-  width: 15%;
+  width: 100%;
   margin: 5px auto;
   border: 1px solid #bf9b30;
   border-radius: 5px;
@@ -513,7 +513,6 @@ span.vocabAR.and {
     justify-content: flex-end;
   }
   .correction,
-  #button-d2607e45,
   #button-d2607e45,
   .btnExo {
     width: 100%;
