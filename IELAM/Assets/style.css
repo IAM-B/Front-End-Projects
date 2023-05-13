@@ -385,10 +385,11 @@ span.vocabAR.and {
 .oVYRo::after {
   background-color: #d1b971;
 }
-.imgBG {
-  position: fixed;
+.imgBG h1.brandLogo {
+  position: absolute;
+  text-align: center;
+  top: 30%;
   left: 0;
-  right: 0;
   width: 100%;
   height: 100vh;
   z-index: -1;
