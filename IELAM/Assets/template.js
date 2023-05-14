@@ -76,7 +76,7 @@ function createVocabularySection(vocabulary) {
   const buttonModalDiv = document.createElement("div");
   buttonModalDiv.id = `buttonModal${buttonModalCounter}`;
   buttonModalDiv.classList.add("buttonModal");
-  buttonModalDiv.innerHTML = `<img style="width: 30px; margin: 5px;" src="https://d1yei2z3i6k35z.cloudfront.net/3164252/6457c2ea8e1c7_dialog.png" alt="dialog" />`;
+  buttonModalDiv.innerHTML = `<img style="width: 30px; margin: 5px;" src="Assets/chat.png" alt="dialog" />`;
 
   for (let j = 0; j < vocabulary.ar.length; j++) {
     const span = document.createElement("span");

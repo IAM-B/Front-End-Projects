@@ -63,21 +63,12 @@ toggleMenu.addEventListener("click", () => {
     sidemenu.classList.add("showmenu");
     toggleMenu.classList.add("active");
     overlay.style.display = "block";
+    overlay.style.opacity = "1";
   } else {
     sidemenu.classList.remove("showmenu");
     toggleMenu.classList.remove("active");
     overlay.style.display = "none";
+    overlay.style.opacity = "0";
   }
 });
 
-const burger = document.querySelector(".burger");
-const svgDecoration = burger.querySelector("svg");
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 250) {
-    document.querySelector(".toggleMenu").style.padding = "9px 12px 9px 9px";
-    svgDecoration.classList.add("hideBg");
-  } else {
-    document.querySelector(".toggleMenu").style.padding = "15px 20px 15px 15px";
-    svgDecoration.classList.remove("hideBg");
-  }
-});
