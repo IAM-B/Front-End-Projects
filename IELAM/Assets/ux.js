@@ -72,3 +72,67 @@ toggleMenu.addEventListener("click", () => {
   }
 });
 
+const rangeInput = document.getElementById("theme-slider");
+      const body = document.body;
+
+      rangeInput.addEventListener("input", () => {
+        const max = rangeInput.max > 0 ? rangeInput.max : 100;
+        const progress = rangeInput.value / rangeInput.max;
+
+        const couleurFondClair = [228, 235, 245];
+        const couleurContrastClair = [206, 212, 220];
+        const couleurBtnClair = [3, 28, 64];
+        const boxShadowIntClair = [255, 255, 255, 0.267];
+        const boxShadowIntClair2 = [137, 142, 146, 0.267];
+        const boxShadowOutClair = [255, 255, 255, 0.267];
+        const boxShadowOutClair2 = [137, 142, 146, 0.267];
+
+        const couleurFondSombre = [13, 17, 23];
+        const couleurContrastSombre = [49, 54, 59];
+        const couleurBtnSombre = [228, 235, 245];
+        const boxShadowIntSombre = [0, 0, 0, 0.267];
+        const boxShadowIntSombre2 = [137, 142, 146, 0.267];
+        const boxShadowOutSombre = [0, 0, 0, 0.267];
+        const boxShadowOutSombre2 = [137, 142, 146, 0.267];
+        
+
+        const couleurFond = interpolateColors(
+          couleurFondClair,
+          couleurFondSombre,
+          progress
+        );
+
+        body.classList.add("theme-transition");
+        body.style.backgroundColor = `rgb(${couleurFond.join(", ")})`;
+
+        // Mettre à jour les variables CSS dans le style tag
+        const varCss = document.getElementById("varCss");
+        varCss.innerHTML = `
+            :root {
+              --couleur-fond-clair: rgb(${couleurFondClair.join(", ")});
+              --couleur-contrast-clair: rgb(${couleurContrastClair.join(", ")});
+              --couleur-btn-clair: rgb(${couleurBtnClair.join(", ")});
+              --couleur-box-shadow-int-clair: inset -3px -3px 3px rgba(${boxShadowIntClair.join(", ")}),
+              inset 3px 3px 3px rgba(${boxShadowIntClair2.join(", ")});
+              --couleur-box-shadow-out-clair: -3px -3px 3px rgba(${boxShadowOutClair.join(", ")}),
+              3px 3px 3px rgba(${boxShadowOutClair2.join(", ")});
+              --couleur-fond-sombre: rgb(${couleurFondSombre.join(", ")});
+              --couleur-contrast-sombre: rgb(${couleurContrastSombre.join(", ")});
+              --couleur-btn-sombre: rgb(${couleurBtnSombre.join(", ")});
+              --couleur-box-shadow-int-sombre: inset -3px -3px 3px rgba(${boxShadowIntSombre.join(", ")}),
+              inset 3px 3px 3px rgba(${boxShadowIntSombre2.join(", ")});
+              --couleur-box-shadow-out-sombre: -3px -3px 3px rgba(${boxShadowOutSombre.join(", ")}),
+              3px 3px 3px rgba(${boxShadowOutSombre2.join(", ")});
+                ", "
+              )});
+            }
+          `;
+      });
+
+      function interpolateColors(color1, color2, progress) {
+        const r = Math.round(color1[0] + (color2[0] - color1[0]) * progress);
+        const g = Math.round(color1[1] + (color2[1] - color1[1]) * progress);
+        const b = Math.round(color1[2] + (color2[2] - color1[2]) * progress);
+
+        return [r, g, b];
+      }

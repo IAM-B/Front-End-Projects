@@ -1,15 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Cairo&display=swap");
 
-:root {
-  --couleur-fond-clair: rgb(228, 235, 245);
-  --couleur-contrast-clair: rgb(206, 212, 220);
-  --couleur-btn-clair: rgb(3, 28, 64);
-  --couleur-box-shadow-int-clair: inset -3px -3px 3px rgba(255, 255, 255, 0.267),
-    inset 3px 3px 3px rgba(137, 142, 146, 0.267);
-  --couleur-box-shadow-out-clair: -3px -3px 3px rgba(255, 255, 255, 0.267),
-    3px 3px 3px rgba(137, 142, 146, 0.267);
-}
-
 body {
   background-color: var(--couleur-fond-clair);
   margin-top: 100px;

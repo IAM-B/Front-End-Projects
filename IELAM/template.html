@@ -8,6 +8,12 @@
     <title>Template 1</title>
   </head>
   <body>
+    <style id="varCss">
+      body.theme-transition {
+        transition: background-color 0.3s ease;
+      }
+      
+    </style>
     <div class="loader-wrapper">
       <svg
         id="logo"
@@ -48,6 +54,7 @@
           <div class="logo">
             <h1 class="brandLogo"><a href="#">iلعam</a></h1>
           </div>
+          <input type="range" id="theme-slider" min="0" max="100" value="50" />
           <div class="showPub"></div>
           <ul class="navlist">
             <li class="iamselected navListLi"><a href="#">Tome1</a></li>
