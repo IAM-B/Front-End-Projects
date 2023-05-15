@@ -5,15 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Assets/style.css" />
+    <script src="Assets/templateTransition.js"></script>
     <title>Template 1</title>
   </head>
   <body>
-    <style id="varCss">
-      body.theme-transition {
-        transition: background-color 0.3s ease;
-      }
-      
-    </style>
     <div class="loader-wrapper">
       <svg
         id="logo"
@@ -54,7 +49,6 @@
           <div class="logo">
             <h1 class="brandLogo"><a href="#">iلعam</a></h1>
           </div>
-          <input type="range" id="theme-slider" min="0" max="100" value="50" />
           <div class="showPub"></div>
           <ul class="navlist">
             <li class="iamselected navListLi"><a href="#">Tome1</a></li>
@@ -63,6 +57,10 @@
             <li class="navListLi"><a href="#">Connexion</a></li>
             <li class="navListLi"><a href="#">Contact</a></li>
           </ul>
+          <div class="switch-container">
+            <input type="checkbox" id="theme-switch">
+            <label for="theme-switch" class="switch"></label>
+          </div>
           <div class="burger toggleMenu">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
               <g class="burger-lines">
@@ -111,22 +109,20 @@
             <div class="pub"></div>
             <div class="pub"></div>
             <div class="pub"></div>
-            <h1 class="signup"><a href="#">TA PUB ICI</a></h1>
+            <h1 class="signup"><a href="#">CONTACT</a></h1>
           </div>
         </div>
       </div>
       <div class="page1content"></div>
-      <div class="imgBG">
-        <h1 class="brandLogo">
+        <h1 class="brandH1">
           Apprenez facilement et rapidement du nouveau vocabulaire en arabe à
           tout moment de la journée
         </h1>
-      </div>
     </header>
     <section id="exercice-1">
       <div id="vocabLI" class="exercice">
         <fieldset>
-          <legend class="vocabFR">VOCABULAIRE 1</legend>
+          <legend class="vocabFR">MODULE N°1</legend>
           <form id="vocab" name="exo"></form>
           <button
             class="btnVocab"
