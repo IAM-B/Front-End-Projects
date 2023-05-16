@@ -1,8 +1,10 @@
 // Fonction qui redirige a la section vocabulaire apres chargement
 function redirectToSection() {
+  setTimeout(function () {
   const section = document.getElementById("vocabLI");
   const offset = section.offsetTop - 100;
   window.scrollTo({ top: offset, behavior: "smooth" });
+  }, 2000);
 }
 
 // Fonction qui redirige en haut de page au rechargement
@@ -48,7 +50,7 @@ window.addEventListener("scroll", () => {
   const sectionExercice1 = document.getElementById("exercice-1");
   
   if (sectionExercice1) {
-    const sectionTop = sectionExercice1.offsetTop;
+    const sectionTop = sectionExercice1.offsetTop - 99;
     const scrollTop = window.pageYOffset;
     
     if (scrollTop > sectionTop) {
