@@ -69,9 +69,9 @@ nav.navwrapper {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background-color: var(--couleur-fond);
+  background-color: var(--couleur-contrast);
   transition: transform 0.3s;
-  box-shadow: var(--couleur-box-shadow-int);
+  box-shadow: var(--couleur-box-shadow-out);
 }
 
 input[type="checkbox"] {
@@ -79,7 +79,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked + .switch {
-  background-color: var(--couleur-switch);
+  background-color: var(--couleur-contrast);
 }
 
 input[type="checkbox"]:checked + .switch:before {
@@ -189,7 +189,7 @@ header.page1.page {
   position: fixed;
   top: 0px;
   width: 240px;
-  margin-left: -250px;
+  margin-left: -300px;
   overflow: hidden;
   height: 100vh;
   border-radius: 0 10px;
@@ -633,7 +633,13 @@ input:focus {
     font-family: "Amiri Quran", serif;
   }
 }
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 801px) {
+  .burger.toggleMenu.active svg {
+    stroke: var(--couleur-contrast);
+    background-color: var(--couleur-fond);
+    box-shadow: var(--couleur-box-shadow-int);
+    transition: all 0.5s ease;
+  }
   .navlistPub {
     display: none;
   }
@@ -662,6 +668,12 @@ input:focus {
   }
 }
 @media screen and (max-width: 800px) {
+  .burger.toggleMenu.active svg {
+    stroke: var(--couleur-contrast);
+    background-color: var(--couleur-fond);
+    box-shadow: var(--couleur-box-shadow-int);
+    transition: all 0.5s ease;
+  }
   #logo {
     width: 90%;
     height: 100vh;
@@ -720,6 +732,12 @@ input:focus {
   }
 }
 @media screen and (min-width: 481px) and (max-width: 799px) {
+  .burger.toggleMenu.active svg {
+    stroke: var(--couleur-contrast);
+    background-color: var(--couleur-fond);
+    box-shadow: var(--couleur-box-shadow-int);
+    transition: all 0.5s ease;
+  }
   .burger.toggleMenu {
     margin: 0 1%;
   }
@@ -749,6 +767,12 @@ input:focus {
   }
 }
 @media screen and (max-width: 480px) {
+  .burger.toggleMenu.active svg {
+    stroke: var(--couleur-contrast);
+    background-color: var(--couleur-fond);
+    box-shadow: var(--couleur-box-shadow-int);
+    transition: all 0.5s ease;
+  }
   .brandH1 {
     margin-top: 90%;
   }

@@ -239,7 +239,7 @@ const vocab = () => {
     );
   }
   const section = document.getElementById("exerciceSection");
-  const offset = section.offsetTop - 100;
+  const offset = section.offsetTop - 120;
   window.scrollTo({ top: offset, behavior: "smooth" });
 
   const ChampTxt = document.getElementById("Aff");
@@ -302,7 +302,7 @@ const showCorrections = () => {
     );
   }
   const section = document.getElementById("exerciceSection");
-  const offset = section.offsetTop - 100;
+  const offset = section.offsetTop - 120;
   window.scrollTo({ top: offset, behavior: "smooth" });
 
   const ChampTxt = document.getElementById("Aff");
@@ -364,7 +364,7 @@ const resetForm = () => {
     input.classList.add("correct-answer");
   });
   const section = document.getElementById("exerciceSection");
-  const offset = section.offsetTop - 100;
+  const offset = section.offsetTop - 120;
   window.scrollTo({ top: offset, behavior: "smooth" });
 
   const alertElement = document.querySelectorAll(".alert");
@@ -384,7 +384,7 @@ const showExerciseSection = () => {
   setTimeout(() => {
     vocabSection.style.display = "none";
     exerciseSection.style.display = "block";
-    const offset = exerciseSection.offsetTop - 100;
+    const offset = exerciseSection.offsetTop - 120;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 500);
 };

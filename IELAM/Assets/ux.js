@@ -2,7 +2,7 @@
 function redirectToSection() {
   setTimeout(function () {
   const section = document.getElementById("vocabLI");
-  const offset = section.offsetTop - 100;
+  const offset = section.offsetTop - 120;
   window.scrollTo({ top: offset, behavior: "smooth" });
   }, 2000);
 }
@@ -50,7 +50,7 @@ window.addEventListener("scroll", () => {
   const sectionExercice1 = document.getElementById("exercice-1");
   
   if (sectionExercice1) {
-    const sectionTop = sectionExercice1.offsetTop - 99;
+    const sectionTop = sectionExercice1.offsetTop - 80;
     const scrollTop = window.pageYOffset;
     
     if (scrollTop > sectionTop) {
