@@ -8,6 +8,7 @@
   --couleur-box-shadow-int: inset -3px -3px 3px #ffffff44,
     inset 3px 3px 3px #898e9244;
   --couleur-box-shadow-out: -3px -3px 3px #ffffff44, 3px 3px 3px #898e9244;
+  --couleur-text-shadow: -1px -2px 3px #ffffff77, 1px 2px 3px #898e9244;
   --couleur-switch: #ffffff;
 }
 body.dark {
@@ -18,6 +19,7 @@ body.dark {
   --couleur-box-shadow-int: inset -3px -3px 3px #30303044,
     inset 3px 3px 3px #00000044;
   --couleur-box-shadow-out: -3px -3px 3px #30303044, 3px 3px 3px #00000044;
+  --couleur-text-shadow: -1px -2px 3px #30303077, 1px 2px 3px #00000044;
   --couleur-switch: #000000;
   transition: all 0.3s ease-in-out;
 }
@@ -332,16 +334,22 @@ legend {
   background: #4c2a02;
 }
 .exercice legend {
-  color: var(--couleur-text);
-  padding: 0px 10px;
+  color: var(--couleur-contrast);
+  margin-left: 10%;
   border-radius: 10px;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 100;
   text-align: left;
   background: var(--couleur-fond);
   transition: all 0.3s ease-in-out;
-  box-shadow: var(--couleur-box-shadow-out);
+  box-shadow: var(--couleur-box-shadow-int);
+  text-shadow: var(--couleur-text-shadow);
 }
+.ticket {
+  border-radius: 10px;
+  padding: 0 10px;
+  box-shadow: var(--couleur-box-shadow-out);
+  }
 .vocabulary {
   color: var(--couleur-text);
   font-weight: bold;
@@ -349,11 +357,23 @@ legend {
   margin: 5px 10px;
   text-align: left;
 }
+div.buttonModal {
+  box-shadow: var(--couleur-box-shadow-out);
+  border-radius: 10px;
+  margin-left: 15px;
+}
 svg#dialog {
   fill: var(--couleur-btn);
-  margin-left: 5px;
-  width: 40px;
-  height: 40px;
+  width: 40px;    
+  padding: 8px 5px 0 5px;
+}
+div.buttonModal:hover {
+  box-shadow: var(--couleur-box-shadow-int);
+  transition: 0.2s ease-in-out;
+}
+svg#dialog:hover {
+  fill: var(--couleur-contrast);
+  transition: 0.2s ease-in-out;
 }
 .vocabAR {
   font-size: 1em;
@@ -418,7 +438,7 @@ input:focus {
 #button-d2607e45 {
   display: block;
   padding: 10px;
-  width: 100%;
+  width: 25%;
   margin: 5px auto;
   border-radius: 5px;
   border: none;
@@ -436,7 +456,6 @@ input:focus {
   color: var(--couleur-contrast);
   box-shadow: var(--couleur-box-shadow-int);
 }
-
 #Aff {
   color: var(--couleur-text);
   font-weight: bold;
@@ -678,6 +697,7 @@ input:focus {
   }
   .btnVocab {
     width: auto;
+    padding: 10px 20px;
   }
   .inline-input > div:nth-child(3) {
     order: 3;
