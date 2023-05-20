@@ -97,13 +97,22 @@ a {
   color: var(--couleur-btn);
 }
 ul.navlist a {
+  margin: 3%;
   color: var(--couleur-btn);
   font-weight: bold;
+  box-sizing: border-box;
 }
-ul.navlist a:hover {
+li.navListLi:hover {
   border-radius: 10px;
   color: var(--couleur-contrast);
   box-shadow: var(--couleur-box-shadow-int);
+  text-shadow: var(--couleur-text-shadow);
+  transition: 0.3s ease-in-out;
+}
+ul.navlist a:hover {
+  font-weight: 100;
+  color: var(--couleur-contrast);
+  text-shadow: var(--couleur-text-shadow);
   transition: 0.3s ease-in-out;
 }
 .navwrapper ul,
@@ -649,10 +658,7 @@ input:focus {
   .navlist li {
     font-size: 1.3rem;
     flex-grow: 1;
-    margin: 3%;
-  }
-  .navlist li a {
-    padding: 20%;
+    padding: 3%;
   }
 }
 @media screen and (max-width: 800px) {
