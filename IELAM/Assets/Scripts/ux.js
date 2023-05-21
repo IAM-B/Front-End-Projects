@@ -1,4 +1,4 @@
-// Fonction qui redirige a la section vocabulaire apres chargement
+// Function that redirects to the vocabulary section after loading
 function redirectToSection() {
   setTimeout(function () {
   const section = document.getElementById("vocabLI");
@@ -7,12 +7,12 @@ function redirectToSection() {
   }, 2000);
 }
 
-// Fonction qui redirige en haut de page au rechargement
+// Function that redirects to the top of the page on reload
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
-// Fonction qui fait disparaitre le loader
+// Function that makes the loader disappear
 window.addEventListener("load", function () {
   const loader = document.querySelector(".loader-wrapper");
   if (loader) {
@@ -31,23 +31,10 @@ window.addEventListener("load", function () {
   }
 });
 
-// Ecoute evenement click nav bar
-const navListItems = document.querySelectorAll(".navlist li");
-navListItems.forEach((navListItem) => {
-  navListItem.addEventListener("click", () => {
-    navListItem.classList.add("iamselected");
-    navListItems.forEach((otherNavItem) => {
-      if (otherNavItem !== navListItem) {
-        otherNavItem.classList.remove("iamselected");
-      }
-    });
-  });
-});
-
-// Ecoute evenement scroll nav bar
+// Event listener for scroll on the nav bar
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navwrapper");
-  const sectionExercice1 = document.getElementById("exercice-1");
+  const sectionExercice1 = document.querySelector("section");
   
   if (sectionExercice1) {
     const sectionTop = sectionExercice1.offsetTop - 80;
@@ -62,7 +49,7 @@ window.addEventListener("scroll", () => {
 });
 
 
-// Ecoute evenement click toggle menu burger
+// Listen to click event for toggling the burger menu
 const toggleMenu = document.querySelector(".toggleMenu");
 const sidemenu = document.querySelector(".sidemenu");
 const overlay = document.querySelector(".sidemenu-overlay");

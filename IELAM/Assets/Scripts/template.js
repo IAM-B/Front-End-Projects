@@ -1,58 +1,4 @@
-// Tableau des vocabulaires
-const vocabularies = [
-  {
-    fr: "Parole(s), propos :",
-    ar: ["أَقْوَال", "/", "قَوْل", "ou", "كَلَام"],
-    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو", "فباسفاسقفا سيبليبلو"],
-  },
-  {
-    fr: "Lettre(s) de l’alphabet, particule(s) :",
-    ar: ["حُرُوف", "/", "حَرْف"],
-    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو"],
-  },
-  {
-    fr: "Verbe(s) :",
-    ar: ["أَفْعَال", "/", "فِعْل"],
-    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو"],
-  },
-  {
-    fr: "Langue(s) vivante(s) :",
-    ar: ["لُغَات", "/", "لُغَة"],
-    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو"],
-  },
-  {
-    fr: "Mot(s) :",
-    ar: ["كَلِمَات", "/", "كَلِمَة"],
-    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو"],
-  },
-  {
-    fr: "Nom(s) :",
-    ar: ["أَسْمَاء", "/", "اِسْم"],
-    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو"],
-  },
-  {
-    fr: "Phrase(s) :",
-    ar: ["جُمَل", "/", "جُمْلَة"],
-    context: ["سيفباسفاسقفا سيبليبل", "يفباسفاسقفا سيبليبلو"],
-  },
-  {
-    fr: "L’arabe (langue) :",
-    ar: ["الْعَرَبِيَّة"],
-    context: ["سيفباسفاسقفا سيبليبل"],
-  },
-  {
-    fr: "Masculin :",
-    ar: ["مُذَكَّر"],
-    context: ["سيفباسفاسقفا سيبليبل"],
-  },
-  {
-    fr: "Féminin :",
-    ar: ["مُؤَنَّث"],
-    context: ["سيفباسفاسقفا سيبليبل"],
-  },
-];
-
-// Fonction pour créer les éléments span HTML pour la section vocabulaire
+// Function to create HTML span elements for the vocabulary section
 let buttonModalCounter = 1;
 function createVocabularySection(vocabulary) {
   const vocabDiv = document.createElement("div");
@@ -159,7 +105,7 @@ function createVocabularySection(vocabulary) {
   return vocabDiv;
 }
 
-// Fonction pour générer les éléments HTML pour toutes les sections de vocabulaire
+// Function to generate HTML elements for all vocabulary sections
 function generateVocabularies() {
   const exoForm = document.getElementById("vocab");
 
@@ -168,10 +114,10 @@ function generateVocabularies() {
     exoForm.appendChild(vocabSection);
   }
 }
-generateVocabularies();
 
-// Fonction pour créer les éléments input HTML pour la section exercice
+// Function to create HTML input elements for the exercise section
 let counter = -1;
+function processVocabularies(vocabularies) {
 vocabularies.forEach((vocab) => {
   const vocabularyDiv = document.createElement("div");
   vocabularyDiv.classList.add("vocabulary");
@@ -221,8 +167,9 @@ vocabularies.forEach((vocab) => {
   vocabularyDiv.appendChild(inputDiv);
   document.querySelector("#exo").appendChild(vocabularyDiv);
 });
+}
 
-// Fonction qui enleve les caractères spéciaux
+// Function that removes special characters
 const removePunctuation = (str) => {
   if (!str) {
     return false;
@@ -230,7 +177,7 @@ const removePunctuation = (str) => {
   return str.replace(/[.,-\/#!?$%\^&\*;:{}=\-_`~()\b ]/g, "");
 };
 
-// Fonction qui vérifie les réponses
+// Function that verifies the answers
 const vocab = () => {
   const results = [];
   for (let i = 0; i <= counter; i++) {
@@ -282,10 +229,10 @@ const vocab = () => {
     }
     if (score == n) {
       ChampTxt.innerHTML =
-        '<p class="alert p1">اللهم بارك<br/>Toutes les r&eacute;ponses sont correctes</p>';
+        '<p class="alert p1">الله بارك<br/>Toutes les r&eacute;ponses sont correctes</p>';
     } else {
       ChampTxt.innerHTML =
-        '<p class="alert p2">اللهم يسهل عليك<br/>Corrigez les r&eacute;ponses fausses en rouge et r&eacute;essayez</p><br><p class="alert p3">ATTENTION<br>L\'auto-complétion compte pour une erreur</p>';
+        '<p class="alert p2">الله يسهل عليك<br/>Corrigez les r&eacute;ponses fausses en rouge et r&eacute;essayez</p><br><p class="alert p3">ATTENTION<br>L\'auto-complétion compte pour une erreur</p>';
     }
   } else {
     ChampTxt.innerHTML =
@@ -293,7 +240,7 @@ const vocab = () => {
   }
 };
 
-// Fonction qui montre les corrections
+// Function that displays the corrections
 const showCorrections = () => {
   const results = [];
   for (let i = 0; i <= counter; i++) {
@@ -330,7 +277,6 @@ const showCorrections = () => {
 
   const n = goodRep.length;
 
-  // Parcourir les réponses
   for (let i = 0; i < n; i++) {
     if (goodRep[i] !== results[i] && goodRep2[i] !== results[i]) {
       const isCorrect = false;
@@ -349,11 +295,8 @@ const showCorrections = () => {
   }
 };
 
-// Fonction qui réinitialise le formulaire
+// Function that resets the form
 let nbAttempts = 0;
-const submitButton = document.querySelector(".submit");
-const correctionButton = document.querySelector(".correct");
-const resetButton = document.querySelector(".reset");
 const resetForm = () => {
   for (let i = 0; i <= counter; i++) {
     document.getElementById(i).value = "";
@@ -373,7 +316,7 @@ const resetForm = () => {
   });
 };
 
-// Fonction qui cache le vocabulaires et affiche la section exercice
+// Function that hides the vocabulary and displays the exercise section
 const showExerciseSection = () => {
   const vocabSection = document.querySelector("#vocabLI");
   const exerciseSection = document.querySelector("#exerciceSection");
