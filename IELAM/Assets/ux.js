@@ -85,7 +85,11 @@ toggleMenu.addEventListener("click", () => {
 const switchInput = document.getElementById("theme-switch");
 const body = document.body;
 const preferredTheme = localStorage.getItem("preferredTheme");
-if (preferredTheme) {
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+if (!preferredTheme) {
+  body.classList.toggle(systemTheme);
+  localStorage.setItem("preferredTheme", systemTheme);
+} else {
   body.classList.toggle(preferredTheme);
 }
 
