@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Al-Fatiha</title>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .verse-number {
+        display: inline-block;
+        width: 30px;
+        font-weight: bold;
+      }
+
+      .arabic {
+        font-family: "Arial Unicode MS", "Scheherazade", serif;
+        font-size: 30px;
+      }
+
+      .translation {
+        display: block;
+        font-size: 20px;
+        color: #555;
+      }
+
+      .basmala {
+        text-align: center;
+        font-size: 32px;
+        margin: 30px 0 50px 0;
+      }
+
+      .sura {
+        text-align: center;
+        font-size: 26px;
+        margin-top: 40px;
+      }
+
+      .ayah {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .verse-input {
+        border: none;
+        border-bottom: 1px solid #000;
+        background-color: transparent;
+      }
+
+      .keyboard {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .keyboard {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(100%);
+        transition: transform 0.3s ease-out;
+      }
+
+      .keyboard.show {
+        transform: translateY(0);
+      }
+
+      .keyboard-row {
+        display: flex;
+        justify-content: center;
+      }
+
+      .keyboard-key {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      #output {
+        width: 100%;
+        height: 200px;
+      }
+    </style>
+
+    <div class="sura">سورة الفاتحة</div>
+    <div class="basmala"></div>
+
+    <div id="table"></div>
+
+    <button id="editButton">Modifier les versets</button>
+    <button id="checkButton">Correction</button>
+
+    <!--TEMPLATE-->
+    <script>
+      // Données de la sourate Al-Fatiha
+      const data = [
+        {
+          verseNumber: "١",
+          arabicText: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+          translationText: "",
+        },
+        {
+          verseNumber: "٢",
+          arabicText: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+          translationText: "",
+        },
+        {
+          verseNumber: "٣",
+          arabicText: "الرَّحْمَٰنِ الرَّحِيمِ",
+          translationText: "",
+        },
+      ];
+
+      // Fonction pour créer dynamiquement les éléments HTML et les ajouter au tableau
+      const populateTable = () => {
+        const table = document.getElementById("table");
+
+        data.forEach((verse) => {
+          const verseDiv = document.createElement("div");
+          verseDiv.className = "ayah";
+
+          const verseNumberSpan = document.createElement("span");
+          verseNumberSpan.className = "verse-number";
+          verseNumberSpan.textContent = verse.verseNumber;
+
+          const arabicTextSpan = document.createElement("span");
+          arabicTextSpan.className = "arabic";
+          arabicTextSpan.textContent = verse.arabicText;
+
+          const translationSpan = document.createElement("span");
+          translationSpan.className = "translation";
+          translationSpan.textContent = verse.translationText;
+
+          verseDiv.appendChild(verseNumberSpan);
+          verseDiv.appendChild(arabicTextSpan);
+          verseDiv.appendChild(translationSpan);
+
+          table.appendChild(verseDiv);
+        });
+      };
+
+      populateTable();
+
+      // Fonction pour masquer le texte et afficher les zones de texte
+      const hideTextAndShowInput = () => {
+        const ayahs = document.getElementsByClassName("ayah");
+        for (let i = 0; i < ayahs.length; i++) {
+          const ayah = ayahs[i];
+          const verseText = ayah.querySelector(".arabic");
+          const verseInput = document.createElement("input");
+          verseInput.type = "search";
+          verseInput.classList.add("verse-input");
+          verseInput.placeholder = "Réécrivez le verset...";
+          verseInput.autocomplete = "off";
+          verseInput.size = verseText.textContent.length;
+          ayah.replaceChild(verseInput, verseText);
+        }
+      };
+
+      document
+        .getElementById("editButton")
+        .addEventListener("click", hideTextAndShowInput);
+
+      // Fonction pour corriger les réponses des utilisateurs
+      const checkAnswers = () => {
+        const inputs = document.getElementsByClassName("verse-input");
+
+        for (let i = 0; i < inputs.length; i++) {
+          const input = inputs[i];
+          const userAnswer = input.value.trim();
+          const verse = data[i];
+
+          // Comparaison de la réponse utilisateur avec le verset correspondant
+          if (userAnswer === verse.arabicText) {
+            input.classList.add("correct");
+            input.classList.remove("incorrect");
+          } else {
+            input.classList.add("incorrect");
+            input.classList.remove("correct");
+          }
+        }
+      };
+
+      // Écouteur d'événement pour le bouton "Vérifier les réponses"
+      document
+        .getElementById("checkButton")
+        .addEventListener("click", checkAnswers);
+    </script>
+    <!--KEYBOARD-->
+    <script>
+      const generateVirtualKeyboard = () => {
+        const keyboardContainer = document.createElement("div");
+        keyboardContainer.classList.add("keyboard");
+
+        const keyboardRow = document.createElement("div");
+        keyboardRow.classList.add("keyboard-row");
+
+        const keyboardKeys = ["A", "B", "C", "D", "E", "F"];
+
+        keyboardKeys.forEach((key) => {
+          const button = document.createElement("button");
+          button.classList.add("keyboard-key");
+          button.textContent = key;
+
+          keyboardRow.appendChild(button);
+        });
+
+        keyboardContainer.appendChild(keyboardRow);
+
+        document.body.appendChild(keyboardContainer);
+      };
+
+      const attachKeyboardEvents = (input) => {
+        const keyboardKeys = document.querySelectorAll(".keyboard-key");
+        const keyboard = document.querySelector(".keyboard");
+
+        keyboardKeys.forEach((key) => {
+          key.addEventListener("click", () => {
+            const character = key.textContent;
+
+            const selectedInput = document.querySelector(
+              ".verse-input.selected"
+            );
+
+            if (input === selectedInput) {
+              selectedInput.value += character;
+            }
+          });
+
+          key.addEventListener("mousedown", (event) => {
+            event.preventDefault();
+          });
+        });
+
+        input.addEventListener("click", () => {
+          const inputFields = document.querySelectorAll(".verse-input");
+          inputFields.forEach((i) => i.classList.remove("selected"));
+          input.classList.add("selected");
+        });
+
+        input.addEventListener("focus", () => {
+          keyboard.classList.add("show");
+        });
+
+        input.addEventListener("blur", () => {
+          keyboard.classList.remove("show");
+        });
+      };
+
+      const observer = new MutationObserver((mutationsList) => {
+        mutationsList.forEach((mutation) => {
+          if (mutation.addedNodes.length > 0) {
+            mutation.addedNodes.forEach((node) => {
+              if (
+                node.tagName === "INPUT" &&
+                node.classList.contains("verse-input")
+              ) {
+                attachKeyboardEvents(node);
+              }
+            });
+          }
+        });
+      });
+
+      const config = {
+        childList: true,
+        subtree: true,
+      };
+
+      observer.observe(document, config);
+
+      generateVirtualKeyboard();
+    </script>
+  </body>
+</html>
