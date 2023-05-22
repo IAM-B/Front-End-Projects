@@ -1,12 +1,3 @@
-// Function that redirects to the vocabulary section after loading
-function redirectToSection() {
-  setTimeout(function () {
-  const section = document.getElementById("vocabLI");
-  const offset = section.offsetTop - 120;
-  window.scrollTo({ top: offset, behavior: "smooth" });
-  }, 2000);
-}
-
 // Function that redirects to the top of the page on reload
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
@@ -53,7 +44,6 @@ window.addEventListener("scroll", () => {
 const toggleMenu = document.querySelector(".toggleMenu");
 const sidemenu = document.querySelector(".sidemenu");
 const overlay = document.querySelector(".sidemenu-overlay");
-
 toggleMenu.addEventListener("click", () => {
   if (!toggleMenu.classList.contains("active")) {
     sidemenu.classList.add("showmenu");
@@ -79,7 +69,6 @@ if (!preferredTheme) {
 } else {
   body.classList.toggle(preferredTheme);
 }
-
 switchInput.addEventListener("change", function () {
   body.classList.toggle("dark");
   if (body.classList.contains("dark")) {

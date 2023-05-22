@@ -188,7 +188,7 @@ const vocab = () => {
     );
   }
   const section = document.getElementById("exerciceSection");
-  const offset = section.offsetTop - 120;
+  const offset = section.offsetTop - 130;
   window.scrollTo({ top: offset, behavior: "smooth" });
 
   const ChampTxt = document.getElementById("Aff");
@@ -253,7 +253,7 @@ const showCorrections = () => {
     );
   }
   const section = document.getElementById("exerciceSection");
-  const offset = section.offsetTop - 120;
+  const offset = section.offsetTop - 130;
   window.scrollTo({ top: offset, behavior: "smooth" });
 
   const ChampTxt = document.getElementById("Aff");
@@ -311,7 +311,7 @@ const resetForm = () => {
     input.classList.add("correct-answer");
   });
   const section = document.getElementById("exerciceSection");
-  const offset = section.offsetTop - 120;
+  const offset = section.offsetTop - 130;
   window.scrollTo({ top: offset, behavior: "smooth" });
 
   const affDiv = document.getElementById("Aff");
@@ -331,7 +331,16 @@ const showExerciseSection = () => {
   setTimeout(() => {
     vocabSection.style.display = "none";
     exerciseSection.style.display = "block";
-    const offset = exerciseSection.offsetTop - 120;
+    const offset = exerciseSection.offsetTop - 130;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 500);
 };
+
+// Function that redirects to the vocabulary section after loading
+function redirectToSection() {
+  setTimeout(function () {
+  const section = document.getElementById("vocabLI");
+  const offset = section.offsetTop - 130;
+  window.scrollTo({ top: offset, behavior: "smooth" });
+  }, 2000);
+}
