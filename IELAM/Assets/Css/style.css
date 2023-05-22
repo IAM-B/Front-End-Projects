@@ -282,29 +282,33 @@ legend {
 }
 .p1 {
   font-family: "Cairo", sans-serif;
-  font-weight: bold;
+  font-weight: 100;
   color: #08f417;
   text-align: center;
   font-size: 2em;
   margin: 50px auto;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: var(--couleur-box-shadow-int);
+  text-shadow: var(--couleur-text-shadow);
 }
-.p2 {
-  font-family: "Cairo", sans-serif;
-  font-weight: bold;
-  color: var(--couleur-text);
-  text-align: center;
-  font-size: 1.5em;
-  margin-bottom: 0px;
-}
+.p2,
 .p3,
 .p4 {
   font-family: "Cairo", sans-serif;
-  font-weight: bold;
-  color: #ff0000;
+  font-weight: 100;
+  color: var(--couleur-text);
   text-align: center;
   font-size: 1.5em;
-  margin-top: 0;
-  margin-bottom: 50px;
+  margin-bottom: -40px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: var(--couleur-box-shadow-int);
+  text-shadow: var(--couleur-text-shadow);
+}
+.p3,
+.p4 {
+  margin-bottom: 40px;
 }
 .inline-vocabulary,
 .inline-input {
@@ -469,6 +473,11 @@ input:focus {
   color: var(--couleur-text);
   font-weight: bold;
   margin-top: 10px;
+  margin-left: 50%;
+  transform: translate(-50%);
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: var(--couleur-box-shadow-out);
 }
 .oVYRo::before,
 .oVYRo::after {

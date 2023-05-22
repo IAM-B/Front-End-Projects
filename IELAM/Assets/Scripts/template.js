@@ -118,55 +118,57 @@ function generateVocabularies() {
 // Function to create HTML input elements for the exercise section
 let counter = -1;
 function processVocabularies(vocabularies) {
-vocabularies.forEach((vocab) => {
-  const vocabularyDiv = document.createElement("div");
-  vocabularyDiv.classList.add("vocabulary");
+  vocabularies.forEach((vocab) => {
+    const vocabularyDiv = document.createElement("div");
+    vocabularyDiv.classList.add("vocabulary");
 
-  const vocabLabel = document.createElement("label");
-  vocabLabel.classList.add("vocabFR");
-  vocabLabel.textContent = vocab.fr;
+    const vocabLabel = document.createElement("label");
+    vocabLabel.classList.add("vocabFR");
+    vocabLabel.textContent = vocab.fr;
 
-  const inputDiv = document.createElement("div");
-  inputDiv.classList.add("inline-input");
+    const inputDiv = document.createElement("div");
+    inputDiv.classList.add("inline-input");
 
-  vocab.ar.reverse().forEach((word, i) => {
-    if (word !== "/" && word !== "ou") {
-      const vocabInput = document.createElement("input");
-      vocabInput.setAttribute("type", "text");
-      vocabInput.setAttribute("required", "");
-      vocabInput.classList.add("InputFill");
-      vocabInput.setAttribute("autocomplete", "off");
+    vocab.ar.reverse().forEach((word, i) => {
+      if (word !== "/" && word !== "ou") {
+        const vocabInput = document.createElement("input");
+        vocabInput.setAttribute("type", "text");
+        vocabInput.setAttribute("required", "");
+        vocabInput.classList.add("InputFill");
+        vocabInput.setAttribute("autocomplete", "off");
 
-      vocabInput.setAttribute("id", `input-${counter}`);
-      counter++;
+        vocabInput.setAttribute("id", `input-${counter}`);
+        counter++;
 
-      if (i > 0 && (vocab.ar[i - 1] === "/" || vocab.ar[i - 1] === "ou")) {
-        if (vocab.ar[i - 1] === "/") {
-          vocabInput.setAttribute(
-            "placeholder",
-            `...${vocab.ar[i - 1]} اَلْجَمْعُ`
-          );
-          console.log(`input-${counter} correspond à : اَلْجَمْعُ/... ${word}`);
+        if (i > 0 && (vocab.ar[i - 1] === "/" || vocab.ar[i - 1] === "ou")) {
+          if (vocab.ar[i - 1] === "/") {
+            vocabInput.setAttribute(
+              "placeholder",
+              `...${vocab.ar[i - 1]} اَلْجَمْعُ`
+            );
+            console.log(
+              `input-${counter} correspond à : اَلْجَمْعُ/... ${word}`
+            );
+          } else {
+            vocabInput.setAttribute("placeholder", `...${vocab.ar[i - 1]}`);
+            console.log(
+              `input-${counter} correspond à : ${word} ...${vocab.ar[i - 1]}`
+            );
+          }
         } else {
-          vocabInput.setAttribute("placeholder", `...${vocab.ar[i - 1]}`);
-          console.log(
-            `input-${counter} correspond à : ${word} ...${vocab.ar[i - 1]}`
-          );
+          vocabInput.setAttribute("placeholder", "...");
+          console.log(`input-${counter} correspond à : ${word} ...`);
         }
-      } else {
-        vocabInput.setAttribute("placeholder", "...");
-        console.log(`input-${counter} correspond à : ${word} ...`);
+
+        vocabInput.setAttribute("id", `${counter}`);
+        inputDiv.insertBefore(vocabInput, inputDiv.firstChild);
       }
+    });
 
-      vocabInput.setAttribute("id", `${counter}`);
-      inputDiv.insertBefore(vocabInput, inputDiv.firstChild);
-    }
+    vocabularyDiv.appendChild(vocabLabel);
+    vocabularyDiv.appendChild(inputDiv);
+    document.querySelector("#exo").appendChild(vocabularyDiv);
   });
-
-  vocabularyDiv.appendChild(vocabLabel);
-  vocabularyDiv.appendChild(inputDiv);
-  document.querySelector("#exo").appendChild(vocabularyDiv);
-});
 }
 
 // Function that removes special characters
@@ -190,6 +192,8 @@ const vocab = () => {
   window.scrollTo({ top: offset, behavior: "smooth" });
 
   const ChampTxt = document.getElementById("Aff");
+  ChampTxt.style.display = "block";
+  
   let score = 0;
   let goodRep = [];
   let goodRep2 = [];
@@ -310,10 +314,10 @@ const resetForm = () => {
   const offset = section.offsetTop - 120;
   window.scrollTo({ top: offset, behavior: "smooth" });
 
-  const alertElement = document.querySelectorAll(".alert");
-  alertElement.forEach((alert) => {
-    alert.remove();
-  });
+  const affDiv = document.getElementById("Aff");
+  if (affDiv) {
+    affDiv.style.display = "none";
+  }
 };
 
 // Function that hides the vocabulary and displays the exercise section
