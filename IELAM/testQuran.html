@@ -2,6 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <title>Al-Fatiha</title>
   </head>
   <body>
@@ -52,40 +56,61 @@
       }
 
       .verse-input {
+        direction: rtl;
+        text-align: right;
         border: none;
         border-bottom: 1px solid #000;
         background-color: transparent;
       }
 
+      input:focus {
+        outline: none;
+      }
+
+      i.fas.fa-trash {
+        color: black;
+      }
+
       .keyboard {
-        display: flex;
-        flex-direction: column;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
         background-color: #f5f5f5;
         border: 1px solid #ccc;
-        padding: 10px;
+        padding: 2%;
         border-radius: 5px;
-        transform: translateY(300%);
+        transform: translateY(100%);
         transition: transform 0.3s ease-out;
+        z-index: 9999;
+      }
+
+      .keyboard.show {
+        transform: translateY(0);
       }
 
       .keyboard-row {
         display: flex;
         justify-content: center;
-        margin-bottom: 5px;
+        align-items: center;
+        margin-bottom: 1%;
+        flex-wrap: wrap;
       }
 
       .keyboard-key {
-        width: 40px;
-        height: 40px;
+        display: flex;
+        width: 10%;
+        height: 10vh;
+        padding: 1%;
+        font-size: 3vh;
+        font-weight: 400;
         background-color: #fff;
         border: 1px solid #ccc;
         border-radius: 5px;
-        margin: 0 5px;
-        display: flex;
+        margin: 0 1%;
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        font-size: 16px;
       }
 
       .keyboard-key:hover {
@@ -96,23 +121,55 @@
         background-color: #ccc;
       }
 
-      .keyboard.show {
-        transform: translateY(0);
-      }
-
-      .keyboard-row {
+      .keyboard-key.direction {
         display: flex;
+        width: 11%;
+        margin: 0 1px;
         justify-content: center;
+        align-items: center;
       }
 
-      .keyboard-key {
-        padding: 10px;
-        font-size: 16px;
+      .keyboard-key.space {
+        margin-left: auto;
       }
 
-      #output {
-        width: 100%;
-        height: 200px;
+      @media (max-width: 767px) {
+        .keyboard-key {
+          width: 7%;
+          height: 5vh;
+          font-size: 2.5vh;
+        }
+
+        .keyboard-key.space {
+          width: 35%;
+          margin-right: 10%;
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 991px) {
+        .keyboard-key {
+          width: 7%;
+          height: 6vh;
+          font-size: 3vh;
+        }
+
+        .keyboard-key.space {
+          width: 40%;
+          margin-right: 7%;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .keyboard-key {
+          width: 5%;
+          height: 7vh;
+          font-size: 3vh;
+        }
+
+        .keyboard-key.space {
+          width: 45%;
+          margin-right: 5%;
+        }
       }
     </style>
 
@@ -121,7 +178,7 @@
 
     <div id="table"></div>
 
-    <button id="editButton">Modifier les versets</button>
+    <button id="editButton">Exercice</button>
     <button id="checkButton">Correction</button>
 
     <!--TEMPLATE-->
@@ -186,7 +243,7 @@
           verseInput.classList.add("verse-input");
           verseInput.placeholder = "Réécrivez le verset...";
           verseInput.autocomplete = "off";
-          verseInput.readOnly = true;
+          verseInput.setAttribute("inputmode", "none");
           verseInput.size = verseText.textContent.length;
           ayah.replaceChild(verseInput, verseText);
         }
@@ -250,6 +307,71 @@
           keyboardContainer.appendChild(keyboardRow);
         });
 
+        // Ajout de la barre d'espace et du bouton de suppression des caractères
+        const spaceDeleteRow = document.createElement("div");
+        spaceDeleteRow.classList.add("keyboard-row");
+
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("keyboard-key", "delete");
+        deleteButton.innerHTML =
+          "<span class='delete-icon'><i class='fas fa-chevron-right'></i></span>";
+        deleteButton.addEventListener("click", () => {
+          const selectedInput = document.querySelector(".verse-input.selected");
+          if (selectedInput) {
+            const currentValue = selectedInput.value;
+            const currentCursorPosition = selectedInput.selectionStart;
+            const textBeforeCursor = currentValue.substring(
+              0,
+              currentCursorPosition - 1
+            );
+            const textAfterCursor = currentValue.substring(
+              currentCursorPosition
+            );
+            selectedInput.value = textBeforeCursor + textAfterCursor;
+            selectedInput.selectionStart = currentCursorPosition - 1;
+            selectedInput.selectionEnd = currentCursorPosition - 1;
+          }
+        });
+
+        spaceDeleteRow.appendChild(deleteButton);
+
+        const spaceButton = document.createElement("button");
+        spaceButton.classList.add("keyboard-key", "space");
+        spaceButton.textContent = " ";
+        spaceDeleteRow.appendChild(spaceButton);
+
+        const leftButton = document.createElement("button");
+        leftButton.classList.add("keyboard-key", "direction");
+        leftButton.innerHTML = "<i class='fas fa-arrow-left'></i>";
+        leftButton.addEventListener("click", () => {
+          const selectedInput = document.querySelector(".verse-input.selected");
+          if (selectedInput) {
+            const currentCursorPosition = selectedInput.selectionStart;
+            if (currentCursorPosition < selectedInput.value.length) {
+              selectedInput.selectionStart = currentCursorPosition + 1;
+              selectedInput.selectionEnd = currentCursorPosition + 1;
+            }
+          }
+        });
+        spaceDeleteRow.appendChild(leftButton);
+
+        const rightButton = document.createElement("button");
+        rightButton.classList.add("keyboard-key", "direction");
+        rightButton.innerHTML = "<i class='fas fa-arrow-right'></i>";
+        rightButton.addEventListener("click", () => {
+          const selectedInput = document.querySelector(".verse-input.selected");
+          if (selectedInput) {
+            const currentCursorPosition = selectedInput.selectionStart;
+            if (currentCursorPosition > 0) {
+              selectedInput.selectionStart = currentCursorPosition - 1;
+              selectedInput.selectionEnd = currentCursorPosition - 1;
+            }
+          }
+        });
+        spaceDeleteRow.appendChild(rightButton);
+
+        keyboardContainer.appendChild(spaceDeleteRow);
+
         document.body.appendChild(keyboardContainer);
       };
 
@@ -283,10 +405,18 @@
 
         input.addEventListener("focus", () => {
           keyboard.classList.add("show");
+          const inputLength = input.value.length;
+          input.setSelectionRange(inputLength, inputLength); // Positionne le curseur à la fin du texte
         });
 
         input.addEventListener("blur", () => {
           keyboard.classList.remove("show");
+        });
+
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+            event.preventDefault(); // Empêche la navigation par défaut des flèches gauche et droite
+          }
         });
       };
 
