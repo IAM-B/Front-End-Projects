@@ -16,10 +16,6 @@
         padding: 20px;
       }
 
-      .hidden {
-        display: none;
-      }
-
       .verse-number {
         display: inline-block;
         width: 30px;
@@ -67,8 +63,23 @@
         outline: none;
       }
 
-      i.fas.fa-trash {
-        color: black;
+      .verse-text {
+        display: inline-block;
+      }
+
+      .error {
+        color: red;
+        background-color: rgba(255, 0, 0, 0.2);
+        padding: 2px;
+      }
+
+      .error-message {
+        display: block;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      .word-wrapper {
+        display: inline;
       }
 
       .keyboard {
@@ -178,28 +189,6 @@
           width: 45%;
           margin-right: 5%;
         }
-      }
-
-      .verse-text {
-        display: inline-block;
-      }
-
-      .error {
-        color: red;
-        background-color: rgba(255, 0, 0, 0.2);
-        padding: 2px;
-      }
-
-      .error-message {
-        display: block;
-        font-size: 14px;
-        margin-top: 5px;
-      }
-      .word-wrapper {
-        display: inline;
-      }
-      .error-word {
-        color: red;
       }
     </style>
 
@@ -318,7 +307,7 @@
             verseSpan.appendChild(wordSpan);
           });
 
-          let errorElement = document.createElement("span"); // Correction : Déclarer la variable errorElement ici
+          let errorElement = document.createElement("span");
           errorElement.classList.add("error-message");
 
           if (userAnswer === verse.arabicText) {
@@ -331,17 +320,14 @@
             userWords.forEach((userWord, wordIndex) => {
               const wordSpan = document.createElement("span");
 
-              // Vérifier si le mot existe dans le verset
               const verseWords = verse.arabicText.split(" ");
               const matchingWord = verseWords.find(
                 (verseWord) => verseWord === userWord
               );
 
               if (matchingWord) {
-                // Le mot est correct
                 wordSpan.textContent = userWord + " ";
               } else {
-                // Le mot contient une erreur
                 const errorSpan = document.createElement("span");
                 errorSpan.classList.add("error");
                 errorSpan.textContent = userWord + " ";
@@ -350,7 +336,6 @@
 
               errorWordSpan.appendChild(wordSpan);
 
-              // Ajouter un espace après chaque mot, sauf le dernier
               if (wordIndex !== userWords.length - 1) {
                 errorWordSpan.appendChild(document.createTextNode(" "));
               }
@@ -366,7 +351,6 @@
         });
       };
 
-      // Écouteur d'événement pour le bouton "Vérifier les réponses"
       document
         .getElementById("checkButton")
         .addEventListener("click", checkAnswers);
@@ -378,11 +362,11 @@
         keyboardContainer.classList.add("keyboard");
 
         const keyboardRows = [
-          ["ّ", "َ", "ً", "ُ", "ٌ", "ِ", "ٍ", "ْ", "ٰ", "ۡ"],
-          ["ض", "ص", "ث", "ق", "ف", "غ", "ع", "ه", "خ", "ح", "ج"],
-          ["ش", "س", "ي", "ب", "ل", "ا", "ت", "ن", "م", "ك"],
-          ["ء", "ؤ", "ر", "لا", "ى", "ة", "و", "ز", "ظ"],
-          ["ا", "أ", "إ", "آ", "ئ", "ؤ", "ء"],
+          ["~","ّ", "َ", "ً", "ُ", "ٌ", "ِ", "ٍ", "ْ", "ٰ", "ۡ"],
+          ["ض", "ص", "ث", "ق", "ف", "غ", "ع", "ه", "خ", "ح", "ج","د"],
+          ["ش", "س", "ي", "ب", "ل", "ا", "ت", "ن", "م", "ك", "ط"],
+          ["أ", "إ", "ذ", "ر", "لا", "ى", "ة", "و", "ز", "ظ"],
+          ["ﻹ", "ﻷ", "ﻵ", "آ", "ئ", "ء", "ؤ", "،","٬"],
         ];
 
         keyboardRows.forEach((row) => {
