@@ -140,6 +140,10 @@
           font-size: 2.5vh;
         }
 
+        button.keyboard-key.delete {
+          width: 15%;
+        }
+
         .keyboard-key.space {
           width: 35%;
           margin-right: 10%;
@@ -151,6 +155,10 @@
           width: 7%;
           height: 6vh;
           font-size: 3vh;
+        }
+
+        button.keyboard-key.delete {
+          width: 10%;
         }
 
         .keyboard-key.space {
@@ -170,6 +178,28 @@
           width: 45%;
           margin-right: 5%;
         }
+      }
+
+      .verse-text {
+        display: inline-block;
+      }
+
+      .error {
+        color: red;
+        background-color: rgba(255, 0, 0, 0.2);
+        padding: 2px;
+      }
+
+      .error-message {
+        display: block;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      .word-wrapper {
+        display: inline;
+      }
+      .error-word {
+        color: red;
       }
     </style>
 
@@ -255,22 +285,85 @@
 
       // Fonction pour corriger les réponses des utilisateurs
       const checkAnswers = () => {
-        const inputs = document.getElementsByClassName("verse-input");
+        const inputs = document.querySelectorAll("#table .verse-input");
 
-        for (let i = 0; i < inputs.length; i++) {
-          const input = inputs[i];
+        inputs.forEach((input, index) => {
           const userAnswer = input.value.trim();
-          const verse = data[i];
+          const verse = data[index];
 
-          // Comparaison de la réponse utilisateur avec le verset correspondant
+          const verseSpan = document.createElement("span");
+          verseSpan.classList.add("verse-text");
+
+          const verseWords = verse.arabicText.split(" ");
+
+          verseWords.forEach((word) => {
+            const wordSpan = document.createElement("span");
+
+            if (userAnswer.includes(word)) {
+              wordSpan.textContent = word + " ";
+            } else {
+              const wordWrapperSpan = document.createElement("span");
+              wordWrapperSpan.classList.add("word-wrapper");
+
+              const errorWordSpan = document.createElement("span");
+              errorWordSpan.classList.add("error");
+              errorWordSpan.textContent = word;
+
+              wordWrapperSpan.appendChild(errorWordSpan);
+              wordWrapperSpan.innerHTML += " ";
+
+              wordSpan.appendChild(wordWrapperSpan);
+            }
+
+            verseSpan.appendChild(wordSpan);
+          });
+
+          let errorElement = document.createElement("span"); // Correction : Déclarer la variable errorElement ici
+          errorElement.classList.add("error-message");
+
           if (userAnswer === verse.arabicText) {
-            input.classList.add("correct");
-            input.classList.remove("incorrect");
+            errorElement.textContent = "Correct";
+            errorElement.classList.add("correct");
           } else {
-            input.classList.add("incorrect");
-            input.classList.remove("correct");
+            const userWords = userAnswer.split(" ");
+            const errorWordSpan = document.createElement("span");
+
+            userWords.forEach((userWord, wordIndex) => {
+              const wordSpan = document.createElement("span");
+
+              // Vérifier si le mot existe dans le verset
+              const verseWords = verse.arabicText.split(" ");
+              const matchingWord = verseWords.find(
+                (verseWord) => verseWord === userWord
+              );
+
+              if (matchingWord) {
+                // Le mot est correct
+                wordSpan.textContent = userWord + " ";
+              } else {
+                // Le mot contient une erreur
+                const errorSpan = document.createElement("span");
+                errorSpan.classList.add("error");
+                errorSpan.textContent = userWord + " ";
+                wordSpan.appendChild(errorSpan);
+              }
+
+              errorWordSpan.appendChild(wordSpan);
+
+              // Ajouter un espace après chaque mot, sauf le dernier
+              if (wordIndex !== userWords.length - 1) {
+                errorWordSpan.appendChild(document.createTextNode(" "));
+              }
+            });
+
+            errorElement.textContent = "Erreur :";
+            errorElement.appendChild(errorWordSpan);
+            errorElement.classList.add("incorrect");
           }
-        }
+
+          input.parentNode.appendChild(errorElement);
+          input.parentNode.replaceChild(verseSpan, input);
+        });
       };
 
       // Écouteur d'événement pour le bouton "Vérifier les réponses"
