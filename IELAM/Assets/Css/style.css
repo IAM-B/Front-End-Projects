@@ -10,6 +10,7 @@
   --couleur-box-shadow-out: -3px -3px 3px #ffffff44, 3px 3px 3px #898e9244;
   --couleur-text-shadow: -1px -2px 3px #ffffff77, 1px 2px 3px #898e9244;
   --couleur-switch: #ffffff;
+  --font-arabic: "Amiri Quran", serif;
 }
 body.dark {
   --couleur-fond: #0d1117;
@@ -406,7 +407,7 @@ span.vocabAR.and {
   width: 0px;
   margin: 0 35px 0 10px;
 }
-.InputFill {
+.input-fill {
   margin-right: 5px;
   font-family: "Amiri Quran", serif;
   text-align: right !important;
@@ -730,7 +731,7 @@ input:focus {
     order: 3;
   }
 
-  input.InputFill {
+  input.input-fill {
     color: var(--couleur-text);
     width: 50%;
     margin: 2px 3px 5px 0;

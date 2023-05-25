@@ -13,6 +13,20 @@ const fetchData = async () => {
   }
 };
 
+// Fonction pour récupérer les données à partir d'une requête HTTP
+const fetchPartsData = async () => {
+  try {
+    const response = await fetch(
+      "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Quran/Assets/JSON/page-indices-lookup.json"
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des données:", error);
+    return {};
+  }
+};
+
 // Fonction pour créer dynamiquement les éléments HTML et les ajouter au tableau
 const populateTable = async () => {
   const table = document.getElementById("table");
@@ -20,7 +34,9 @@ const populateTable = async () => {
   try {
     const data = await fetchData();
 
-    const verses = Object.values(data["114"]);
+    const verses = Object.values(data["1"]);
+    const verseContainer = document.createElement("div");
+    verseContainer.id = "verse-container";
 
     verses.forEach((verse, index) => {
       const verseDiv = document.createElement("div");
@@ -36,14 +52,17 @@ const populateTable = async () => {
 
       verseDiv.appendChild(verseNumberSpan);
       verseDiv.appendChild(arabicTextSpan);
-
-      table.appendChild(verseDiv);
+      verseContainer.appendChild(verseDiv);
     });
+
+    table.appendChild(verseContainer);
   } catch (error) {
     console.error("Erreur lors du peuplement du tableau:", error);
   }
 };
+
 populateTable();
+
 
 // Fonction pour masquer le texte et afficher les zones de texte
 const hideTextAndShowInput = () => {
@@ -53,7 +72,7 @@ const hideTextAndShowInput = () => {
     const verseText = ayah.querySelector(".arabic");
     const verseInput = document.createElement("input");
     verseInput.type = "search";
-    verseInput.classList.add("verse-input");
+    verseInput.classList.add("input-fill");
     verseInput.placeholder = "Réécrivez le verset...";
     verseInput.autocomplete = "off";
     verseInput.setAttribute("inputmode", "none");
@@ -65,13 +84,42 @@ const hideTextAndShowInput = () => {
 document
   .getElementById("editButton")
   .addEventListener("click", hideTextAndShowInput);
-
+  
+  const displayPart = async () => {
+    try {
+      const partsData = await fetchPartsData();
+  
+      const extractedData = partsData.map((part) => {
+        return {
+          start: {
+            surah: part.start.surah,
+            ayah: part.start.ayah
+          },
+          end: {
+            surah: part.end.surah,
+            ayah: part.end.ayah
+          }
+        };
+      });
+  
+      const start = extractedData[0].start;
+      const end = extractedData[0].end;
+  
+      console.log(start);
+      console.log(end);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  displayPart();  
+  
 // Fonction pour corriger les réponses des utilisateurs
 const checkAnswers = async () => {
   try {
     const data = await fetchData();
 
-    const inputs = document.querySelectorAll("#table .verse-input");
+    const inputs = document.querySelectorAll("#table .input-fill");
 
     inputs.forEach((input, index) => {
       const userAnswer = input.value.trim();
@@ -152,164 +200,3 @@ const checkAnswers = async () => {
 };
 
 document.getElementById("checkButton").addEventListener("click", checkAnswers);
-
-//KEYBOARD
-const generateVirtualKeyboard = () => {
-  const keyboardContainer = document.createElement("div");
-  keyboardContainer.classList.add("keyboard");
-
-  const keyboardRows = [
-    ["~", "ّ", "َ", "ً", "ُ", "ٌ", "ِ", "ٍ", "ْ", "ٰ", "ۡ"],
-    ["ض", "ص", "ث", "ق", "ف", "غ", "ع", "ه", "خ", "ح", "ج", "د"],
-    ["ش", "س", "ي", "ب", "ل", "ا", "ت", "ن", "م", "ك", "ط"],
-    ["أ", "إ", "ذ", "ر", "لا", "ى", "ة", "و", "ز", "ظ"],
-    ["ﻹ", "ﻷ", "ﻵ", "آ", "ئ", "ء", "ؤ", "،", "٬"],
-  ];
-
-  keyboardRows.forEach((row) => {
-    const keyboardRow = document.createElement("div");
-    keyboardRow.classList.add("keyboard-row");
-
-    row.forEach((key) => {
-      const button = document.createElement("button");
-      button.classList.add("keyboard-key");
-      button.textContent = key;
-
-      keyboardRow.appendChild(button);
-    });
-
-    keyboardContainer.appendChild(keyboardRow);
-  });
-
-  // Ajout de la barre d'espace et du bouton de suppression des caractères
-  const spaceDeleteRow = document.createElement("div");
-  spaceDeleteRow.classList.add("keyboard-row");
-
-  const deleteButton = document.createElement("button");
-  deleteButton.classList.add("keyboard-key", "delete");
-  deleteButton.innerHTML =
-    "<span class='delete-icon'><i class='fas fa-chevron-right'></i></span>";
-  deleteButton.addEventListener("click", () => {
-    const selectedInput = document.querySelector(".verse-input.selected");
-    if (selectedInput) {
-      const currentValue = selectedInput.value;
-      const currentCursorPosition = selectedInput.selectionStart;
-      const textBeforeCursor = currentValue.substring(
-        0,
-        currentCursorPosition - 1
-      );
-      const textAfterCursor = currentValue.substring(currentCursorPosition);
-      selectedInput.value = textBeforeCursor + textAfterCursor;
-      selectedInput.selectionStart = currentCursorPosition - 1;
-      selectedInput.selectionEnd = currentCursorPosition - 1;
-    }
-  });
-
-  spaceDeleteRow.appendChild(deleteButton);
-
-  const spaceButton = document.createElement("button");
-  spaceButton.classList.add("keyboard-key", "space");
-  spaceButton.textContent = " ";
-  spaceDeleteRow.appendChild(spaceButton);
-
-  const leftButton = document.createElement("button");
-  leftButton.classList.add("keyboard-key", "direction");
-  leftButton.innerHTML = "<i class='fas fa-arrow-left'></i>";
-  leftButton.addEventListener("click", () => {
-    const selectedInput = document.querySelector(".verse-input.selected");
-    if (selectedInput) {
-      const currentCursorPosition = selectedInput.selectionStart;
-      if (currentCursorPosition < selectedInput.value.length) {
-        selectedInput.selectionStart = currentCursorPosition + 1;
-        selectedInput.selectionEnd = currentCursorPosition + 1;
-      }
-    }
-  });
-  spaceDeleteRow.appendChild(leftButton);
-
-  const rightButton = document.createElement("button");
-  rightButton.classList.add("keyboard-key", "direction");
-  rightButton.innerHTML = "<i class='fas fa-arrow-right'></i>";
-  rightButton.addEventListener("click", () => {
-    const selectedInput = document.querySelector(".verse-input.selected");
-    if (selectedInput) {
-      const currentCursorPosition = selectedInput.selectionStart;
-      if (currentCursorPosition > 0) {
-        selectedInput.selectionStart = currentCursorPosition - 1;
-        selectedInput.selectionEnd = currentCursorPosition - 1;
-      }
-    }
-  });
-  spaceDeleteRow.appendChild(rightButton);
-
-  keyboardContainer.appendChild(spaceDeleteRow);
-
-  document.body.appendChild(keyboardContainer);
-};
-
-const attachKeyboardEvents = (input) => {
-  const keyboardKeys = document.querySelectorAll(".keyboard-key");
-  const keyboard = document.querySelector(".keyboard");
-
-  keyboardKeys.forEach((key) => {
-    key.addEventListener("click", () => {
-      const character = key.textContent;
-
-      const selectedInput = document.querySelector(".verse-input.selected");
-
-      if (input === selectedInput) {
-        selectedInput.value += character;
-      }
-    });
-
-    key.addEventListener("mousedown", (event) => {
-      event.preventDefault();
-    });
-  });
-
-  input.addEventListener("click", () => {
-    const inputFields = document.querySelectorAll(".verse-input");
-    inputFields.forEach((i) => i.classList.remove("selected"));
-    input.classList.add("selected");
-  });
-
-  input.addEventListener("focus", () => {
-    keyboard.classList.add("show");
-    const inputLength = input.value.length;
-    input.setSelectionRange(inputLength, inputLength); // Positionne le curseur à la fin du texte
-  });
-
-  input.addEventListener("blur", () => {
-    keyboard.classList.remove("show");
-  });
-
-  input.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-      event.preventDefault(); // Empêche la navigation par défaut des flèches gauche et droite
-    }
-  });
-};
-
-const observer = new MutationObserver((mutationsList) => {
-  mutationsList.forEach((mutation) => {
-    if (mutation.addedNodes.length > 0) {
-      mutation.addedNodes.forEach((node) => {
-        if (
-          node.tagName === "INPUT" &&
-          node.classList.contains("verse-input")
-        ) {
-          attachKeyboardEvents(node);
-        }
-      });
-    }
-  });
-});
-
-const config = {
-  childList: true,
-  subtree: true,
-};
-
-observer.observe(document, config);
-
-generateVirtualKeyboard();

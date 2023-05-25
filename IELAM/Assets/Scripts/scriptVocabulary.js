@@ -132,14 +132,16 @@ function processVocabularies(vocabularies) {
     vocab.ar.reverse().forEach((word, i) => {
       if (word !== "/" && word !== "ou") {
         const vocabInput = document.createElement("input");
-        vocabInput.setAttribute("type", "text");
+        vocabInput.setAttribute("type", "search");
         vocabInput.setAttribute("required", "");
-        vocabInput.classList.add("InputFill");
+        vocabInput.classList.add("input-fill");
         vocabInput.setAttribute("autocomplete", "off");
+        vocabInput.setAttribute("inputmode", "none");
 
         vocabInput.setAttribute("id", `input-${counter}`);
         counter++;
-
+        attachKeyboardEvents(vocabInput);
+        
         if (i > 0 && (vocab.ar[i - 1] === "/" || vocab.ar[i - 1] === "ou")) {
           if (vocab.ar[i - 1] === "/") {
             vocabInput.setAttribute(
@@ -164,7 +166,6 @@ function processVocabularies(vocabularies) {
         inputDiv.insertBefore(vocabInput, inputDiv.firstChild);
       }
     });
-
     vocabularyDiv.appendChild(vocabLabel);
     vocabularyDiv.appendChild(inputDiv);
     document.querySelector("#exo").appendChild(vocabularyDiv);
