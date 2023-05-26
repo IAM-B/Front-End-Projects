@@ -10985,7 +10985,7 @@
     </style>
     <!--KEYBOARD-->
     <style>
-      @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+      @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
       .keyboard {
         position: fixed;
@@ -11017,7 +11017,7 @@
         display: flex;
         align-items: flex-end;
         justify-content: center;
-        width: 40px;
+        width: 80px;
         height: 60px;
         padding: 5px;
         font-size: 3vh;
@@ -11028,29 +11028,30 @@
         box-shadow: var(--couleur-box-shadow-out);
         border-style: none;
         border-radius: 5px;
-        margin: 3px 1px;
+        margin: 3px 9px;
         cursor: pointer;
       }
 
       .keyboard-key:hover {
-        background-color: var(--couleur-contrast);
+        color: var(--couleur-contrast);
       }
 
       .keyboard-key:active {
-        box-shadow: var(--couleur-box-shadow-out);
+        border-radius: 5px;
+        box-shadow: var(--couleur-box-shadow-int);
       }
 
       .keyboard-key.direction,
       .keyboard-key.delete {
         display: flex;
         width: 80px;
-        margin: 0 1px;
+        margin: 0 9px;
         justify-content: center;
         align-items: center;
       }
 
       .keyboard-key.space {
-        width: 240px;
+        width: 863px;
         margin: 0 9px;
       }
 
@@ -11059,26 +11060,38 @@
           padding: 5px;
         }
         .keyboard-key {
-          width: 30px;
-          height: 50px;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          width: 25px;
+          height: 40px;
           padding: 3px;
+          margin: 3px 1px;
         }
 
+        .keyboard-key.direction,
         .keyboard-key.delete {
+          width: 50px;
+          margin: 0 1px;
         }
 
         .keyboard-key.space {
+        width: 161px;
+        margin: 0 3px;
         }
       }
 
       @media (min-width: 768px) and (max-width: 991px) {
         .keyboard-key {
+
         }
 
         .keyboard-key.delete {
+          
         }
 
         .keyboard-key.space {
+
         }
       }
     </style>
