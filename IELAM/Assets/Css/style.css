@@ -413,6 +413,7 @@ span.vocabAR.and {
   text-align: right !important;
   font-size: 1.1em;
   font-weight: bold;
+  color: var(--couleur-text);
   border: none;
   border-radius: 5px;
   font-weight: bold;
