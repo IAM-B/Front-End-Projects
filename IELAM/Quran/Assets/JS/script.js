@@ -27,14 +27,45 @@ const fetchPartsData = async () => {
   }
 };
 
-// Fonction pour créer dynamiquement les éléments HTML et les ajouter au tableau
-const populateTable = async () => {
+const displayPart = async () => {
+  try {
+    const partsData = await fetchPartsData();
+
+    const extractedData = partsData.map((part) => {
+      return {
+        start: {
+          surah: part.start.surah,
+          ayah: part.start.ayah,
+        },
+        end: {
+          surah: part.end.surah,
+          ayah: part.end.ayah,
+        },
+      };
+    });
+
+    const start = extractedData[2].start;
+    const end = extractedData[2].end;
+
+    populateTable(start, end);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const populateTable = async (start, end) => {
   const table = document.getElementById("table");
 
   try {
     const data = await fetchData();
 
-    const verses = Object.values(data["1"]);
+    const startSurahData = data[start.surah];
+    const endSurahData = data[end.surah];
+
+    const verses = Object.values(startSurahData).slice(
+      start.ayah - 1,
+      end.ayah
+    );
     const verseContainer = document.createElement("div");
     verseContainer.id = "verse-container";
 
@@ -44,7 +75,7 @@ const populateTable = async () => {
 
       const verseNumberSpan = document.createElement("span");
       verseNumberSpan.className = "verse-number";
-      verseNumberSpan.textContent = (index + 1).toString();
+      verseNumberSpan.textContent = (start.ayah + index).toString();
 
       const arabicTextSpan = document.createElement("span");
       arabicTextSpan.className = "arabic";
@@ -61,7 +92,7 @@ const populateTable = async () => {
   }
 };
 
-populateTable();
+displayPart();
 
 
 // Fonction pour masquer le texte et afficher les zones de texte
@@ -84,35 +115,6 @@ const hideTextAndShowInput = () => {
 document
   .getElementById("editButton")
   .addEventListener("click", hideTextAndShowInput);
-  
-  const displayPart = async () => {
-    try {
-      const partsData = await fetchPartsData();
-  
-      const extractedData = partsData.map((part) => {
-        return {
-          start: {
-            surah: part.start.surah,
-            ayah: part.start.ayah
-          },
-          end: {
-            surah: part.end.surah,
-            ayah: part.end.ayah
-          }
-        };
-      });
-  
-      const start = extractedData[0].start;
-      const end = extractedData[0].end;
-  
-      console.log(start);
-      console.log(end);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  
-  displayPart();  
   
 // Fonction pour corriger les réponses des utilisateurs
 const checkAnswers = async () => {
