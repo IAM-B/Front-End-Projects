@@ -11386,7 +11386,7 @@
           key.addEventListener("click", () => {
             const character = key.textContent;
 
-            const selectedInput = document.querySelector(".input-fill");
+            const selectedInput = document.querySelector(".input-fill.selected");
 
             if (input === selectedInput) {
               selectedInput.value += character;

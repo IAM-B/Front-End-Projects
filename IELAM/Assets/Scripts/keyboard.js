@@ -35,7 +35,7 @@ const generateVirtualKeyboard = () => {
   deleteButton.innerHTML =
     "<span class='delete-icon'><i class='fas fa-chevron-right'></i></span>";
   deleteButton.addEventListener("click", () => {
-    const selectedInput = document.querySelector(".input-fill");
+    const selectedInput = document.querySelector(".input-fill.selected");
     if (selectedInput) {
       const currentValue = selectedInput.value;
       const currentCursorPosition = selectedInput.selectionStart;
@@ -61,7 +61,7 @@ const generateVirtualKeyboard = () => {
   leftButton.classList.add("keyboard-key", "direction");
   leftButton.innerHTML = "<i class='fas fa-arrow-left'></i>";
   leftButton.addEventListener("click", () => {
-    const selectedInput = document.querySelector(".input-fill");
+    const selectedInput = document.querySelector(".input-fill.selected");
     if (selectedInput) {
       const currentCursorPosition = selectedInput.selectionStart;
       if (currentCursorPosition < selectedInput.value.length) {
@@ -76,7 +76,7 @@ const generateVirtualKeyboard = () => {
   rightButton.classList.add("keyboard-key", "direction");
   rightButton.innerHTML = "<i class='fas fa-arrow-right'></i>";
   rightButton.addEventListener("click", () => {
-    const selectedInput = document.querySelector(".input-fill");
+    const selectedInput = document.querySelector(".input-fill.selected");
     if (selectedInput) {
       const currentCursorPosition = selectedInput.selectionStart;
       if (currentCursorPosition > 0) {
@@ -100,7 +100,7 @@ const attachKeyboardEvents = (input) => {
     key.addEventListener("click", () => {
       const character = key.textContent;
 
-      const selectedInput = document.querySelector(".input-fill");
+      const selectedInput = document.querySelector(".input-fill.selected");
 
       if (input === selectedInput) {
         selectedInput.value += character;

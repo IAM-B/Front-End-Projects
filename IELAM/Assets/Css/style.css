@@ -407,6 +407,7 @@ span.vocabAR.and {
   margin: 0 35px 0 10px;
 }
 .input-fill {
+  direction: rtl;
   margin-right: 5px;
   font-family: "Amiri Quran", serif;
   text-align: right !important;
@@ -423,7 +424,7 @@ span.vocabAR.and {
   transition: all 0.3s ease-in-out;
 }
 input:focus {
-  caret-color: transparent;
+  caret-color: var(--couleur-text);
   outline: none;
   box-shadow: var(--couleur-box-shadow-int);
 }
@@ -732,6 +733,7 @@ input:focus {
   }
 
   input.input-fill {
+    direction: rtl;
     color: var(--couleur-text);
     width: 50%;
     margin: 2px 3px 5px 0;

@@ -44,9 +44,9 @@ const displayPart = async () => {
       };
     });
 
-    const start = extractedData[2].start;
-    const end = extractedData[2].end;
-
+    const start = extractedData[1].start;
+    const end = extractedData[1].end;
+    
     populateTable(start, end);
   } catch (error) {
     console.log(error);
