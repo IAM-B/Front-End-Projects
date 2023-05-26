@@ -106,7 +106,7 @@ function createVocabularySection(vocabulary) {
 }
 
 // Function to generate HTML elements for all vocabulary sections
-function generateVocabularies() {
+function generateVocabularies(vocabularies) {
   const exoForm = document.getElementById("vocab");
 
   for (let i = 0; i < vocabularies.length; i++) {

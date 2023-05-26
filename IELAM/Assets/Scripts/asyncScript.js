@@ -2,13 +2,13 @@ const section = document.querySelector("section");
 const exerciceIds = [
   "exercice-1",
   "exercice-2",
-  "exercice-3",
+  "exercice-3"
 ];
 
 const scriptUrls = {
-  "exercice-1": "Tome1/tome1-vocab1.js",
-  "exercice-2": "Tome1/tome1-vocab2.js",
-  "exercice-3": "Tome1/tome1-vocab3.js",
+  "exercice-1": "Tome1/tome1-vocab1.json",
+  "exercice-2": "Tome1/tome1-vocab2.json",
+  "exercice-3": "Tome1/tome1-vocab3.json"
 };
 
 let currentExerciceIndex = parseInt(localStorage.getItem("currentExerciceIndex"));
@@ -17,17 +17,29 @@ if (isNaN(currentExerciceIndex) || currentExerciceIndex >= exerciceIds.length) {
   currentExerciceIndex = 0;
 }
 
-const script = document.createElement("script");
-script.src = scriptUrls[exerciceIds[currentExerciceIndex]];
-script.addEventListener("load", function () {
-  generateVocabularies();
-  processVocabularies(vocabularies);
-});
+// Charger le fichier JSON
+fetch('Tome1/tome1-vocab1.json')
+  .then(response => response.json())
+  .then(data => {
+    // Stocker le tableau de vocabulaires dans la variable "vocabularies"
+    const vocabularies = data;
 
-const footerElement = document.querySelector("footer");
-const parentElement = footerElement.parentNode;
-parentElement.insertBefore(script, footerElement.nextSibling);
+    console.log(vocabularies);
+    generateVocabularies(vocabularies);
+    processVocabularies(vocabularies);
 
-section.id = exerciceIds[currentExerciceIndex];
-currentExerciceIndex = (currentExerciceIndex + 1) % exerciceIds.length;
-localStorage.setItem("currentExerciceIndex", currentExerciceIndex.toString());
+    const script = document.createElement("script");
+    script.src = scriptUrls[exerciceIds[currentExerciceIndex]];
+
+    const footerElement = document.querySelector("footer");
+    const parentElement = footerElement.parentNode;
+    parentElement.insertBefore(script, footerElement.nextSibling);
+
+    section.id = exerciceIds[currentExerciceIndex];
+    currentExerciceIndex = (currentExerciceIndex + 1) % exerciceIds.length;
+    localStorage.setItem("currentExerciceIndex", currentExerciceIndex.toString());
+  })
+  .catch(error => {
+    // Gérer les erreurs lors du chargement du fichier JSON
+    console.error('Une erreur s\'est produite lors du chargement du fichier JSON:', error);
+  });
