@@ -70,26 +70,23 @@
   
   @media (max-width: 767px) {
     .keyboard {
-      padding: 5px;
+      padding: 5px 0;
     }
     .keyboard-key {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
       width: 25px;
-      height: 40px;
-      padding: 3px;
-      margin: 3px 1px;
+      height: 45px;
+      font-size: 2vh;
+      margin: 4px 3px;
     }
 
     .keyboard-key.direction,
     .keyboard-key.delete {
       width: 50px;
-      margin: 0 1px;
+      margin: 4px 3px;
     }
   
     .keyboard-key.space {
-    width: 161px;
+    width: 200px;
     margin: 0 3px;
     }
   }

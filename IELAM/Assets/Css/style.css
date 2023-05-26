@@ -333,8 +333,7 @@ legend {
   font-weight: bold;
 }
 .exercice fieldset {
-  margin-bottom: 100px;
-  padding: 10px 20px;
+  margin: 0 0 100px 0;
   border-radius: 10px;
   border: none;
   box-shadow: var(--couleur-box-shadow-out);

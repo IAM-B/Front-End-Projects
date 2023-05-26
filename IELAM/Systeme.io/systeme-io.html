@@ -344,8 +344,7 @@
         font-weight: bold;
       }
       .exercice fieldset {
-        margin-bottom: 100px;
-        padding: 10px 20px;
+        margin: 0 0 100px 0;
         border-radius: 10px;
         border: none;
         box-shadow: var(--couleur-box-shadow-out);
@@ -374,7 +373,7 @@
         border-radius: 10px;
         padding: 0 10px;
         box-shadow: var(--couleur-box-shadow-out);
-      }
+        }
       .vocabulary {
         color: var(--couleur-text);
         font-weight: bold;
@@ -389,7 +388,7 @@
       }
       svg#dialog {
         fill: var(--couleur-btn);
-        width: 40px;
+        width: 40px;    
         padding: 8px 5px 0 5px;
       }
       div.buttonModal:hover {
@@ -884,6 +883,7 @@
           fill: var(--couleur-btn);
         }
       }
+
     </style>
     <!--NAV BAR-->
     <style>
@@ -10988,112 +10988,109 @@
       @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
       .keyboard {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: var(--couleur-fond);
-        box-shadow: var(--couleur-box-shadow-out);
-        padding: 20px;
-        border-radius: 5px;
-        transform: translateY(100%);
-        transition: transform 0.3s ease-out;
-        z-index: 9999;
-      }
-
-      .keyboard.show {
-        transform: translateY(0);
-      }
-
-      .keyboard-row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 1%;
-        flex-wrap: wrap;
-      }
-
-      .keyboard-key {
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        width: 80px;
-        height: 60px;
-        padding: 5px;
-        font-size: 3vh;
-        font-weight: bolder;
-        font-family: var(--font-arabic);
-        color: var(--couleur-text);
-        background-color: var(--couleur-fond);
-        box-shadow: var(--couleur-box-shadow-out);
-        border-style: none;
-        border-radius: 5px;
-        margin: 3px 9px;
-        cursor: pointer;
-      }
-
-      .keyboard-key:hover {
-        color: var(--couleur-contrast);
-      }
-
-      .keyboard-key:active {
-        border-radius: 5px;
-        box-shadow: var(--couleur-box-shadow-int);
-      }
-
-      .keyboard-key.direction,
-      .keyboard-key.delete {
-        display: flex;
-        width: 80px;
-        margin: 0 9px;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .keyboard-key.space {
-        width: 863px;
-        margin: 0 9px;
-      }
-
-      @media (max-width: 767px) {
-        .keyboard {
-          padding: 5px;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: var(--couleur-fond);
+          box-shadow: var(--couleur-box-shadow-out);
+          padding: 20px;
+          border-radius: 5px;
+          transform: translateY(100%);
+          transition: transform 0.3s ease-out;
+          z-index: 9999;
         }
+        
+        .keyboard.show {
+          transform: translateY(0);
+        }
+        
+        .keyboard-row {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 1%;
+          flex-wrap: wrap;
+        }
+        
         .keyboard-key {
           display: flex;
           align-items: flex-end;
           justify-content: center;
-          width: 25px;
-          height: 40px;
-          padding: 3px;
-          margin: 3px 1px;
+          width: 80px;
+          height: 60px;
+          padding: 5px;
+          font-size: 3vh;
+          font-weight: bolder;
+          font-family: var(--font-arabic);
+          color: var(--couleur-text);
+          background-color: var(--couleur-fond);
+          box-shadow: var(--couleur-box-shadow-out);
+          border-style: none;
+          border-radius: 5px;
+          margin: 3px 9px;
+          cursor: pointer;
         }
-
+        
+        .keyboard-key:hover {
+          color: var(--couleur-contrast);
+        }
+        
+        .keyboard-key:active {
+          border-radius: 5px;
+          box-shadow: var(--couleur-box-shadow-int);
+        }
+        
         .keyboard-key.direction,
         .keyboard-key.delete {
-          width: 50px;
-          margin: 0 1px;
+          display: flex;
+          width: 80px;
+          margin: 0 9px;
+          justify-content: center;
+          align-items: center;
         }
-
+        
         .keyboard-key.space {
-        width: 161px;
-        margin: 0 3px;
+          width: 863px;
+          margin: 0 9px;
         }
-      }
+        
+        @media (max-width: 767px) {
+          .keyboard {
+            padding: 5px 0;
+          }
+          .keyboard-key {
+            width: 25px;
+            height: 45px;
+            font-size: 2vh;
+            margin: 4px 3px;
+          }
 
-      @media (min-width: 768px) and (max-width: 991px) {
-        .keyboard-key {
-
+          .keyboard-key.direction,
+          .keyboard-key.delete {
+            width: 50px;
+            margin: 4px 3px;
+          }
+        
+          .keyboard-key.space {
+          width: 200px;
+          margin: 0 3px;
+          }
         }
+        
+        @media (min-width: 768px) and (max-width: 991px) {
+          .keyboard-key {
 
-        .keyboard-key.delete {
-          
+          }
+        
+          .keyboard-key.delete {
+            
+          }
+        
+          .keyboard-key.space {
+      
+          }
         }
-
-        .keyboard-key.space {
-
-        }
-      }
     </style>
 
     <div class="loader-wrapper">
@@ -11477,10 +11474,10 @@
       // Event listener for scroll on the nav bar
       window.addEventListener("scroll", () => {
         const navbar = document.querySelector(".navwrapper");
-        const sectionExercice1 = document.querySelector("section");
+        const sectionExercice1 = document.querySelector(".vocabFR");
 
         if (sectionExercice1) {
-          const sectionTop = sectionExercice1.offsetTop - 80;
+          const sectionTop = sectionExercice1.offsetTop + 30;
           const scrollTop = window.pageYOffset;
 
           if (scrollTop > sectionTop) {
