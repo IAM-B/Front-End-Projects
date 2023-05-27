@@ -3,11 +3,11 @@ const exerciceIds = ["exercice-1", "exercice-2", "exercice-3"];
 
 const scriptUrls = {
   "exercice-1":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Tome1/tome1-vocab1.json",
+"https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Tome%20de%20Medine/JSON/tome1-vocab1.json",
   "exercice-2":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Tome1/tome1-vocab2.json",
+"https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Tome%20de%20Medine/JSON/tome1-vocab2.json",
   "exercice-3":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Tome1/tome1-vocab3.json",
+"https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Tome%20de%20Medine/JSON/tome1-vocab3.json",
 };
 
 let currentExerciceIndex = parseInt(
@@ -22,9 +22,7 @@ if (isNaN(currentExerciceIndex) || currentExerciceIndex >= exerciceIds.length) {
 fetch(scriptUrls[exerciceIds[currentExerciceIndex]])
   .then((response) => response.json())
   .then((data) => {
-    // Stocker le tableau de vocabulaires dans la variable "vocabularies"
     const vocabularies = data;
-
     console.log(vocabularies);
     generateVocabularies(vocabularies);
     processVocabularies(vocabularies);

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Assets/Css/style.css" />
-    <link rel="stylesheet" href="Assets/Css/navBar.css" />
-    <link rel="stylesheet" href="Assets/Css/keyboard.css" />
-    <title>Tome de Medine</title>
+
+    <link rel="stylesheet" href="../Assets/Css/style.css">
+    <link rel="stylesheet" href="../Assets/Css/navBar.css">
+    <link rel="stylesheet" href="../Assets/Css/keyboard.css">
+    <title>Al-Fatiha</title>
   </head>
   <body>
     <div class="loader-wrapper">
@@ -52,8 +51,8 @@
           <div class="showPub"></div>
           <div class="menu">
             <ol>
-              <li class="menu-item"><a href="#">Acceuil</a></li>
-              <li class="menu-item"><a href="#">Blog</a></li>
+              <li class="menu-item"><a href="Acceuil.html">Acceuil</a></li>
+              <li class="menu-item"><a href="Quran/Quran.html">Quran</a></li>
               <li class="menu-item">
                 <a href="#">Cours</a>
                 <ol class="sub-menu">
@@ -63,11 +62,11 @@
                 </ol>
               </li>
               <li class="menu-item">
-                <a href="#">Partage</a>
+                <a href="#">Blog</a>
                 <ol class="sub-menu">
-                  <li class="menu-item"><a href="#">Telegram</a></li>
-                  <li class="menu-item"><a href="#">Whattsap</a></li>
-                  <li class="menu-item"><a href="#">Autre</a></li>
+                  <li class="menu-item"><a href="#">Article du jour</a></li>
+                  <li class="menu-item"><a href="#">Populaire</a></li>
+                  <li class="menu-item"><a href="#">Tout le Blog</a></li>
                 </ol>
               </li>
               <li class="menu-item"><a href="#">Contact</a></li>
@@ -110,7 +109,6 @@
               </g>
             </svg>
           </div>
-
           <div class="sidemenu-overlay"></div>
           <div class="sidemenu">
             <div class="sidemenu-content">
@@ -147,59 +145,15 @@
         </nav>
       </div>
       <div class="page1content"></div>
-      <div class="brandH1">
-        <h1>
-          Apprenez facilement et rapidement du nouveau vocabulaire à tout moment
-          de la journée
-        </h1>
-      </div>
+      <div class="sura">سورة الفاتحة</div>
+      <div class="basmala"></div>
+      <div id="table"></div>
+      <button id="editButton">Exercice</button>
+      <button id="checkButton">Correction</button>
     </header>
-    <section>
-      <div id="vocabLI" class="exercice">
-        <fieldset>
-          <legend class="vocabFR">
-            <div class="ticket">MEMORISATION</div>
-          </legend>
-          <form id="vocab" name="exo"></form>
-          <button
-            class="btnVocab"
-            type="button"
-            onclick="showExerciseSection()"
-          >
-            EXERCICES
-          </button>
-        </fieldset>
-      </div>
-      <div id="exerciceSection">
-        <div class="exercice">
-          <fieldset>
-            <legend class="vocabFR"><div class="ticket">EXERCICES</div></legend>
-            <div id="Aff"></div>
-            <form id="exo" name="exo"></form>
-
-            <div class="correction">
-              <button class="btnExo submit" type="button" onclick="vocab();">
-                Valider
-              </button>
-              <button
-                class="btnExo correct"
-                type="button"
-                onclick="showCorrections()"
-              >
-                Corriger
-              </button>
-              <button class="btnExo reset" onclick="resetForm()">
-                Réessayer
-              </button>
-            </div>
-          </fieldset>
-        </div>
-      </div>
-    </section>
-    <footer id="footer"></footer>
-    <script src="Assets/Scripts/keyboard.js"></script>
-    <script src="Assets/Scripts/ux.js"></script>
-    <script src="Assets/Scripts/scriptVocabulary.js"></script>
-    <script src="Assets/Scripts/asyncScript.js"></script>
+    <footer></footer>
+    <script src="Assets/JS/script.js"></script>
+    <script src="Assets/JS/keyboard.js"></script>
+    <script src="../Assets/Scripts/ux.js"></script>
   </body>
 </html>

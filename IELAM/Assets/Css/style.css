@@ -618,6 +618,77 @@ input:focus {
   box-shadow: -10px -10px -20px #fff;
 }
 
+.verse-number {
+  display: inline-block;
+  width: 30px;
+  font-weight: bold;
+}
+
+.arabic, .sura {
+  font-family: "Amiri Quran", serif;
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.translation {
+  display: block;
+  font-size: 20px;
+  color: #555;
+}
+
+.basmala {
+  text-align: center;
+  font-size: 32px;
+  margin: 30px 0 50px 0;
+}
+
+.sura {
+  text-align: center;
+  font-size: 26px;
+  margin-top: 40px;
+}
+
+.ayah {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.input-verser {
+  direction: rtl;
+  text-align: right;
+  border: none;
+  border-bottom: 1px solid #000;
+  background-color: transparent;
+}
+
+.verse-text {
+  display: inline-block;
+}
+
+.error {
+  color: red;
+  background-color: rgba(255, 0, 0, 0.2);
+  padding: 2px;
+}
+
+.error-message {
+  display: block;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.word-wrapper {
+  display: inline;
+}
+
+
+footer {
+  width: 100wh;
+  height: 500px;
+  background-color: var(--couleur-fond);
+  box-shadow: var(--couleur-box-shadow-int);
+}
+
 @media screen and (min-width: 1100px) {
   .burger svg:hover {
     stroke: var(--couleur-contrast);
