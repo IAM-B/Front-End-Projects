@@ -3,11 +3,11 @@ const exerciceIds = ["exercice-1", "exercice-2", "exercice-3"];
 
 const scriptUrls = {
   "exercice-1":
-"https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Tome%20de%20Medine/JSON/tome1-vocab1.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Tome%20de%20Medine/JSON/tome1-vocab1.json",
   "exercice-2":
-"https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Tome%20de%20Medine/JSON/tome1-vocab2.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Tome%20de%20Medine/JSON/tome1-vocab2.json",
   "exercice-3":
-"https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Tome%20de%20Medine/JSON/tome1-vocab3.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Tome%20de%20Medine/JSON/tome1-vocab3.json",
 };
 
 let currentExerciceIndex = parseInt(
@@ -23,12 +23,23 @@ fetch(scriptUrls[exerciceIds[currentExerciceIndex]])
   .then((response) => response.json())
   .then((data) => {
     const vocabularies = data;
-    console.log(vocabularies);
     generateVocabularies(vocabularies);
     processVocabularies(vocabularies);
 
     const script = document.createElement("script");
     script.src = scriptUrls[exerciceIds[currentExerciceIndex]];
+
+    const submitButton = document.querySelector(".btnExo.submit");
+    const correctButton = document.querySelector(".btnExo.correct");
+
+    submitButton.addEventListener("click", () => {
+      vocab(vocabularies);
+    });
+
+    correctButton.addEventListener("click", () => {
+      showCorrections(vocabularies);
+    });
+
 
     const footerElement = document.querySelector("footer");
     const parentElement = footerElement.parentNode;
@@ -36,15 +47,8 @@ fetch(scriptUrls[exerciceIds[currentExerciceIndex]])
 
     section.id = exerciceIds[currentExerciceIndex];
     currentExerciceIndex = (currentExerciceIndex + 1) % exerciceIds.length;
-    localStorage.setItem(
-      "currentExerciceIndex",
-      currentExerciceIndex.toString()
-    );
+    localStorage.setItem("currentExerciceIndex", currentExerciceIndex.toString());
   })
   .catch((error) => {
-    // Gérer les erreurs lors du chargement du fichier JSON
-    console.error(
-      "Une erreur s'est produite lors du chargement du fichier JSON:",
-      error
-    );
+    console.error("Une erreur s'est produite lors du chargement du fichier JSON:", error);
   });

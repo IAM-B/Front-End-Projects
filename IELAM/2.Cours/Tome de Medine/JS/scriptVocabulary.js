@@ -141,7 +141,7 @@ function processVocabularies(vocabularies) {
         vocabInput.setAttribute("id", `input-${counter}`);
         counter++;
         attachKeyboardEvents(vocabInput);
-        
+
         if (i > 0 && (vocab.ar[i - 1] === "/" || vocab.ar[i - 1] === "ou")) {
           if (vocab.ar[i - 1] === "/") {
             vocabInput.setAttribute(
@@ -181,7 +181,7 @@ const removePunctuation = (str) => {
 };
 
 // Function that verifies the answers
-const vocab = () => {
+const vocab = (vocabularies) => {
   const results = [];
   for (let i = 0; i <= counter; i++) {
     results.push(
@@ -194,7 +194,7 @@ const vocab = () => {
 
   const ChampTxt = document.getElementById("Aff");
   ChampTxt.style.display = "block";
-  
+
   let score = 0;
   let goodRep = [];
   let goodRep2 = [];
@@ -246,7 +246,7 @@ const vocab = () => {
 };
 
 // Function that displays the corrections
-const showCorrections = () => {
+const showCorrections = (vocabularies) => {
   const results = [];
   for (let i = 0; i <= counter; i++) {
     results.push(
@@ -321,6 +321,12 @@ const resetForm = () => {
   }
 };
 
+const resetButton = document.querySelector(".btnExo.reset");
+
+resetButton.addEventListener("click", () => {
+  resetForm();
+});
+
 // Function that hides the vocabulary and displays the exercise section
 const showExerciseSection = () => {
   const vocabSection = document.querySelector("#vocabLI");
@@ -340,8 +346,8 @@ const showExerciseSection = () => {
 // Function that redirects to the vocabulary section after loading
 function redirectToSection() {
   setTimeout(function () {
-  const section = document.getElementById("vocabLI");
-  const offset = section.offsetTop - 130;
-  window.scrollTo({ top: offset, behavior: "smooth" });
+    const section = document.getElementById("vocabLI");
+    const offset = section.offsetTop - 130;
+    window.scrollTo({ top: offset, behavior: "smooth" });
   }, 2000);
 }
