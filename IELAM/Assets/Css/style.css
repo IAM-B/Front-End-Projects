@@ -11,6 +11,7 @@
   --couleur-text-shadow: -1px -2px 3px #ffffff77, 1px 2px 3px #898e9244;
   --couleur-switch: #ffffff;
   --font-arabic: "Amiri Quran", serif;
+  --font-grec: "Cairo", sans-serif;
 }
 body.dark {
   --couleur-fond: #0d1117;
@@ -29,6 +30,54 @@ body {
   margin-top: 100px;
   transition: all 0.3s ease-in-out;
 }
+
+/* Loader */
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--couleur-fond);
+  z-index: 99999;
+}
+.loader-wrapper.hide {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+#logo {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 100vh;
+  position: fixed;
+  background-color: transparent;
+  z-index: 99999;
+  animation: fill 2s ease forwards 2.2s;
+}
+#logo-a {
+  stroke-dasharray: 6000;
+  stroke-dashoffset: 6000;
+  animation: anime 4s ease forwards;
+}
+#logo path:nth-child(2) {
+  stroke-dasharray: (3 1);
+  stroke-dashoffset: (1);
+  animation: anime 4s ease forwards 0.5s;
+}
+#logo path:nth-child(3) {
+  stroke-dasharray: (3 1);
+  stroke-dashoffset: (1);
+  animation: anime 4s ease forwards 1s;
+}
+#logo path:nth-child(4) {
+  stroke-dasharray: (3 1);
+  stroke-dashoffset: (1);
+  animation: anime 4s ease forwards 1.5s;
+}
+
+/*--NAVBAR--*/
 nav.navwrapper {
   display: flex;
   justify-content: space-between;
@@ -49,7 +98,6 @@ nav.navwrapper {
   align-items: center;
   justify-content: center;
 }
-
 .switch {
   position: relative;
   width: 60px;
@@ -61,7 +109,6 @@ nav.navwrapper {
   transition: background-color 0.3s;
   box-shadow: var(--couleur-box-shadow-int);
 }
-
 .switch:before {
   content: "";
   position: absolute;
@@ -74,15 +121,12 @@ nav.navwrapper {
   transition: transform 0.3s;
   box-shadow: var(--couleur-box-shadow-out);
 }
-
 input[type="checkbox"] {
   display: none;
 }
-
 input[type="checkbox"]:checked + .switch {
   background-color: var(--couleur-contrast);
 }
-
 input[type="checkbox"]:checked + .switch:before {
   transform: translateX(30px);
   background-color: var(--couleur-fond);
@@ -122,20 +166,6 @@ ul.navlist a:hover {
   margin: 0;
   padding: 0;
   align-items: center;
-}
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 3;
-}
-header.page1.page {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .toggleMenu {
   display: flex;
@@ -276,6 +306,31 @@ ul.navlistPub a {
 .showmenu {
   margin-left: 0px;
 }
+
+/* header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+header.page1.page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brandH1 {
+  height: 100vh;
+  margin-top: 50%;
+  text-align: center;
+  font-weight: bolder;
+  font-family: "Cairo", sans-serif;
+  color: var(--couleur-btn);
+}
+
+/* main */
 legend {
   float: none;
   padding: initial;
@@ -333,7 +388,7 @@ legend {
   font-weight: bold;
 }
 .exercice fieldset {
-  margin: 0 0 100px 0;
+  margin: 0 0 50px 0;
   border-radius: 10px;
   border: none;
   box-shadow: var(--couleur-box-shadow-out);
@@ -381,11 +436,14 @@ svg#dialog {
   padding: 8px 5px 0 5px;
 }
 div.buttonModal:hover {
-  box-shadow: var(--couleur-box-shadow-int);
   transition: 0.2s ease-in-out;
 }
 svg#dialog:hover {
   fill: var(--couleur-contrast);
+  transition: 0.2s ease-in-out;
+}
+div.buttonModal:active {
+  box-shadow: var(--couleur-box-shadow-int);
   transition: 0.2s ease-in-out;
 }
 .vocabAR {
@@ -433,7 +491,7 @@ input:focus {
 }
 .correction {
   text-align: center;
-  margin: 0 auto;
+  margin-top: 50px;
 }
 .btnExo {
   width: 15%;
@@ -449,12 +507,11 @@ input:focus {
   transition-duration: 400ms;
   transition: all 0.3s ease-in-out;
 }
-.btnVocab,
-#button-d2607e45 {
+.btnVocab {
   display: block;
   padding: 10px;
   width: 25%;
-  margin: 5px auto;
+  margin: 50px auto 0;
   border-radius: 5px;
   border: none;
   box-shadow: var(--couleur-box-shadow-out);
@@ -466,10 +523,12 @@ input:focus {
   transition: all 0.3s ease-in-out;
 }
 .btnExo:hover,
-.btnVocab:hover,
-#button-d2607e45:hover {
+.btnVocab:hover:hover {
   color: var(--couleur-contrast);
+}
+button.btnExo:active {
   box-shadow: var(--couleur-box-shadow-int);
+  transition: 0.2s ease-in-out;
 }
 #Aff {
   color: var(--couleur-text);
@@ -484,58 +543,6 @@ input:focus {
 .oVYRo::before,
 .oVYRo::after {
   background-color: var(--couleur-fond);
-}
-.brandH1 {
-  height: 100vh;
-  margin-top: 50%;
-  text-align: center;
-  font-weight: bolder;
-  font-family: "Cairo", sans-serif;
-  color: var(--couleur-btn);
-}
-.loader-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--couleur-fond);
-  z-index: 99999;
-}
-.loader-wrapper.hide {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-#logo {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
-  height: 100vh;
-  position: fixed;
-  background-color: transparent;
-  z-index: 99999;
-  animation: fill 2s ease forwards 2.2s;
-}
-#logo-a {
-  stroke-dasharray: 6000;
-  stroke-dashoffset: 6000;
-  animation: anime 4s ease forwards;
-}
-#logo path:nth-child(2) {
-  stroke-dasharray: (3 1);
-  stroke-dashoffset: (1);
-  animation: anime 4s ease forwards 0.5s;
-}
-#logo path:nth-child(3) {
-  stroke-dasharray: (3 1);
-  stroke-dashoffset: (1);
-  animation: anime 4s ease forwards 1s;
-}
-#logo path:nth-child(4) {
-  stroke-dasharray: (3 1);
-  stroke-dashoffset: (1);
-  animation: anime 4s ease forwards 1.5s;
 }
 .modal-container {
   position: fixed;
@@ -597,63 +604,42 @@ input:focus {
   width: 100%;
   border-radius: 3px;
 }
-.content {
-  min-height: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 0;
-}
-.content h1 {
-  padding: 75px 0 30px 0;
-  text-align: center;
-  font-size: 30px;
-  line-height: 30px;
-}
-.content .buttons .buttonModal {
+.buttons .buttonModal {
   display: inline-block;
   cursor: pointer;
 }
-.content .buttons .buttonModal:hover {
-  color: white;
-  box-shadow: -10px -10px -20px #fff;
-}
 
+/*QURAN*/
 .verse-number {
   display: inline-block;
   width: 30px;
   font-weight: bold;
 }
-
 .arabic, .sura {
   font-family: "Amiri Quran", serif;
   font-weight: 500;
   font-size: 30px;
 }
-
 .translation {
   display: block;
   font-size: 20px;
   color: #555;
 }
-
 .basmala {
   text-align: center;
   font-size: 32px;
   margin: 30px 0 50px 0;
 }
-
 .sura {
   text-align: center;
   font-size: 26px;
   margin-top: 40px;
 }
-
 .ayah {
   text-align: center;
   font-size: 24px;
   margin-bottom: 10px;
 }
-
 .input-verser {
   direction: rtl;
   text-align: right;
@@ -661,17 +647,14 @@ input:focus {
   border-bottom: 1px solid #000;
   background-color: transparent;
 }
-
 .verse-text {
   display: inline-block;
 }
-
 .error {
   color: red;
   background-color: rgba(255, 0, 0, 0.2);
   padding: 2px;
 }
-
 .error-message {
   display: block;
   font-size: 14px;
@@ -681,14 +664,31 @@ input:focus {
   display: inline;
 }
 
-
+/*FOOTER*/
 footer {
   width: 100wh;
   height: 500px;
+  border-radius: 10px;
   background-color: var(--couleur-fond);
   box-shadow: var(--couleur-box-shadow-int);
 }
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: var(--couleur-box-shadow-out);
+}
+#footer {
+  font-family: var(--font-grec);
+  font-weight: 100;
+  color: var(--couleur-contrast);
+  text-shadow: var(--couleur-text-shadow);
+}
 
+/*MEDIA QUERIES*/
 @media screen and (min-width: 1100px) {
   .burger svg:hover {
     stroke: var(--couleur-contrast);
@@ -705,6 +705,9 @@ footer {
     font-size: 1.3rem;
     flex-grow: 1;
   }
+  form#vocab {
+    margin: 50px 400px;
+  }
   .vocabulary label {
     display: inline-block;
     width: 325px;
@@ -715,7 +718,7 @@ footer {
     font-family: "Amiri Quran", serif;
   }
 }
-@media screen and (min-width: 801px) {
+@media (min-width: 801px) {
   .burger.toggleMenu.active svg {
     stroke: var(--couleur-contrast);
     background-color: var(--couleur-fond);
@@ -749,7 +752,7 @@ footer {
     padding: 3%;
   }
 }
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .burger.toggleMenu.active svg {
     stroke: var(--couleur-contrast);
     background-color: var(--couleur-fond);
@@ -788,8 +791,7 @@ footer {
     flex-wrap: nowrap;
     justify-content: flex-end;
   }
-  .correction,
-  #button-d2607e45,
+  .correction
   .btnExo {
     width: 100%;
     display: flex;
@@ -848,6 +850,9 @@ footer {
   .navlist li a {
     padding: 20%;
   }
+  form#vocab {
+    margin: 50px 80px;
+  }
 }
 @media screen and (max-width: 480px) {
   .burger.toggleMenu.active svg {
@@ -888,6 +893,7 @@ footer {
   }
 }
 
+/* ANIMATION */
 @keyframes unfoldIn {
   0% {
     transform: scaleY(0.001) scaleX(0);
