@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Cairo&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
 
 :root {
   --couleur-fond: #e4ebf5;
@@ -12,6 +13,7 @@
   --couleur-switch: #ffffff;
   --font-arabic: "Amiri Quran", serif;
   --font-grec: "Cairo", sans-serif;
+  --font-Quran: 'Amiri', serif;
 }
 body.dark {
   --couleur-fond: #0d1117;
@@ -617,15 +619,15 @@ button.btnExo:active {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  color: var(--couleur-btn);
 }
 .mushaf-layout .mushaf-wrapper {
-  direction: rtl;
   text-align: center;
   display: flex;
   align-content: center;
   margin: auto;
 }
-.mushaf-page {
+.mushaf-wrapper {
   text-align: center;
   -moz-text-align-last: center;
   text-align-last: center;
@@ -636,32 +638,32 @@ button.btnExo:active {
   font-size: 32px;
   margin: 30px 0 50px 0;
 }
-.ayah-number {
+.ayah-num,
+.error-message {
+  font-size: 1.5rem;
   color: var(--couleur-contrast);
 }
-.kalam {
+.kalam, 
+.ayah-kalam {
   direction: rtl;
   text-align: right;
-  color: var(--couleur-text);
+  font-size: 2rem;
+  color: var(--couleur-btn);
+  font-family: var(--font-Quran);
 }
 .input-ayah {
   direction: rtl;
   text-align: right;
   border: none;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid var(--couleur-btn);
   background-color: transparent;
 }
-.ayah-kalam {
-  display: inline-block;
-}
 .error {
-  color: red;
-  background-color: rgba(255, 0, 0, 0.2);
+  border-bottom: 0.1px solid red;
   padding: 2px;
 }
 .error-message {
   display: block;
-  font-size: 14px;
   margin-top: 5px;
 }
 .word-wrapper {
@@ -670,6 +672,9 @@ button.btnExo:active {
 .btn-content {
   display: flex;
   position: absolute;
+  top: 70%;
+  left: 10%;
+  transform: translate(-50%, -50%);
 }
 
 /*FOOTER*/
