@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Cairo&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap");
 
 :root {
   --couleur-fond: #e4ebf5;
@@ -13,7 +13,7 @@
   --couleur-switch: #ffffff;
   --font-arabic: "Amiri Quran", serif;
   --font-grec: "Cairo", sans-serif;
-  --font-Quran: 'Amiri', serif;
+  --font-Quran: "Amiri", serif;
 }
 body.dark {
   --couleur-fond: #0d1117;
@@ -27,10 +27,17 @@ body.dark {
   --couleur-switch: #000000;
   transition: all 0.3s ease-in-out;
 }
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
 body {
   background-color: var(--couleur-fond);
-  margin-top: 100px;
   transition: all 0.3s ease-in-out;
+  width: 100%;
+  height: 100%;
 }
 
 /* Loader */
@@ -77,6 +84,19 @@ body {
   stroke-dasharray: (3 1);
   stroke-dashoffset: (1);
   animation: anime 4s ease forwards 1.5s;
+}
+
+/* HEADER */
+header.page {
+  display: flex;
+  position: fixed;
+  width: 100%;
+}
+.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
 }
 
 /*--NAVBAR--*/
@@ -308,31 +328,20 @@ ul.navlistPub a {
 .showmenu {
   margin-left: 0px;
 }
-
-/* header */
-header.page {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  height: 100vh;
-}
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 3;
-}
 .brandH1 {
-  height: 100vh;
-  margin-top: 50%;
-  text-align: center;
-  font-weight: bolder;
-  font-family: "Cairo", sans-serif;
-  color: var(--couleur-btn);
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  width: 100%;
+  color: var(--couleur-text);
+  font-family: var(--font-grec);
 }
 
 /* main */
+main {
+  position: relative;
+  width: 100%;
+}
 legend {
   float: none;
   padding: initial;
@@ -397,12 +406,6 @@ legend {
   background: var(--couleur-fond) !important;
   transition: all 0.3s ease-in-out;
 }
-#popup-f1e084dd {
-  border: 1px solid #bf9b30;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px #bf9b30;
-  background: #4c2a02;
-}
 .exercice legend {
   color: var(--couleur-contrast);
   margin-left: 10%;
@@ -419,7 +422,7 @@ legend {
   border-radius: 10px;
   padding: 0 10px;
   box-shadow: var(--couleur-box-shadow-out);
-  }
+}
 .vocabulary {
   color: var(--couleur-text);
   font-weight: bold;
@@ -434,7 +437,7 @@ div.buttonModal {
 }
 svg#dialog {
   fill: var(--couleur-btn);
-  width: 40px;    
+  width: 40px;
   padding: 8px 5px 0 5px;
 }
 div.buttonModal:hover {
@@ -614,12 +617,15 @@ button.btnExo:active {
 /*QURAN*/
 #mushaf-layout {
   display: flex;
-  position: absolute;
+  position: relative;
   justify-content: center;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  top: 100px;
+  margin-bottom: 120px;
   color: var(--couleur-btn);
+  z-index: -9999;
 }
 .mushaf-layout .mushaf-wrapper {
   text-align: center;
@@ -627,10 +633,20 @@ button.btnExo:active {
   align-content: center;
   margin: auto;
 }
+#surah {
+  display: flex;
+  position: relative;
+  width: 50%;
+  height: 50%;
+  fill: var(--couleur-btn);
+  stroke: var(--couleur-btn);
+  stroke-width: 10px;
+}
 .mushaf-wrapper {
   text-align: center;
   -moz-text-align-last: center;
   text-align-last: center;
+  margin: 100px auto;
 }
 .basmala {
   display: block;
@@ -643,11 +659,12 @@ button.btnExo:active {
   font-size: 1.5rem;
   color: var(--couleur-contrast);
 }
-.kalam, 
+.kalam,
 .ayah-kalam {
   direction: rtl;
   text-align: right;
   font-size: 2rem;
+  line-height: 90px;
   color: var(--couleur-btn);
   font-family: var(--font-Quran);
 }
@@ -669,17 +686,17 @@ button.btnExo:active {
 .word-wrapper {
   display: inline;
 }
-.btn-content {
+.row {
   display: flex;
-  position: absolute;
-  top: 70%;
-  left: 10%;
-  transform: translate(-50%, -50%);
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  width: 70%;
 }
 
 /*FOOTER*/
 footer {
-  width: 100wh;
+  position: relative;
+  width: 100%;
   height: 500px;
   border-radius: 10px;
   background-color: var(--couleur-fond);
@@ -804,8 +821,7 @@ footer {
     flex-wrap: nowrap;
     justify-content: flex-end;
   }
-  .correction
-  .btnExo {
+  .correction .btnExo {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -873,9 +889,6 @@ footer {
     background-color: var(--couleur-fond);
     box-shadow: var(--couleur-box-shadow-int);
     transition: all 0.5s ease;
-  }
-  .brandH1 {
-    margin-top: 90%;
   }
   .burger.toggleMenu {
     margin: 0 1%;

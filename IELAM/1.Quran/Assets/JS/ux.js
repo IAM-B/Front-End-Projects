@@ -22,10 +22,10 @@ window.addEventListener("load", function () {
 // Event listener for scroll on the nav bar
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navwrapper");
-  const sectionExercice1 = document.querySelector("section");
+  const sectionExercice1 = document.querySelector("main");
   
   if (sectionExercice1) {
-    const sectionTop = sectionExercice1.offsetTop - 80;
+    const sectionTop = sectionExercice1.offsetTop;
     const scrollTop = window.pageYOffset;
     
     if (scrollTop > sectionTop) {

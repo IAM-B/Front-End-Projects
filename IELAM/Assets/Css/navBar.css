@@ -837,7 +837,7 @@
   }
   .menuscreen {
     background: var(--couleur-fond);
-    margin: 5px;
+    margin: 50px;
   }
   .menuscreen a {
     font-family: "Cairo", sans-serif;
