@@ -3,7 +3,7 @@
 const fetchData = async () => {
   try {
     const response = await fetch(
-      "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Quran/Assets/JSON/quran-uthmani.json"
+'https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/1.Quran/Assets/JSON/quran-uthmani.json'
     );
     const data = await response.json();
     return data;
@@ -17,7 +17,7 @@ const fetchData = async () => {
 const fetchPartsData = async () => {
   try {
     const response = await fetch(
-      "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Quran/Assets/JSON/page-indices-lookup.json"
+'https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/1.Quran/Assets/JSON/page-indices-lookup.json'
     );
     const data = await response.json();
     return data;
@@ -44,8 +44,8 @@ const displayPart = async () => {
       };
     });
 
-    const start = extractedData[1].start;
-    const end = extractedData[1].end;
+    const start = extractedData[0].start;
+    const end = extractedData[0].end;
     
     populateTable(start, end);
   } catch (error) {
@@ -54,7 +54,7 @@ const displayPart = async () => {
 };
 
 const populateTable = async (start, end) => {
-  const table = document.getElementById("table");
+  const table = document.getElementById("mushaf-layout");
 
   try {
     const data = await fetchData();
@@ -67,25 +67,29 @@ const populateTable = async (start, end) => {
       end.ayah
     );
     const verseContainer = document.createElement("div");
-    verseContainer.id = "verse-container";
+    verseContainer.id = "mushaf-wrapper";
+
+    const pageContainer = document.createElement("div");
+    pageContainer.className = "mushaf-page";
 
     verses.forEach((verse, index) => {
       const verseDiv = document.createElement("div");
       verseDiv.className = "ayah";
 
       const verseNumberSpan = document.createElement("span");
-      verseNumberSpan.className = "verse-number";
+      verseNumberSpan.className = "ayah-number";
       verseNumberSpan.textContent = (start.ayah + index).toString();
 
       const arabicTextSpan = document.createElement("span");
-      arabicTextSpan.className = "arabic";
+      arabicTextSpan.className = "kalam";
       arabicTextSpan.textContent = verse;
 
       verseDiv.appendChild(verseNumberSpan);
       verseDiv.appendChild(arabicTextSpan);
-      verseContainer.appendChild(verseDiv);
+      pageContainer.appendChild(verseDiv);
     });
 
+    verseContainer.appendChild(pageContainer);
     table.appendChild(verseContainer);
   } catch (error) {
     console.error("Erreur lors du peuplement du tableau:", error);
@@ -100,10 +104,10 @@ const hideTextAndShowInput = () => {
   const ayahs = document.getElementsByClassName("ayah");
   for (let i = 0; i < ayahs.length; i++) {
     const ayah = ayahs[i];
-    const verseText = ayah.querySelector(".arabic");
+    const verseText = ayah.querySelector(".kalam");
     const verseInput = document.createElement("input");
     verseInput.type = "search";
-    verseInput.classList.add("input-fill");
+    verseInput.classList.add("input-ayah");
     verseInput.placeholder = "Réécrivez le verset...";
     verseInput.autocomplete = "off";
     verseInput.setAttribute("inputmode", "none");
@@ -121,14 +125,14 @@ const checkAnswers = async () => {
   try {
     const data = await fetchData();
 
-    const inputs = document.querySelectorAll("#table .input-fill");
+    const inputs = document.querySelectorAll("#mushaf-layout .input-ayah");
 
     inputs.forEach((input, index) => {
       const userAnswer = input.value.trim();
       const verse = data[1][index + 1];
 
       const verseSpan = document.createElement("span");
-      verseSpan.classList.add("verse-text");
+      verseSpan.classList.add("ayah-kalam");
 
       const verseWords = verse.split(" ");
 

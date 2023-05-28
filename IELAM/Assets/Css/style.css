@@ -308,18 +308,18 @@ ul.navlistPub a {
 }
 
 /* header */
+header.page {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 100vh;
+}
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 3;
-}
-header.page1.page {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .brandH1 {
   height: 100vh;
@@ -610,44 +610,48 @@ button.btnExo:active {
 }
 
 /*QURAN*/
-.verse-number {
-  display: inline-block;
-  width: 30px;
-  font-weight: bold;
+#mushaf-layout {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
-.arabic, .sura {
-  font-family: "Amiri Quran", serif;
-  font-weight: 500;
-  font-size: 30px;
+.mushaf-layout .mushaf-wrapper {
+  direction: rtl;
+  text-align: center;
+  display: flex;
+  align-content: center;
+  margin: auto;
 }
-.translation {
-  display: block;
-  font-size: 20px;
-  color: #555;
+.mushaf-page {
+  text-align: center;
+  -moz-text-align-last: center;
+  text-align-last: center;
 }
 .basmala {
+  display: block;
   text-align: center;
   font-size: 32px;
   margin: 30px 0 50px 0;
 }
-.sura {
-  text-align: center;
-  font-size: 26px;
-  margin-top: 40px;
+.ayah-number {
+  color: var(--couleur-contrast);
 }
-.ayah {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 10px;
+.kalam {
+  direction: rtl;
+  text-align: right;
+  color: var(--couleur-text);
 }
-.input-verser {
+.input-ayah {
   direction: rtl;
   text-align: right;
   border: none;
   border-bottom: 1px solid #000;
   background-color: transparent;
 }
-.verse-text {
+.ayah-kalam {
   display: inline-block;
 }
 .error {
@@ -662,6 +666,10 @@ button.btnExo:active {
 }
 .word-wrapper {
   display: inline;
+}
+.btn-content {
+  display: flex;
+  position: absolute;
 }
 
 /*FOOTER*/
