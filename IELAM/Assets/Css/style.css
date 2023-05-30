@@ -91,12 +91,12 @@ header.page {
   display: flex;
   position: fixed;
   width: 100%;
+  z-index: 3;
 }
 .header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 3;
 }
 
 /*--NAVBAR--*/
@@ -625,7 +625,6 @@ button.btnExo:active {
   top: 100px;
   margin-bottom: 120px;
   color: var(--couleur-btn);
-  z-index: -9999;
 }
 .mushaf-layout .mushaf-wrapper {
   text-align: center;
@@ -667,6 +666,15 @@ button.btnExo:active {
   line-height: 90px;
   color: var(--couleur-btn);
   font-family: var(--font-Quran);
+}
+.mushaf-button {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 5px 20px;
+  border: none;
+  background-color: var(--couleur-contrast);
+  cursor: pointer;
 }
 .input-ayah {
   direction: rtl;

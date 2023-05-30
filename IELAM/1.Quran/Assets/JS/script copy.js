@@ -21,6 +21,12 @@ fetch(
     pageNumberSpan.textContent = `Page: ${pageNumber}`;
     juzHizbDiv.appendChild(pageNumberSpan);
 
+    const mushafWrapperDiv = document.createElement("div");
+    mushafWrapperDiv.classList.add("mushaf-wrapper");
+    mushafWrapperDiv.id = "page-" + `${pageNumber}`;
+
+    const surahDiv = document.createElement("div");
+    surahDiv.classList.add("line1");
     const surahSvg = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "svg"
@@ -50,9 +56,7 @@ fetch(
 <path d="M537.595 199.941C537.596 199.94 537.598 199.954 537.599 199.985C537.594 199.958 537.594 199.942 537.595 199.941ZM534.321 202.23C535.58 201.793 536.588 201.475 537.369 201.268C537.224 201.777 537.001 202.418 536.673 203.205C534.721 207.878 532.998 211.575 531.491 214.327C530.127 216.817 529.039 218.344 528.241 219.146C488.093 233.175 441.811 251.411 389.441 274.023C391.586 266.75 394.606 258.881 398.441 250.557C440.166 235.74 485.537 219.618 534.321 202.23ZM538.818 200.989C538.821 200.989 538.823 200.989 538.825 200.989C538.866 200.99 538.86 200.993 538.818 200.989Z" stroke="" stroke-width=""/>
 </svg>`;
 
-    const mushafWrapperDiv = document.createElement("div");
-    mushafWrapperDiv.classList.add("mushaf-wrapper");
-    mushafWrapperDiv.id = "page-" + `${pageNumber}`;
+    const lineContent = {};
 
     surahs.forEach((surah) => {
       const surahNumSpan = document.createElement("span");
@@ -63,7 +67,10 @@ fetch(
       let lineDiv;
       let currentLineNumber = null;
       let mushafButton;
-      mushafWrapperDiv.appendChild(surahSvg);
+      let tempLineNumber;
+      mushafWrapperDiv.appendChild(surahDiv);
+      surahDiv.appendChild(surahSvg);
+
       surah.ayahs.forEach((ayah) => {
         const { ayahNum, words } = ayah;
 
@@ -77,18 +84,26 @@ fetch(
             currentLineNumber = lineNumber;
           }
 
-          if (text !== null) {
+          if (text !== null && text !== undefined) {
             const textSpan = document.createElement("span");
             textSpan.classList.add("kalam");
             textSpan.textContent = " " + `${text}`;
             lineDiv.appendChild(textSpan);
+
+            if (!lineContent[lineNumber]) {
+              lineContent[lineNumber] = [];
+            }
+            lineContent[lineNumber].push({ text });
           }
+          tempLineNumber = lineNumber;
         });
+
         if (ayahNum !== null) {
           const ayahNumSpan = document.createElement("span");
           ayahNumSpan.classList.add("ayah-num");
           ayahNumSpan.textContent = " " + `${ayahNum}`;
           lineDiv.appendChild(ayahNumSpan);
+          lineContent[tempLineNumber].push({ ayahNum });
         }
       });
 
@@ -98,12 +113,17 @@ fetch(
       mushafWrapperDiv.appendChild(mushafButton);
     });
 
-    mushafLayoutDiv.innerHTML = "";
-
     mushafLayoutDiv.appendChild(mushafWrapperDiv);
     mushafLayoutDiv.appendChild(juzHizbDiv);
     juzHizbDiv.appendChild(juzHizbSpan);
-  })
-  .catch((error) => {
-    console.log(error);
+
+    for (const lineNumber in lineContent) {
+      const line = lineContent[lineNumber].map(({ text, ayahNum }) => {
+        if (ayahNum) {
+          return text, `${ayahNum}`;
+        }
+        return text;
+      });
+      console.log(`[${line.join(" ")}]`);
+    }
   });
