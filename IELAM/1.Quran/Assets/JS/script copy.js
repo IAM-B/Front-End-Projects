@@ -56,6 +56,13 @@ fetch(
 <path d="M537.595 199.941C537.596 199.94 537.598 199.954 537.599 199.985C537.594 199.958 537.594 199.942 537.595 199.941ZM534.321 202.23C535.58 201.793 536.588 201.475 537.369 201.268C537.224 201.777 537.001 202.418 536.673 203.205C534.721 207.878 532.998 211.575 531.491 214.327C530.127 216.817 529.039 218.344 528.241 219.146C488.093 233.175 441.811 251.411 389.441 274.023C391.586 266.75 394.606 258.881 398.441 250.557C440.166 235.74 485.537 219.618 534.321 202.23ZM538.818 200.989C538.821 200.989 538.823 200.989 538.825 200.989C538.866 200.99 538.86 200.993 538.818 200.989Z" stroke="" stroke-width=""/>
 </svg>`;
 
+    function convertToArabicNumber(number) {
+      const arabicNumbers = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+      const digits = String(number).split("");
+      const arabicDigits = digits.map((digit) => arabicNumbers[digit]);
+      return arabicDigits.join("");
+    }
+
     const lineContent = {};
 
     surahs.forEach((surah) => {
@@ -102,6 +109,8 @@ fetch(
           const ayahNumSpan = document.createElement("span");
           ayahNumSpan.classList.add("ayah-num");
           ayahNumSpan.textContent = " " + `${ayahNum}`;
+          const arabicNum = convertToArabicNumber(ayahNum);
+          ayahNumSpan.innerHTML = `<span class="ayah-num-circle">${arabicNum}</span>`;
           lineDiv.appendChild(ayahNumSpan);
           lineContent[tempLineNumber].push({ ayahNum });
         }
@@ -120,7 +129,8 @@ fetch(
     for (const lineNumber in lineContent) {
       const line = lineContent[lineNumber].map(({ text, ayahNum }) => {
         if (ayahNum) {
-          return text, `${ayahNum}`;
+          const arabicNum = convertToArabicNumber(ayahNum);
+          return `${arabicNum}`;
         }
         return text;
       });
