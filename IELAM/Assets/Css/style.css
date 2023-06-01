@@ -434,9 +434,10 @@ button.btnExo:active {
   color: var(--couleur-btn);
   font-family: "hafs18";
 }
+.ayahNum,
 .ayah-num,
 .error-message {
-  margin-right: 5px;
+  margin-right: 8px;
   font-size: 2rem;
   color: var(--couleur-text);
 }
@@ -450,6 +451,7 @@ button.btnExo:active {
   cursor: pointer;
 }
 .input-ayah {
+  margin-right: 8px;
   direction: rtl;
   text-align: right;
   border: none;
@@ -476,7 +478,10 @@ button.btnExo:active {
   margin-left: 50%;
   transform: translate(-39%, -50%);
 }
-
+Button {
+  padding: 20px;
+  cursor: pointer;
+}
 /*FOOTER*/
 footer {
   position: relative;
