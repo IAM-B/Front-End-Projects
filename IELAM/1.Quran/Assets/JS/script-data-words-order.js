@@ -140,15 +140,14 @@ const populateTable = async (start, end) => {
           return { type: "kalam", value: text };
         });
         separatedLine = line;
-
         const inputContainer = document.createElement("div");
         inputContainer.classList.add("line" + lineNumber, "input-container");
-
+    
         let currentInput = null;
-
+    
         for (let i = 0; i < separatedLine.length; i++) {
           const { type, value } = separatedLine[i];
-
+    
           if (type === "ayah-num") {
             if (currentInput) {
               inputContainer.appendChild(currentInput);
@@ -156,7 +155,7 @@ const populateTable = async (start, end) => {
             }
             const ayahNumElement = document.createElement("span");
             ayahNumElement.classList.add("ayah-num");
-            const arabicNum = convertToArabicNumber(value); // Convert the number to Arabic
+            const arabicNum = convertToArabicNumber(value);
             ayahNumElement.textContent = arabicNum;
             inputContainer.appendChild(ayahNumElement);
           } else if (type === "kalam") {
@@ -172,27 +171,24 @@ const populateTable = async (start, end) => {
             }
           }
         }
-
+    
         if (currentInput) {
           inputContainer.appendChild(currentInput);
         }
-        kalamText[0].parentNode.replaceChild(
-          inputContainer,
-          kalamText[0]
-        );
+        kalamText[0].parentNode.replaceChild(inputContainer, kalamText[0]);
       }
       const remainingKalamElements = document.getElementsByClassName("kalam");
       while (remainingKalamElements.length > 0) {
         const kalamElement = remainingKalamElements[0];
         kalamElement.remove();
       }
-      const remainingAyahNumElements =
-        document.getElementsByClassName("ayahNum");
+      const remainingAyahNumElements = document.getElementsByClassName("ayahNum");
       while (remainingAyahNumElements.length > 0) {
         const ayahNumElement = remainingAyahNumElements[0];
         ayahNumElement.remove();
       }
     };
+    
     document
       .getElementById("editButton")
       .addEventListener("click", hideTextAndShowInput);
@@ -200,7 +196,6 @@ const populateTable = async (start, end) => {
     console.error("Erreur lors du peuplement du tableau :", error);
   }
 };
-
 populateTable();
 
 const checkAnswers = () => {
@@ -212,6 +207,7 @@ const checkAnswers = () => {
     const inputs = inputContainer.querySelectorAll(".input-ayah");
     let userAnswers = Array.from(inputs).map((input) => input.value.trim());
     const verseContent = lineContentData[index + 2];
+    
     let verseHTML = "";
 
     verseContent.forEach((element) => {
@@ -258,7 +254,6 @@ const checkAnswers = () => {
     console.log(" userAnswers " + userAnswers.join(" "));
     console.log(" verseSpan " + verseSpan.textContent.trim());
     if (userAnswers.join(" ") === verseSpan.textContent.trim()) {
-      errorElement.textContent = "Correct";
       errorElement.classList.add("correct");
       const errorWords = verseSpan.querySelectorAll(".error");
       errorWords.forEach((errorWord) => {
@@ -294,7 +289,7 @@ const checkAnswers = () => {
         }
       });
 
-      errorElement.textContent = "Erreur :";
+      errorElement.textContent = "";
       errorElement.appendChild(errorWordSpan);
       errorElement.classList.add("incorrect");
     }

@@ -4,24 +4,10 @@
       format("truetype");
   }
   @font-face {
-    font-family: "hafs18";
-    src: url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/hafs/font/hafs.18.woff2")
-        format("woff2"),
-      url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/hafs/font/hafs.18.ttf")
-        format("truetype");
-  }
-  @font-face {
     font-family: "warsh10";
     src: url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/warsh/font/warsh.10.woff2")
         format("woff2"),
       url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/warsh/font/warsh.10.ttf")
-        format("truetype");
-  }
-  @font-face {
-    font-family: "shouba8";
-    src: url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/shouba/font/shouba.8.woff2")
-        format("woff2"),
-      url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/shouba/font/shouba.8.ttf")
         format("truetype");
   }
   @font-face {
@@ -111,3 +97,8 @@
   
   @import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Cairo&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap");  
+  /*
+  --font-arabic: "Amiri Quran", serif;
+  --font-grec: "Cairo", sans-serif;
+  --font-Quran: "Amiri", serif;
+  */

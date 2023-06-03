@@ -222,16 +222,18 @@ const checkAnswers = () => {
 
   inputContainers.forEach((inputContainer, index) => {
     const inputs = inputContainer.querySelectorAll(".input-ayah");
-    let userAnswers = Array.from(inputs).map((input) => input.value.trim());
+    const userAnswers = Array.from(inputs).map((input) => input.value.trim());
     const verseContent = lineContentData[index + 2];
+
     let verseHTML = "";
+    let verseUserAnswers = [];
 
     verseContent.forEach((element) => {
       const { text, ayahNum } = element;
 
       if (ayahNum) {
         verseHTML += `<span class="ayah-num">${ayahNum}</span>`;
-        userAnswers.push(ayahNum);
+        verseUserAnswers.push(ayahNum);
       } else {
         verseHTML += `<span class="ayah-kalam">${text}</span>`;
       }
@@ -248,7 +250,7 @@ const checkAnswers = () => {
 
       const wordSpan = document.createElement("span");
 
-      if (!userAnswers.includes(word)) {
+      if (!verseUserAnswers.includes(word)) {
         const errorWordSpan = document.createElement("span");
         errorWordSpan.classList.add("error");
         errorWordSpan.textContent = word + " ";
@@ -269,14 +271,11 @@ const checkAnswers = () => {
     errorElement.classList.add("error-message");
     console.log("userAnswers: " + userAnswers.join(" "));
     console.log("verseSpan: " + verseSpan.textContent.trim());
-    if (userAnswers.join(" ") === verseSpan.textContent.trim()) {
+
+    if (userAnswers.join(" ") === verseUserAnswers.join(" ")) {
       errorElement.textContent = "Correct";
       errorElement.classList.add("correct");
-      const errorWords = verseSpan.querySelectorAll(".error");
-      errorWords.forEach((errorWord) => {
-        errorWord.classList.remove("error");
-        errorWord.classList.add("correct");
-      });
+      verseSpan.classList.add("correct");
     } else {
       const userWords = userAnswers.join(" ").split(" ");
       const errorWordSpan = document.createElement("span");
@@ -284,10 +283,9 @@ const checkAnswers = () => {
       userWords.forEach((userWord, wordIndex) => {
         const wordSpan = document.createElement("span");
 
-        const verseWords = verseSpan.textContent.trim().split(" ");
+        const verseWords = verseUserAnswers.join(" ").split(" ");
         const matchingWord = verseWords.find(
-          (verseWord) =>
-            verseWord === userWord && !verseWord.includes("ayah-num")
+          (verseWord) => verseWord === userWord
         );
 
         if (matchingWord) {
@@ -316,5 +314,6 @@ const checkAnswers = () => {
     inputContainer.appendChild(errorElement);
   });
 };
+
 
 document.getElementById("checkButton").addEventListener("click", checkAnswers);
