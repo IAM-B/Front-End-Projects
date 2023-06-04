@@ -425,8 +425,8 @@ button.btnExo:active {
   font-size: 32px;
   margin: 30px 0 50px 0;
 }
+.ayah,
 .kalam,
-.ayah-kalam,
 .input-container {
   direction: rtl;
   text-align: right;
@@ -437,7 +437,7 @@ button.btnExo:active {
 }
 .ayahNum,
 .ayah-num,
-.error-message {
+.user-answers {
   margin-right: 8px;
   font-size: 2rem;
   color: var(--couleur-text);
@@ -463,11 +463,11 @@ button.btnExo:active {
   border-bottom: 0.1px solid red;
   padding: 2px;
 }
-.error-message {
+.user-answers {
   display: block;
   margin-top: 5px;
 }
-.word-wrapper {
+.kalam-wrapper {
   display: inline;
 }
 .row {

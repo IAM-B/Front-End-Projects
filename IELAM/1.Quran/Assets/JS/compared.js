@@ -81,7 +81,7 @@ const populateTable = async (start, end) => {
 
           if (lineNumber !== currentLineNumber) {
             lineDiv = document.createElement("div");
-            lineDiv.classList.add("line" + `${lineNumber}`, "ayah-kalam");
+            lineDiv.classList.add("line" + `${lineNumber}`, "ayah");
             mushafWrapperDiv.appendChild(lineDiv);
             currentLineNumber = lineNumber;
           }
@@ -124,7 +124,7 @@ const populateTable = async (start, end) => {
 
     let separatedLine = [];
     let kalamElements = [];
-    const kalamText = document.getElementsByClassName("ayah-kalam");
+    const kalamText = document.getElementsByClassName("ayah");
     const verseText = document.getElementsByClassName("kalam");
 
     const hideTextAndShowInput = () => {
@@ -132,10 +132,6 @@ const populateTable = async (start, end) => {
       for (let i = 0; i < kalamText.length; i++) {
         kalamElements.push(kalamText[i].textContent.trim());
       }
-    
-      const verseText = document.getElementsByClassName("kalam");
-      const line1Div = verseText[0].parentNode;
-      
       for (const lineNumber in lineContent) {
         const line = lineContent[lineNumber].map(({ text, ayahNum }) => {
           if (ayahNum) {
@@ -144,15 +140,14 @@ const populateTable = async (start, end) => {
           return { type: "kalam", value: text };
         });
         separatedLine = line;
-    
         const inputContainer = document.createElement("div");
         inputContainer.classList.add("line" + lineNumber, "input-container");
-    
+
         let currentInput = null;
-    
+
         for (let i = 0; i < separatedLine.length; i++) {
           const { type, value } = separatedLine[i];
-    
+
           if (type === "ayah-num") {
             if (currentInput) {
               inputContainer.appendChild(currentInput);
@@ -160,7 +155,7 @@ const populateTable = async (start, end) => {
             }
             const ayahNumElement = document.createElement("span");
             ayahNumElement.classList.add("ayah-num");
-            const arabicNum = convertToArabicNumber(value); // Convert the number to Arabic
+            const arabicNum = convertToArabicNumber(value);
             ayahNumElement.textContent = arabicNum;
             inputContainer.appendChild(ayahNumElement);
           } else if (type === "kalam") {
@@ -176,35 +171,25 @@ const populateTable = async (start, end) => {
             }
           }
         }
-    
+
         if (currentInput) {
           inputContainer.appendChild(currentInput);
         }
-        
-        if (lineNumber !== "1") {
-          line1Div.parentNode.removeChild(verseText[lineNumber].parentNode);
-        }
-        
-        verseText[lineNumber].parentNode.replaceChild(
-          inputContainer,
-          verseText[lineNumber]
-        );
+        kalamText[0].parentNode.replaceChild(inputContainer, kalamText[0]);
       }
-    
       const remainingKalamElements = document.getElementsByClassName("kalam");
       while (remainingKalamElements.length > 0) {
         const kalamElement = remainingKalamElements[0];
         kalamElement.remove();
       }
-    
-      const remainingAyahNumElements = document.getElementsByClassName("ayahNum");
+      const remainingAyahNumElements =
+        document.getElementsByClassName("ayahNum");
       while (remainingAyahNumElements.length > 0) {
         const ayahNumElement = remainingAyahNumElements[0];
         ayahNumElement.remove();
       }
     };
-    
-    
+
     document
       .getElementById("editButton")
       .addEventListener("click", hideTextAndShowInput);
@@ -212,7 +197,6 @@ const populateTable = async (start, end) => {
     console.error("Erreur lors du peuplement du tableau :", error);
   }
 };
-
 populateTable();
 
 const checkAnswers = () => {
@@ -221,99 +205,118 @@ const checkAnswers = () => {
   );
 
   inputContainers.forEach((inputContainer, index) => {
-    const inputs = inputContainer.querySelectorAll(".input-ayah");
-    const userAnswers = Array.from(inputs).map((input) => input.value.trim());
-    const verseContent = lineContentData[index + 2];
+    const inputChildren = Array.from(inputContainer.children);
+    let userAnswers = [];
 
+    for (let i = 0; i < inputChildren.length; i++) {
+      const input = inputChildren[i];
+      const value = input.value.trim();
+
+      if (input.classList.contains("ayah-num")) {
+        userAnswers.push(value);
+      } else {
+        userAnswers = userAnswers.concat(value.split(" "));
+        if (i + 1 < inputChildren.length) {
+          const nextElement = inputChildren[i + 1];
+          if (nextElement.classList.contains("ayah-num")) {
+            const ayahNumValue = nextElement.textContent.trim();
+            userAnswers.push(ayahNumValue);
+            i++;
+          }
+        }
+      }
+    }
+
+    const verseContent = lineContentData[index + 2];
     let verseHTML = "";
-    let verseUserAnswers = [];
 
     verseContent.forEach((element) => {
       const { text, ayahNum } = element;
 
       if (ayahNum) {
-        verseHTML += `<span class="ayah-num">${ayahNum}</span>`;
-        verseUserAnswers.push(ayahNum);
+        const arabicNum = convertToArabicNumber(ayahNum);
+        verseHTML += `<span class="ayah-num">${arabicNum} </span>`;
       } else {
-        verseHTML += `<span class="ayah-kalam">${text}</span>`;
+        verseHTML += `<span class="ayah">${text}</span>`;
       }
     });
 
-    const verseSpan = document.createElement("span");
-    verseSpan.classList.add("verse");
-    verseSpan.innerHTML = verseHTML;
+    const ayahDiv = document.createElement("div");
+    ayahDiv.classList.add("ayah");
+    ayahDiv.innerHTML = verseHTML;
 
-    const verseWords = verseSpan.querySelectorAll(".ayah-kalam");
+    const verseWords = ayahDiv.querySelectorAll(".ayah");
 
     verseWords.forEach((wordElement) => {
       const word = wordElement.textContent;
+      const wordWrapperDiv = document.createElement("div");
+      wordWrapperDiv.classList.add("kalam-wrapper");
 
-      const wordSpan = document.createElement("span");
-
-      if (!verseUserAnswers.includes(word)) {
+      if (!userAnswers.includes(word)) {
         const errorWordSpan = document.createElement("span");
         errorWordSpan.classList.add("error");
         errorWordSpan.textContent = word + " ";
-
-        wordSpan.appendChild(errorWordSpan);
+        wordWrapperDiv.appendChild(errorWordSpan);
       } else {
-        wordSpan.textContent = word + " ";
+        const correctWordSpan = document.createElement("span");
+        correctWordSpan.classList.add("correct");
+        correctWordSpan.textContent = word + " ";
+        wordWrapperDiv.appendChild(correctWordSpan);
       }
 
-      const wordWrapperSpan = document.createElement("span");
-      wordWrapperSpan.classList.add("word-wrapper");
-      wordWrapperSpan.appendChild(wordSpan);
-
-      verseSpan.replaceChild(wordWrapperSpan, wordElement);
+      ayahDiv.replaceChild(wordWrapperDiv, wordElement);
     });
 
-    const errorElement = document.createElement("span");
-    errorElement.classList.add("error-message");
-    console.log("userAnswers: " + userAnswers.join(" "));
-    console.log("verseSpan: " + verseSpan.textContent.trim());
-
-    if (userAnswers.join(" ") === verseUserAnswers.join(" ")) {
-      errorElement.textContent = "Correct";
-      errorElement.classList.add("correct");
-      verseSpan.classList.add("correct");
+    const userAnswersDiv = document.createElement("div");
+    userAnswersDiv.classList.add("user-answers");
+    console.log(" userAnswers " + userAnswers.join(" "));
+    console.log(" ayah " + ayahDiv.textContent.trim());
+    if (userAnswers.join(" ") === ayahDiv.textContent.trim()) {
+      userAnswersDiv.classList.add("correct");
+      const errorWords = ayahDiv.querySelectorAll(".error");
+      errorWords.forEach((errorWord) => {
+        errorWord.classList.remove("error");
+        errorWord.classList.add("correct");
+      });
     } else {
       const userWords = userAnswers.join(" ").split(" ");
-      const errorWordSpan = document.createElement("span");
 
       userWords.forEach((userWord, wordIndex) => {
-        const wordSpan = document.createElement("span");
+        const userKalamDiv = document.createElement("div");
+        userKalamDiv.classList.add("kalam-wrapper");
 
-        const verseWords = verseUserAnswers.join(" ").split(" ");
+        const verseWords = ayahDiv.textContent.trim().split(" ");
         const matchingWord = verseWords.find(
-          (verseWord) => verseWord === userWord
+          (verseWord) =>
+            verseWord === userWord && !verseWord.includes("ayah-num")
         );
 
         if (matchingWord) {
-          wordSpan.textContent = userWord + " ";
+          const correctSpan = document.createElement("span");
+          correctSpan.classList.add("correct");
+          correctSpan.textContent = userWord + " ";
+          userKalamDiv.appendChild(correctSpan);
         } else {
           const errorSpan = document.createElement("span");
           errorSpan.classList.add("error");
           errorSpan.textContent = userWord + " ";
-          wordSpan.appendChild(errorSpan);
+          userKalamDiv.appendChild(errorSpan);
         }
 
-        errorWordSpan.appendChild(wordSpan);
+        userAnswersDiv.appendChild(userKalamDiv);
 
         if (wordIndex !== userWords.length - 1) {
-          errorWordSpan.appendChild(document.createTextNode(" "));
+          userAnswersDiv.appendChild(document.createTextNode(" "));
         }
       });
 
-      errorElement.textContent = "Erreur :";
-      errorElement.appendChild(errorWordSpan);
-      errorElement.classList.add("incorrect");
+      userAnswersDiv.classList.add("incorrect");
     }
 
     inputContainer.innerHTML = "";
-    inputContainer.appendChild(verseSpan);
-    inputContainer.appendChild(errorElement);
+    inputContainer.appendChild(ayahDiv);
+    inputContainer.appendChild(userAnswersDiv);
   });
 };
-
 
 document.getElementById("checkButton").addEventListener("click", checkAnswers);
