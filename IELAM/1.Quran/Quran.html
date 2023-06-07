@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-
     <link rel="stylesheet" href="../Assets/Css/style.css" />
     <link rel="stylesheet" href="../Assets/Css/navBar.css" />
     <link rel="stylesheet" href="../Assets/Css/keyboard.css" />
@@ -10,17 +9,79 @@
     <title>Al-Fatiha</title>
   </head>
   <body>
-    <header class="page">
-      <div class="header">
-        <nav class="navwrapper">
-          <div class="logo">
-            <h1 class="brandLogo"><a href="#">iلعam</a></h1>
-          </div>
-          <div class="showPub"></div>
-          <div class="menu">
+    <nav class="navwrapper">
+      <div class="logo">
+        <h1 class="brandLogo"><a href="#">iلعam</a></h1>
+      </div>
+      <div class="showPub"></div>
+      <div class="menu">
+        <ol>
+          <li class="menu-item"><a href="Acceuil.html">Acceuil</a></li>
+          <li class="menu-item"><a href="Quran/Quran.html">Quran</a></li>
+          <li class="menu-item">
+            <a href="#">Cours</a>
+            <ol class="sub-menu">
+              <li class="menu-item"><a href="#">Tome de Medine</a></li>
+              <li class="menu-item"><a href="#">Islam</a></li>
+              <li class="menu-item"><a href="#">Thematique</a></li>
+            </ol>
+          </li>
+          <li class="menu-item">
+            <a href="#">Blog</a>
+            <ol class="sub-menu">
+              <li class="menu-item"><a href="#">Article du jour</a></li>
+              <li class="menu-item"><a href="#">Populaire</a></li>
+              <li class="menu-item"><a href="#">Tout le Blog</a></li>
+            </ol>
+          </li>
+          <li class="menu-item"><a href="#">Contact</a></li>
+        </ol>
+      </div>
+      <div class="switch-container">
+        <input type="checkbox" id="theme-switch" />
+        <label for="theme-switch" class="switch"></label>
+      </div>
+      <div class="burger toggleMenu">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <g class="burger-lines">
+            <line
+              class="line1"
+              x1="25"
+              y1="35"
+              x2="80"
+              y2="35"
+              stroke-width="10"
+              stroke-linecap="round"
+            />
+            <line
+              class="line2"
+              x1="25"
+              y1="50"
+              x2="80"
+              y2="50"
+              stroke-width="10"
+              stroke-linecap="round"
+            />
+            <line
+              class="line3"
+              x1="25"
+              y1="65"
+              x2="80"
+              y2="65"
+              stroke-width="10"
+              stroke-linecap="round"
+            />
+          </g>
+        </svg>
+      </div>
+      <div class="sidemenu-overlay"></div>
+      <div class="sidemenu">
+        <div class="sidemenu-content">
+          <h1 class="brandPub"><a href="#">iلعam</a></h1>
+          <div class="menuscreen">
             <ol>
-              <li class="menu-item"><a href="Acceuil.html">Acceuil</a></li>
-              <li class="menu-item"><a href="Quran/Quran.html">Quran</a></li>
+              <li class="menu-item"><a href="#">Acceuil</a></li>
+              <li class="menu-item"><a href="#">A propos</a></li>
               <li class="menu-item">
                 <a href="#">Cours</a>
                 <ol class="sub-menu">
@@ -30,94 +91,27 @@
                 </ol>
               </li>
               <li class="menu-item">
-                <a href="#">Blog</a>
+                <a href="#">Partage</a>
                 <ol class="sub-menu">
-                  <li class="menu-item"><a href="#">Article du jour</a></li>
-                  <li class="menu-item"><a href="#">Populaire</a></li>
-                  <li class="menu-item"><a href="#">Tout le Blog</a></li>
+                  <li class="menu-item"><a href="#">Telegram</a></li>
+                  <li class="menu-item"><a href="#">Whattsap</a></li>
+                  <li class="menu-item"><a href="#">Autre</a></li>
                 </ol>
               </li>
               <li class="menu-item"><a href="#">Contact</a></li>
             </ol>
           </div>
-          <div class="switch-container">
-            <input type="checkbox" id="theme-switch" />
-            <label for="theme-switch" class="switch"></label>
-          </div>
-          <div class="burger toggleMenu">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <g class="burger-lines">
-                <line
-                  class="line1"
-                  x1="25"
-                  y1="35"
-                  x2="80"
-                  y2="35"
-                  stroke-width="10"
-                  stroke-linecap="round"
-                />
-                <line
-                  class="line2"
-                  x1="25"
-                  y1="50"
-                  x2="80"
-                  y2="50"
-                  stroke-width="10"
-                  stroke-linecap="round"
-                />
-                <line
-                  class="line3"
-                  x1="25"
-                  y1="65"
-                  x2="80"
-                  y2="65"
-                  stroke-width="10"
-                  stroke-linecap="round"
-                />
-              </g>
-            </svg>
-          </div>
-          <div class="sidemenu-overlay"></div>
-          <div class="sidemenu">
-            <div class="sidemenu-content">
-              <h1 class="brandPub"><a href="#">iلعam</a></h1>
-              <div class="menuscreen">
-                <ol>
-                  <li class="menu-item"><a href="#">Acceuil</a></li>
-                  <li class="menu-item"><a href="#">A propos</a></li>
-                  <li class="menu-item">
-                    <a href="#">Cours</a>
-                    <ol class="sub-menu">
-                      <li class="menu-item"><a href="#">Tome de Medine</a></li>
-                      <li class="menu-item"><a href="#">Islam</a></li>
-                      <li class="menu-item"><a href="#">Thematique</a></li>
-                    </ol>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">Partage</a>
-                    <ol class="sub-menu">
-                      <li class="menu-item"><a href="#">Telegram</a></li>
-                      <li class="menu-item"><a href="#">Whattsap</a></li>
-                      <li class="menu-item"><a href="#">Autre</a></li>
-                    </ol>
-                  </li>
-                  <li class="menu-item"><a href="#">Contact</a></li>
-                </ol>
-              </div>
-              <div class="pub"></div>
-              <div class="pub"></div>
-              <div class="pub"></div>
-              <h1 class="signup"><a href="#">CONTACT</a></h1>
-            </div>
-          </div>
-        </nav>
+          <div class="pub"></div>
+          <div class="pub"></div>
+          <div class="pub"></div>
+          <h1 class="signup"><a href="#">CONTACT</a></h1>
+        </div>
       </div>
-      <div class="brandH1">
-        <h1></h1>
-      </div>
-    </header>
+    </nav>
     <main>
-      <section id="mushaf-layout"></section>
+      <section id="mushaf-layout">
+        <div class="bgImg"></div>
+      </section>
     </main>
     <footer>
       <div class="footer">

@@ -30,12 +30,6 @@ const populateTable = async (start, end) => {
     const pageNumber = data.pageNumber;
     const surahs = data.surahs;
 
-    const bgImg = document.createElement("div");
-    bgImg.id = "bgQuran";
-
-    bgImg.id = "bgQuran";
-    mushafLayoutDiv.appendChild(bgImg);
-
     const rowDiv = document.createElement("div");
     rowDiv.classList.add("row-container");
     const juzSpan = document.createElement("span");
@@ -193,7 +187,7 @@ function createBtn() {
   
   mushafWrapperDiv.appendChild(btnContainer);
 }
-setTimeout(createBtn, 1000);
+setTimeout(createBtn, 50);
 
 
 
@@ -201,12 +195,10 @@ let separatedLine = [];
 let kalamElements = [];
 const kalamText = document.getElementsByClassName("ayah");
 const hideTextAndShowInput = () => {
-  console.log("lineContent", lineContent);
   lineContentData = lineContent;
   for (let i = 0; i < kalamText.length; i++) {
     kalamElements.push(kalamText[i].textContent.trim());
   }
-  console.log("kalamElements", kalamElements);
   for (const lineNumber in lineContent) {
     const line = lineContent[lineNumber].map(({ text, ayahNum }) => {
       if (ayahNum) {
@@ -217,14 +209,14 @@ const hideTextAndShowInput = () => {
     separatedLine = line;
     const inputContainer = document.createElement("div");
     inputContainer.classList.add("line" + lineNumber, "input-container");
-
+    const kalamElement = document.querySelectorAll(".kalam")
+    console.log("kalamElement", kalamElement);
     let currentInput = null;
-console.log("separatedLine", separatedLine);
     for (let i = 1; i < separatedLine.length; i++) {
       const { type, value } = separatedLine[i];
 
       if (type === "ayah-num") {
-        if (currentInput) {
+        if (currentInput, kalamElement) {
           inputContainer.appendChild(currentInput);
           currentInput = null;
         }
@@ -235,14 +227,14 @@ console.log("separatedLine", separatedLine);
         inputContainer.appendChild(ayahNumElement);
       } else if (type === "kalam") {
         if (currentInput) {
-          currentInput.size += type.length - 1;
+          currentInput.size += kalamElement.length;
         } else {
           currentInput = document.createElement("input");
           currentInput.type = "search";
           currentInput.classList.add("input-ayah");
           currentInput.autocomplete = "off";
           currentInput.setAttribute("inputmode", "none");
-          currentInput.size = type.length - 1;
+          currentInput.size = kalamElement.length;
         }
       }
     }
@@ -345,8 +337,6 @@ const checkAnswers = () => {
     } else {
       const userWords = userAnswers.join(" ").split(" ");
       const verseWords = ayahDiv.textContent.trim().split(" ");
-      console.log("verseWords", verseWords);
-      console.log("userWord", userWords);
       userWords.forEach((userWord, wordIndex) => {
         const userKalamDiv = document.createElement("div");
         userKalamDiv.classList.add("kalam-wrapper");

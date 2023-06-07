@@ -253,14 +253,6 @@ ul.navlistPub a {
 .showmenu {
   margin-left: 0px;
 }
-.brandH1 {
-  position: absolute;
-  top: 15%;
-  left: 25%;
-  width: 100%;
-  color: var(--couleur-text);
-  font-family: var(--font-grec);
-}
 @media (min-width: 801px) {
     .menuscreen {
     display: none;
