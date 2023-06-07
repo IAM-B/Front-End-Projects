@@ -318,5 +318,4 @@ const checkAnswers = () => {
     inputContainer.appendChild(userAnswersDiv);
   });
 };
-
 document.getElementById("checkButton").addEventListener("click", checkAnswers);

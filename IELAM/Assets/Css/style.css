@@ -6,6 +6,7 @@
   --couleur-box-shadow-int: inset -3px -3px 3px #ffffff44,
     inset 3px 3px 3px #898e9244;
   --couleur-box-shadow-out: -3px -3px 3px #ffffff44, 3px 3px 3px #898e9244;
+  --couleur-box-shadow-out-hover: 0px -2px 1px #ffffff44, 0px 1px 1px #898e9244;
   --couleur-text-shadow: -1px -2px 3px #ffffff77, 1px 2px 3px #898e9244;
   --couleur-switch: #ffffff;
   --couleur-fond-bg: radial-gradient(circle, #e4ebf5 10%, #e4ebf580);
@@ -22,6 +23,7 @@ body.dark {
   --couleur-box-shadow-int: inset -3px -3px 3px #30303044,
     inset 3px 3px 3px #00000044;
   --couleur-box-shadow-out: -3px -3px 3px #30303044, 3px 3px 3px #00000044;
+  --couleur-box-shadow-out-hover: 0px -1px 1px #30303044, 0px 2px 1px #00000044;
   --couleur-text-shadow: -1px -2px 3px #30303077, 1px 2px 3px #00000044;
   --couleur-switch: #000000;
   --couleur-fond-bg: radial-gradient(circle, #0d1117 40%, #0d111799);
@@ -385,7 +387,7 @@ button.btnExo:active {
   flex-direction: column;
   width: 100%;
   top: 100px;
-  margin-bottom: 120px;
+  height: 100vh;
   color: var(--couleur-btn);
   background-image: var(--couleur-fond-bg);
   background-size: cover;
@@ -394,9 +396,11 @@ button.btnExo:active {
   position: absolute;
   width: 100%;
   height: 100%;
+  background-image: url(https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/1.Quran/Assets/IMG/geometric-patterns-islamic-architectur.svg);
+  background-repeat: repeat;
   fill: var(--couleur-contrast);
   stroke: var(--couleur-contrast);
-  stroke-width: 5px;
+  stroke-width: 1px;
   z-index: -9999;
 }
 .mushaf-layout .mushaf-wrapper {
@@ -419,19 +423,15 @@ button.btnExo:active {
   -moz-text-align-last: center;
   text-align-last: center;
 }
-.basmala {
-  display: block;
-  text-align: center;
-  font-size: 32px;
-  margin: 30px 0 50px 0;
-}
 .ayah,
 .kalam,
+.input-ayah,
 .input-container {
   direction: rtl;
   text-align: right;
   font-size: 2.5rem;
   line-height: 90px;
+  border-radius: 10px;
   color: var(--couleur-btn);
   font-family: "qumbul7";
 }
@@ -439,17 +439,32 @@ button.btnExo:active {
 .ayah-num,
 .user-answers {
   margin-right: 8px;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--couleur-text);
 }
 .mushaf-button {
   position: relative;
-  top: 0;
-  left: 0;
-  padding: 5px 20px;
+  margin: 35px auto;
+  padding: 15px 40px;
   border: none;
-  background-color: var(--couleur-contrast);
+  text-transform: uppercase;
+  color: var(--couleur-text);
+  font-family: var(--font-grec);
+  font-weight: bolder;
+  border-radius: 10px;
+  background-color: var(--couleur-fond);
+  box-shadow: var(--couleur-box-shadow-out);
   cursor: pointer;
+}
+.mushaf-button:hover {
+  box-shadow: var(--couleur-box-shadow-out-hover);
+  color: var(--couleur-btn);
+}
+.mushaf-button:active {
+  box-shadow: var(--couleur-box-shadow-out-int);
+}
+.hidden {
+  display: none;
 }
 .input-ayah {
   margin-right: 8px;
@@ -460,8 +475,12 @@ button.btnExo:active {
   background-color: transparent;
 }
 .error {
+  border-radius: 10px;
   border-bottom: 0.1px solid red;
   padding: 2px;
+}
+.correct {
+  color: green;
 }
 .user-answers {
   display: block;
@@ -470,14 +489,12 @@ button.btnExo:active {
 .kalam-wrapper {
   display: inline;
 }
-.row {
+.row-container {
   display: flex;
-  justify-content: space-between;
-  flex-direction: row-reverse;
-  width: 70%;
-  margin-top: 50px;
-  margin-left: 50%;
-  transform: translate(-39%, -50%);
+  justify-content: reverse;
+}
+.row {
+  margin: 0 50px;
 }
 Button {
   padding: 20px;
