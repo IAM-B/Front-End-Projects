@@ -13,6 +13,9 @@ window.addEventListener("load", function () {
         const imgBG = document.querySelector(".loader-wrapper");
         if (imgBG) {
           imgBG.remove();
+          setTimeout(function () {
+            redirectToSection();
+          }, 1000);
         }
       }, 1000);
     }, 5000);
@@ -23,11 +26,11 @@ window.addEventListener("load", function () {
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navwrapper");
   const sectionExercice1 = document.querySelector("main");
-  
+
   if (sectionExercice1) {
     const sectionTop = sectionExercice1.offsetTop;
     const scrollTop = window.pageYOffset;
-    
+
     if (scrollTop > sectionTop) {
       navbar.classList.add("notonhomepage");
     } else {
@@ -35,7 +38,6 @@ window.addEventListener("scroll", () => {
     }
   }
 });
-
 
 // Listen to click event for toggling the burger menu
 const toggleMenu = document.querySelector(".toggleMenu");
@@ -59,7 +61,9 @@ toggleMenu.addEventListener("click", () => {
 const switchInput = document.getElementById("theme-switch");
 const body = document.body;
 const preferredTheme = localStorage.getItem("preferredTheme");
-const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+  ? "dark"
+  : "light";
 if (!preferredTheme) {
   body.classList.toggle(systemTheme);
   localStorage.setItem("preferredTheme", systemTheme);
@@ -74,3 +78,12 @@ switchInput.addEventListener("change", function () {
     localStorage.setItem("preferredTheme", "");
   }
 });
+
+// Function that redirects to the Quran section after loading
+function redirectToSection() {
+  setTimeout(function () {
+    const section = document.getElementById("quran-section");
+    const offset = section.offsetTop;
+    window.scrollTo({ top: offset, behavior: "smooth" });
+  }, 2000);
+}

@@ -320,9 +320,7 @@ const resetForm = () => {
     affDiv.style.display = "none";
   }
 };
-
 const resetButton = document.querySelector(".btnExo.reset");
-
 resetButton.addEventListener("click", () => {
   resetForm();
 });

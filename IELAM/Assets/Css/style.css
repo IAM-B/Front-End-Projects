@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Quran";
+  src: url("../../1.Quran/Assets/Font/alfont_com_Hafs-Font-v0.09-2.otf")
+    
+}
 :root {
   --couleur-fond: #e4ebf5;
   --couleur-contrast: #ced4dc;
@@ -6,15 +11,16 @@
   --couleur-box-shadow-int: inset -3px -3px 3px #ffffff44,
     inset 3px 3px 3px #898e9244;
   --couleur-box-shadow-out: -3px -3px 3px #ffffff44, 3px 3px 3px #898e9244;
-  --couleur-box-shadow-out-hover: 0px -2px 1px #ffffff44, 0px 1px 1px #898e9244;
+  --couleur-box-shadow-out-hover: 0px -2px 1px #ffffff44,
+    0px 1px 1px #898e9244;
   --couleur-text-shadow: -1px -2px 3px #ffffff77, 1px 2px 3px #898e9244;
   --couleur-switch: #ffffff;
   --couleur-fond-bg: radial-gradient(circle, #e4ebf5, #e4ebf580 50%);
   --couleur-fond-row: linear-gradient(#e4ebf550, #e4ebf5);
   --font-arabic: "Amiri Quran", serif;
   --font-grec: "Cairo", sans-serif;
-  --font-Quran: "Amiri", serif;
-  --bg-Quran: url(../../../1.Quran/Assets/IMG/paterne.svg);
+  --font-Quran: "Quran";
+  --bg-Quran: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/1.Quran/Assets/IMG/paterne.svg");
   transition: all 0.3s ease-in-out;
 }
 body.dark {
@@ -25,12 +31,13 @@ body.dark {
   --couleur-box-shadow-int: inset -3px -3px 3px #30303044,
     inset 3px 3px 3px #00000044;
   --couleur-box-shadow-out: -3px -3px 3px #30303044, 3px 3px 3px #00000044;
-  --couleur-box-shadow-out-hover: 0px -1px 1px #30303044, 0px 2px 1px #00000044;
+  --couleur-box-shadow-out-hover: 0px -1px 1px #30303044,
+    0px 2px 1px #00000044;
   --couleur-text-shadow: -1px -2px 3px #30303077, 1px 2px 3px #00000044;
   --couleur-switch: #000000;
-  --couleur-fond-bg: radial-gradient(circle, #0d1117, #0d111799 90%);
+  --couleur-fond-bg: radial-gradient(circle, #0d1117 25%, #0d111799 100%);
   --couleur-fond-row: linear-gradient(#0d111750 10%, #0d1117);
-  --bg-Quran: url(../../../1.Quran/Assets/IMG/paterne-dark.svg);
+  --bg-Quran: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/1.Quran/Assets/IMG/paterne-dark.svg");
   transition: all 0.3s ease-in-out;
 }
 * {
@@ -44,6 +51,11 @@ body {
   transition: all 0.3s ease-in-out;
   width: 100%;
   height: 100%;
+}
+/* SYSTEME.IO */
+#row-5fc7b82b,
+#row-15a92c79 {
+  display: none;
 }
 
 /* Loader */
@@ -93,19 +105,45 @@ body {
 }
 
 /* HEADER */
-.brandH1 {
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+header.page1.page {
+  height: 100vh;
   display: flex;
-  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.brand {
+  width: 100%;
+  height: 100%;
+}
+.brand-bg {
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg-Quran);
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: repeat;
+  z-index: -1;
+}
+.brand-h1 {
+  display: flex;
   justify-content: center;
   align-items: center;
-  top: 15%;
+  position: absolute;
+  text-align: center;
   width: 100%;
   height: 100vh;
-  color: var(--couleur-text);
-  font-family: var(--font-grec);
-}
-.your {
-  text-align: center;
+  background-image: var(--couleur-fond-bg);
+  left: 50%;
+  bottom: 50%;
+  color: var(--couleur-btn);
+  transform: translate(-50%, 50%);
 }
 
 /* main */
@@ -393,30 +431,33 @@ button.btnExo:active {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 100%;
   color: var(--couleur-btn);
   background-image: var(--couleur-fond-bg);
   background-size: cover;
 }
 
+.mushaf-layout .mushaf-wrapper {
+  margin: 50px auto;
+  text-align: center;
+  display: flex;
+  align-content: center;
+  margin: auto;
+  height: 100vh;
+}
+
 .bgImg {
   display: flex;
-  position: absolute;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
   background-image: var(--bg-Quran);
-  background-size: cover;
+  background-size: contain;
+  background-position: top;
+  background-repeat: repeat;
   z-index: -1;
 }
 
-.mushaf-layout .mushaf-wrapper {
-  text-align: center;
-  display: flex;
-  align-content: center;
-  margin: auto;
-}
 #surah {
   display: flex;
   position: relative;
@@ -427,10 +468,13 @@ button.btnExo:active {
   stroke-width: 10px;
 }
 .mushaf-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   -moz-text-align-last: center;
   text-align-last: center;
-  margin: 50px auto;
+  height: 100%;
 }
 .ayah,
 .kalam,
@@ -442,7 +486,7 @@ button.btnExo:active {
   line-height: 90px;
   border-radius: 10px;
   color: var(--couleur-btn);
-  font-family: "qumbul7";
+  font-family: var(--font-Quran);
 }
 .ayahNum,
 .ayah-num,
@@ -483,6 +527,11 @@ button.btnExo:active {
   border-bottom: 1px solid var(--couleur-btn);
   background-color: transparent;
 }
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
 .error {
   border-radius: 10px;
   border-bottom: 0.1px solid red;
@@ -500,7 +549,6 @@ button.btnExo:active {
 }
 .row-container {
   display: flex;
-  justify-content: reverse;
   justify-content: center;
   width: 100%;
   padding: 35px 0;
@@ -509,18 +557,22 @@ button.btnExo:active {
 .row {
   margin: 0 50px;
 }
-Button {
-  padding: 20px;
-  cursor: pointer;
-}
+
 /*FOOTER*/
 footer {
+  display: none;
   position: relative;
   width: 100%;
   height: 500px;
   border-radius: 10px;
   background-color: var(--couleur-fond);
   box-shadow: var(--couleur-box-shadow-int);
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+footer.show {
+  display: block;
+  transform: translateY(0);
 }
 .footer {
   display: flex;
@@ -536,6 +588,61 @@ footer {
   font-weight: 100;
   color: var(--couleur-contrast);
   text-shadow: var(--couleur-text-shadow);
+}
+
+/*KEYBOARD*/
+.keyboard {
+  position: fixed;
+  bottom: 0;
+  background-color: var(--couleur-fond);
+  box-shadow: var(--couleur-box-shadow-out);
+  padding: 15px;
+  border-radius: 5px;
+  transform: translateY(300%);
+  transition: transform 0.3s ease-out;
+  z-index: 9999;
+}
+
+.keyboard.show {
+  transform: translateY(0);
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.keyboard-key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 60px;
+  font-weight: bold;
+  font-family: "AmiriQuranRegular";
+  color: var(--couleur-text);
+  background-color: var(--couleur-fond);
+  box-shadow: var(--couleur-box-shadow-out);
+  border-style: none;
+  border-radius: 5px;
+  margin: 5px 9px;
+  cursor: pointer;
+}
+
+.keyboard-key:hover {
+  color: var(--couleur-contrast);
+  box-shadow: var(--couleur-box-shadow-out-hover);
+}
+
+.keyboard-key:active {
+  border-radius: 5px;
+  box-shadow: var(--couleur-box-shadow-int);
+}
+
+.keyboard-key.space {
+  width: 595px;
 }
 
 /*MEDIA QUERIES*/
@@ -566,6 +673,10 @@ footer {
   }
   .vocabAR {
     font-family: "Amiri Quran", serif;
+  }
+  .keyboard-key {
+    padding: 45px;
+    font-size: 2.5vh;
   }
 }
 @media (min-width: 801px) {
@@ -665,7 +776,38 @@ footer {
     margin: 0 auto;
   }
 }
+@media (min-width: 800px) and (max-width: 1024px) {
+  .ayah,
+  .kalam,
+  .input-ayah,
+  .input-container {
+    font-size: 2rem;
+    line-height: 70px;
+  }
+
+  .keyboard {
+    width: 100%;
+    padding: 5px 0;
+  }
+  .keyboard-key {
+    width: 50px;
+    height: 45px;
+    margin: 4px 3px;
+    font-size: 2rem;
+  }
+
+  .keyboard-key.space {
+    width: 500px;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 799px) {
+  .ayah,
+  .kalam,
+  .input-ayah,
+  .input-container {
+    font-size: 1.5rem;
+    line-height: 50px;
+  }
   .burger.toggleMenu.active svg {
     stroke: var(--couleur-contrast);
     background-color: var(--couleur-fond);
@@ -702,6 +844,21 @@ footer {
   form#vocab {
     margin: 50px 80px;
   }
+
+  .keyboard {
+    width: 100%;
+    padding: 5px 0;
+  }
+  .keyboard-key {
+    width: 30px;
+    height: 45px;
+    margin: 4px 3px;
+    font-size: 1.5rem;
+  }
+
+  .keyboard-key.space {
+    width: 320px;
+  }
 }
 @media screen and (max-width: 480px) {
   .burger.toggleMenu.active svg {
@@ -736,6 +893,62 @@ footer {
   }
   .navlist li a {
     padding: 20%;
+  }
+
+  .keyboard {
+    width: 100%;
+    padding: 5px 0;
+  }
+  .keyboard-key {
+    width: 25px;
+    height: 45px;
+    margin: 4px 3px;
+    font-size: 1.1rem;
+  }
+
+  .keyboard-key.space {
+    width: 275px;
+    margin: 0 3px;
+  }
+}
+@media screen and (min-width: 395px) and (max-width: 480px) {
+  .ayah,
+  .kalam,
+  .input-ayah,
+  .input-container {
+    font-size: 1.6rem;
+    line-height: 50px;
+  }
+  .ayahNum,
+  .ayah-num,
+  .user-answers {
+    font-size: 1.3rem;
+  }
+  .row {
+    margin: 0 10px;
+  }
+  .mushaf-button {
+    padding: 5px 20px;
+  }
+}
+@media screen and (max-width: 394px) {
+  .ayah,
+  .kalam,
+  .input-ayah,
+  .input-container {
+    font-size: 1.3rem;
+    line-height: 50px;
+  }
+  .ayahNum,
+  .ayah-num,
+  .user-answers {
+    font-size: 1.1rem;
+  }
+  .row {
+    margin: 0 10px;
+  }
+  .mushaf-button {
+    padding: 5px 20px;
   }
 }
 

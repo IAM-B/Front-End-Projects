@@ -1,5 +1,4 @@
-//TEMPLATE
-// Fonction pour récupérer les données à partir d'une requête HTTP
+// Function to fetch the data from the json file
 const fetchData = async () => {
   try {
     const response = await fetch(
@@ -12,8 +11,6 @@ const fetchData = async () => {
     return {};
   }
 };
-
-// Fonction pour récupérer les données à partir d'une requête HTTP
 const fetchPartsData = async () => {
   try {
     const response = await fetch(
@@ -27,6 +24,7 @@ const fetchPartsData = async () => {
   }
 };
 
+// Function to delay the loading of fetchPartsData
 const displayPart = async () => {
   try {
     const partsData = await fetchPartsData();
@@ -53,6 +51,7 @@ const displayPart = async () => {
   }
 };
 
+// Function to increment the mushaf-layout section
 const populateTable = async (start, end) => {
   const table = document.getElementById("mushaf-layout");
 
@@ -95,11 +94,10 @@ const populateTable = async (start, end) => {
     console.error("Erreur lors du peuplement du tableau:", error);
   }
 };
-
 displayPart();
 
 
-// Fonction pour masquer le texte et afficher les zones de texte
+// Function to hide text and display text areas
 const hideTextAndShowInput = () => {
   const ayahs = document.getElementsByClassName("ayah");
   for (let i = 0; i < ayahs.length; i++) {
@@ -115,12 +113,11 @@ const hideTextAndShowInput = () => {
     ayah.replaceChild(verseInput, verseText);
   }
 };
-
 document
   .getElementById("editButton")
   .addEventListener("click", hideTextAndShowInput);
   
-// Fonction pour corriger les réponses des utilisateurs
+// Function to correct user answers
 const checkAnswers = async () => {
   try {
     const data = await fetchData();

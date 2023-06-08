@@ -1,4 +1,4 @@
-//KEYBOARD
+// Finction generate virtual keyboard
 const generateVirtualKeyboard = () => {
   const keyboardContainer = document.createElement("div");
   keyboardContainer.classList.add("keyboard");
@@ -7,7 +7,7 @@ const generateVirtualKeyboard = () => {
     ["ذ", "ّ", "َ", "ً", "ُ", "ٌ", "ِ", "ٍ", "ْ", "ٰ", "ۡ", "د"],
     ["ض", "ص", "ث", "ق", "ف", "غ", "أ", "ع", "ه", "خ", "ح", "ج"],
     ["ش", "س", "ي", "ب", "ل", "إ", "ا", "ت", "ن", "م", "ك", "ط"],
-    [ ",", "'", "ئ", "ء", "ؤ", "ر", "لا", "ى", "ة", "و", "ز", "ظ"],
+    ["ـ", "ئ", "ء", "ؤ", "ٱ", "ر", "لا", "ى", "ة", "و", "ز", "ظ"],
   ];
 
   keyboardRows.forEach((row) => {
@@ -24,9 +24,7 @@ const generateVirtualKeyboard = () => {
 
     keyboardContainer.appendChild(keyboardRow);
   });
-  
 
-  // Ajout de la barre d'espace et du bouton de suppression des caractères
   const spaceDeleteRow = document.createElement("div");
   spaceDeleteRow.classList.add("keyboard-row");
 
@@ -43,7 +41,9 @@ const generateVirtualKeyboard = () => {
         0,
         currentCursorPosition - 1
       );
-      const textAfterCursor = currentValue.substring(currentCursorPosition);
+      const textAfterCursor = currentValue.substring(
+        currentCursorPosition
+      );
       selectedInput.value = textBeforeCursor + textAfterCursor;
       selectedInput.selectionStart = currentCursorPosition - 1;
       selectedInput.selectionEnd = currentCursorPosition - 1;
@@ -92,15 +92,19 @@ const generateVirtualKeyboard = () => {
   document.body.appendChild(keyboardContainer);
 };
 
+// Function attach keyboard events
 const attachKeyboardEvents = (input) => {
   const keyboardKeys = document.querySelectorAll(".keyboard-key");
   const keyboard = document.querySelector(".keyboard");
+  const footer = document.querySelector("footer");
 
   keyboardKeys.forEach((key) => {
     key.addEventListener("click", () => {
       const character = key.textContent;
 
-      const selectedInput = document.querySelector(".input-ayah.selected");
+      const selectedInput = document.querySelector(
+        ".input-ayah.selected"
+      );
 
       if (input === selectedInput) {
         selectedInput.value += character;
@@ -120,12 +124,14 @@ const attachKeyboardEvents = (input) => {
 
   input.addEventListener("focus", () => {
     keyboard.classList.add("show");
+    footer.classList.add("show");
     const inputLength = input.value.length;
     input.setSelectionRange(inputLength, inputLength);
   });
 
   input.addEventListener("blur", () => {
     keyboard.classList.remove("show");
+    footer.classList.remove("show");
   });
 
   input.addEventListener("keydown", (event) => {
@@ -135,6 +141,7 @@ const attachKeyboardEvents = (input) => {
   });
 };
 
+// Function that generates the virtual keyboard
 const observer = new MutationObserver((mutationsList) => {
   mutationsList.forEach((mutation) => {
     if (mutation.addedNodes.length > 0) {
@@ -149,12 +156,9 @@ const observer = new MutationObserver((mutationsList) => {
     }
   });
 });
-
 const config = {
   childList: true,
   subtree: true,
 };
-
 observer.observe(document, config);
-
 generateVirtualKeyboard();
