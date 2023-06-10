@@ -431,6 +431,7 @@ button.btnExo:active {
   align-items: center;
   flex-direction: column;
   width: 100%;
+  height: 100vh;
   color: var(--couleur-btn);
   background-image: var(--couleur-fond-bg);
   background-size: cover;
@@ -491,7 +492,6 @@ button.btnExo:active {
 .ayahNum,
 .ayah-num,
 .user-answers {
-  margin-right: 8px;
   font-size: 2.5rem;
   color: var(--couleur-text);
 }
@@ -535,14 +535,12 @@ input[type="search"]::-webkit-search-decoration {
 .error {
   border-radius: 10px;
   border-bottom: 0.1px solid red;
-  padding: 2px;
 }
 .correct {
   color: green;
 }
 .user-answers {
   display: block;
-  margin-top: 5px;
 }
 .kalam-wrapper {
   display: inline;
