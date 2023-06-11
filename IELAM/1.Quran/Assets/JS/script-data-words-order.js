@@ -25,9 +25,10 @@ let separatedLine = [];
 let kalamElements = [];
 let lineContentData = {};
 let lineContent = {};
-const resetLineContent = () => {
+function resetLineContent() {
   lineContent = {};
 };
+
 const populateTable = async (start, end) => {
   const mushafLayoutDiv = document.getElementById("mushaf-layout");
   resetLineContent();
@@ -202,7 +203,7 @@ function createBtn() {
 
 // Function to hide text and display text areas
 const kalamText = document.getElementsByClassName("ayah");
-const hideTextAndShowInput = () => {
+function hideTextAndShowInput() {
   lineContentData = lineContent;
   for (let i = 0; i < kalamText.length; i++) {
     kalamElements.push(kalamText[i].textContent.trim());
@@ -284,14 +285,17 @@ function getTextWidth(text, fontClass) {
   return width;
 }
 
-// Function to correct user answers
-const checkAnswers = () => {
-  const inputContainers = document.querySelectorAll("#mushaf-layout .input-container");
+// Function check answers
+function checkAnswers() {
+  const inputContainers = document.querySelectorAll(
+    "#mushaf-layout .input-container"
+  );
 
   inputContainers.forEach((inputContainer, index) => {
     const inputChildren = Array.from(inputContainer.children);
     let userAnswers = [];
-    const ayahNumSpans = [];
+    let ayahNumSpans = [];
+    let verseWords = [];
 
     const userAnswersDiv = document.createElement("div");
     userAnswersDiv.classList.add("user-answers");
@@ -301,14 +305,20 @@ const checkAnswers = () => {
       const value = input.value.trim();
 
       if (input.classList.contains("ayah-num")) {
-        ayahNumSpans.push(`<span class="ayah-num">${value} </span>`);
+        const ayahNumSpan = document.createElement("span");
+        ayahNumSpan.classList.add("ayah-num");
+        ayahNumSpan.textContent = value + " ";
+        ayahNumSpans.push(ayahNumSpan);
       } else {
-        userAnswers = userAnswers.concat(value.split(" "));
+        userAnswers.push(value);
         if (i + 1 < inputChildren.length) {
           const nextElement = inputChildren[i + 1];
           if (nextElement.classList.contains("ayah-num")) {
             const ayahNumValue = nextElement.textContent.trim();
-            ayahNumSpans.push(`<span class="ayah-num">${ayahNumValue} </span>`);
+            const ayahNumSpan = document.createElement("span");
+            ayahNumSpan.classList.add("ayah-num");
+            ayahNumSpan.textContent = ayahNumValue + " ";
+            ayahNumSpans.push(ayahNumSpan);
             i++;
           }
         }
@@ -324,39 +334,92 @@ const checkAnswers = () => {
       if (ayahNum) {
         const arabicNum = convertToArabicNumber(ayahNum);
         verseHTML += `<span class="ayah-num">${arabicNum} </span>`;
-      } else {
+      } else if (text) {
         verseHTML += `<span class="ayah">${text} </span>`;
+        verseWords.push(text);
       }
     });
 
-    const userAnswerText = userAnswers.join(" ");
-    const verseWords = verseHTML.trim().split(" ");
+    const verseWordArray = [verseWords.join(" ")];
 
-    userAnswerText.split(" ").forEach((userWord, wordIndex) => {
-      if (verseWords[wordIndex] === userWord) {
-        userAnswersDiv.innerHTML += `<span class="correct user-word">${userWord} </span>`;
-      } else {
-        userAnswersDiv.innerHTML += `<span class="error user-word">${userWord} </span>`;
+    userAnswers.forEach((userAnswer, answerIndex) => {
+      const answerWords = userAnswer.split(" ");
+      let verseWordIndex = 0; // Index du mot du verset
+      let matchCount = 0; // Nombre de mots correspondants
+    
+      answerWords.forEach((word, wordIndex) => {
+        let foundMatch = false;
+        
+        while (verseWordIndex < verseWords.length) {
+          const verseWord = verseWords[verseWordIndex];
+          const verseWordsArray = verseWord.split(" ");
+          
+          if (verseWordsArray[0] === word) {
+            // Si le mot correspond au début de la séquence de mots dans le verset
+            matchCount = 1;
+            let isMatch = true;
+            
+            for (let i = 1; i < verseWordsArray.length; i++) {
+              if (answerWords[wordIndex + i] !== verseWordsArray[i]) {
+                isMatch = false;
+                break;
+              }
+              matchCount++;
+            }
+            
+            if (isMatch) {
+              foundMatch = true;
+              break;
+            }
+          }
+          
+          verseWordIndex++;
+        }
+        
+        console.log(`Word: ${word}`);
+        console.log(`Verse Words: ${verseWords}`);
+        console.log(`Verse Word Index: ${verseWordIndex}`);
+        console.log(`User Answer Word Index: ${wordIndex}`);
+        
+        if (foundMatch) {
+          console.log("Correct!");
+          const correctSpan = document.createElement("span");
+          correctSpan.classList.add("correct", "user-word");
+          correctSpan.textContent = word + " ";
+          userAnswersDiv.appendChild(correctSpan);
+        } else {
+          console.log("Incorrect!");
+          const errorSpan = document.createElement("span");
+          errorSpan.classList.add("error", "user-word");
+          errorSpan.textContent = word + " ";
+          userAnswersDiv.appendChild(errorSpan);
+        }
+      });
+      
+      // Ajouter les spans des numéros d'ayah si nécessaire
+      if (answerIndex < ayahNumSpans.length) {
+        userAnswersDiv.appendChild(ayahNumSpans[answerIndex]);
       }
     });
-
-    if (userAnswersDiv.textContent.trim() === verseHTML.trim()) {
+    
+    const isCorrect = userAnswers.every(
+      (answer, index) => answer === verseWordArray[index]
+    );
+    if (isCorrect) {
       userAnswersDiv.classList.add("correct");
+    } else {
+      userAnswersDiv.classList.add("incorrect");
     }
 
     inputContainer.innerHTML = "";
     inputContainer.innerHTML = verseHTML;
     inputContainer.appendChild(userAnswersDiv);
-
-    ayahNumSpans.forEach((ayahNumSpan) => {
-      userAnswersDiv.innerHTML += ayahNumSpan;
-    });
   });
-};
+}
 
 
 // Function to restart
-const restart = () => {
+function restart() {
   section = document.getElementById("mushaf-layout");
   section.innerHTML = "";
 

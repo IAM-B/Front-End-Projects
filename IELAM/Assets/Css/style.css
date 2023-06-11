@@ -431,7 +431,7 @@ button.btnExo:active {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   color: var(--couleur-btn);
   background-image: var(--couleur-fond-bg);
   background-size: cover;
@@ -443,7 +443,7 @@ button.btnExo:active {
   display: flex;
   align-content: center;
   margin: auto;
-  height: 100vh;
+  height: 100%;
 }
 
 .bgImg {
@@ -492,7 +492,7 @@ button.btnExo:active {
 .ayahNum,
 .ayah-num,
 .user-answers {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--couleur-text);
 }
 .mushaf-button {
