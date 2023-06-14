@@ -7,10 +7,11 @@ function checkAnswers() {
     const inputChildren = Array.from(inputContainer.children);
     let userAnswers = [];
     let ayahNumSpans = [];
-    let verseWords = [];
+    let ayahSpans = [];
 
-    const userAnswersDiv = document.createElement("div");
-    userAnswersDiv.classList.add("user-answers");
+    const ayahDiv = document.createElement("div");
+    ayahDiv.classList.add("ayah");
+    const verseWords = ayahDiv.querySelectorAll(".ayah");
 
     for (let i = 0; i < inputChildren.length; i++) {
       const input = inputChildren[i];
@@ -37,6 +38,24 @@ function checkAnswers() {
       }
     }
 
+    const userAnswersDiv = document.createElement("div");
+    userAnswersDiv.classList.add("user-answers");
+
+    userAnswers.forEach((userAnswer, answerIndex) => {
+      if (answerIndex < ayahNumSpans.length) {
+        const userAnswerSpan = document.createElement("span");
+        userAnswerSpan.classList.add("user-answer");
+        userAnswerSpan.textContent = userAnswer + " ";
+        userAnswersDiv.appendChild(userAnswerSpan);
+        userAnswersDiv.appendChild(ayahNumSpans[answerIndex]);
+      } else {
+        const userAnswerSpan = document.createElement("span");
+        userAnswerSpan.classList.add("user-answer");
+        userAnswerSpan.textContent = userAnswer + " ";
+        userAnswersDiv.appendChild(userAnswerSpan);
+      }
+    });
+
     const verseContent = lineContentData[index + 2];
     let verseHTML = "";
 
@@ -48,56 +67,61 @@ function checkAnswers() {
         verseHTML += `<span class="ayah-num">${arabicNum} </span>`;
       } else if (text) {
         verseHTML += `<span class="ayah">${text} </span>`;
-        verseWords.push(text);
+        ayahSpans.push(text);
       }
     });
 
-    const verseWordArray = [verseWords.join(" ")];
+    ayahDiv.innerHTML = verseHTML;
 
-    userAnswers.forEach((userAnswer, answerIndex) => {
-      const answerWords = userAnswer.split(" ");
-      const verseWordsArray = verseWordArray[0].split(" ");
+    verseWords.forEach((wordElement) => {
+      const word = wordElement.textContent;
 
-      const isMatch = answerWords.every(
-        (word, i) => word === verseWordsArray[i]
-      );
-
-      console.log(`User Answer: ${userAnswer}`);
-      console.log(`Verse Words: ${verseWordArray}`);
-      console.log(`Verse Word Index: ${answerWords.length}`);
-      console.log(`User Answer Word Index: ${answerIndex}`);
-
-      if (isMatch && answerWords.length === verseWordsArray.length) {
-        console.log("Correct!");
-        const correctSpan = document.createElement("span");
-        correctSpan.classList.add("correct", "user-word");
-        correctSpan.textContent = userAnswer + " ";
-        userAnswersDiv.appendChild(correctSpan);
+      if (!userAnswers.includes(word)) {
+        const errorWordSpan = document.createElement("span");
+        errorWordSpan.classList.add("error");
+        errorWordSpan.textContent = word + " ";
+        ayahDiv.replaceChild(errorWordSpan, wordElement);
       } else {
-        console.log("Incorrect!");
-        const errorSpan = document.createElement("span");
-        errorSpan.classList.add("error", "user-word");
-        errorSpan.textContent = userAnswer + " ";
-        userAnswersDiv.appendChild(errorSpan);
-      }
-
-      // Ajouter les spans des numéros d'ayah si nécessaire
-      if (answerIndex < ayahNumSpans.length) {
-        userAnswersDiv.appendChild(ayahNumSpans[answerIndex]);
+        const correctWordSpan = document.createElement("span");
+        correctWordSpan.classList.add("correct");
+        correctWordSpan.textContent = word + " ";
+        ayahDiv.replaceChild(correctWordSpan, wordElement);
       }
     });
 
-    const isCorrect = userAnswers.every(
-      (answer, index) => answer === verseWordArray[index]
-    );
-    if (isCorrect) {
+    if (userAnswers.join(" ") === ayahDiv.textContent.trim()) {
       userAnswersDiv.classList.add("correct");
+      const errorWords = ayahDiv.querySelectorAll(".error");
+      errorWords.forEach((errorWord) => {
+        errorWord.classList.remove("error");
+        errorWord.classList.add("correct");
+      });
     } else {
+      const userWords = userAnswers.join(" ").split(" ");
+      const verseWords = ayahDiv.textContent.trim().split(" ");
+      userWords.forEach((userWord) => {
+        const matchingWord = verseWords.find(
+          (verseWord) => verseWord === userWord
+          );
+
+        if (matchingWord) {
+          const correctSpan = document.createElement("span");
+          correctSpan.classList.add("correct");
+          correctSpan.textContent = userWord + " ";
+          userAnswersDiv.appendChild(correctSpan);
+        } else {
+          const errorSpan = document.createElement("span");
+          errorSpan.classList.add("error");
+          errorSpan.textContent = userWord + " ";
+          userAnswersDiv.appendChild(errorSpan);
+        }
+      });
+
       userAnswersDiv.classList.add("incorrect");
     }
 
     inputContainer.innerHTML = "";
-    inputContainer.innerHTML = verseHTML;
+    inputContainer.appendChild(ayahDiv);
     inputContainer.appendChild(userAnswersDiv);
   });
-}
+};

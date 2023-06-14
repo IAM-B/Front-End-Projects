@@ -27,7 +27,7 @@ let lineContentData = {};
 let lineContent = {};
 function resetLineContent() {
   lineContent = {};
-};
+}
 
 const populateTable = async (start, end) => {
   const mushafLayoutDiv = document.getElementById("mushaf-layout");
@@ -268,7 +268,7 @@ function hideTextAndShowInput() {
     const ayahNumElement = remainingAyahNumElements[0];
     ayahNumElement.remove();
   }
-};
+}
 
 // Function to get the width of a text
 function getTextWidth(text, fontClass) {
@@ -294,31 +294,20 @@ function checkAnswers() {
   inputContainers.forEach((inputContainer, index) => {
     const inputChildren = Array.from(inputContainer.children);
     let userAnswers = [];
-    let ayahNumSpans = [];
-    let verseWords = [];
-
-    const userAnswersDiv = document.createElement("div");
-    userAnswersDiv.classList.add("user-answers");
 
     for (let i = 0; i < inputChildren.length; i++) {
       const input = inputChildren[i];
       const value = input.value.trim();
 
-      if (input.classList.contains("ayah-num")) {
-        const ayahNumSpan = document.createElement("span");
-        ayahNumSpan.classList.add("ayah-num");
-        ayahNumSpan.textContent = value + " ";
-        ayahNumSpans.push(ayahNumSpan);
+      if (value === "") {
+        break;
       } else {
-        userAnswers.push(value);
+        userAnswers = userAnswers.concat(value.split(" "));
         if (i + 1 < inputChildren.length) {
           const nextElement = inputChildren[i + 1];
           if (nextElement.classList.contains("ayah-num")) {
             const ayahNumValue = nextElement.textContent.trim();
-            const ayahNumSpan = document.createElement("span");
-            ayahNumSpan.classList.add("ayah-num");
-            ayahNumSpan.textContent = ayahNumValue + " ";
-            ayahNumSpans.push(ayahNumSpan);
+            userAnswers.push(ayahNumValue);
             i++;
           }
         }
@@ -334,89 +323,78 @@ function checkAnswers() {
       if (ayahNum) {
         const arabicNum = convertToArabicNumber(ayahNum);
         verseHTML += `<span class="ayah-num">${arabicNum} </span>`;
-      } else if (text) {
-        verseHTML += `<span class="ayah">${text} </span>`;
-        verseWords.push(text);
+      } else {
+        verseHTML += `<span class="ayah">${text}</span>`;
       }
     });
 
-    const verseWordArray = [verseWords.join(" ")];
+    const ayahDiv = document.createElement("div");
+    ayahDiv.classList.add("ayah");
+    ayahDiv.innerHTML = verseHTML;
 
-    userAnswers.forEach((userAnswer, answerIndex) => {
-      const answerWords = userAnswer.split(" ");
-      let verseWordIndex = 0; // Index du mot du verset
-      let matchCount = 0; // Nombre de mots correspondants
-    
-      answerWords.forEach((word, wordIndex) => {
-        let foundMatch = false;
-        
-        while (verseWordIndex < verseWords.length) {
-          const verseWord = verseWords[verseWordIndex];
-          const verseWordsArray = verseWord.split(" ");
-          
-          if (verseWordsArray[0] === word) {
-            // Si le mot correspond au début de la séquence de mots dans le verset
-            matchCount = 1;
-            let isMatch = true;
-            
-            for (let i = 1; i < verseWordsArray.length; i++) {
-              if (answerWords[wordIndex + i] !== verseWordsArray[i]) {
-                isMatch = false;
-                break;
-              }
-              matchCount++;
-            }
-            
-            if (isMatch) {
-              foundMatch = true;
-              break;
-            }
+    const verseWords = ayahDiv.querySelectorAll(".ayah");
+
+    verseWords.forEach((wordElement) => {
+      const word = wordElement.textContent;
+
+      if (!userAnswers.includes(word)) {
+        const errorWordSpan = document.createElement("span");
+        errorWordSpan.classList.add("error");
+        errorWordSpan.textContent = word + " ";
+        ayahDiv.replaceChild(errorWordSpan, wordElement);
+      } else {
+        const correctWordSpan = document.createElement("span");
+        correctWordSpan.classList.add("correct");
+        correctWordSpan.textContent = word + " ";
+        ayahDiv.replaceChild(correctWordSpan, wordElement);
+      }
+    });
+
+    console.log("userAnswers" + userAnswers.join(" "));
+    console.log("ayahDiv" + ayahDiv.textContent.trim());
+
+    const userAnswersDiv = document.createElement("div");
+    userAnswersDiv.classList.add("user-answers");
+    if (userAnswers.join(" ") === ayahDiv.textContent.trim()) {
+      userAnswersDiv.classList.add("correct");
+      const errorWords = ayahDiv.querySelectorAll(".error");
+      errorWords.forEach((errorWord) => {
+        errorWord.classList.remove("error");
+        errorWord.classList.add("correct");
+      });
+    } else {
+      const userWords = userAnswers.join(" ").split(" ");
+      const verseWords = ayahDiv.textContent.trim().split(" ");
+      userWords.forEach((userWord) => {
+        const matchingWord = verseWords.find(
+          (verseWord) => verseWord === userWord
+        );
+
+        if (matchingWord) {
+          const wordSpan = document.createElement("span");
+          if (/[\u0660-\u0669]/.test(userWord)) {
+            wordSpan.classList.add("ayah-num");
+          } else {
+            wordSpan.classList.add("correct");
           }
-          
-          verseWordIndex++;
-        }
-        
-        console.log(`Word: ${word}`);
-        console.log(`Verse Words: ${verseWords}`);
-        console.log(`Verse Word Index: ${verseWordIndex}`);
-        console.log(`User Answer Word Index: ${wordIndex}`);
-        
-        if (foundMatch) {
-          console.log("Correct!");
-          const correctSpan = document.createElement("span");
-          correctSpan.classList.add("correct", "user-word");
-          correctSpan.textContent = word + " ";
-          userAnswersDiv.appendChild(correctSpan);
+          wordSpan.textContent = userWord + " ";
+          userAnswersDiv.appendChild(wordSpan);
         } else {
-          console.log("Incorrect!");
           const errorSpan = document.createElement("span");
-          errorSpan.classList.add("error", "user-word");
-          errorSpan.textContent = word + " ";
+          errorSpan.classList.add("error");
+          errorSpan.textContent = userWord + " ";
           userAnswersDiv.appendChild(errorSpan);
         }
       });
-      
-      // Ajouter les spans des numéros d'ayah si nécessaire
-      if (answerIndex < ayahNumSpans.length) {
-        userAnswersDiv.appendChild(ayahNumSpans[answerIndex]);
-      }
-    });
-    
-    const isCorrect = userAnswers.every(
-      (answer, index) => answer === verseWordArray[index]
-    );
-    if (isCorrect) {
-      userAnswersDiv.classList.add("correct");
-    } else {
+
       userAnswersDiv.classList.add("incorrect");
     }
 
     inputContainer.innerHTML = "";
-    inputContainer.innerHTML = verseHTML;
+    inputContainer.appendChild(ayahDiv);
     inputContainer.appendChild(userAnswersDiv);
   });
 }
-
 
 // Function to restart
 function restart() {
@@ -425,4 +403,4 @@ function restart() {
 
   populateTable();
   setTimeout(createBtn, 500);
-};
+}
