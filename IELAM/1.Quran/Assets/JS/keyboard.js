@@ -72,6 +72,28 @@ const generateVirtualKeyboard = () => {
   spaceButton.textContent = " ";
   spaceDeleteRow.appendChild(spaceButton);
 
+  spaceButton.addEventListener("click", (event) => {
+    const selectedInput = document.querySelector(".input-ayah.selected");
+    if (selectedInput) {
+      const currentValue = selectedInput.value;
+      const currentCursorPosition = selectedInput.selectionStart;
+      const textBeforeCursor = currentValue.substring(0, currentCursorPosition);
+      const textAfterCursor = currentValue.substring(currentCursorPosition);
+      const clickedKey = event.target.textContent;
+
+      let updatedValue;
+      if (clickedKey === " ") {
+        updatedValue = textBeforeCursor + " " + textAfterCursor;
+      } else {
+        updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
+      }
+
+      selectedInput.value = updatedValue;
+      selectedInput.selectionStart = currentCursorPosition + 1;
+      selectedInput.selectionEnd = currentCursorPosition + 1;
+    }
+  });
+
   const leftButton = document.createElement("button");
   leftButton.classList.add("keyboard-key", "direction");
   leftButton.innerHTML = "<i class='fas fa-arrow-left'></i>";
@@ -112,7 +134,7 @@ const attachKeyboardEvents = (input) => {
   const keyboardKeys = document.querySelectorAll(".keyboard-key");
   const keyboard = document.querySelector(".keyboard");
   const footer = document.querySelector("footer");
-  
+
   keyboardKeys.forEach((key) => {
     key.addEventListener("click", () => {
       const character = key.textContent;
