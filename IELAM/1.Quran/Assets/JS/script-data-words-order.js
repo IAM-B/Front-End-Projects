@@ -118,7 +118,7 @@ const populateTable = async (start, end) => {
           if (text !== null && text !== undefined) {
             const textSpan = document.createElement("span");
             textSpan.classList.add("kalam");
-            textSpan.textContent = " " + `${text}`;
+            textSpan.textContent = " " + `${text}` + " ";
             lineDiv.appendChild(textSpan);
 
             if (!lineContent[lineNumber]) {
@@ -229,7 +229,7 @@ function hideTextAndShowInput() {
         const ayahNumElement = document.createElement("span");
         ayahNumElement.classList.add("ayah-num");
         const arabicNum = convertToArabicNumber(value);
-        ayahNumElement.textContent = arabicNum;
+        ayahNumElement.textContent = " " + arabicNum;
         inputContainer.appendChild(ayahNumElement);
       } else if (type === "kalam") {
         if (!currentInput) {
@@ -338,10 +338,16 @@ function checkAnswers() {
       const word = wordElement.textContent;
 
       if (!userAnswers.includes(word)) {
-        const errorWordSpan = document.createElement("span");
-        errorWordSpan.classList.add("error");
-        errorWordSpan.textContent = word + " ";
-        ayahDiv.replaceChild(errorWordSpan, wordElement);
+        if (userAnswers.length === 0) {
+          const emptyWordSpan = document.createElement("span");
+          emptyWordSpan.textContent = word + " ";
+          ayahDiv.replaceChild(emptyWordSpan, wordElement);
+        } else {
+          const errorWordSpan = document.createElement("span");
+          errorWordSpan.classList.add("error");
+          errorWordSpan.textContent = word + " ";
+          ayahDiv.replaceChild(errorWordSpan, wordElement);
+        }
       } else {
         const correctWordSpan = document.createElement("span");
         correctWordSpan.classList.add("correct");
@@ -366,7 +372,6 @@ function checkAnswers() {
       const userWords = userAnswers.join(" ").split(" ");
       const verseWords = ayahDiv.textContent.trim().split(" ");
       userWords.forEach((userWord, userWordIndex) => {
-
         const verseWord = verseWords[userWordIndex];
 
         if (verseWord.trim().toLowerCase() === userWord.trim().toLowerCase()) {

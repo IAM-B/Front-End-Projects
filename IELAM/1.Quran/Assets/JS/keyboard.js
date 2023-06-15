@@ -65,7 +65,6 @@ const generateVirtualKeyboard = () => {
       selectedInput.selectionEnd = currentCursorPosition - 1;
     }
   });
-
   spaceDeleteRow.appendChild(deleteButton);
 
   const spaceButton = document.createElement("button");
