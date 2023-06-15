@@ -365,12 +365,11 @@ function checkAnswers() {
     } else {
       const userWords = userAnswers.join(" ").split(" ");
       const verseWords = ayahDiv.textContent.trim().split(" ");
-      userWords.forEach((userWord) => {
-        const matchingWord = verseWords.find(
-          (verseWord) => verseWord === userWord
-        );
+      userWords.forEach((userWord, userWordIndex) => {
 
-        if (matchingWord) {
+        const verseWord = verseWords[userWordIndex];
+
+        if (verseWord.trim().toLowerCase() === userWord.trim().toLowerCase()) {
           const wordSpan = document.createElement("span");
           if (/[\u0660-\u0669]/.test(userWord)) {
             wordSpan.classList.add("ayah-num");
