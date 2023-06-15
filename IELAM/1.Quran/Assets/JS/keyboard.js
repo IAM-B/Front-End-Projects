@@ -1,4 +1,4 @@
-// Finction generate virtual keyboard
+// Function generate virtual keyboard
 const generateVirtualKeyboard = () => {
   const keyboardContainer = document.createElement("div");
   keyboardContainer.classList.add("keyboard");
@@ -18,6 +18,24 @@ const generateVirtualKeyboard = () => {
       const button = document.createElement("button");
       button.classList.add("keyboard-key");
       button.textContent = key;
+
+      button.addEventListener("click", (event) => {
+        const selectedInput = document.querySelector(".input-ayah.selected");
+        if (selectedInput) {
+          const currentValue = selectedInput.value;
+          const currentCursorPosition = selectedInput.selectionStart;
+          const textBeforeCursor = currentValue.substring(
+            0,
+            currentCursorPosition
+          );
+          const textAfterCursor = currentValue.substring(currentCursorPosition);
+          const clickedKey = event.target.textContent;
+          const updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
+          selectedInput.value = updatedValue;
+          selectedInput.selectionStart = currentCursorPosition + 1;
+          selectedInput.selectionEnd = currentCursorPosition + 1;
+        }
+      });
 
       keyboardRow.appendChild(button);
     });
@@ -41,9 +59,7 @@ const generateVirtualKeyboard = () => {
         0,
         currentCursorPosition - 1
       );
-      const textAfterCursor = currentValue.substring(
-        currentCursorPosition
-      );
+      const textAfterCursor = currentValue.substring(currentCursorPosition);
       selectedInput.value = textBeforeCursor + textAfterCursor;
       selectedInput.selectionStart = currentCursorPosition - 1;
       selectedInput.selectionEnd = currentCursorPosition - 1;
@@ -97,17 +113,15 @@ const attachKeyboardEvents = (input) => {
   const keyboardKeys = document.querySelectorAll(".keyboard-key");
   const keyboard = document.querySelector(".keyboard");
   const footer = document.querySelector("footer");
-
+  
   keyboardKeys.forEach((key) => {
     key.addEventListener("click", () => {
       const character = key.textContent;
 
-      const selectedInput = document.querySelector(
-        ".input-ayah.selected"
-      );
+      const selectedInput = document.querySelector(".input-ayah.selected");
 
       if (input === selectedInput) {
-        selectedInput.value += character;
+        selectedInput.value;
       }
     });
 
@@ -123,13 +137,20 @@ const attachKeyboardEvents = (input) => {
   });
 
   input.addEventListener("focus", () => {
+    const keyboard = document.querySelector(".keyboard");
+    const footer = document.querySelector("footer");
+
     keyboard.classList.add("show");
     footer.classList.add("show");
+
     const inputLength = input.value.length;
     input.setSelectionRange(inputLength, inputLength);
   });
 
   input.addEventListener("blur", () => {
+    const keyboard = document.querySelector(".keyboard");
+    const footer = document.querySelector("footer");
+
     keyboard.classList.remove("show");
     footer.classList.remove("show");
   });
@@ -141,14 +162,15 @@ const attachKeyboardEvents = (input) => {
   });
 };
 
-// Function that generates the virtual keyboard
+// Mutation observer
 const observer = new MutationObserver((mutationsList) => {
   mutationsList.forEach((mutation) => {
-    if (mutation.addedNodes.length > 0) {
+    if (mutation.type === "childList") {
       mutation.addedNodes.forEach((node) => {
         if (
           node.tagName === "INPUT" &&
-          node.classList.contains("input-ayah")
+          node.classList.contains("input-ayah") &&
+          !node.closest(".input-ayah")
         ) {
           attachKeyboardEvents(node);
         }
@@ -156,9 +178,12 @@ const observer = new MutationObserver((mutationsList) => {
     }
   });
 });
+
 const config = {
   childList: true,
   subtree: true,
 };
+
 observer.observe(document, config);
+
 generateVirtualKeyboard();
