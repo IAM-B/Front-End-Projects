@@ -371,25 +371,35 @@ function checkAnswers() {
     } else {
       const userWords = userAnswers.join(" ").split(" ");
       const verseWords = ayahDiv.textContent.trim().split(" ");
-      userWords.forEach((userWord, userWordIndex) => {
-        const verseWord = verseWords[userWordIndex];
+      if (userWords.length !== verseWords.length) {
+        const unexpectedWord = userWords;
+        const errorSpan = document.createElement("span");
+        errorSpan.classList.add("error");
+        errorSpan.textContent = unexpectedWord.join(" ");
+        userAnswersDiv.appendChild(errorSpan);
+      } else {
+        userWords.forEach((userWord, userWordIndex) => {
+          const verseWord = verseWords[userWordIndex];
 
-        if (verseWord.trim().toLowerCase() === userWord.trim().toLowerCase()) {
-          const wordSpan = document.createElement("span");
-          if (/[\u0660-\u0669]/.test(userWord)) {
-            wordSpan.classList.add("ayah-num");
+          if (
+            verseWord.trim().toLowerCase() === userWord.trim().toLowerCase()
+          ) {
+            const wordSpan = document.createElement("span");
+            if (/[\u0660-\u0669]/.test(userWord)) {
+              wordSpan.classList.add("ayah-num");
+            } else {
+              wordSpan.classList.add("correct");
+            }
+            wordSpan.textContent = userWord + " ";
+            userAnswersDiv.appendChild(wordSpan);
           } else {
-            wordSpan.classList.add("correct");
+            const errorSpan = document.createElement("span");
+            errorSpan.classList.add("error");
+            errorSpan.textContent = userWord + " ";
+            userAnswersDiv.appendChild(errorSpan);
           }
-          wordSpan.textContent = userWord + " ";
-          userAnswersDiv.appendChild(wordSpan);
-        } else {
-          const errorSpan = document.createElement("span");
-          errorSpan.classList.add("error");
-          errorSpan.textContent = userWord + " ";
-          userAnswersDiv.appendChild(errorSpan);
-        }
-      });
+        });
+      }
 
       userAnswersDiv.classList.add("incorrect");
     }

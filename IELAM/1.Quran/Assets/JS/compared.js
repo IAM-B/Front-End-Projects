@@ -1,157 +1,123 @@
-// Finction generate virtual keyboard
-const generateVirtualKeyboard = () => {
-  const keyboardContainer = document.createElement("div");
-  keyboardContainer.classList.add("keyboard");
+function checkAnswers() {
+  const inputContainers = document.querySelectorAll(
+    "#mushaf-layout .input-container"
+  );
 
-  const keyboardRows = [
-    ["ذ", "ّ", "َ", "ً", "ُ", "ٌ", "ِ", "ٍ", "ْ", "ٰ", "ۡ", "د"],
-    ["ض", "ص", "ث", "ق", "ف", "غ", "أ", "ع", "ه", "خ", "ح", "ج"],
-    ["ش", "س", "ي", "ب", "ل", "إ", "ا", "ت", "ن", "م", "ك", "ط"],
-    ["ـ", "ئ", "ء", "ؤ", "ٱ", "ر", "لا", "ى", "ة", "و", "ز", "ظ"],
-  ];
+  inputContainers.forEach((inputContainer, index) => {
+    const inputChildren = Array.from(inputContainer.children);
+    let userAnswers = [];
 
-  keyboardRows.forEach((row) => {
-    const keyboardRow = document.createElement("div");
-    keyboardRow.classList.add("keyboard-row");
+    for (let i = 0; i < inputChildren.length; i++) {
+      const input = inputChildren[i];
+      const value = input.value.trim();
 
-    row.forEach((key) => {
-      const button = document.createElement("button");
-      button.classList.add("keyboard-key");
-      button.textContent = key;
-
-      keyboardRow.appendChild(button);
-    });
-
-    keyboardContainer.appendChild(keyboardRow);
-  });
-
-  const spaceDeleteRow = document.createElement("div");
-  spaceDeleteRow.classList.add("keyboard-row");
-
-  const deleteButton = document.createElement("button");
-  deleteButton.classList.add("keyboard-key", "delete");
-  deleteButton.innerHTML =
-    "<span class='delete-icon'><i class='fas fa-chevron-right'></i></span>";
-  deleteButton.addEventListener("click", () => {
-    const selectedInput = document.querySelector(".input-ayah.selected");
-    if (selectedInput) {
-      const currentValue = selectedInput.value;
-      const currentCursorPosition = selectedInput.selectionStart;
-      const textBeforeCursor = currentValue.substring(
-        0,
-        currentCursorPosition - 1
-      );
-      const textAfterCursor = currentValue.substring(currentCursorPosition);
-      selectedInput.value = textBeforeCursor + textAfterCursor;
-      selectedInput.selectionStart = currentCursorPosition - 1;
-      selectedInput.selectionEnd = currentCursorPosition - 1;
-    }
-  });
-
-  spaceDeleteRow.appendChild(deleteButton);
-
-  const spaceButton = document.createElement("button");
-  spaceButton.classList.add("keyboard-key", "space");
-  spaceButton.textContent = " ";
-  spaceDeleteRow.appendChild(spaceButton);
-
-  const leftButton = document.createElement("button");
-  leftButton.classList.add("keyboard-key", "direction");
-  leftButton.innerHTML = "<i class='fas fa-arrow-left'></i>";
-  leftButton.addEventListener("click", () => {
-    const selectedInput = document.querySelector(".input-ayah.selected");
-    if (selectedInput) {
-      const currentCursorPosition = selectedInput.selectionStart;
-      if (currentCursorPosition < selectedInput.value.length) {
-        selectedInput.selectionStart = currentCursorPosition + 1;
-        selectedInput.selectionEnd = currentCursorPosition + 1;
-      }
-    }
-  });
-  spaceDeleteRow.appendChild(leftButton);
-
-  const rightButton = document.createElement("button");
-  rightButton.classList.add("keyboard-key", "direction");
-  rightButton.innerHTML = "<i class='fas fa-arrow-right'></i>";
-  rightButton.addEventListener("click", () => {
-    const selectedInput = document.querySelector(".input-ayah.selected");
-    if (selectedInput) {
-      const currentCursorPosition = selectedInput.selectionStart;
-      if (currentCursorPosition > 0) {
-        selectedInput.selectionStart = currentCursorPosition - 1;
-        selectedInput.selectionEnd = currentCursorPosition - 1;
-      }
-    }
-  });
-  spaceDeleteRow.appendChild(rightButton);
-
-  keyboardContainer.appendChild(spaceDeleteRow);
-
-  document.body.appendChild(keyboardContainer);
-};
-
-// Function attach keyboard events
-const attachKeyboardEvents = (input) => {
-  const keyboardKeys = document.querySelectorAll(".keyboard-key");
-  const keyboard = document.querySelector(".keyboard");
-  const footer = document.querySelector("footer");
-
-  keyboardKeys.forEach((key) => {
-    key.addEventListener("click", () => {
-      const character = key.textContent;
-
-      const selectedInput = document.querySelector(".input-ayah.selected");
-
-      if (input === selectedInput) {
-        selectedInput.value += character;
-      }
-    });
-
-    key.addEventListener("mousedown", (event) => {
-      event.preventDefault();
-    });
-  });
-
-  input.addEventListener("click", () => {
-    const inputFields = document.querySelectorAll(".input-ayah");
-    inputFields.forEach((i) => i.classList.remove("selected"));
-    input.classList.add("selected");
-  });
-
-  input.addEventListener("focus", () => {
-    keyboard.classList.add("show");
-    footer.classList.add("show");
-    const inputLength = input.value.length;
-    input.setSelectionRange(inputLength, inputLength);
-  });
-
-  input.addEventListener("blur", () => {
-    keyboard.classList.remove("show");
-    footer.classList.remove("show");
-  });
-
-  input.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-      event.preventDefault();
-    }
-  });
-};
-
-// Function that generates the virtual keyboard
-const observer = new MutationObserver((mutationsList) => {
-  mutationsList.forEach((mutation) => {
-    if (mutation.addedNodes.length > 0) {
-      mutation.addedNodes.forEach((node) => {
-        if (node.tagName === "INPUT" && node.classList.contains("input-ayah")) {
-          attachKeyboardEvents(node);
+      if (value === "") {
+        break;
+      } else {
+        userAnswers = userAnswers.concat(value.split(" "));
+        if (i + 1 < inputChildren.length) {
+          const nextElement = inputChildren[i + 1];
+          if (nextElement.classList.contains("ayah-num")) {
+            const ayahNumValue = nextElement.textContent.trim();
+            userAnswers.push(ayahNumValue);
+            i++;
+          }
         }
-      });
+      }
     }
+
+    const verseContent = lineContentData[index + 2];
+    let verseHTML = "";
+
+    verseContent.forEach((element) => {
+      const { text, ayahNum } = element;
+
+      if (ayahNum) {
+        const arabicNum = convertToArabicNumber(ayahNum);
+        verseHTML += `<span class="ayah-num">${arabicNum} </span>`;
+      } else {
+        verseHTML += `<span class="ayah">${text}</span>`;
+      }
+    });
+
+    const ayahDiv = document.createElement("div");
+    ayahDiv.classList.add("ayah");
+    ayahDiv.innerHTML = verseHTML;
+
+    const verseWords = ayahDiv.querySelectorAll(".ayah");
+
+    verseWords.forEach((wordElement) => {
+      const word = wordElement.textContent;
+
+      if (!userAnswers.includes(word)) {
+        if (userAnswers.length === 0) {
+          const emptyWordSpan = document.createElement("span");
+          emptyWordSpan.textContent = word + " ";
+          ayahDiv.replaceChild(emptyWordSpan, wordElement);
+        } else {
+          const errorWordSpan = document.createElement("span");
+          errorWordSpan.classList.add("error");
+          errorWordSpan.textContent = word + " ";
+          ayahDiv.replaceChild(errorWordSpan, wordElement);
+        }
+      } else {
+        const correctWordSpan = document.createElement("span");
+        correctWordSpan.classList.add("correct");
+        correctWordSpan.textContent = word + " ";
+        ayahDiv.replaceChild(correctWordSpan, wordElement);
+      }
+    });
+
+    console.log("userAnswers" + userAnswers.join(" "));
+    console.log("ayahDiv" + ayahDiv.textContent.trim());
+
+    const userAnswersDiv = document.createElement("div");
+    userAnswersDiv.classList.add("user-answers");
+    if (userAnswers.join(" ") === ayahDiv.textContent.trim()) {
+      userAnswersDiv.classList.add("correct");
+      const errorWords = ayahDiv.querySelectorAll(".error");
+      errorWords.forEach((errorWord) => {
+        errorWord.classList.remove("error");
+        errorWord.classList.add("correct");
+      });
+    } else {
+      const userWords = userAnswers.join(" ").split(" ");
+      const verseWords = ayahDiv.textContent.trim().split(" ");
+      if (userWords.length !== verseWords.length) {
+        const unexpectedWord = userWords[0];
+        const errorSpan = document.createElement("span");
+        errorSpan.classList.add("error");
+        errorSpan.textContent = unexpectedWord + " ";
+        userAnswersDiv.appendChild(errorSpan);
+      } else {
+        userWords.forEach((userWord, userWordIndex) => {
+          const verseWord = verseWords[userWordIndex];
+
+          if (
+            verseWord.trim().toLowerCase() === userWord.trim().toLowerCase()
+          ) {
+            const wordSpan = document.createElement("span");
+            if (/[\u0660-\u0669]/.test(userWord)) {
+              wordSpan.classList.add("ayah-num");
+            } else {
+              wordSpan.classList.add("correct");
+            }
+            wordSpan.textContent = userWord + " ";
+            userAnswersDiv.appendChild(wordSpan);
+          } else {
+            const errorSpan = document.createElement("span");
+            errorSpan.classList.add("error");
+            errorSpan.textContent = userWord + " ";
+            userAnswersDiv.appendChild(errorSpan);
+          }
+        });
+      }
+
+      userAnswersDiv.classList.add("incorrect");
+    }
+
+    inputContainer.innerHTML = "";
+    inputContainer.appendChild(ayahDiv);
+    inputContainer.appendChild(userAnswersDiv);
   });
-});
-const config = {
-  childList: true,
-  subtree: true,
-};
-observer.observe(document, config);
-generateVirtualKeyboard();
+}
