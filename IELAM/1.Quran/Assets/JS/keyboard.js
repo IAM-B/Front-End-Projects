@@ -4,10 +4,10 @@ const generateVirtualKeyboard = () => {
   keyboardContainer.classList.add("keyboard");
 
   const keyboardRows = [
-    ["ذ", "ّ", "ٰ", "َ", "ً", "ُ", "ٌ", "آ", "ِ", "ٍ", "ْ", "د"],
+    ["ٰ", "ٓ", "َّ", "َ", "ً", "ُّ", "ُ", "ٌ", "ِّ", "ِ", "ٍ", "ْ"],
     ["ض", "ص", "ث", "ق", "ف", "غ", "أ", "ع", "ه", "خ", "ح", "ج"],
     ["ش", "س", "ي", "ب", "ل", "إ", "ا", "ت", "ن", "م", "ك", "ط"],
-    ["ـ", "ئ", "ء", "ؤ", "ٱ", "ر", "لا", "ى", "ة", "و", "ز", "ظ"],
+    ["ذ", "د", "ئ", "ء", "ؤ", "ٱ", "ر", "ى", "ة", "و", "ز", "ظ"],
   ];
 
   keyboardRows.forEach((row) => {
@@ -30,10 +30,21 @@ const generateVirtualKeyboard = () => {
           );
           const textAfterCursor = currentValue.substring(currentCursorPosition);
           const clickedKey = event.target.textContent;
-          const updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
+
+          let updatedValue;
+          let updatedCursorPosition;
+
+          if (["َّ", "ُّ", "ِّ"].includes(clickedKey)) {
+            updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
+            updatedCursorPosition = currentCursorPosition + 2;
+          } else {
+            updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
+            updatedCursorPosition = currentCursorPosition + 1;
+          }
+
           selectedInput.value = updatedValue;
-          selectedInput.selectionStart = currentCursorPosition + 1;
-          selectedInput.selectionEnd = currentCursorPosition + 1;
+          selectedInput.selectionStart = updatedCursorPosition;
+          selectedInput.selectionEnd = updatedCursorPosition;
         }
       });
 
@@ -43,8 +54,8 @@ const generateVirtualKeyboard = () => {
     keyboardContainer.appendChild(keyboardRow);
   });
 
-  const spaceDeleteRow = document.createElement("div");
-  spaceDeleteRow.classList.add("keyboard-row");
+  const spaceRow = document.createElement("div");
+  spaceRow.classList.add("keyboard-row");
 
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("keyboard-key", "delete");
@@ -65,12 +76,39 @@ const generateVirtualKeyboard = () => {
       selectedInput.selectionEnd = currentCursorPosition - 1;
     }
   });
-  spaceDeleteRow.appendChild(deleteButton);
+  spaceRow.appendChild(deleteButton);
+
+  const tatweelButton = document.createElement("button");
+  tatweelButton.classList.add("keyboard-key", "tatweel");
+  tatweelButton.textContent = "ـ";
+  spaceRow.appendChild(tatweelButton);
+
+  tatweelButton.addEventListener("click", (event) => {
+    const selectedInput = document.querySelector(".input-ayah.selected");
+    if (selectedInput) {
+      const currentValue = selectedInput.value;
+      const currentCursorPosition = selectedInput.selectionStart;
+      const textBeforeCursor = currentValue.substring(0, currentCursorPosition);
+      const textAfterCursor = currentValue.substring(currentCursorPosition);
+      const clickedKey = event.target.textContent;
+
+      let updatedValue;
+      if (clickedKey === "ـ") {
+        updatedValue = textBeforeCursor + "ـ" + textAfterCursor;
+      } else {
+        updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
+      }
+
+      selectedInput.value = updatedValue;
+      selectedInput.selectionStart = currentCursorPosition + 1;
+      selectedInput.selectionEnd = currentCursorPosition + 1;
+    }
+  });
 
   const spaceButton = document.createElement("button");
   spaceButton.classList.add("keyboard-key", "space");
   spaceButton.textContent = " ";
-  spaceDeleteRow.appendChild(spaceButton);
+  spaceRow.appendChild(spaceButton);
 
   spaceButton.addEventListener("click", (event) => {
     const selectedInput = document.querySelector(".input-ayah.selected");
@@ -107,7 +145,7 @@ const generateVirtualKeyboard = () => {
       }
     }
   });
-  spaceDeleteRow.appendChild(leftButton);
+  spaceRow.appendChild(leftButton);
 
   const rightButton = document.createElement("button");
   rightButton.classList.add("keyboard-key", "direction");
@@ -122,9 +160,9 @@ const generateVirtualKeyboard = () => {
       }
     }
   });
-  spaceDeleteRow.appendChild(rightButton);
+  spaceRow.appendChild(rightButton);
 
-  keyboardContainer.appendChild(spaceDeleteRow);
+  keyboardContainer.appendChild(spaceRow);
 
   document.body.appendChild(keyboardContainer);
 };
