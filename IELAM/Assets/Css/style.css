@@ -532,9 +532,13 @@ input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
   appearance: none;
 }
+.kalam.error {
+  color: #fff;
+}
 .error {
   border-radius: 10px;
-  border-bottom: 0.1px solid red;
+  border-bottom: 0.1px solid #700;
+  color: #700;
 }
 .correct {
   color: green;

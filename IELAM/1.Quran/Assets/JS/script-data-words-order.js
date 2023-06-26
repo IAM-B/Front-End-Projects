@@ -344,7 +344,7 @@ function checkAnswers() {
           ayahDiv.replaceChild(emptyWordSpan, wordElement);
         } else {
           const errorWordSpan = document.createElement("span");
-          errorWordSpan.classList.add("error");
+          errorWordSpan.classList.add("kalam", "error");
           errorWordSpan.textContent = word + " ";
           ayahDiv.replaceChild(errorWordSpan, wordElement);
         }

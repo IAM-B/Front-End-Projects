@@ -28,7 +28,9 @@ const generateVirtualKeyboard = () => {
             0,
             currentCursorPosition
           );
-          const textAfterCursor = currentValue.substring(currentCursorPosition);
+          const textAfterCursor = currentValue.substring(
+            selectedInput.selectionEnd
+          );
           const clickedKey = event.target.textContent;
 
           let updatedValue;
@@ -41,6 +43,13 @@ const generateVirtualKeyboard = () => {
             updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
             updatedCursorPosition = currentCursorPosition + 1;
           }
+
+          selectedInput.setRangeText(
+            clickedKey,
+            selectedInput.selectionStart,
+            selectedInput.selectionEnd,
+            "end"
+          );
 
           selectedInput.value = updatedValue;
           selectedInput.selectionStart = updatedCursorPosition;
@@ -63,19 +72,40 @@ const generateVirtualKeyboard = () => {
     "<span class='delete-icon'><i class='fas fa-chevron-right'></i></span>";
   deleteButton.addEventListener("click", () => {
     const selectedInput = document.querySelector(".input-ayah.selected");
+
     if (selectedInput) {
       const currentValue = selectedInput.value;
       const currentCursorPosition = selectedInput.selectionStart;
-      const textBeforeCursor = currentValue.substring(
-        0,
-        currentCursorPosition - 1
-      );
+      const textBeforeCursor = currentValue.substring(0, currentCursorPosition);
       const textAfterCursor = currentValue.substring(currentCursorPosition);
-      selectedInput.value = textBeforeCursor + textAfterCursor;
-      selectedInput.selectionStart = currentCursorPosition - 1;
-      selectedInput.selectionEnd = currentCursorPosition - 1;
+      const clickedKey = event.target.textContent;
+
+      let updatedCursorPosition;
+
+      if (
+        textBeforeCursor.endsWith("\u0651\u064E") ||
+        textBeforeCursor.endsWith("\u0651\u064F") ||
+        textBeforeCursor.endsWith("\u0651\u0650")
+      ) {
+        const textBeforeCursorWithoutChedda = textBeforeCursor.slice(0, -2);
+        updatedCursorPosition = currentCursorPosition - 2;
+        selectedInput.value =
+          textBeforeCursorWithoutChedda + clickedKey + textAfterCursor;
+      } else {
+        const textBeforeCursorWithoutLastCharacter = textBeforeCursor.slice(
+          0,
+          -1
+        );
+        selectedInput.value =
+          textBeforeCursorWithoutLastCharacter + clickedKey + textAfterCursor;
+        updatedCursorPosition = currentCursorPosition - 1;
+      }
+
+      selectedInput.selectionStart = updatedCursorPosition;
+      selectedInput.selectionEnd = updatedCursorPosition;
     }
   });
+
   spaceRow.appendChild(deleteButton);
 
   const tatweelButton = document.createElement("button");
