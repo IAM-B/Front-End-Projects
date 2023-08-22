@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAIN MENU</title>
+  </head>
+  <body>
+    <style>
+      /* Body demonstration*/
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #212121;
+      }
+      /* Demonstration body */
+
+      .navbar {
+        display: flex;
+        flex-direction: row; /* Changeable direction row-reverse*/
+        /*justify-content: center;*/ /* Changeable alignment */
+        background-color: #333; /* Changeable background color */
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+      }
+
+      .menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+      }
+
+      .menu-item {
+        padding: 15px 20px;
+        position: relative;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .hover-color {
+        color: #fff; /* Changeable text color */
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .hover-color:hover {
+        color: #7a7a7a; /* Changeable text color on hover */
+      }
+
+      .menu-item:hover {
+        background-color: #555; /* Changeable hover menu background color */
+      }
+
+      .submenu-item:hover {
+        background-color: #555; /* Changeable hover submenu background color */
+      }
+
+      .submenu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        list-style-type: none;
+        background-color: #333;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(-10px);
+        width: 100%;
+        padding: 0;
+        left: 0%;
+        top: 100%;
+        transform: translateY(-10px);
+        z-index: 1;
+      }
+
+      .submenu-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 15px;
+      }
+
+      .has-submenu:hover .submenu {
+        display: block;
+        animation: fadeInUp 0.3s ease forwards;
+      }
+
+      .has-submenu .submenu.fade-out {
+        animation: fadeOutDown 0.3s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeOutDown {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(10px);
+          display: none;
+        }
+      }
+
+      .burger {
+        display: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+
+      .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 3px 0;
+        transition: transform 0.3s, opacity 0.3s;
+      }
+
+      .menu.active {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu.active .menu-item {
+        display: block;
+        animation: fadeInUp 0.3s ease forwards;
+      }
+
+      .menu.active .burger div:nth-child(1) {
+        transform: rotate(-45deg) translate(-4px, 5px);
+      }
+
+      .menu.active .burger div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu.active .burger div:nth-child(3) {
+        transform: rotate(45deg) translate(-4px, -5px);
+      }
+
+      .burger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-4px, 5px);
+      }
+
+      .burger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .burger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-4px, -5px);
+      }
+
+      @media screen and (max-width: 768px) {
+        .menu {
+          display: flex;
+          flex-direction: column;
+          top: 5%;
+        }
+
+        .menu-item {
+          padding: 10px 20px;
+        }
+
+        .has-submenu:hover .submenu {
+          display: block;
+          position: relative;
+        }
+
+        .burger {
+          display: block;
+        }
+
+        .menu {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          background-color: #333;
+          width: 100%;
+          left: 0;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+          z-index: 1;
+        }
+
+        .menu.active {
+          display: flex;
+        }
+
+        .menu-item {
+          padding: 15px 20px;
+          display: none;
+        }
+      }
+    </style>
+
+    <nav class="navbar">
+      <div class="burger" id="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul id="menu" class="menu">
+        <li class="menu-item"><a class="hover-color" href="#YOUR-LINK">Accueil</a></li> 
+        <!-- Copy past add more menu items-->
+        <li class="menu-item has-submenu">
+          <a class="hover-color" href="#YOUR-LINK">Services</a>
+          <ul class="submenu">
+            <li class="submenu-item">
+              <a class="hover-color" href="#YOUR-LINK">Service 1</a>
+            </li>
+            <li class="submenu-item">
+              <a class="hover-color" href="#YOUR-LINK">Service 2</a>
+            </li>
+            <li class="submenu-item">
+              <a class="hover-color" href="#YOUR-LINK">Service 3</a>
+            </li>
+          </ul>
+        </li>
+        <!---->
+        <li class="menu-item has-submenu">
+          <a class="hover-color" href="#YOUR-LINK">Services Plus</a>
+          <ul class="submenu">
+            <li class="submenu-item">
+              <a class="hover-color" href="#YOUR-LINK">Service 1</a>
+            </li>
+            <li class="submenu-item">
+              <a class="hover-color" href="#YOUR-LINK">Service 2</a>
+            </li>
+            <li class="submenu-item">
+              <a class="hover-color" href="#YOUR-LINK">Service 3</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item"><a class="hover-color" href="#YOUR-LINK">À Propos</a></li>
+        <li class="menu-item"><a class="hover-color" href="#YOUR-LINK">Contact</a></li>
+      </ul>
+    </nav>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const burger = document.getElementById("burger");
+        const menu = document.getElementById("menu");
+
+        burger.addEventListener("click", function () {
+          menu.classList.toggle("active");
+          burger.classList.toggle("active");
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const submenus = document.querySelectorAll(".has-submenu");
+
+        submenus.forEach(function (submenu) {
+          submenu.addEventListener("mouseleave", function () {
+            const submenuContainer = this.querySelector(".submenu");
+            submenuContainer.classList.add("fade-out");
+            setTimeout(function () {
+              submenuContainer.classList.remove("fade-out");
+            }, 300);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
