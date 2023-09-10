@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Dynamique</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+        ul ul {
+            display: none;
+        }
+        ul li:hover ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Produits</a>
+            <ul>
+                <li><a href="#">Informatique</a></li>
+                <li><a href="#">Électronique</a>
+                    <ul id="sub-menu">
+                        <!-- Le sous-menu ici sera ajouté dynamiquement -->
+                    </ul>
+                </li>
+                <li><a href="#">Vêtements</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Services</a></li>
+    </ul>
+
+    <script>
+        // Add items in submenu
+        const subMenu = document.getElementById("sub-menu-4");
+        const subMenuItems = [
+            {name: "Téléphones", url: "#"},
+            {name: "Ordinateurs", url: "#"},
+            {name: "Télévisions", url: "#"},
+            {name: "Appareils photo", url: "#"},
+            {name: "Accessoires", url: "#"}
+        ];
+        subMenuItems.forEach(item => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            li.className = "submenu-item";
+            a.className = "submenu-text-annim";
+            a.setAttribute("href", item.url);
+            a.innerText = item.name;
+            li.appendChild(a);
+            subMenu.appendChild(li);
+        });
+
+
+
+    </script>
+</body>
+</html>
