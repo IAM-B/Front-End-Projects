@@ -427,6 +427,7 @@
         border-radius: 5px;
         font-weight: bold;
         width: 25%;
+        height: 15%;
         padding: 2px 5px;
         box-shadow: var(--couleur-box-shadow-out);
         background: var(--couleur-fond);
@@ -463,7 +464,7 @@
         display: block;
         padding: 10px;
         width: 25%;
-        margin: 5px auto;
+        margin: 25px auto;
         border-radius: 5px;
         border: none;
         box-shadow: var(--couleur-box-shadow-out);
@@ -592,7 +593,7 @@
       .modal-container .modal-background .modal h2 {
         font-size: 25px;
         line-height: 25px;
-        margin-bottom: 15px;
+        margin-bottom: 45px;
       }
       .modal-container .modal-background .modal p {
         font-size: 18px;
@@ -605,6 +606,15 @@
         height: 100%;
         width: 100%;
         border-radius: 3px;
+      }
+      .modal-content {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-clip: padding-box;
+        background-color: var(--couleur-fond);
+        box-shadow: var(--couleur-box-shadow-out);
+        padding: 50px;
       }
       .content {
         min-height: 100%;
@@ -651,6 +661,11 @@
         }
         .vocabAR {
           font-family: "Amiri Quran", serif;
+        }
+      }
+      @media screen and (max-width: 992.98px) {
+        .membership-layout__sidebar {
+          display: none;
         }
       }
       @media screen and (min-width: 801px) {
@@ -913,7 +928,10 @@
         font-family: "Cairo", sans-serif;
         font-weight: bolder;
       }
-      @media (min-width: 801px) {
+      @media (min-width: 992.98px) {
+        .burger.toggleMenu {
+          display: none;
+        }
         .menuscreen {
           display: none;
         }
@@ -10925,7 +10943,7 @@
           transition-delay: 1650ms;
         }
       }
-      @media (max-width: 800px) {
+      @media (max-width: 992.98px) {
         .menu {
           display: none;
         }
@@ -11188,7 +11206,7 @@
       <div class="header">
         <nav class="navwrapper">
           <div class="logo">
-            <h1 class="brandLogo"><a href="#">iلعam</a></h1>
+            <h1 class="brandLogo"><a href="#">Iلعam</a></h1>
           </div>
           <div class="showPub"></div>
           <div class="menu">
@@ -11315,16 +11333,16 @@
 
     <!--KEYBOARD-->
     <script>
-      //KEYBOARD
+      // Function generate virtual keyboard
       const generateVirtualKeyboard = () => {
         const keyboardContainer = document.createElement("div");
         keyboardContainer.classList.add("keyboard");
 
         const keyboardRows = [
-          ["ذ", "ّ", "َ", "ً", "ُ", "ٌ", "ِ", "ٍ", "ْ", "ٰ", "ۡ", "د"],
+          ["ٰ", "ٓ", "َّ", "َ", "ً", "ُّ", "ُ", "ٌ", "ِّ", "ِ", "ٍ", "ْ"],
           ["ض", "ص", "ث", "ق", "ف", "غ", "أ", "ع", "ه", "خ", "ح", "ج"],
           ["ش", "س", "ي", "ب", "ل", "إ", "ا", "ت", "ن", "م", "ك", "ط"],
-          [",", "ئ", "ء", "ؤ", "ٱ", "ر", "لا", "ى", "ة", "و", "ز", "ظ"],
+          ["ذ", "د", "ئ", "ء", "ؤ", "ٱ", "ر", "ى", "ة", "و", "ز", "ظ"],
         ];
 
         keyboardRows.forEach((row) => {
@@ -11336,50 +11354,176 @@
             button.classList.add("keyboard-key");
             button.textContent = key;
 
+            button.addEventListener("click", (event) => {
+              const selectedInput = document.querySelector(
+                ".input-fill.selected"
+              );
+              if (selectedInput) {
+                const currentValue = selectedInput.value;
+                const currentCursorPosition = selectedInput.selectionStart;
+                const textBeforeCursor = currentValue.substring(
+                  0,
+                  currentCursorPosition
+                );
+                const textAfterCursor = currentValue.substring(
+                  selectedInput.selectionEnd
+                );
+                const clickedKey = event.target.textContent;
+
+                let updatedValue;
+                let updatedCursorPosition;
+
+                if (["َّ", "ُّ", "ِّ"].includes(clickedKey)) {
+                  updatedValue =
+                    textBeforeCursor + clickedKey + textAfterCursor;
+                  updatedCursorPosition = currentCursorPosition + 2;
+                } else {
+                  updatedValue =
+                    textBeforeCursor + clickedKey + textAfterCursor;
+                  updatedCursorPosition = currentCursorPosition + 1;
+                }
+
+                selectedInput.setRangeText(
+                  clickedKey,
+                  selectedInput.selectionStart,
+                  selectedInput.selectionEnd,
+                  "end"
+                );
+
+                selectedInput.value = updatedValue;
+                selectedInput.selectionStart = updatedCursorPosition;
+                selectedInput.selectionEnd = updatedCursorPosition;
+              }
+            });
+
             keyboardRow.appendChild(button);
           });
 
           keyboardContainer.appendChild(keyboardRow);
         });
 
-        // Ajout de la barre d'espace et du bouton de suppression des caractères
-        const spaceDeleteRow = document.createElement("div");
-        spaceDeleteRow.classList.add("keyboard-row");
+        const spaceRow = document.createElement("div");
+        spaceRow.classList.add("keyboard-row");
 
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("keyboard-key", "delete");
         deleteButton.innerHTML =
           "<span class='delete-icon'><i class='fas fa-chevron-right'></i></span>";
         deleteButton.addEventListener("click", () => {
-          const selectedInput = document.querySelector(".input-fill");
+          const selectedInput = document.querySelector(".input-fill.selected");
+
           if (selectedInput) {
             const currentValue = selectedInput.value;
             const currentCursorPosition = selectedInput.selectionStart;
             const textBeforeCursor = currentValue.substring(
               0,
-              currentCursorPosition - 1
+              currentCursorPosition
             );
             const textAfterCursor = currentValue.substring(
               currentCursorPosition
             );
-            selectedInput.value = textBeforeCursor + textAfterCursor;
-            selectedInput.selectionStart = currentCursorPosition - 1;
-            selectedInput.selectionEnd = currentCursorPosition - 1;
+            const clickedKey = event.target.textContent;
+
+            let updatedCursorPosition;
+
+            if (
+              textBeforeCursor.endsWith("\u0651\u064E") ||
+              textBeforeCursor.endsWith("\u0651\u064F") ||
+              textBeforeCursor.endsWith("\u0651\u0650")
+            ) {
+              const textBeforeCursorWithoutChedda = textBeforeCursor.slice(
+                0,
+                -2
+              );
+              updatedCursorPosition = currentCursorPosition - 2;
+              selectedInput.value =
+                textBeforeCursorWithoutChedda + clickedKey + textAfterCursor;
+            } else {
+              const textBeforeCursorWithoutLastCharacter =
+                textBeforeCursor.slice(0, -1);
+              selectedInput.value =
+                textBeforeCursorWithoutLastCharacter +
+                clickedKey +
+                textAfterCursor;
+              updatedCursorPosition = currentCursorPosition - 1;
+            }
+
+            selectedInput.selectionStart = updatedCursorPosition;
+            selectedInput.selectionEnd = updatedCursorPosition;
           }
         });
 
-        spaceDeleteRow.appendChild(deleteButton);
+        spaceRow.appendChild(deleteButton);
+
+        const tatweelButton = document.createElement("button");
+        tatweelButton.classList.add("keyboard-key", "tatweel");
+        tatweelButton.textContent = "ـ";
+        spaceRow.appendChild(tatweelButton);
+
+        tatweelButton.addEventListener("click", (event) => {
+          const selectedInput = document.querySelector(".input-fill.selected");
+          if (selectedInput) {
+            const currentValue = selectedInput.value;
+            const currentCursorPosition = selectedInput.selectionStart;
+            const textBeforeCursor = currentValue.substring(
+              0,
+              currentCursorPosition
+            );
+            const textAfterCursor = currentValue.substring(
+              currentCursorPosition
+            );
+            const clickedKey = event.target.textContent;
+
+            let updatedValue;
+            if (clickedKey === "ـ") {
+              updatedValue = textBeforeCursor + "ـ" + textAfterCursor;
+            } else {
+              updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
+            }
+
+            selectedInput.value = updatedValue;
+            selectedInput.selectionStart = currentCursorPosition + 1;
+            selectedInput.selectionEnd = currentCursorPosition + 1;
+          }
+        });
 
         const spaceButton = document.createElement("button");
         spaceButton.classList.add("keyboard-key", "space");
         spaceButton.textContent = " ";
-        spaceDeleteRow.appendChild(spaceButton);
+        spaceRow.appendChild(spaceButton);
+
+        spaceButton.addEventListener("click", (event) => {
+          const selectedInput = document.querySelector(".input-fill.selected");
+          if (selectedInput) {
+            const currentValue = selectedInput.value;
+            const currentCursorPosition = selectedInput.selectionStart;
+            const textBeforeCursor = currentValue.substring(
+              0,
+              currentCursorPosition
+            );
+            const textAfterCursor = currentValue.substring(
+              currentCursorPosition
+            );
+            const clickedKey = event.target.textContent;
+
+            let updatedValue;
+            if (clickedKey === " ") {
+              updatedValue = textBeforeCursor + " " + textAfterCursor;
+            } else {
+              updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
+            }
+
+            selectedInput.value = updatedValue;
+            selectedInput.selectionStart = currentCursorPosition + 1;
+            selectedInput.selectionEnd = currentCursorPosition + 1;
+          }
+        });
 
         const leftButton = document.createElement("button");
         leftButton.classList.add("keyboard-key", "direction");
         leftButton.innerHTML = "<i class='fas fa-arrow-left'></i>";
         leftButton.addEventListener("click", () => {
-          const selectedInput = document.querySelector(".input-fill");
+          const selectedInput = document.querySelector(".input-fill.selected");
           if (selectedInput) {
             const currentCursorPosition = selectedInput.selectionStart;
             if (currentCursorPosition < selectedInput.value.length) {
@@ -11388,13 +11532,13 @@
             }
           }
         });
-        spaceDeleteRow.appendChild(leftButton);
+        spaceRow.appendChild(leftButton);
 
         const rightButton = document.createElement("button");
         rightButton.classList.add("keyboard-key", "direction");
         rightButton.innerHTML = "<i class='fas fa-arrow-right'></i>";
         rightButton.addEventListener("click", () => {
-          const selectedInput = document.querySelector(".input-fill");
+          const selectedInput = document.querySelector(".input-fill.selected");
           if (selectedInput) {
             const currentCursorPosition = selectedInput.selectionStart;
             if (currentCursorPosition > 0) {
@@ -11403,16 +11547,18 @@
             }
           }
         });
-        spaceDeleteRow.appendChild(rightButton);
+        spaceRow.appendChild(rightButton);
 
-        keyboardContainer.appendChild(spaceDeleteRow);
+        keyboardContainer.appendChild(spaceRow);
 
         document.body.appendChild(keyboardContainer);
       };
 
+      // Function attach keyboard events
       const attachKeyboardEvents = (input) => {
         const keyboardKeys = document.querySelectorAll(".keyboard-key");
         const keyboard = document.querySelector(".keyboard");
+        const footer = document.querySelector("footer");
 
         keyboardKeys.forEach((key) => {
           key.addEventListener("click", () => {
@@ -11423,7 +11569,7 @@
             );
 
             if (input === selectedInput) {
-              selectedInput.value += character;
+              selectedInput.value;
             }
           });
 
@@ -11439,13 +11585,22 @@
         });
 
         input.addEventListener("focus", () => {
+          const keyboard = document.querySelector(".keyboard");
+          const footer = document.querySelector("footer");
+
           keyboard.classList.add("show");
+          footer.classList.add("show");
+
           const inputLength = input.value.length;
           input.setSelectionRange(inputLength, inputLength);
         });
 
         input.addEventListener("blur", () => {
+          const keyboard = document.querySelector(".keyboard");
+          const footer = document.querySelector("footer");
+
           keyboard.classList.remove("show");
+          footer.classList.remove("show");
         });
 
         input.addEventListener("keydown", (event) => {
@@ -11455,13 +11610,15 @@
         });
       };
 
+      // Mutation observer
       const observer = new MutationObserver((mutationsList) => {
         mutationsList.forEach((mutation) => {
-          if (mutation.addedNodes.length > 0) {
+          if (mutation.type === "childList") {
             mutation.addedNodes.forEach((node) => {
               if (
                 node.tagName === "INPUT" &&
-                node.classList.contains("input-fill")
+                node.classList.contains("input-ayah") &&
+                !node.closest(".input-fill")
               ) {
                 attachKeyboardEvents(node);
               }
@@ -11509,10 +11666,10 @@
       // Event listener for scroll on the nav bar
       window.addEventListener("scroll", () => {
         const navbar = document.querySelector(".navwrapper");
-        const sectionExercice1 = document.querySelector(".vocabFR");
+        const sectionExercice1 = document.querySelector(".container-xxxl");
 
         if (sectionExercice1) {
-          const sectionTop = sectionExercice1.offsetTop + 30;
+          const sectionTop = sectionExercice1.offsetTop - 30;
           const scrollTop = window.pageYOffset;
 
           if (scrollTop > sectionTop) {
@@ -11563,6 +11720,29 @@
           localStorage.setItem("preferredTheme", "");
         }
       });
+
+      // Menu Integration Script
+      function executeScriptBelow992() {
+        const progressBar = document.querySelector(".course-info__progress-bar");
+        const modules = document.querySelector(".course-info__modules");
+        const sideMenu = document.querySelector(".sidemenu-content");
+  
+        if (progressBar && modules && sideMenu) {
+          const menuModule = document.createElement("div");
+          menuModule.classList.add("menu-modules");
+  
+          sideMenu.appendChild(menuModule);
+          menuModule.appendChild(progressBar);
+          menuModule.appendChild(modules);
+        }
+      }
+      function checkScreenWidth() {
+        if (window.innerWidth < 992.98) {
+          executeScriptBelow992();
+        }
+      }
+      window.addEventListener("DOMContentLoaded", checkScreenWidth);
+      window.addEventListener("resize", checkScreenWidth);
     </script>
 
     <!--VOCABULARY-->
@@ -11631,6 +11811,9 @@
         const modal = document.createElement("div");
         modal.classList.add("modal");
 
+        const modalContent = document.createElement("div");
+        modalContent.classList.add("modal-content");
+
         let validIndex = 0;
         for (let j = vocabulary.ar.length - 1; j >= 0; j--) {
           if (/[\/ou]/.test(vocabulary.ar[j])) {
@@ -11639,14 +11822,15 @@
 
           const h1 = document.createElement("h1");
           h1.textContent = vocabulary.ar[j];
-          modal.appendChild(h1);
+          modalContent.appendChild(h1);
 
           const h2 = document.createElement("h2");
           h2.textContent = vocabulary.context[validIndex];
-          modal.appendChild(h2);
+          modalContent.appendChild(h2);
           validIndex++;
         }
 
+        modal.appendChild(modalContent);
         modalBackground.appendChild(modal);
         modalContainer.appendChild(modalBackground);
 
@@ -11766,7 +11950,7 @@
           );
         }
         const section = document.getElementById("exerciceSection");
-        const offset = section.offsetTop - 130;
+        const offset = section.offsetTop + 130;
         window.scrollTo({ top: offset, behavior: "smooth" });
 
         const ChampTxt = document.getElementById("Aff");
@@ -11832,7 +12016,7 @@
           );
         }
         const section = document.getElementById("exerciceSection");
-        const offset = section.offsetTop - 130;
+        const offset = section.offsetTop + 130;
         window.scrollTo({ top: offset, behavior: "smooth" });
 
         const ChampTxt = document.getElementById("Aff");
@@ -11890,7 +12074,7 @@
           input.classList.add("correct-answer");
         });
         const section = document.getElementById("exerciceSection");
-        const offset = section.offsetTop - 130;
+        const offset = section.offsetTop + 130;
         window.scrollTo({ top: offset, behavior: "smooth" });
 
         const affDiv = document.getElementById("Aff");
@@ -11910,7 +12094,7 @@
         setTimeout(() => {
           vocabSection.style.display = "none";
           exerciseSection.style.display = "block";
-          const offset = exerciseSection.offsetTop - 130;
+          const offset = exerciseSection.offsetTop + 130;
           window.scrollTo({ top: offset, behavior: "smooth" });
         }, 500);
       };
@@ -11919,7 +12103,7 @@
       function redirectToSection() {
         setTimeout(function () {
           const section = document.getElementById("vocabLI");
-          const offset = section.offsetTop - 130;
+          const offset = section.offsetTop + 130;
           window.scrollTo({ top: offset, behavior: "smooth" });
         }, 2000);
       }
