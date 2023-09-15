@@ -41,7 +41,7 @@
         background-color: var(--couleur-btn);
     }
     .course-info .course-info__progress-bar-label {
-        color: var(--couleur-contrast);
+        color: var(--couleur-text);
     }
     .course-info .course-info__module-title.course-info__module-title_active {
         color: var(--couleur-btn);
@@ -61,16 +61,43 @@
     .membership-layout .membership-layout__content-wrapper.membership-layout__content-wrapper_buttons {
         background-color: var(--couleur-fond);
     }
-     @media screen and (min-width: 992px) {
-         .course-info .course-info__title, .course-info .course-info__instructor-container {
-             display: none;
-         }
+    .progress {
+      margin: 50px 10px 0;
+      box-shadow: var(--couleur-box-shadow-int);
+      background-color: var(--couleur-contrast);
+    }
+    .progress-bar {
+      box-shadow: var(--couleur-box-shadow-int);
+      background-color: var(--couleur-btn);
+    }
+    
+    .course-info__module-row {
+      display: flex;
+      justify-content: space-evenly;
+      color: var(--couleur-btn);
+      font-weight: bolder;
+      margin: 50px;
+    }
+    .course-info__lecture-row {
+      display: flex;
+      justify-content: space-evenly;
+      color: var(--couleur-btn);
+      margin: 25px 0;
+    }
+    .course-info__progress-bar-label {
+      margin: 0 0 50px;
+      color: var(--couleur-text);
+    }
+    .course-info__lecture-title_active a {
+      color: var(--couleur-btn);
+    }
+    .course-info__lecture-title, a {
+      color: var(--couleur-text);
+    }
+    @media screen and (min-width: 992px) {
+     .course-info .course-info__title, .course-info .course-info__instructor-container {
+         display: none;
      }
+    }
     
 </style>
-
-<script>
-    const menuExistant = document.querySelector('.course-info__module');
-    
-    console.log(menuExistant)
-</script>
