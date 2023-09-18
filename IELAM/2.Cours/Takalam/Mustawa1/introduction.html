@@ -10952,7 +10952,7 @@
         }
         .menuscreen {
           background: var(--couleur-fond);
-          margin: 5px;
+          margin: 100px;
         }
         .menuscreen a {
           font-family: "Cairo", sans-serif;
@@ -10968,6 +10968,7 @@
           align-items: center;
           text-align: left;
           list-style-type: none;
+          margin-bottom: 15px;
         }
         .menuscreen > ol > li > a:nth-last-child(2) {
           position: relative;
@@ -11688,6 +11689,31 @@
           localStorage.setItem("preferredTheme", "");
         }
       });
+
+      // Menu Integration Script
+      function executeScriptBelow992() {
+        const progressBar = document.querySelector(
+          ".course-info__progress-bar"
+        );
+        const modules = document.querySelector(".course-info__modules");
+        const sideMenu = document.querySelector(".sidemenu-content");
+
+        if (progressBar && modules && sideMenu) {
+          const menuModule = document.createElement("div");
+          menuModule.classList.add("menu-modules");
+
+          sideMenu.appendChild(menuModule);
+          menuModule.appendChild(progressBar);
+          menuModule.appendChild(modules);
+        }
+      }
+      function checkScreenWidth() {
+        if (window.innerWidth < 992.98) {
+          executeScriptBelow992();
+        }
+      }
+      window.addEventListener("DOMContentLoaded", checkScreenWidth);
+      window.addEventListener("resize", checkScreenWidth);
     </script>
 
     <!--VOCABULARY-->
