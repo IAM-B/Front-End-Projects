@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <!--DESIGN-->
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Cairo&display=swap");
@@ -11203,13 +11203,13 @@
       <div class="header">
         <nav class="navwrapper">
           <div class="logo">
-            <h1 class="brandLogo"><a href="#">iلعam</a></h1>
+            <h1 class="brandLogo"><a href="#" translate="no">Iلعam</a></h1>
           </div>
           <div class="showPub"></div>
           <div class="menu">
             <ol>
               <li class="menu-item">
-                <a href="#">Partage</a>
+                <a href="#">Share</a>
               </li>
               <li class="menu-item"><a href="#">Contact</a></li>
             </ol>
@@ -11255,11 +11255,11 @@
           <div class="sidemenu-overlay"></div>
           <div class="sidemenu">
             <div class="sidemenu-content">
-              <h1 class="brandPub"><a href="#">iلعam</a></h1>
+              <h1 class="brandPub"><a href="#" translate="no">Iلعam</a></h1>
               <div class="menuscreen">
                 <ol>
                   <li class="menu-item">
-                    <a href="#">Partage</a>
+                    <a href="#">Share</a>
                   </li>
                   <li class="menu-item"><a href="#">Contact</a></li>
                 </ol>
@@ -11275,8 +11275,7 @@
       <div class="page1content"></div>
       <div class="brandH1">
         <h1>
-          Mémorise le vocabulaire et entraîne-toi en cliquant sur le bouton
-          exercice.
+          Memorize the vocabulary and practice by clicking the exercise button.
         </h1>
       </div>
     </header>
@@ -11286,7 +11285,7 @@
       <div id="vocabLI" class="exercice">
         <fieldset>
           <legend class="vocabFR">
-            <div class="ticket">MEMORISATION</div>
+            <div class="ticket">Memorization</div>
           </legend>
           <form id="vocab" name="exo"></form>
           <button
@@ -11301,23 +11300,23 @@
       <div id="exerciceSection">
         <div class="exercice">
           <fieldset>
-            <legend class="vocabFR"><div class="ticket">EXERCICES</div></legend>
+            <legend class="vocabFR"><div class="ticket">Exercises</div></legend>
             <div id="Aff"></div>
             <form id="exo" name="exo"></form>
 
             <div class="correction">
               <button class="btnExo submit" type="button" onclick="vocab();">
-                Valider
+                Validate
               </button>
               <button
                 class="btnExo correct"
                 type="button"
                 onclick="showCorrections()"
               >
-                Corriger
+                Correct
               </button>
-              <button class="btnExo reset" onclick="resetForm()">
-                Réessayer
+              <button class="btnExo reset" type="button"onclick="resetForm()">
+                Retry
               </button>
             </div>
           </fieldset>
@@ -11357,7 +11356,7 @@
           keyboardContainer.appendChild(keyboardRow);
         });
 
-        // Ajout de la barre d'espace et du bouton de suppression des caractères
+        // Added the spacebar and character deletion button
         const spaceDeleteRow = document.createElement("div");
         spaceDeleteRow.classList.add("keyboard-row");
 
@@ -11622,6 +11621,7 @@
         for (let j = 0; j < vocabulary.ar.length; j++) {
           const span = document.createElement("span");
           span.classList.add("vocabAR");
+          span.setAttribute("translate", "no");
           span.textContent = vocabulary.ar[j];
 
           if (vocabulary.ar[j] === "/") {
@@ -11645,6 +11645,7 @@
 
         const modal = document.createElement("div");
         modal.classList.add("modal");
+        modal.setAttribute("translate", "no");
 
         let validIndex = 0;
         for (let j = vocabulary.ar.length - 1; j >= 0; j--) {
@@ -11965,11 +11966,9 @@
         currentExerciceIndex = 0;
       }
 
-      // Charger le fichier JSON
       fetch(scriptUrls[exerciceIds[currentExerciceIndex]])
         .then((response) => response.json())
         .then((data) => {
-          // Stocker le tableau de vocabulaires dans la variable "vocabularies"
           const vocabularies = data;
 
           console.log(vocabularies);
@@ -11979,36 +11978,35 @@
           const script = document.createElement("script");
           script.src = scriptUrls[exerciceIds[currentExerciceIndex]];
 
-              const submitButton = document.querySelector(".btnExo.submit");
-        const correctButton = document.querySelector(".btnExo.correct");
+          const submitButton = document.querySelector(".btnExo.submit");
+          const correctButton = document.querySelector(".btnExo.correct");
 
-        submitButton.addEventListener("click", () => {
-          vocab(vocabularies);
-        });
-
-        correctButton.addEventListener("click", () => {
-          showCorrections(vocabularies);
-        });
-        
-            const footerElement = document.querySelector("footer");
-            const parentElement = footerElement.parentNode;
-            parentElement.insertBefore(script, footerElement.nextSibling);
-  
-            section.id = exerciceIds[currentExerciceIndex];
-            currentExerciceIndex =
-              (currentExerciceIndex + 1) % exerciceIds.length;
-            localStorage.setItem(
-              "currentExerciceIndex",
-              currentExerciceIndex.toString()
-            );
-          })
-          .catch((error) => {
-            // Gérer les erreurs lors du chargement du fichier JSON
-            console.error(
-              "Une erreur s'est produite lors du chargement du fichier JSON:",
-              error
-            );
+          submitButton.addEventListener("click", () => {
+            vocab(vocabularies);
           });
-      </script>
-</body>
+
+          correctButton.addEventListener("click", () => {
+            showCorrections(vocabularies);
+          });
+
+          const footerElement = document.querySelector("footer");
+          const parentElement = footerElement.parentNode;
+          parentElement.insertBefore(script, footerElement.nextSibling);
+
+          section.id = exerciceIds[currentExerciceIndex];
+          currentExerciceIndex =
+            (currentExerciceIndex + 1) % exerciceIds.length;
+          localStorage.setItem(
+            "currentExerciceIndex",
+            currentExerciceIndex.toString()
+          );
+        })
+        .catch((error) => {
+          console.error(
+            "Une erreur s'est produite lors du chargement du fichier JSON:",
+            error
+          );
+        });
+    </script>
+  </body>
 </html>
