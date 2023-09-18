@@ -410,11 +410,11 @@
       }
       span.vocabAR.or {
         width: 0px;
-        margin: 0 15px 0 10px;
+        margin: 0 50px 0 10px;
       }
       span.vocabAR.and {
         width: 0px;
-        margin: 0 35px 0 10px;
+        margin: 0 35px 0 15px;
       }
       .input-fill {
         margin-right: 5px;
@@ -582,11 +582,13 @@
         vertical-align: middle;
       }
       .modal-background .modal {
+        width: 50%;
+        height: inherit;
         background-color: var(--couleur-fond);
         box-shadow: var(--couleur-box-shadow-out);
         padding: 50px;
         display: inline-block;
-        border-radius: 3px;
+        border-radius: 10px;
         font-weight: 300;
         position: relative;
       }
@@ -837,6 +839,9 @@
         }
         .navlist li a {
           padding: 20%;
+        }
+        .modal-background .modal {
+        width: 90%;
         }
       }
 
@@ -11024,15 +11029,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 1%;
-        flex-wrap: wrap;
+        margin: 1%;
+        flex-wrap: nowrap;
       }
 
       .keyboard-key {
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         justify-content: center;
-        width: 80px;
+        width: 65px;
         height: 60px;
         padding: 5px;
         font-size: 3vh;
@@ -11059,38 +11064,15 @@
       .keyboard-key.direction,
       .keyboard-key.delete {
         display: flex;
-        width: 80px;
+        width: 65px;
         margin: 0 9px;
         justify-content: center;
         align-items: center;
       }
 
       .keyboard-key.space {
-        width: 863px;
+        width: 730px;
         margin: 0 9px;
-      }
-
-      @media screen and (min-width: 1024px) {
-        .keyboard {
-          padding: 10px 0;
-        }
-        .keyboard-key {
-          width: 32px;
-          height: 50px;
-          margin: 6px 4px;
-          font-size: 16px;
-        }
-
-        .keyboard-key.direction,
-        .keyboard-key.delete {
-          width: 65px;
-          margin: 6px 4px;
-        }
-
-        .keyboard-key.space {
-          width: 250px;
-          margin: 0 4px;
-        }
       }
 
       @media screen and (max-width: 1023px) and (min-width: 769px) {
@@ -11098,20 +11080,16 @@
           padding: 8px 0;
         }
         .keyboard-key {
-          width: 26px;
           height: 42px;
           margin: 5px 3px;
-          font-size: 14px;
         }
 
         .keyboard-key.direction,
         .keyboard-key.delete {
-          width: 55px;
           margin: 5px 3px;
         }
 
         .keyboard-key.space {
-          width: 200px;
           margin: 0 3px;
         }
       }
@@ -11121,20 +11099,16 @@
           padding: 5px 0;
         }
         .keyboard-key {
-          width: 22px;
           height: 35px;
           margin: 4px 3px;
-          font-size: 14px;
         }
 
         .keyboard-key.direction,
         .keyboard-key.delete {
-          width: 45px;
           margin: 4px 3px;
         }
 
         .keyboard-key.space {
-          width: 180px;
           margin: 0 3px;
         }
       }
@@ -11144,20 +11118,16 @@
           padding: 5px 0;
         }
         .keyboard-key {
-          width: 18px;
-          height: 28px;
+          height: 45px;
           margin: 3px 2px;
-          font-size: 12px;
         }
 
         .keyboard-key.direction,
         .keyboard-key.delete {
-          width: 35px;
           margin: 3px 2px;
         }
 
         .keyboard-key.space {
-          width: 145px;
           margin: 0 2px;
         }
       }
@@ -11315,7 +11285,7 @@
               >
                 Correct
               </button>
-              <button class="btnExo reset" type="button"onclick="resetForm()">
+              <button class="btnExo reset" type="button" onclick="resetForm()">
                 Retry
               </button>
             </div>
@@ -11624,9 +11594,9 @@
           span.setAttribute("translate", "no");
           span.textContent = vocabulary.ar[j];
 
-          if (vocabulary.ar[j] === "/") {
+          if (vocabulary.ar[j] === "(ج)") {
             span.classList.add("or");
-          } else if (vocabulary.ar[j] === "ou") {
+          } else if (vocabulary.ar[j] === "أو") {
             span.classList.add("and");
           }
 
@@ -11649,7 +11619,7 @@
 
         let validIndex = 0;
         for (let j = vocabulary.ar.length - 1; j >= 0; j--) {
-          if (/[\/ou]/.test(vocabulary.ar[j])) {
+          if (/أو|\(ج\)/.test(vocabulary.ar[j])) {
             continue;
           }
 
@@ -11715,9 +11685,10 @@
           inputDiv.classList.add("inline-input");
 
           vocab.ar.reverse().forEach((word, i) => {
-            if (word !== "/" && word !== "ou") {
+            if (word !== "(ج)" && word !== "أو") {
               const vocabInput = document.createElement("input");
               vocabInput.setAttribute("type", "search");
+              vocabInput.setAttribute("translate", "no");
               vocabInput.setAttribute("required", "");
               vocabInput.classList.add("input-fill");
               vocabInput.setAttribute("autocomplete", "off");
@@ -11729,13 +11700,10 @@
 
               if (
                 i > 0 &&
-                (vocab.ar[i - 1] === "/" || vocab.ar[i - 1] === "ou")
+                (vocab.ar[i - 1] === "(ج)" || vocab.ar[i - 1] === "أو")
               ) {
-                if (vocab.ar[i - 1] === "/") {
-                  vocabInput.setAttribute(
-                    "placeholder",
-                    `...${vocab.ar[i - 1]} اَلْجَمْعُ`
-                  );
+                if (vocab.ar[i - 1] === "(ج)") {
+                  vocabInput.setAttribute("placeholder", `...اَلْجَمْعُ`);
                   console.log(
                     `input-${counter} correspond à : اَلْجَمْعُ/... ${word}`
                   );
@@ -11774,7 +11742,7 @@
       };
 
       // Function that verifies the answers
-      const vocab = () => {
+      const vocab = (vocabularies) => {
         const results = [];
         for (let i = 0; i <= counter; i++) {
           results.push(
@@ -11782,7 +11750,7 @@
           );
         }
         const section = document.getElementById("exerciceSection");
-        const offset = section.offsetTop - 130;
+        const offset = section.offsetTop + 130;
         window.scrollTo({ top: offset, behavior: "smooth" });
 
         const ChampTxt = document.getElementById("Aff");
@@ -11794,11 +11762,11 @@
         for (let i = 0; i < vocabularies.length; i++) {
           const arVocabulary = vocabularies[i].ar;
           const filteredArVocabulary = arVocabulary
-            .filter((word) => !["ou", "/"].includes(word))
+            .filter((word) => !["أو", "(ج)"].includes(word))
             .map((word) => word.replace(/[ًٌٍَُِّْ]/g, ""));
           goodRep = goodRep.concat(filteredArVocabulary);
           const filteredArVocabulary2 = arVocabulary.filter(
-            (word) => !["ou", "/"].includes(word)
+            (word) => !["أو", "(ج)"].includes(word)
           );
           goodRep2 = goodRep2.concat(filteredArVocabulary2);
         }
@@ -11840,7 +11808,7 @@
       };
 
       // Function that displays the corrections
-      const showCorrections = () => {
+      const showCorrections = (vocabularies) => {
         const results = [];
         for (let i = 0; i <= counter; i++) {
           results.push(
@@ -11848,7 +11816,7 @@
           );
         }
         const section = document.getElementById("exerciceSection");
-        const offset = section.offsetTop - 130;
+        const offset = section.offsetTop + 130;
         window.scrollTo({ top: offset, behavior: "smooth" });
 
         const ChampTxt = document.getElementById("Aff");
@@ -11859,18 +11827,18 @@
         for (let i = 0; i < vocabularies.length; i++) {
           const arVocabulary = vocabularies[i].ar;
           const filteredArVocabulary = arVocabulary
-            .filter((word) => !["ou", "/"].includes(word))
+            .filter((word) => !["أو", "(ج)"].includes(word))
             .map((word) => word.replace(/[ًٌٍَُِّْ]/g, ""));
           goodRep = goodRep.concat(filteredArVocabulary);
           const filteredArVocabulary2 = arVocabulary.filter(
-            (word) => !["ou", "/"].includes(word)
+            (word) => !["أو", "(ج)"].includes(word)
           );
           goodRep2 = goodRep2.concat(filteredArVocabulary2);
         }
         const corrections = [];
 
         for (let i = 0; i < goodRep.length && i < goodRep2.length; i++) {
-          corrections.push(goodRep[i] + "/" + goodRep2[i]);
+          corrections.push(goodRep[i] + " / " + goodRep2[i]);
         }
         console.log(`corrections=[${corrections}]`);
 
@@ -11906,7 +11874,7 @@
           input.classList.add("correct-answer");
         });
         const section = document.getElementById("exerciceSection");
-        const offset = section.offsetTop - 130;
+        const offset = section.offsetTop + 130;
         window.scrollTo({ top: offset, behavior: "smooth" });
 
         const affDiv = document.getElementById("Aff");
@@ -11926,7 +11894,7 @@
         setTimeout(() => {
           vocabSection.style.display = "none";
           exerciseSection.style.display = "block";
-          const offset = exerciseSection.offsetTop - 130;
+          const offset = exerciseSection.offsetTop + 130;
           window.scrollTo({ top: offset, behavior: "smooth" });
         }, 500);
       };
@@ -11935,7 +11903,7 @@
       function redirectToSection() {
         setTimeout(function () {
           const section = document.getElementById("vocabLI");
-          const offset = section.offsetTop - 130;
+          const offset = section.offsetTop + 130;
           window.scrollTo({ top: offset, behavior: "smooth" });
         }, 2000);
       }
@@ -11948,11 +11916,11 @@
 
       const scriptUrls = {
         "exercice-1":
-          "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Tome%20de%20Medine/JSON/tome1-vocab1.json",
+          "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary/Vocabulary1.json",
         "exercice-2":
-          "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Tome%20de%20Medine/JSON/tome1-vocab2.json",
+          "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary/Vocabulary2.json",
         "exercice-3":
-          "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Tome%20de%20Medine/JSON/tome1-vocab3.json",
+          "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary/Vocabulary3.json",
       };
 
       let currentExerciceIndex = parseInt(
