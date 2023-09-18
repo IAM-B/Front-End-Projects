@@ -417,6 +417,7 @@
         margin: 0 35px 0 15px;
       }
       .input-fill {
+        direction: rtl;
         margin-right: 5px;
         font-family: "Amiri Quran", serif;
         text-align: right !important;
@@ -434,7 +435,7 @@
         transition: all 0.3s ease-in-out;
       }
       input:focus {
-        caret-color: transparent;
+        caret-color: red;
         outline: none;
         box-shadow: var(--couleur-box-shadow-int);
       }
@@ -841,7 +842,7 @@
           padding: 20%;
         }
         .modal-background .modal {
-        width: 90%;
+          width: 90%;
         }
       }
 
@@ -11120,6 +11121,7 @@
         .keyboard-key {
           height: 45px;
           margin: 3px 2px;
+          font-size: 2.5vh;
         }
 
         .keyboard-key.direction,
@@ -11299,16 +11301,16 @@
 
     <!--KEYBOARD-->
     <script>
-      //KEYBOARD
+      // Function generate virtual keyboard
       const generateVirtualKeyboard = () => {
         const keyboardContainer = document.createElement("div");
         keyboardContainer.classList.add("keyboard");
 
         const keyboardRows = [
-          ["ذ", "ّ", "َ", "ً", "ُ", "ٌ", "ِ", "ٍ", "ْ", "ٰ", "ۡ", "د"],
+          ["ٰ", "ٓ", "َّ", "َ", "ً", "ُّ", "ُ", "ٌ", "ِّ", "ِ", "ٍ", "ْ"],
           ["ض", "ص", "ث", "ق", "ف", "غ", "أ", "ع", "ه", "خ", "ح", "ج"],
           ["ش", "س", "ي", "ب", "ل", "إ", "ا", "ت", "ن", "م", "ك", "ط"],
-          [",", "ئ", "ء", "ؤ", "ٱ", "ر", "لا", "ى", "ة", "و", "ز", "ظ"],
+          ["ذ", "د", "ئ", "ء", "ؤ", "ٱ", "ر", "ى", "ة", "و", "ز", "ظ"],
         ];
 
         keyboardRows.forEach((row) => {
@@ -11320,50 +11322,176 @@
             button.classList.add("keyboard-key");
             button.textContent = key;
 
+            button.addEventListener("click", (event) => {
+              const selectedInput = document.querySelector(
+                ".input-fill.selected"
+              );
+              if (selectedInput) {
+                const currentValue = selectedInput.value;
+                const currentCursorPosition = selectedInput.selectionStart;
+                const textBeforeCursor = currentValue.substring(
+                  0,
+                  currentCursorPosition
+                );
+                const textAfterCursor = currentValue.substring(
+                  selectedInput.selectionEnd
+                );
+                const clickedKey = event.target.textContent;
+
+                let updatedValue;
+                let updatedCursorPosition;
+
+                if (["َّ", "ُّ", "ِّ"].includes(clickedKey)) {
+                  updatedValue =
+                    textBeforeCursor + clickedKey + textAfterCursor;
+                  updatedCursorPosition = currentCursorPosition + 2;
+                } else {
+                  updatedValue =
+                    textBeforeCursor + clickedKey + textAfterCursor;
+                  updatedCursorPosition = currentCursorPosition + 1;
+                }
+
+                selectedInput.setRangeText(
+                  clickedKey,
+                  selectedInput.selectionStart,
+                  selectedInput.selectionEnd,
+                  "end"
+                );
+
+                selectedInput.value = updatedValue;
+                selectedInput.selectionStart = updatedCursorPosition;
+                selectedInput.selectionEnd = updatedCursorPosition;
+              }
+            });
+
             keyboardRow.appendChild(button);
           });
 
           keyboardContainer.appendChild(keyboardRow);
         });
 
-        // Added the spacebar and character deletion button
-        const spaceDeleteRow = document.createElement("div");
-        spaceDeleteRow.classList.add("keyboard-row");
+        const spaceRow = document.createElement("div");
+        spaceRow.classList.add("keyboard-row");
 
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("keyboard-key", "delete");
         deleteButton.innerHTML =
           "<span class='delete-icon'><i class='fas fa-chevron-right'></i></span>";
         deleteButton.addEventListener("click", () => {
-          const selectedInput = document.querySelector(".input-fill");
+          const selectedInput = document.querySelector(".input-fill.selected");
+
           if (selectedInput) {
             const currentValue = selectedInput.value;
             const currentCursorPosition = selectedInput.selectionStart;
             const textBeforeCursor = currentValue.substring(
               0,
-              currentCursorPosition - 1
+              currentCursorPosition
             );
             const textAfterCursor = currentValue.substring(
               currentCursorPosition
             );
-            selectedInput.value = textBeforeCursor + textAfterCursor;
-            selectedInput.selectionStart = currentCursorPosition - 1;
-            selectedInput.selectionEnd = currentCursorPosition - 1;
+            const clickedKey = event.target.textContent;
+
+            let updatedCursorPosition;
+
+            if (
+              textBeforeCursor.endsWith("\u0651\u064E") ||
+              textBeforeCursor.endsWith("\u0651\u064F") ||
+              textBeforeCursor.endsWith("\u0651\u0650")
+            ) {
+              const textBeforeCursorWithoutChedda = textBeforeCursor.slice(
+                0,
+                -2
+              );
+              updatedCursorPosition = currentCursorPosition - 2;
+              selectedInput.value =
+                textBeforeCursorWithoutChedda + clickedKey + textAfterCursor;
+            } else {
+              const textBeforeCursorWithoutLastCharacter =
+                textBeforeCursor.slice(0, -1);
+              selectedInput.value =
+                textBeforeCursorWithoutLastCharacter +
+                clickedKey +
+                textAfterCursor;
+              updatedCursorPosition = currentCursorPosition - 1;
+            }
+
+            selectedInput.selectionStart = updatedCursorPosition;
+            selectedInput.selectionEnd = updatedCursorPosition;
           }
         });
 
-        spaceDeleteRow.appendChild(deleteButton);
+        spaceRow.appendChild(deleteButton);
+
+        const tatweelButton = document.createElement("button");
+        tatweelButton.classList.add("keyboard-key", "tatweel");
+        tatweelButton.textContent = "ـ";
+        spaceRow.appendChild(tatweelButton);
+
+        tatweelButton.addEventListener("click", (event) => {
+          const selectedInput = document.querySelector(".input-fill.selected");
+          if (selectedInput) {
+            const currentValue = selectedInput.value;
+            const currentCursorPosition = selectedInput.selectionStart;
+            const textBeforeCursor = currentValue.substring(
+              0,
+              currentCursorPosition
+            );
+            const textAfterCursor = currentValue.substring(
+              currentCursorPosition
+            );
+            const clickedKey = event.target.textContent;
+
+            let updatedValue;
+            if (clickedKey === "ـ") {
+              updatedValue = textBeforeCursor + "ـ" + textAfterCursor;
+            } else {
+              updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
+            }
+
+            selectedInput.value = updatedValue;
+            selectedInput.selectionStart = currentCursorPosition + 1;
+            selectedInput.selectionEnd = currentCursorPosition + 1;
+          }
+        });
 
         const spaceButton = document.createElement("button");
         spaceButton.classList.add("keyboard-key", "space");
         spaceButton.textContent = " ";
-        spaceDeleteRow.appendChild(spaceButton);
+        spaceRow.appendChild(spaceButton);
+
+        spaceButton.addEventListener("click", (event) => {
+          const selectedInput = document.querySelector(".input-fill.selected");
+          if (selectedInput) {
+            const currentValue = selectedInput.value;
+            const currentCursorPosition = selectedInput.selectionStart;
+            const textBeforeCursor = currentValue.substring(
+              0,
+              currentCursorPosition
+            );
+            const textAfterCursor = currentValue.substring(
+              currentCursorPosition
+            );
+            const clickedKey = event.target.textContent;
+
+            let updatedValue;
+            if (clickedKey === " ") {
+              updatedValue = textBeforeCursor + " " + textAfterCursor;
+            } else {
+              updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
+            }
+
+            selectedInput.value = updatedValue;
+            selectedInput.selectionStart = currentCursorPosition + 1;
+            selectedInput.selectionEnd = currentCursorPosition + 1;
+          }
+        });
 
         const leftButton = document.createElement("button");
         leftButton.classList.add("keyboard-key", "direction");
         leftButton.innerHTML = "<i class='fas fa-arrow-left'></i>";
         leftButton.addEventListener("click", () => {
-          const selectedInput = document.querySelector(".input-fill");
+          const selectedInput = document.querySelector(".input-fill.selected");
           if (selectedInput) {
             const currentCursorPosition = selectedInput.selectionStart;
             if (currentCursorPosition < selectedInput.value.length) {
@@ -11372,13 +11500,13 @@
             }
           }
         });
-        spaceDeleteRow.appendChild(leftButton);
+        spaceRow.appendChild(leftButton);
 
         const rightButton = document.createElement("button");
         rightButton.classList.add("keyboard-key", "direction");
         rightButton.innerHTML = "<i class='fas fa-arrow-right'></i>";
         rightButton.addEventListener("click", () => {
-          const selectedInput = document.querySelector(".input-fill");
+          const selectedInput = document.querySelector(".input-fill.selected");
           if (selectedInput) {
             const currentCursorPosition = selectedInput.selectionStart;
             if (currentCursorPosition > 0) {
@@ -11387,16 +11515,18 @@
             }
           }
         });
-        spaceDeleteRow.appendChild(rightButton);
+        spaceRow.appendChild(rightButton);
 
-        keyboardContainer.appendChild(spaceDeleteRow);
+        keyboardContainer.appendChild(spaceRow);
 
         document.body.appendChild(keyboardContainer);
       };
 
+      // Function attach keyboard events
       const attachKeyboardEvents = (input) => {
         const keyboardKeys = document.querySelectorAll(".keyboard-key");
         const keyboard = document.querySelector(".keyboard");
+        const footer = document.querySelector("footer");
 
         keyboardKeys.forEach((key) => {
           key.addEventListener("click", () => {
@@ -11407,7 +11537,7 @@
             );
 
             if (input === selectedInput) {
-              selectedInput.value += character;
+              selectedInput.value;
             }
           });
 
@@ -11423,13 +11553,22 @@
         });
 
         input.addEventListener("focus", () => {
+          const keyboard = document.querySelector(".keyboard");
+          const footer = document.querySelector("footer");
+
           keyboard.classList.add("show");
+          footer.classList.add("show");
+
           const inputLength = input.value.length;
           input.setSelectionRange(inputLength, inputLength);
         });
 
         input.addEventListener("blur", () => {
+          const keyboard = document.querySelector(".keyboard");
+          const footer = document.querySelector("footer");
+
           keyboard.classList.remove("show");
+          footer.classList.remove("show");
         });
 
         input.addEventListener("keydown", (event) => {
@@ -11439,13 +11578,15 @@
         });
       };
 
+      // Mutation observer
       const observer = new MutationObserver((mutationsList) => {
         mutationsList.forEach((mutation) => {
-          if (mutation.addedNodes.length > 0) {
+          if (mutation.type === "childList") {
             mutation.addedNodes.forEach((node) => {
               if (
                 node.tagName === "INPUT" &&
-                node.classList.contains("input-fill")
+                node.classList.contains("input-fill") &&
+                !node.closest(".input-fill")
               ) {
                 attachKeyboardEvents(node);
               }
