@@ -80,7 +80,7 @@
         width: 26px;
         height: 26px;
         border-radius: 50%;
-        background-color: var(--couleur-contrast);
+        background-color: var(--couleur-btn);
         transition: transform 0.3s;
         box-shadow: var(--couleur-box-shadow-out);
       }
@@ -95,7 +95,7 @@
 
       input[type="checkbox"]:checked + .switch:before {
         transform: translateX(30px);
-        background-color: var(--couleur-fond);
+        background-color: var(--couleur-btn);
       }
       a {
         text-decoration: none;
@@ -208,6 +208,7 @@
         font-family: "Cairo", sans-serif;
         background: var(--couleur-fond);
         transition: margin-left 0.3s ease-in-out;
+        z-index: 3;
       }
       .sidemenu-content {
         scroll-behavior: smooth;
@@ -227,6 +228,7 @@
         z-index: 0;
         display: none;
         transition: 0.3s ease-in-out;
+        z-index: 2;
       }
       .showPub {
         width: 100vw;
@@ -357,7 +359,7 @@
         background: #4c2a02;
       }
       .exercice legend {
-        color: var(--couleur-contrast);
+        color: var(--couleur-text);
         margin-left: 10%;
         border-radius: 10px;
         font-size: 24px;
@@ -374,7 +376,7 @@
         box-shadow: var(--couleur-box-shadow-out);
       }
       .vocabulary {
-        color: var(--couleur-text);
+        color: var(--couleur-btn);
         font-weight: bold;
         font-size: 1.2em;
         margin: 5px 10px;
@@ -642,12 +644,12 @@
 
       @media screen and (min-width: 1100px) {
         .burger svg:hover {
-          stroke: var(--couleur-contrast);
+          stroke: var(--couleur-btn);
           fill: var(--couleur-fond);
           transition: all 0.5s ease;
         }
         .burger.toggleMenu.active svg {
-          stroke: var(--couleur-contrast);
+          stroke: var(--couleur-btn);
           background-color: var(--couleur-fond);
           box-shadow: var(--couleur-box-shadow-int);
           transition: all 0.5s ease;
@@ -673,7 +675,7 @@
       }
       @media screen and (min-width: 801px) {
         .burger.toggleMenu.active svg {
-          stroke: var(--couleur-contrast);
+          stroke: var(--couleur-btn);
           background-color: var(--couleur-fond);
           box-shadow: var(--couleur-box-shadow-int);
           transition: all 0.5s ease;
@@ -707,7 +709,7 @@
       }
       @media screen and (max-width: 800px) {
         .burger.toggleMenu.active svg {
-          stroke: var(--couleur-contrast);
+          stroke: var(--couleur-btn);
           background-color: var(--couleur-fond);
           box-shadow: var(--couleur-box-shadow-int);
           transition: all 0.5s ease;
@@ -771,7 +773,7 @@
       }
       @media screen and (min-width: 481px) and (max-width: 799px) {
         .burger.toggleMenu.active svg {
-          stroke: var(--couleur-contrast);
+          stroke: var(--couleur-btn);
           background-color: var(--couleur-fond);
           box-shadow: var(--couleur-box-shadow-int);
           transition: all 0.5s ease;
@@ -806,7 +808,7 @@
       }
       @media screen and (max-width: 480px) {
         .burger.toggleMenu.active svg {
-          stroke: var(--couleur-contrast);
+          stroke: var(--couleur-btn);
           background-color: var(--couleur-fond);
           box-shadow: var(--couleur-box-shadow-int);
           transition: all 0.5s ease;
@@ -10952,7 +10954,7 @@
         }
         .menuscreen {
           background: var(--couleur-fond);
-          margin: 100px;
+          margin: 100px 0;
         }
         .menuscreen a {
           font-family: "Cairo", sans-serif;
@@ -11870,14 +11872,14 @@
                 (vocab.ar[i - 1] === "(ج)" || vocab.ar[i - 1] === "أو")
               ) {
                 if (vocab.ar[i - 1] === "(ج)") {
-                  vocabInput.setAttribute("placeholder", `...اَلْجَمْعُ`);
+                  vocabInput.setAttribute("placeholder", `اَلْجَمْعُ...`);
                   console.log(
                     `input-${counter} correspond à : اَلْجَمْعُ/... ${word}`
                   );
                 } else {
                   vocabInput.setAttribute(
                     "placeholder",
-                    `...${vocab.ar[i - 1]}`
+                    `${vocab.ar[i - 1]}...`
                   );
                   console.log(
                     `input-${counter} correspond à : ${word} ...${
