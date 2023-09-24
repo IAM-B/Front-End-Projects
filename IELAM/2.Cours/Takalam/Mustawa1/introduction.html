@@ -375,6 +375,14 @@
         padding: 0 10px;
         box-shadow: var(--couleur-box-shadow-out);
       }
+      .fade-out-vocab {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .fade-in-vocab {
+        opacity: 1;
+        transition: opacity 0.7s ease-in-out;
+      }
       .vocabulary {
         color: var(--couleur-btn);
         font-weight: bold;
@@ -475,7 +483,6 @@
         transition: 0.5s;
         background-size: 270% auto;
         color: var(--couleur-btn);
-        transition-duration: 400ms;
         transition: all 0.3s ease-in-out;
       }
       .btnExo:hover,
@@ -640,6 +647,25 @@
       .content .buttons .buttonModal:hover {
         color: white;
         box-shadow: -10px -10px -20px #fff;
+      }
+      .button-page-container {
+        display: flex;
+        justify-content: center;
+      }
+      button.exercise-button {
+        margin: 0 9px;
+        border: none;
+        color: var(--couleur-btn);
+        background-color: var(--couleur-fond);
+        box-shadow: var(--couleur-box-shadow-out);
+        padding: 25px;
+        border-radius: 10px;
+        font-weight: bolder;
+        transition: all 0.3s ease-in-out;
+      }
+      button.exercise-button:hover {
+        color: var(--couleur-contrast);
+        box-shadow: var(--couleur-box-shadow-int);
       }
 
       @media screen and (min-width: 1100px) {
@@ -11256,7 +11282,7 @@
     </header>
 
     <!--MAIN-->
-    <section>
+    <section class="section-vocabulary">
       <div id="vocabLI" class="exercice">
         <fieldset>
           <legend class="vocabFR">
@@ -12092,58 +12118,109 @@
           "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary/Vocabulary3.json",
       };
 
-      let currentExerciceIndex = parseInt(
-        localStorage.getItem("currentExerciceIndex")
-      );
-
-      if (
-        isNaN(currentExerciceIndex) ||
-        currentExerciceIndex >= exerciceIds.length
-      ) {
-        currentExerciceIndex = 0;
+      // Charger l'exercice initial au chargement de la page
+      function loadInitialExercice() {
+        const lastExerciceIndex = parseInt(
+          localStorage.getItem("lastExerciceIndex")
+        );
+        if (
+          !isNaN(lastExerciceIndex) &&
+          lastExerciceIndex >= 0 &&
+          lastExerciceIndex < exerciceIds.length
+        ) {
+          loadScriptAndData(lastExerciceIndex);
+        } else {
+          loadScriptAndData(0); // Charger le premier exercice par défaut
+        }
       }
 
-      fetch(scriptUrls[exerciceIds[currentExerciceIndex]])
-        .then((response) => response.json())
-        .then((data) => {
-          const vocabularies = data;
+      let ExerciceIndex = [];
+      // Charger un exercice en fonction de son index
+      function loadScriptAndData(exerciceIndex) {
+        // Supprimer le script précédent s'il existe
+        const existingScript = document.querySelector("#exercise-script");
+        if (existingScript) {
+          existingScript.remove();
+        }
 
-          console.log(vocabularies);
-          generateVocabularies(vocabularies);
-          processVocabularies(vocabularies);
+        fetch(scriptUrls[exerciceIds[exerciceIndex]])
+          .then((response) => response.json())
+          .then((data) => {
+            const vocabularies = data;
 
-          const script = document.createElement("script");
-          script.src = scriptUrls[exerciceIds[currentExerciceIndex]];
+            console.log(vocabularies);
+            generateVocabularies(vocabularies);
+            processVocabularies(vocabularies);
 
-          const submitButton = document.querySelector(".btnExo.submit");
-          const correctButton = document.querySelector(".btnExo.correct");
+            const script = document.createElement("script");
+            script.id = "exercise-script"; // Ajoutez un identifiant pour le script
+            script.src = scriptUrls[exerciceIds[exerciceIndex]];
 
-          submitButton.addEventListener("click", () => {
-            vocab(vocabularies);
+            const submitButton = document.querySelector(".btnExo.submit");
+            const correctButton = document.querySelector(".btnExo.correct");
+
+            submitButton.addEventListener("click", () => {
+              vocab(vocabularies);
+            });
+
+            correctButton.addEventListener("click", () => {
+              showCorrections(vocabularies);
+            });
+
+            const footerElement = document.querySelector("footer");
+            const parentElement = footerElement.parentNode;
+            parentElement.insertBefore(script, footerElement.nextSibling);
+
+            section.id = exerciceIds[exerciceIndex];
+
+            // Mettre à jour le bouton actif
+            exerciseButtons.forEach((button) => {
+              button.classList.remove("active");
+            });
+            exerciseButtons[exerciceIndex].classList.add("active");
+
+            // Enregistrez l'index de l'exercice actuel dans le localStorage
+            localStorage.setItem("lastExerciceIndex", exerciceIndex.toString());
+          })
+          .catch((error) => {
+            console.error(
+              "Une erreur s'est produite lors du chargement du fichier JSON:",
+              error
+            );
           });
+      }
 
-          correctButton.addEventListener("click", () => {
-            showCorrections(vocabularies);
-          });
+      // Créer des boutons de navigation dynamiquement en fonction du nombre d'exercices
+      const exerciseButtonsContainer = document.getElementById("footer");
+      const exerciseButtons = [];
 
-          const footerElement = document.querySelector("footer");
-          const parentElement = footerElement.parentNode;
-          parentElement.insertBefore(script, footerElement.nextSibling);
+      const buttonPageContent = document.createElement("div");
+      buttonPageContent.classList.add("button-page-container");
+      exerciseButtonsContainer.appendChild(buttonPageContent);
 
-          section.id = exerciceIds[currentExerciceIndex];
-          currentExerciceIndex =
-            (currentExerciceIndex + 1) % exerciceIds.length;
-          localStorage.setItem(
-            "currentExerciceIndex",
-            currentExerciceIndex.toString()
-          );
-        })
-        .catch((error) => {
-          console.error(
-            "Une erreur s'est produite lors du chargement du fichier JSON:",
-            error
-          );
+      exerciceIds.forEach((exerciceId, index) => {
+        const button = document.createElement("button");
+        button.textContent = `${index + 1}`;
+        button.classList.add("exercise-button");
+        button.addEventListener("click", () => {
+          // Réinitialiser le contenu de la section
+          const vocabulary = document.querySelector("#vocab");
+          const sectionVocabulary = document.querySelector(".section-vocabulary");
+          sectionVocabulary.classList.remove("fade-in-vocab");
+          sectionVocabulary.classList.add("fade-out-vocab");
+          setTimeout(() => {
+            vocabulary.innerHTML = "";
+            loadScriptAndData(index);
+            sectionVocabulary.classList.remove("fade-out-vocab");
+            sectionVocabulary.classList.add("fade-in-vocab");
+          }, 300);
         });
+        exerciseButtons.push(button);
+        buttonPageContent.appendChild(button);
+      });
+
+      // Charger l'exercice initial au chargement de la page
+      loadInitialExercice();
     </script>
   </body>
 </html>
