@@ -377,11 +377,11 @@
       }
       .fade-out-vocab {
         opacity: 0;
-        transition: opacity 0.5s ease-in-out;
+        transition: opacity 0.7s ease-in-out;
       }
       .fade-in-vocab {
         opacity: 1;
-        transition: opacity 0.7s ease-in-out;
+        transition: opacity 1s ease-in-out;
       }
       .vocabulary {
         color: var(--couleur-btn);
@@ -664,6 +664,10 @@
         transition: all 0.3s ease-in-out;
       }
       button.exercise-button:hover {
+        color: var(--couleur-contrast);
+        box-shadow: var(--couleur-box-shadow-int);
+      }
+      button.exercise-button.active {
         color: var(--couleur-contrast);
         box-shadow: var(--couleur-box-shadow-int);
       }
@@ -11945,7 +11949,7 @@
           );
         }
         const section = document.getElementById("exerciceSection");
-        const offset = section.offsetTop + 130;
+        const offset = section.offsetTop + 100;
         window.scrollTo({ top: offset, behavior: "smooth" });
 
         const ChampTxt = document.getElementById("Aff");
@@ -12011,7 +12015,7 @@
           );
         }
         const section = document.getElementById("exerciceSection");
-        const offset = section.offsetTop + 130;
+        const offset = section.offsetTop + 100;
         window.scrollTo({ top: offset, behavior: "smooth" });
 
         const ChampTxt = document.getElementById("Aff");
@@ -12069,7 +12073,7 @@
           input.classList.add("correct-answer");
         });
         const section = document.getElementById("exerciceSection");
-        const offset = section.offsetTop + 130;
+        const offset = section.offsetTop + 100;
         window.scrollTo({ top: offset, behavior: "smooth" });
 
         const affDiv = document.getElementById("Aff");
@@ -12089,16 +12093,34 @@
         setTimeout(() => {
           vocabSection.style.display = "none";
           exerciseSection.style.display = "block";
-          const offset = exerciseSection.offsetTop + 130;
+          const offset = exerciseSection.offsetTop + 100;
           window.scrollTo({ top: offset, behavior: "smooth" });
         }, 500);
+      };
+
+      // Function that hides the exercise and displays the vocabulary section
+      const showVocabLI = () => {
+        const vocabSection = document.querySelector("#vocabLI");
+        const exerciseSection = document.querySelector("#exerciceSection");
+
+        vocabSection.classList.add("fade-in");
+        exerciseSection.classList.add("fade-out");
+
+        setTimeout(() => {
+          vocabSection.style.display = "block";
+          exerciseSection.style.display = "none";
+        }, 200);
+        setTimeout(() => {
+          const offset = vocabSection.offsetTop + 100;
+          window.scrollTo({ top: offset, behavior: "smooth" });
+        }, 800);
       };
 
       // Function that redirects to the vocabulary section after loading
       function redirectToSection() {
         setTimeout(function () {
           const section = document.getElementById("vocabLI");
-          const offset = section.offsetTop + 130;
+          const offset = section.offsetTop + 100;
           window.scrollTo({ top: offset, behavior: "smooth" });
         }, 2000);
       }
@@ -12204,16 +12226,21 @@
         button.classList.add("exercise-button");
         button.addEventListener("click", () => {
           // Réinitialiser le contenu de la section
-          const vocabulary = document.querySelector("#vocab");
-          const sectionVocabulary = document.querySelector(".section-vocabulary");
+          const vocabularyForm = document.querySelector("#vocab");
+          const exerciceForm = document.querySelector("#exo");
+          const sectionVocabulary = document.querySelector(
+            ".section-vocabulary"
+          );
           sectionVocabulary.classList.remove("fade-in-vocab");
           sectionVocabulary.classList.add("fade-out-vocab");
           setTimeout(() => {
-            vocabulary.innerHTML = "";
+            vocabularyForm.innerHTML = "";
+            exerciceForm.innerHTML = "";
             loadScriptAndData(index);
+            showVocabLI();
             sectionVocabulary.classList.remove("fade-out-vocab");
             sectionVocabulary.classList.add("fade-in-vocab");
-          }, 300);
+          }, 725);
         });
         exerciseButtons.push(button);
         buttonPageContent.appendChild(button);
