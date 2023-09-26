@@ -17,7 +17,8 @@
         padding: 0 !important;
         
     }
-    .btn-course-primary {
+    .btn-course-primary,
+    .btn-course-secondary {
         background-color: var(--couleur-fond);
         box-shadow: var(--couleur-box-shadow-out);
         color: var(--couleur-btn);
@@ -27,7 +28,9 @@
         transition: all 0.3s ease-in-out;
     }
     .btn-course-primary:not(span):hover,
-    span.btn-course-primary.text-center:hover {
+    span.btn-course-primary.text-center:hover,
+    .btn-course-secondary:not(span):hover,
+    span.btn-course-secondary.text-center:hover{
         background-color: var(--couleur-fond);
         border-color: #00000000;
         color: var(--couleur-contrast);
@@ -48,18 +51,26 @@
     }
     .course-info .course-info__module-status.course-info__module-status_started {
         color: var(--couleur-btn);
+        margin-left: 15px;
     }
     .course-info .course-info__lecture-title.course-info__lecture-title_active a, .course-info .course-info__lecture-title.course-info__lecture-title_active a:hover, .course-info .course-info__lecture-title.course-info__lecture-title_active a:visited {
         color: var(--couleur-btn);
     }
     .course-info .course-info__lecture-status {
         color: var(--couleur-btn);
+        margin-left: 15px;
     }    
     .course-info .course-info__lecture-title a, .course-info .course-info__lecture-title a:hover, .course-info .course-info__lecture-title a:visited {
         color: var(--couleur-txt);
     }
     .membership-layout .membership-layout__content-wrapper.membership-layout__content-wrapper_buttons {
         background-color: var(--couleur-fond);
+    }
+    .course-info__module-title {
+        margin-right: 15px;
+    }
+    .course-info__lecture-title {
+        margin-right: 15px;
     }
     .progress {
       margin: 50px 10px 0;
@@ -73,16 +84,16 @@
     
     .course-info__module-row {
       display: flex;
-      justify-content: space-evenly;
+      flex-direction: row-reverse;
       color: var(--couleur-btn);
       font-weight: bolder;
       margin: 50px;
     }
     .course-info__lecture-row {
       display: flex;
-      justify-content: space-evenly;
+      flex-direction: row-reverse;
       color: var(--couleur-btn);
-      margin: 25px 0;
+      margin: 25px;
     }
     .course-info__progress-bar-label {
       margin: 0 0 50px;

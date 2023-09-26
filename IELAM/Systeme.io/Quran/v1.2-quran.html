@@ -7,7 +7,7 @@
     <title>v1 Quran</title>
   </head>
   <body>
-    <!--STYLE-->
+    <!--DESIGN-->
     <style>
       @font-face {
         font-family: "Quran";
@@ -219,7 +219,7 @@
         font-weight: bold;
       }
       .exercice fieldset {
-        margin: 0 0 50px 0;
+        margin: 0 0 100px 0;
         border-radius: 10px;
         border: none;
         box-shadow: var(--couleur-box-shadow-out);
@@ -227,7 +227,7 @@
         transition: all 0.3s ease-in-out;
       }
       .exercice legend {
-        color: var(--couleur-contrast);
+        color: var(--couleur-text);
         margin-left: 10%;
         border-radius: 10px;
         font-size: 24px;
@@ -244,7 +244,7 @@
         box-shadow: var(--couleur-box-shadow-out);
       }
       .vocabulary {
-        color: var(--couleur-text);
+        color: var(--couleur-btn);
         font-weight: bold;
         font-size: 1.2em;
         margin: 5px 10px;
@@ -261,6 +261,7 @@
         padding: 8px 5px 0 5px;
       }
       div.buttonModal:hover {
+        box-shadow: var(--couleur-box-shadow-int);
         transition: 0.2s ease-in-out;
       }
       svg#dialog:hover {
@@ -283,7 +284,7 @@
       }
       span.vocabAR.or {
         width: 0px;
-        margin: 0 15px 0 10px;
+        margin: 0 50px 0 10px;
       }
       span.vocabAR.and {
         width: 0px;
@@ -301,6 +302,7 @@
         border-radius: 5px;
         font-weight: bold;
         width: 25%;
+        height: 15%;
         padding: 2px 5px;
         box-shadow: var(--couleur-box-shadow-out);
         background: var(--couleur-fond);
@@ -602,70 +604,122 @@
         text-shadow: var(--couleur-text-shadow);
       }
 
-      /*KEYBOARD*/
-      .keyboard {
-        position: fixed;
-        bottom: 0;
-        background-color: var(--couleur-fond);
-        box-shadow: var(--couleur-box-shadow-out);
-        padding: 15px;
-        border-radius: 5px;
-        transform: translateY(300%);
-        transition: transform 0.3s ease-out;
-        z-index: 9999;
-      }
-
-      .keyboard.show {
-        transform: translateY(0);
-      }
-
-      .keyboard-row {
+      nav.navwrapper {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        flex-wrap: nowrap;
+        font-family: "Cairo", sans-serif;
+        border-radius: 10px;
+        box-shadow: var(--couleur-box-shadow-out);
+        background: var(--couleur-fond);
+        margin: 10px;
+        transition: transform 0.3s ease;
       }
-
-      .keyboard-key {
+      .navwrapper.notonhomepage {
+        transform: translateY(-120%);
+        transition: transform 0.3s ease;
+      }
+      .switch-container {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 50px;
-        height: 60px;
-        font-weight: bold;
-        font-family: "AmiriQuranRegular";
-        color: var(--couleur-text);
-        background-color: var(--couleur-fond);
-        box-shadow: var(--couleur-box-shadow-out);
-        border-style: none;
-        border-radius: 5px;
-        margin: 5px 9px;
+      }
+
+      .switch {
+        position: relative;
+        width: 60px;
+        height: 30px;
+        margin-left: 30px;
+        background-color: var(--couleur-switch);
+        border-radius: 15px;
         cursor: pointer;
-      }
-
-      .keyboard-key:hover {
-        color: var(--couleur-contrast);
-        box-shadow: var(--couleur-box-shadow-out-hover);
-      }
-
-      .keyboard-key:active {
-        border-radius: 5px;
+        transition: background-color 0.3s;
         box-shadow: var(--couleur-box-shadow-int);
       }
 
-      .keyboard-key.space {
-        width: 630px;
+      .switch:before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: var(--couleur-btn);
+        transition: transform 0.3s;
+        box-shadow: var(--couleur-box-shadow-out);
       }
 
-      /*MEDIA QUERIES*/
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      input[type="checkbox"]:checked + .switch {
+        background-color: var(--couleur-contrast);
+      }
+
+      input[type="checkbox"]:checked + .switch:before {
+        transform: translateX(30px);
+        background-color: var(--couleur-btn);
+      }
+      a {
+        text-decoration: none;
+      }
+      .brandLogo a,
+      .brandPub a {
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        color: var(--couleur-btn);
+      }
+      ul.navlist a {
+        margin: 3%;
+        color: var(--couleur-btn);
+        font-weight: bold;
+        box-sizing: border-box;
+      }
+      li.navListLi:hover {
+        border-radius: 10px;
+        color: var(--couleur-contrast);
+        box-shadow: var(--couleur-box-shadow-int);
+        text-shadow: var(--couleur-text-shadow);
+        transition: 0.3s ease-in-out;
+      }
+      ul.navlist a:hover {
+        font-weight: 100;
+        color: var(--couleur-contrast);
+        text-shadow: var(--couleur-text-shadow);
+        transition: 0.3s ease-in-out;
+      }
+      .navwrapper ul,
+      .showPubul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 3;
+      }
+      header.page1.page {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       @media screen and (min-width: 1100px) {
         .burger svg:hover {
-          stroke: var(--couleur-contrast);
+          stroke: var(--couleur-btn);
           fill: var(--couleur-fond);
           transition: all 0.5s ease;
         }
         .burger.toggleMenu.active svg {
-          stroke: var(--couleur-contrast);
+          stroke: var(--couleur-btn);
           background-color: var(--couleur-fond);
           box-shadow: var(--couleur-box-shadow-int);
           transition: all 0.5s ease;
@@ -673,9 +727,6 @@
         .navlist li {
           font-size: 1.3rem;
           flex-grow: 1;
-        }
-        form#vocab {
-          margin: 50px 400px;
         }
         .vocabulary label {
           display: inline-block;
@@ -686,14 +737,15 @@
         .vocabAR {
           font-family: "Amiri Quran", serif;
         }
-        .keyboard-key {
-          padding: 45px;
-          font-size: 2.5vh;
+      }
+      @media screen and (max-width: 992.98px) {
+        .membership-layout__sidebar {
+          display: none;
         }
       }
-      @media (min-width: 801px) {
+      @media screen and (min-width: 801px) {
         .burger.toggleMenu.active svg {
-          stroke: var(--couleur-contrast);
+          stroke: var(--couleur-btn);
           background-color: var(--couleur-fond);
           box-shadow: var(--couleur-box-shadow-int);
           transition: all 0.5s ease;
@@ -725,9 +777,9 @@
           padding: 3%;
         }
       }
-      @media (max-width: 800px) {
+      @media screen and (max-width: 800px) {
         .burger.toggleMenu.active svg {
-          stroke: var(--couleur-contrast);
+          stroke: var(--couleur-btn);
           background-color: var(--couleur-fond);
           box-shadow: var(--couleur-box-shadow-int);
           transition: all 0.5s ease;
@@ -764,7 +816,9 @@
           flex-wrap: nowrap;
           justify-content: flex-end;
         }
-        .correction .btnExo {
+        .correction,
+        #button-d2607e45,
+        .btnExo {
           width: 100%;
           display: flex;
           justify-content: center;
@@ -778,50 +832,18 @@
         }
 
         input.input-fill {
-          direction: rtl;
           color: var(--couleur-text);
           width: 50%;
           margin: 2px 3px 5px 0;
           height: 50px;
         }
         .vocabulary {
-          margin: 0 auto;
-        }
-      }
-      @media (min-width: 800px) and (max-width: 1024px) {
-        .ayah,
-        .kalam,
-        .input-ayah,
-        .input-container {
-          font-size: 2rem;
-          line-height: 70px;
-        }
-
-        .keyboard {
-          width: 100%;
-          padding: 5px 0;
-        }
-        .keyboard-key {
-          width: 50px;
-          height: 45px;
-          margin: 4px 3px;
-          font-size: 2rem;
-        }
-
-        .keyboard-key.space {
-          width: 443px;
+          margin: 5px 20px;
         }
       }
       @media screen and (min-width: 481px) and (max-width: 799px) {
-        .ayah,
-        .kalam,
-        .input-ayah,
-        .input-container {
-          font-size: 1.5rem;
-          line-height: 50px;
-        }
         .burger.toggleMenu.active svg {
-          stroke: var(--couleur-contrast);
+          stroke: var(--couleur-btn);
           background-color: var(--couleur-fond);
           box-shadow: var(--couleur-box-shadow-int);
           transition: all 0.5s ease;
@@ -852,32 +874,17 @@
         }
         .navlist li a {
           padding: 20%;
-        }
-        form#vocab {
-          margin: 50px 80px;
-        }
-
-        .keyboard {
-          width: 100%;
-          padding: 5px 0;
-        }
-        .keyboard-key {
-          width: 30px;
-          height: 45px;
-          margin: 4px 3px;
-          font-size: 1.5rem;
-        }
-
-        .keyboard-key.space {
-          width: 283px;
         }
       }
       @media screen and (max-width: 480px) {
         .burger.toggleMenu.active svg {
-          stroke: var(--couleur-contrast);
+          stroke: var(--couleur-btn);
           background-color: var(--couleur-fond);
           box-shadow: var(--couleur-box-shadow-int);
           transition: all 0.5s ease;
+        }
+        .brandH1 {
+          margin-top: 90%;
         }
         .burger.toggleMenu {
           margin: 0 1%;
@@ -906,65 +913,11 @@
         .navlist li a {
           padding: 20%;
         }
-
-        .keyboard {
-          width: 100%;
-          padding: 5px 0;
-        }
-        .keyboard-key {
-          width: 25px;
-          height: 45px;
-          margin: 4px 3px;
-          font-size: 1.1rem;
-        }
-
-        .keyboard-key.space {
-          width: 244px;
-          margin: 0 3px;
-        }
-      }
-      @media screen and (min-width: 395px) and (max-width: 480px) {
-        .ayah,
-        .kalam,
-        .input-ayah,
-        .input-container {
-          font-size: 1.6rem;
-          line-height: 50px;
-        }
-        .ayahNum,
-        .ayah-num,
-        .user-answers {
-          font-size: 1.3rem;
-        }
-        .row {
-          margin: 0 10px;
-        }
-        .mushaf-button {
-          padding: 5px 20px;
-        }
-      }
-      @media screen and (max-width: 394px) {
-        .ayah,
-        .kalam,
-        .input-ayah,
-        .input-container {
-          font-size: 1.3rem;
-          line-height: 50px;
-        }
-        .ayahNum,
-        .ayah-num,
-        .user-answers {
-          font-size: 1.1rem;
-        }
-        .row {
-          margin: 0 10px;
-        }
-        .mushaf-button {
-          padding: 5px 20px;
+        .modal-background .modal {
+          width: 90%;
         }
       }
 
-      /* ANIMATION */
       @keyframes unfoldIn {
         0% {
           transform: scaleY(0.001) scaleX(0);
@@ -1024,124 +977,8 @@
       }
     </style>
 
-    <!--NAVBAR-->
+    <!--NAV BAR-->
     <style>
-      .menu {
-        width: 100%;
-        background: var(--couleur-fond);
-        text-transform: uppercase;
-      }
-      .menu a {
-        color: var(--couleur-btn);
-        text-decoration: none;
-        font-weight: 300;
-      }
-      .menu a:focus,
-      .menu a:focus-within {
-        outline: none;
-      }
-      .menu > ol {
-        display: flex;
-      }
-      .menu > ol > li {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .menu ol li a {
-        font-family: "Cairo", sans-serif;
-        font-weight: bolder;
-      }
-      nav.navwrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-family: "Cairo", sans-serif;
-        border-radius: 10px;
-        box-shadow: var(--couleur-box-shadow-out);
-        background: var(--couleur-fond);
-        margin: 10px;
-        transition: transform 0.3s ease;
-      }
-      .navwrapper.notonhomepage {
-        transform: translateY(-120%);
-        transition: transform 0.3s ease;
-      }
-      .switch-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .switch {
-        position: relative;
-        width: 60px;
-        height: 30px;
-        margin-left: 30px;
-        background-color: var(--couleur-switch);
-        border-radius: 15px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        box-shadow: var(--couleur-box-shadow-int);
-      }
-      .switch:before {
-        content: "";
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: 26px;
-        height: 26px;
-        border-radius: 50%;
-        background-color: var(--couleur-contrast);
-        transition: transform 0.3s;
-        box-shadow: var(--couleur-box-shadow-out);
-      }
-      input[type="checkbox"] {
-        display: none;
-      }
-      input[type="checkbox"]:checked + .switch {
-        background-color: var(--couleur-contrast);
-      }
-      input[type="checkbox"]:checked + .switch:before {
-        transform: translateX(30px);
-        background-color: var(--couleur-fond);
-      }
-      a {
-        text-decoration: none;
-      }
-      .brandLogo a,
-      .brandPub a {
-        display: flex;
-        justify-content: center;
-        font-weight: bold;
-        color: var(--couleur-btn);
-      }
-      ul.navlist a {
-        margin: 3%;
-        color: var(--couleur-btn);
-        font-weight: bold;
-        box-sizing: border-box;
-      }
-      li.navListLi:hover {
-        border-radius: 10px;
-        color: var(--couleur-contrast);
-        box-shadow: var(--couleur-box-shadow-int);
-        text-shadow: var(--couleur-text-shadow);
-        transition: 0.3s ease-in-out;
-      }
-      ul.navlist a:hover {
-        font-weight: 100;
-        color: var(--couleur-contrast);
-        text-shadow: var(--couleur-text-shadow);
-        transition: 0.3s ease-in-out;
-      }
-      .navwrapper ul,
-      .showPubul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        align-items: center;
-      }
       .toggleMenu {
         display: flex;
         margin-left: 3%;
@@ -1163,7 +1000,6 @@
         z-index: 999;
         border-radius: 10px;
         box-shadow: var(--couleur-box-shadow-out);
-        cursor: pointer;
       }
       .burger .line1 {
         transform-origin: 50% 50%;
@@ -1199,11 +1035,12 @@
         margin-left: -300px;
         overflow: hidden;
         height: 100vh;
-        border-radius: 0 10px;
+        border-radius: 10px;
         box-shadow: var(--couleur-box-shadow-out);
         font-family: "Cairo", sans-serif;
         background: var(--couleur-fond);
         transition: margin-left 0.3s ease-in-out;
+        z-index: 3;
       }
       .sidemenu-content {
         scroll-behavior: smooth;
@@ -1218,11 +1055,12 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 10000px;
         background-color: var(--couleur-fond);
         z-index: 0;
         display: none;
         transition: 0.3s ease-in-out;
+        z-index: 2;
       }
       .showPub {
         width: 100vw;
@@ -1281,6 +1119,33 @@
       }
       .showmenu {
         margin-left: 0px;
+      }
+      .menu {
+        width: 100%;
+        background: var(--couleur-fond);
+        text-transform: uppercase;
+      }
+      .menu a {
+        color: var(--couleur-btn);
+        text-decoration: none;
+        font-weight: 300;
+      }
+      .menu a:focus,
+      .menu a:focus-within {
+        outline: none;
+      }
+      .menu > ol {
+        display: flex;
+      }
+      .menu > ol > li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .menu ol li a {
+        font-family: "Cairo", sans-serif;
+        font-weight: bolder;
       }
       @media (min-width: 801px) {
         .menuscreen {
@@ -11223,9 +11088,9 @@
         .menu > ol > li:hover > ol,
         .menu > ol > li:focus > ol,
         .menu > ol > li:focus-within > ol {
-          left: -80%;
+          left: -25%;
           padding: 0;
-          width: 250%;
+          width: 150%;
           visibility: visible;
         }
         .menu > ol > li:hover > ol > li,
@@ -11300,7 +11165,7 @@
         }
         .menuscreen {
           background: var(--couleur-fond);
-          margin: 50px;
+          margin: 100px 0;
         }
         .menuscreen a {
           font-family: "Cairo", sans-serif;
@@ -11316,6 +11181,7 @@
           align-items: center;
           text-align: left;
           list-style-type: none;
+          margin-bottom: 15px;
         }
         .menuscreen > ol > li > a:nth-last-child(2) {
           position: relative;
@@ -11348,6 +11214,137 @@
         }
         .menu-item {
           list-style-type: none;
+        }
+      }
+    </style>
+
+    <!--KEYBOARD-->
+    <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+
+      .keyboard {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--couleur-fond);
+        box-shadow: var(--couleur-box-shadow-out);
+        padding: 20px;
+        border-radius: 5px;
+        transform: translateY(300%);
+        transition: transform 0.3s ease-out;
+        z-index: 9999;
+      }
+
+      .keyboard.show {
+        transform: translateY(0);
+      }
+
+      .keyboard-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1%;
+        flex-wrap: nowrap;
+      }
+
+      .keyboard-key {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 65px;
+        height: 60px;
+        padding: 5px;
+        font-size: 3vh;
+        font-weight: bolder;
+        font-family: var(--font-arabic);
+        color: var(--couleur-text);
+        background-color: var(--couleur-fond);
+        box-shadow: var(--couleur-box-shadow-out);
+        border-style: none;
+        border-radius: 5px;
+        margin: 3px 9px;
+        cursor: pointer;
+      }
+
+      .keyboard-key:hover {
+        color: var(--couleur-contrast);
+      }
+
+      .keyboard-key:active {
+        border-radius: 5px;
+        box-shadow: var(--couleur-box-shadow-int);
+      }
+
+      .keyboard-key.direction,
+      .keyboard-key.delete {
+        display: flex;
+        width: 65px;
+        margin: 0 9px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .keyboard-key.space {
+        width: 730px;
+        margin: 0 9px;
+      }
+
+      @media screen and (max-width: 1023px) and (min-width: 769px) {
+        .keyboard {
+          padding: 8px 0;
+        }
+        .keyboard-key {
+          height: 42px;
+          margin: 5px 3px;
+        }
+
+        .keyboard-key.direction,
+        .keyboard-key.delete {
+          margin: 5px 3px;
+        }
+
+        .keyboard-key.space {
+          margin: 0 3px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .keyboard {
+          padding: 5px 0;
+        }
+        .keyboard-key {
+          height: 35px;
+          margin: 4px 3px;
+        }
+
+        .keyboard-key.direction,
+        .keyboard-key.delete {
+          margin: 4px 3px;
+        }
+
+        .keyboard-key.space {
+          margin: 0 3px;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .keyboard {
+          padding: 5px 0;
+        }
+        .keyboard-key {
+          height: 45px;
+          margin: 3px 2px;
+          font-size: 2.5vh;
+        }
+
+        .keyboard-key.direction,
+        .keyboard-key.delete {
+          margin: 3px 2px;
+        }
+
+        .keyboard-key.space {
+          margin: 0 2px;
         }
       }
     </style>
@@ -11392,32 +11389,17 @@
       <div class="header">
         <nav class="navwrapper">
           <div class="logo">
-            <h1 class="brandLogo"><a href="#">iلعam</a></h1>
+            <h1 class="brandLogo"><a href="#" translate="no">Iلعam</a></h1>
           </div>
           <div class="showPub"></div>
-          <!--           <div class="menu">
-                <ol>
-                  <li class="menu-item"><a href="#">Acceuil</a></li>
-                  <li class="menu-item"><a href="#">Blog</a></li>
-                  <li class="menu-item">
-                    <a href="#">Cours</a>
-                    <ol class="sub-menu">
-                      <li class="menu-item"><a href="#">Tome de Medine</a></li>
-                      <li class="menu-item"><a href="#">Islam</a></li>
-                      <li class="menu-item"><a href="#">Thematique</a></li>
-                    </ol>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">Partage</a>
-                    <ol class="sub-menu">
-                      <li class="menu-item"><a href="#">Telegram</a></li>
-                      <li class="menu-item"><a href="#">Whattsap</a></li>
-                      <li class="menu-item"><a href="#">Autre</a></li>
-                    </ol>
-                  </li>
-                  <li class="menu-item"><a href="#">Contact</a></li>
-                </ol>
-              </div> -->
+          <div class="menu">
+            <ol>
+              <li class="menu-item">
+                <a href="#">Share</a>
+              </li>
+              <li class="menu-item"><a href="#">Contact</a></li>
+            </ol>
+          </div>
           <div class="switch-container">
             <input type="checkbox" id="theme-switch" />
             <label for="theme-switch" class="switch"></label>
@@ -11459,36 +11441,19 @@
           <div class="sidemenu-overlay"></div>
           <div class="sidemenu">
             <div class="sidemenu-content">
-              <h1 class="brandPub"><a href="#">iلعam</a></h1>
+              <h1 class="brandPub"><a href="#" translate="no">Iلعam</a></h1>
               <div class="menuscreen">
-                <!--            <ol>
-                      <li class="menu-item"><a href="#">Acceuil</a></li>
-                      <li class="menu-item"><a href="#">A propos</a></li>
-                      <li class="menu-item">
-                        <a href="#">Cours</a>
-                        <ol class="sub-menu">
-                          <li class="menu-item"><a href="#">Tome de Medine</a></li>
-                          <li class="menu-item"><a href="#">Islam</a></li>
-                          <li class="menu-item"><a href="#">Thematique</a></li>
-                        </ol>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">Partage</a>
-                        <ol class="sub-menu">
-                          <li class="menu-item"><a href="#">Telegram</a></li>
-                          <li class="menu-item"><a href="#">Whattsap</a></li>
-                          <li class="menu-item"><a href="#">Autre</a></li>
-                        </ol>
-                      </li>
-                      <li class="menu-item"><a href="#">Contact</a></li>
-                    </ol> -->
+                <ol>
+                  <li class="menu-item">
+                    <a href="#">Share</a>
+                  </li>
+                  <li class="menu-item"><a href="#">Contact</a></li>
+                </ol>
               </div>
-              <div class="pub"></div>
-              <div class="pub"></div>
-              <div class="pub"></div>
-              <h1 class="signup">
-                <a href="https://t.me/+8qRnShMCe1NiY2Vk">CONTACT</a>
-              </h1>
+              <!--<div class="pub"></div>
+                <div class="pub"></div>
+                <div class="pub"></div>
+                <h1 class="signup"><a href="#">CONTACT</a></h1>-->
             </div>
           </div>
         </nav>
@@ -11496,7 +11461,9 @@
       <div class="page1content"></div>
       <div class="brand">
         <div class="brand-bg">
-          <h1 class="brand-h1">Mémoriser le Quran à la manière des Anciens</h1>
+          <h1 class="brand-h1">
+            Memorizing the Quran in the manner of the Ancients.
+          </h1>
         </div>
       </div>
     </header>
@@ -12353,6 +12320,31 @@
           window.scrollTo({ top: offset, behavior: "smooth" });
         }, 2000);
       }
+
+      // Menu Integration Script
+      function executeScriptBelow992() {
+        const progressBar = document.querySelector(
+          ".course-info__progress-bar"
+        );
+        const modules = document.querySelector(".course-info__modules");
+        const sideMenu = document.querySelector(".sidemenu-content");
+
+        if (progressBar && modules && sideMenu) {
+          const menuModule = document.createElement("div");
+          menuModule.classList.add("menu-modules");
+
+          sideMenu.appendChild(menuModule);
+          menuModule.appendChild(progressBar);
+          menuModule.appendChild(modules);
+        }
+      }
+      function checkScreenWidth() {
+        if (window.innerWidth < 992.98) {
+          executeScriptBelow992();
+        }
+      }
+      window.addEventListener("DOMContentLoaded", checkScreenWidth);
+      window.addEventListener("resize", checkScreenWidth);
     </script>
   </body>
 </html>
