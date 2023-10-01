@@ -145,24 +145,16 @@ function processVocabularies(vocabularies) {
         counter++;
         attachKeyboardEvents(vocabInput);
 
-        if (
-          i > 0 &&
-          (vocab.ar[i - 1] === "(ج)" || vocab.ar[i - 1] === "أو")
-        ) {
+        if (i > 0 && (vocab.ar[i - 1] === "(ج)" || vocab.ar[i - 1] === "أو")) {
           if (vocab.ar[i - 1] === "(ج)") {
             vocabInput.setAttribute("placeholder", `اَلْجَمْعُ...`);
             console.log(
               `input-${counter} correspond à : اَلْجَمْعُ/... ${word}`
             );
           } else {
-            vocabInput.setAttribute(
-              "placeholder",
-              `${vocab.ar[i - 1]}...`
-            );
+            vocabInput.setAttribute("placeholder", `${vocab.ar[i - 1]}...`);
             console.log(
-              `input-${counter} correspond à : ${word} ...${
-                vocab.ar[i - 1]
-              }`
+              `input-${counter} correspond à : ${word} ...${vocab.ar[i - 1]}`
             );
           }
         } else {
@@ -177,7 +169,55 @@ function processVocabularies(vocabularies) {
     vocabularyDiv.appendChild(vocabLabel);
     vocabularyDiv.appendChild(inputDiv);
     document.querySelector("#exo").appendChild(vocabularyDiv);
+    setTimeout(() => {
+      createBtn(vocabularies);
+    }, 500);
   });
+}
+
+// Function to create buttons
+function createBtn(vocabularies) {
+  const exerciceWrapperDiv = document.querySelector(".exercices-fieldset");
+  const existingBtnContainer = document.querySelector(".correction");
+
+  if (existingBtnContainer) {
+    exerciceWrapperDiv.removeChild(existingBtnContainer);
+  }
+
+  const btnContainer = document.createElement("div");
+  btnContainer.classList.add("correction");
+
+  const btnSubmit = document.createElement("button");
+  btnSubmit.classList.add("btn-exo", "submit");
+  btnSubmit.innerHTML = "Submit";
+  btnSubmit.onclick = function () {
+    btnCheck.classList.remove("hidden");
+    btnRestart.classList.add("hidden");
+    vocab(vocabularies);
+  };
+
+  const btnCheck = document.createElement("button");
+  btnCheck.innerHTML = "Check";
+  btnCheck.classList.add("hidden", "btn-exo", "correct");
+  btnCheck.onclick = function () {
+    btnCheck.classList.add("hidden");
+    btnRestart.classList.remove("hidden");
+    showCorrections(vocabularies);
+  };
+
+  const btnRestart = document.createElement("button");
+  btnRestart.innerHTML = "Retry";
+  btnRestart.classList.add("hidden", "btn-exo", "reset");
+  btnRestart.onclick = function () {
+    btnCheck.classList.add("hidden");
+    btnRestart.classList.add("hidden");
+    resetForm();
+  };
+
+  btnContainer.appendChild(btnSubmit);
+  btnContainer.appendChild(btnCheck);
+  btnContainer.appendChild(btnRestart);
+  exerciceWrapperDiv.appendChild(btnContainer);
 }
 
 // Function that removes special characters
@@ -222,8 +262,7 @@ const vocab = (vocabularies) => {
     if (!results[i]) {
       allAnswersProvided = false;
     } else {
-      const isCorrect =
-        results[i] === goodRep[i] || results[i] === goodRep2[i];
+      const isCorrect = results[i] === goodRep[i] || results[i] === goodRep2[i];
       if (!isCorrect) {
         const section = document.querySelector("#main-section");
         const offset = section.offsetTop + 600;
@@ -374,3 +413,4 @@ function redirectToSection() {
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 2000);
 }
+

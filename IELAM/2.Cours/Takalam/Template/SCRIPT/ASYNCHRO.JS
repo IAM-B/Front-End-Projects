@@ -3,11 +3,11 @@ const exerciceIds = ["exercice-1", "exercice-2", "exercice-3"];
 
 const scriptUrls = {
   "exercice-1":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary/Vocabulary1.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/Vocabulary1.json",
   "exercice-2":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary/Vocabulary2.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/Vocabulary2.json",
   "exercice-3":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary/Vocabulary3.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/Vocabulary3.json",
 };
 
 function loadInitialExercice() {
@@ -44,17 +44,6 @@ function loadScriptAndData(exerciceIndex) {
       const script = document.createElement("script");
       script.id = "exercise-script";
       script.src = scriptUrls[exerciceIds[exerciceIndex]];
-
-      const submitButton = document.querySelector(".btn-exo.submit");
-      const correctButton = document.querySelector(".btn-exo.correct");
-
-      submitButton.addEventListener("click", () => {
-        vocab(vocabularies);
-      });
-
-      correctButton.addEventListener("click", () => {
-        showCorrections(vocabularies);
-      });
 
       const footerElement = document.querySelector("footer");
       const parentElement = footerElement.parentNode;
