@@ -27,41 +27,41 @@
     {
       "fr": "Ask:",
       "ar": ["اِسْأَلْ"],
-      "context": []
+      "context": [""]
     },
     {
       "fr": "Answer:",
       "ar": ["أَجِبْ"],
-      "context": []
+      "context": [""]
     },
     {
       "fr": "Speak:",
       "ar": ["تَحَدَّثْ"],
-      "context": []
+      "context": [""]
     },
     {
       "fr": "Complete:",
       "ar": ["أَكْمِلْ"],
-      "context": []
+      "context": [""]
     },
     {
       "fr": "Connect:",
       "ar": ["صِلْ"],
-      "context": []
+      "context": [""]
     },
     {
       "fr": "Mark:",
       "ar": ["ضَعْ عَلَامَةَ"],
-      "context": []
+      "context": [""]
     },
     {
       "fr": "Practice dialogue with:",
       "ar": ["مَارِسِ الْحِوارَ مَعَ"],
-      "context": []
+      "context": [""]
     },
     {
       "fr": "Copy:",
       "ar": ["اِنْسَخْ"],
-      "context": []
+      "context": [""]
     }
   ]

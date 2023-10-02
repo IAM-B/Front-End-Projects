@@ -78,6 +78,12 @@ function createVocabularySection(vocabulary) {
     h2.textContent = vocabulary.context[validIndex];
     modal.appendChild(h2);
     validIndex++;
+
+    if(h2.textContent.length === 0) {
+      buttonModalDiv.style.display = "none";
+    } else {
+      buttonModalDiv.style.display = "inline-block";
+    }
   }
 
   modalBackground.appendChild(modal);
