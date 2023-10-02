@@ -18,6 +18,7 @@ const generateVirtualKeyboard = () => {
       const button = document.createElement("button");
       button.classList.add("keyboard-key");
       button.textContent = key;
+      button.setAttribute("translate", "no")
 
       button.addEventListener("click", (event) => {
         const selectedInput = document.querySelector(
