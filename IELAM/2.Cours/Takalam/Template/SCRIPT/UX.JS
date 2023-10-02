@@ -4,23 +4,19 @@ window.onbeforeunload = function () {
 };
 
 // Function that makes the loader disappear
-window.addEventListener("load", function () {
+setTimeout(function () {
   const loader = document.querySelector(".loader-wrapper");
-  if (loader) {
-    setTimeout(function () {
-      loader.classList.add("hide");
+  loader.classList.add("hide");
+  setTimeout(function () {
+    const imgBG = document.querySelector(".loader-wrapper");
+    if (imgBG) {
+      imgBG.remove();
       setTimeout(function () {
-        const imgBG = document.querySelector(".loader-wrapper");
-        if (imgBG) {
-          imgBG.remove();
-          setTimeout(function () {
-            redirectToSection();
-          }, 1000);
-        }
+        redirectToSection();
       }, 1000);
-    }, 5000);
-  }
-});
+    }
+  }, 1000);
+}, 5000);
 
 // Event listener for scroll on the nav bar
 window.addEventListener("scroll", () => {
@@ -61,8 +57,7 @@ toggleMenu.addEventListener("click", () => {
 const switchInput = document.getElementById("theme-switch");
 const body = document.body;
 const preferredTheme = localStorage.getItem("preferredTheme");
-const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-  .matches
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
   ? "dark"
   : "light";
 if (!preferredTheme) {
@@ -82,9 +77,7 @@ switchInput.addEventListener("change", function () {
 
 // Menu Integration Script
 function executeScriptBelow992() {
-  const progressBar = document.querySelector(
-    ".course-info__progress-bar"
-  );
+  const progressBar = document.querySelector(".course-info__progress-bar");
   const modules = document.querySelector(".course-info__modules");
   const sideMenu = document.querySelector(".sidemenu-content");
 
