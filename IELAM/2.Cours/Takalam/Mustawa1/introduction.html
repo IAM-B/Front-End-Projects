@@ -13,7 +13,6 @@
       fetch("../Template/HTML-CSS/Template.html")
         .then((response) => response.text())
         .then((htmlContent) => {
-          // Injectez le contenu HTML dans la div "content"
           contentDiv.innerHTML = htmlContent;
         })
         .catch((error) => {
@@ -101,14 +100,6 @@
         </nav>
       </div>
       <div class="page-content"></div>
-      <div class="brand">
-        <div class="brand-bg">
-          <h1 class="brand-h1">
-            Memorize the vocabulary and practice by clicking the exercise
-            button.
-          </h1>
-        </div>
-      </div>
     </header>
     <!--MAIN-->
     <main id="main-section">
@@ -119,14 +110,7 @@
               <legend class="vocab-fr">
                 <div class="ticket">Memorization</div>
               </legend>
-              <form id="vocab" name="exo"></form>
-              <button
-                class="btn-vocab"
-                type="button"
-                onclick="showExerciseSection()"
-              >
-                EXERCICES
-              </button>
+              <form id="vocab" name="exo"></form> 
             </fieldset>
           </div>
           <div id="exercice-section">

@@ -115,7 +115,23 @@ function generateVocabularies(vocabularies) {
     const vocabSection = createVocabularySection(vocabularies[i]);
     exoForm.appendChild(vocabSection);
   }
+  createBtnExercice();
 }
+
+// Function to generated the boutton for exercice display
+function createBtnExercice() {
+  const exoForm = document.getElementById("vocab");
+  const exerciceBTN = document.createElement("button");
+  exerciceBTN.classList.add("btn-vocab");
+  exerciceBTN.setAttribute("type", "button");
+  exerciceBTN.innerHTML = "EXERCICES";
+
+  exerciceBTN.addEventListener("click", function () {
+    exerciceBTN.classList.add("hidden");
+    showExerciseSection();
+  });
+  exoForm.appendChild(exerciceBTN);
+};
 
 // Function to create HTML input elements for the exercise section
 let counter = -1;
@@ -212,6 +228,7 @@ function createBtn(vocabularies) {
     btnCheck.classList.add("hidden");
     btnRestart.classList.add("hidden");
     resetForm();
+    showVocabularySection();
   };
 
   btnContainer.appendChild(btnSubmit);
@@ -359,10 +376,6 @@ const resetForm = () => {
     input.style.color = "var(--couleur-btn)";
     input.classList.add("correct-answer");
   });
-  const section = document.querySelector("#main-section");
-  const offset = section.offsetTop + 600;
-  window.scrollTo({ top: offset, behavior: "smooth" });
-
   const affDiv = document.getElementById("Aff");
   if (affDiv) {
     affDiv.style.display = "none";
@@ -375,12 +388,33 @@ const showExerciseSection = () => {
   const exerciseSection = document.querySelector("#exercice-section");
   const section = document.querySelector("#main-section");
 
+  vocabSection.classList.remove("fade-in");
   vocabSection.classList.add("fade-out");
+  exerciseSection.classList.remove("fade-out");
   exerciseSection.classList.add("fade-in");
 
   setTimeout(() => {
     vocabSection.style.display = "none";
     exerciseSection.style.display = "block";
+    const offset = section.offsetTop + 600;
+    window.scrollTo({ top: offset, behavior: "smooth" });
+  }, 500);
+};
+
+// Function that hides the exercise and displays the vocabulary section
+const showVocabularySection = () => {
+  const vocabSection = document.querySelector("#vocab-section");
+  const exerciseSection = document.querySelector("#exercice-section");
+  const section = document.querySelector("#main-section");
+
+  vocabSection.classList.remove("fade-out");
+  vocabSection.classList.add("fade-in");
+  exerciseSection.classList.remove("fade-in");
+  exerciseSection.classList.add("fade-out");
+
+  setTimeout(() => {
+    vocabSection.style.display = "block";
+    exerciseSection.style.display = "none";
     const offset = section.offsetTop + 600;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 500);
@@ -413,4 +447,3 @@ function redirectToSection() {
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 2000);
 }
-
