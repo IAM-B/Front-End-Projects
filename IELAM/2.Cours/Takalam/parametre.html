@@ -1,5 +1,12 @@
 <style>
   /* RESTE SYSTEME.IO */
+  #row-82858dfe,
+  #headline-07dea74e {
+    display: none;
+  }
+  #headline-aa8196dc {
+    color: var(--couleur-btn);
+  }
   .membership-layout .membership-layout__main {
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -60,9 +67,10 @@
     color: var(--couleur-btn);
   }
   .course-info .course-info__module-title {
-    color: var(--couleur-btn);  
+    color: var(--couleur-btn);
   }
-  .course-info .course-info__module-status.course-info__module-status_started {
+  .course-info .course-info__module-status.course-info__module-status_started
+  .course-info .course-info__module-status {
     color: var(--couleur-btn);
     margin-left: 15px;
   }
@@ -135,9 +143,19 @@
   .course-info__module {
     margin-top: 30px;
   }
+  .course-info .course-info__module-status.course-info__module-status_completed,
+  .course-info .course-info__module-status.course-info__module-status_started,
+  .course-info .course-info__module-status.course-info__module-status_selected {
+    color: var(--couleur-btn);
+  }
   @media screen and (min-width: 992px) {
     .course-info .course-info__title,
     .course-info .course-info__instructor-container {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .membership-layout__sidebar {
       display: none;
     }
   }

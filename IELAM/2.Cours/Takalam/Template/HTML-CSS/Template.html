@@ -55,6 +55,7 @@
     width: 100%;
     height: 100%;
   }
+
   /* Loader */
   .loader-wrapper {
     position: fixed;
@@ -109,7 +110,7 @@
     width: 100%;
     z-index: 3;
   }
-  header.page1.page {
+  header.page {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,30 +121,6 @@
     align-items: center;
     width: 100%;
     height: 100%;
-  }
-  .brand {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    color: var(--couleur-btn);
-    font-family: var(--font-grec);
-  }
-  .brand-bg {
-    width: 100%;
-    height: 100%;
-  }
-  .brand-h1 {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    left: 50%;
-    bottom: 50%;
-    transform: translate(-50%, 50%);
-    font-family: var(--course-font-family);
   }
 
   /* main */
@@ -156,6 +133,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    z-index: 1;
   }
   .main-bg-img {
     display: flex;
@@ -633,9 +611,6 @@
       box-shadow: var(--couleur-box-shadow-int);
       transition: all 0.5s ease;
     }
-    .brand-H1 {
-      margin-top: 90%;
-    }
     .burger.toggleMenu {
       margin: 0 1%;
     }
@@ -667,7 +642,6 @@
       width: 90%;
     }
   }
-
   @keyframes unfoldIn {
     0% {
       transform: scaleY(0.001) scaleX(0);
@@ -753,7 +727,6 @@
     justify-content: center;
     margin-right: 10px;
   }
-
   .switch {
     position: relative;
     width: 60px;
@@ -765,7 +738,6 @@
     transition: background-color 0.3s;
     box-shadow: var(--couleur-box-shadow-int);
   }
-
   .switch:before {
     content: "";
     position: absolute;
@@ -778,15 +750,12 @@
     transition: transform 0.3s;
     box-shadow: var(--couleur-box-shadow-out);
   }
-
   input[type="checkbox"] {
     display: none;
   }
-
   input[type="checkbox"]:checked + .switch {
     background-color: var(--couleur-contrast);
   }
-
   input[type="checkbox"]:checked + .switch:before {
     transform: translateX(30px);
     background-color: var(--couleur-btn);
@@ -10529,7 +10498,6 @@
 <!--KEYBOARD-->
 <style>
   @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
-
   .keyboard {
     position: fixed;
     bottom: 0;
@@ -10543,11 +10511,9 @@
     transition: transform 0.3s ease-out;
     z-index: 9999;
   }
-
   .keyboard.show {
     transform: translateY(0);
   }
-
   .keyboard-row {
     display: flex;
     justify-content: center;
@@ -10555,7 +10521,6 @@
     margin: 1%;
     flex-wrap: nowrap;
   }
-
   .keyboard-key {
     display: flex;
     align-items: center;
@@ -10574,16 +10539,13 @@
     margin: 3px 9px;
     cursor: pointer;
   }
-
   .keyboard-key:hover {
     color: var(--couleur-contrast);
   }
-
   .keyboard-key:active {
     border-radius: 5px;
     box-shadow: var(--couleur-box-shadow-int);
   }
-
   .keyboard-key.direction,
   .keyboard-key.delete {
     display: flex;
@@ -10592,12 +10554,10 @@
     justify-content: center;
     align-items: center;
   }
-
   .keyboard-key.space {
     width: 730px;
     margin: 0 9px;
   }
-
   @media screen and (max-width: 1023px) and (min-width: 769px) {
     .keyboard {
       padding: 8px 0;
@@ -10616,7 +10576,6 @@
       margin: 0 3px;
     }
   }
-
   @media screen and (max-width: 768px) {
     .keyboard {
       padding: 5px 0;
@@ -10635,7 +10594,6 @@
       margin: 0 3px;
     }
   }
-
   @media screen and (max-width: 480px) {
     .keyboard {
       padding: 5px 0;
@@ -10645,12 +10603,10 @@
       margin: 3px 2px;
       font-size: 2.5vh;
     }
-
     .keyboard-key.direction,
     .keyboard-key.delete {
       margin: 3px 2px;
     }
-
     .keyboard-key.space {
       margin: 0 2px;
     }

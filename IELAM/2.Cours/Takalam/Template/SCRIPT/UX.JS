@@ -21,7 +21,7 @@ setTimeout(function () {
 // Event listener for scroll on the nav bar
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navwrapper");
-  const sectionExercice1 = document.querySelector(".vocab-fr");
+  const sectionExercice1 = document.querySelector("#main-section");
 
   if (sectionExercice1) {
     const sectionTop = sectionExercice1.offsetTop + 30;
@@ -97,3 +97,12 @@ function checkScreenWidth() {
 }
 window.addEventListener("DOMContentLoaded", checkScreenWidth);
 window.addEventListener("resize", checkScreenWidth);
+
+// Function that redirects to the vocabulary section after loading
+function redirectToSection() {
+  setTimeout(function () {
+    const section = document.querySelector("#main-section");
+    const offset = section.offsetTop + 600;
+    window.scrollTo({ top: offset, behavior: "smooth" });
+  }, 2000);
+}

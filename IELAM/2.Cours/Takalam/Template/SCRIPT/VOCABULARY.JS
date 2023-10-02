@@ -445,11 +445,3 @@ const showVocab = () => {
   }, 800);
 };
 
-// Function that redirects to the vocabulary section after loading
-function redirectToSection() {
-  setTimeout(function () {
-    const section = document.querySelector("#main-section");
-    const offset = section.offsetTop + 600;
-    window.scrollTo({ top: offset, behavior: "smooth" });
-  }, 2000);
-}
