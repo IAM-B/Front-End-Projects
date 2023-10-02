@@ -131,7 +131,7 @@ function createBtnExercice() {
     showExerciseSection();
   });
   exoForm.appendChild(exerciceBTN);
-};
+}
 
 // Function to create HTML input elements for the exercise section
 let counter = -1;
