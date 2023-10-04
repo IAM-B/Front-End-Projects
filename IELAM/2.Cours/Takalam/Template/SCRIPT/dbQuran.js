@@ -14,21 +14,16 @@ const fetchData = async () => {
 
 // Function convert to arabic number
 function convertToArabicNumber(number) {
-  const arabicNumbers = [
-    "٠",
-    "١",
-    "٢",
-    "٣",
-    "٤",
-    "٥",
-    "٦",
-    "٧",
-    "٨",
-    "٩",
-  ];
+  const arabicNumbers = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
   const digits = String(number).split("");
   const arabicDigits = digits.map((digit) => arabicNumbers[digit]);
   return arabicDigits.join("");
+}
+
+// Function remove the harakates
+function removeHarakat(text) {
+  const harakatToRemove = /[\u064B-\u065F\u0670\u0672\u06D6-\u06ED]/g;
+  return text.replace(harakatToRemove, "");
 }
 
 // Function to populate the table
@@ -39,7 +34,6 @@ let lineContent = {};
 function resetLineContent() {
   lineContent = {};
 }
-
 const populateTable = async (start, end) => {
   const mushafLayoutDiv = document.getElementById("mushaf-layout");
   resetLineContent();
@@ -259,10 +253,7 @@ function hideTextAndShowInput() {
           i === separatedLine.length - 1 ||
           separatedLine[i + 1].type !== "kalam"
         ) {
-          const textWidth = getTextWidth(
-            currentInput.value,
-            "input-fill"
-          );
+          const textWidth = getTextWidth(currentInput.value, "input-fill");
           currentInput.style.width = `${textWidth}px`;
           currentInput.value = "";
           inputContainer.appendChild(currentInput);
@@ -277,8 +268,7 @@ function hideTextAndShowInput() {
     const kalamElement = remainingKalamElements[0];
     kalamElement.remove();
   }
-  const remainingAyahNumElements =
-    document.getElementsByClassName("ayahNum");
+  const remainingAyahNumElements = document.getElementsByClassName("ayahNum");
   while (remainingAyahNumElements.length > 0) {
     const ayahNumElement = remainingAyahNumElements[0];
     ayahNumElement.remove();
@@ -351,8 +341,12 @@ function checkAnswers() {
 
     verseWords.forEach((wordElement) => {
       const word = wordElement.textContent;
+      const wordWithoutHarakat = removeHarakat(word);
 
-      if (!userAnswers.includes(word)) {
+      if (
+        !userAnswers.includes(word) &&
+        !userAnswers.includes(wordWithoutHarakat)
+      ) {
         if (userAnswers.length === 0) {
           const emptyWordSpan = document.createElement("span");
           emptyWordSpan.textContent = word + " ";
@@ -368,24 +362,21 @@ function checkAnswers() {
         correctWordSpan.classList.add("correct");
         correctWordSpan.textContent = word + " ";
         ayahDiv.replaceChild(correctWordSpan, wordElement);
+        if (userAnswers.includes(wordWithoutHarakat)) {
+          correctWordSpan.classList.add("harakat");
+        }
       }
     });
 
-    console.log("userAnswers" + userAnswers.join(" "));
-    console.log("ayahDiv" + ayahDiv.textContent.trim());
-
     const userAnswersDiv = document.createElement("div");
     userAnswersDiv.classList.add("user-answers");
+
     if (userAnswers.join(" ") === ayahDiv.textContent.trim()) {
       userAnswersDiv.classList.add("correct");
-      const errorWords = ayahDiv.querySelectorAll(".error");
-      errorWords.forEach((errorWord) => {
-        errorWord.classList.remove("error");
-        errorWord.classList.add("correct");
-      });
     } else {
       const userWords = userAnswers.join(" ").split(" ");
       const verseWords = ayahDiv.textContent.trim().split(" ");
+
       if (userWords.length !== verseWords.length) {
         const unexpectedWord = userWords;
         const errorSpan = document.createElement("span");
@@ -393,31 +384,41 @@ function checkAnswers() {
         errorSpan.textContent = unexpectedWord.join(" ");
         userAnswersDiv.appendChild(errorSpan);
       } else {
+        let allWordsCorrect = true;
+        
         userWords.forEach((userWord, userWordIndex) => {
           const verseWord = verseWords[userWordIndex];
+          const wordSpan = document.createElement("span");
 
           if (
-            verseWord.trim().toLowerCase() ===
-            userWord.trim().toLowerCase()
+            verseWord.trim().toLowerCase() === userWord.trim().toLowerCase()
           ) {
-            const wordSpan = document.createElement("span");
-            if (/[\u0660-\u0669]/.test(userWord)) {
+            if (/[\u0660-\u0669]/) {
               wordSpan.classList.add("ayah-num");
             } else {
               wordSpan.classList.add("correct");
             }
-            wordSpan.textContent = userWord + " ";
-            userAnswersDiv.appendChild(wordSpan);
+          } else if (
+            removeHarakat(verseWord).trim().toLowerCase() ===
+            userWord.trim().toLowerCase()
+          ) {
+            wordSpan.classList.add("correct", "without-harakat");
           } else {
-            const errorSpan = document.createElement("span");
-            errorSpan.classList.add("error");
-            errorSpan.textContent = userWord + " ";
-            userAnswersDiv.appendChild(errorSpan);
+            allWordsCorrect = false;
+            wordSpan.classList.add("error");
           }
-        });
-      }
 
-      userAnswersDiv.classList.add("incorrect");
+          wordSpan.textContent = userWord + " ";
+          userAnswersDiv.appendChild(wordSpan);
+        });
+
+        if (allWordsCorrect) {
+          userAnswersDiv.classList.add("correct", "without-harakat");
+          userAnswersDiv.innerHTML = "";
+        } else {
+          userAnswersDiv.classList.add("incorrect");
+        }
+      }
     }
 
     inputContainer.innerHTML = "";
