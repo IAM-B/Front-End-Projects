@@ -66,7 +66,7 @@ function loadScriptAndData(exerciceIndex) {
     });
 }
 
-const exerciseButtonsContainer = document.getElementById("footer");
+const exerciseButtonsContainer = document.querySelector(".btn-content");
 const exerciseButtons = [];
 
 const buttonPageContent = document.createElement("div");
