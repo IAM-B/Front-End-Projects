@@ -21,9 +21,9 @@ function convertToArabicNumber(number) {
 }
 
 // Function remove the harakates
-function removeHarakat(text) {
+function removeHarakat(word) {
   const harakatToRemove = /[\u064B-\u065F\u0670\u0672\u06D6-\u06ED]/g;
-  return text.replace(harakatToRemove, "");
+  return word.replace(harakatToRemove, "");
 }
 
 // Function to populate the table
@@ -34,7 +34,7 @@ let lineContent = {};
 function resetLineContent() {
   lineContent = {};
 }
-const populateTable = async (start, end) => {
+const populateTable = async () => {
   const mushafLayoutDiv = document.getElementById("mushaf-layout");
   resetLineContent();
   try {
@@ -403,19 +403,27 @@ function checkAnswers() {
             verseWord.trim().toLowerCase() !== userWord.trim().toLowerCase()
           ) {
             wordSpan.classList.add("error");
-            allWordsCorrect = false;
+
+            if (
+              removeHarakat(verseWord).trim().toLowerCase() ===
+              removeHarakat(userWord).trim().toLowerCase()
+            ) {
+              wordSpan.classList.add("error-harakat");
+              allWordsCorrect = false; 
+            } else {
+              allWordsCorrect = false;
+            }
           } else {
             wordSpan.classList.add("correct");
-            allWordsCorrect = true;
           }
 
           wordSpan.textContent = userWord + " ";
           userAnswersDiv.appendChild(wordSpan);
         });
-        
 
         if (allWordsCorrect) {
-          userAnswersDiv.classList.add("correct", "without-harakat");
+          userAnswersDiv.classList.add("correct");
+          userAnswersDiv.classList.remove("without-harakat");
           userAnswersDiv.innerHTML = "";
         } else {
           userAnswersDiv.classList.add("incorrect");
