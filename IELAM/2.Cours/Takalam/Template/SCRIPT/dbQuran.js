@@ -391,7 +391,7 @@ function checkAnswers() {
           const wordSpan = document.createElement("span");
           const arabicDigitsRegex = /[\u0660-\u0669]/;
           const isArabicDigitPresent = arabicDigitsRegex.test(userWord);
-        
+
           if (isArabicDigitPresent) {
             wordSpan.classList.add("ayah-num");
           } else if (
@@ -409,7 +409,7 @@ function checkAnswers() {
               removeHarakat(userWord).trim().toLowerCase()
             ) {
               wordSpan.classList.add("error-harakat");
-              allWordsCorrect = false; 
+              allWordsCorrect = false;
             } else {
               allWordsCorrect = false;
             }
