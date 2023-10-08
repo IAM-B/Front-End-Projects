@@ -385,32 +385,34 @@ function checkAnswers() {
         userAnswersDiv.appendChild(errorSpan);
       } else {
         let allWordsCorrect = true;
-        
+
         userWords.forEach((userWord, userWordIndex) => {
           const verseWord = verseWords[userWordIndex];
           const wordSpan = document.createElement("span");
-
-          if (
-            verseWord.trim().toLowerCase() === userWord.trim().toLowerCase()
-          ) {
-            if (/[\u0660-\u0669]/) {
-              wordSpan.classList.add("ayah-num");
-            } else {
-              wordSpan.classList.add("correct");
-            }
+          const arabicDigitsRegex = /[\u0660-\u0669]/;
+          const isArabicDigitPresent = arabicDigitsRegex.test(userWord);
+        
+          if (isArabicDigitPresent) {
+            wordSpan.classList.add("ayah-num");
           } else if (
             removeHarakat(verseWord).trim().toLowerCase() ===
             userWord.trim().toLowerCase()
           ) {
             wordSpan.classList.add("correct", "without-harakat");
-          } else {
-            allWordsCorrect = false;
+          } else if (
+            verseWord.trim().toLowerCase() !== userWord.trim().toLowerCase()
+          ) {
             wordSpan.classList.add("error");
+            allWordsCorrect = false;
+          } else {
+            wordSpan.classList.add("correct");
+            allWordsCorrect = true;
           }
 
           wordSpan.textContent = userWord + " ";
           userAnswersDiv.appendChild(wordSpan);
         });
+        
 
         if (allWordsCorrect) {
           userAnswersDiv.classList.add("correct", "without-harakat");
