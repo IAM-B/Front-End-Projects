@@ -342,6 +342,10 @@ function checkAnswers() {
     verseWords.forEach((wordElement) => {
       const word = wordElement.textContent;
       const wordWithoutHarakat = removeHarakat(word);
+      const userAnswersWithoutHarakat = userAnswers.map(removeHarakat);
+
+      console.log("wordWithoutHarakat:" + wordWithoutHarakat);
+      console.log("userAnswersWithoutHarakat:" + userAnswersWithoutHarakat);
 
       if (
         !userAnswers.includes(word) &&
@@ -351,17 +355,24 @@ function checkAnswers() {
           const emptyWordSpan = document.createElement("span");
           emptyWordSpan.textContent = word + " ";
           ayahDiv.replaceChild(emptyWordSpan, wordElement);
+        } else if (userAnswersWithoutHarakat.includes(wordWithoutHarakat)) {
+          const errorWordSpan = document.createElement("span");
+          errorWordSpan.classList.add("error-harakat");
+          errorWordSpan.textContent = word + " ";
+          ayahDiv.replaceChild(errorWordSpan, wordElement);
         } else {
           const errorWordSpan = document.createElement("span");
           errorWordSpan.classList.add("kalam", "error");
           errorWordSpan.textContent = word + " ";
           ayahDiv.replaceChild(errorWordSpan, wordElement);
-        }
+        } 
+        
       } else {
         const correctWordSpan = document.createElement("span");
         correctWordSpan.classList.add("correct");
         correctWordSpan.textContent = word + " ";
         ayahDiv.replaceChild(correctWordSpan, wordElement);
+
         if (userAnswers.includes(wordWithoutHarakat)) {
           correctWordSpan.classList.add("harakat");
         }
@@ -391,6 +402,12 @@ function checkAnswers() {
           const wordSpan = document.createElement("span");
           const arabicDigitsRegex = /[\u0660-\u0669]/;
           const isArabicDigitPresent = arabicDigitsRegex.test(userWord);
+          const removeHarakatVerseWord = removeHarakat(verseWord)
+            .trim()
+            .toLowerCase();
+          const removeHarakatUserWord = removeHarakat(userWord)
+            .trim()
+            .toLowerCase();
 
           if (isArabicDigitPresent) {
             wordSpan.classList.add("ayah-num");
@@ -404,10 +421,7 @@ function checkAnswers() {
           ) {
             wordSpan.classList.add("error");
 
-            if (
-              removeHarakat(verseWord).trim().toLowerCase() ===
-              removeHarakat(userWord).trim().toLowerCase()
-            ) {
+            if (removeHarakatVerseWord === removeHarakatUserWord) {
               wordSpan.classList.add("error-harakat");
               allWordsCorrect = false;
             } else {
