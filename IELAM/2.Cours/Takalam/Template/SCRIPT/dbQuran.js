@@ -464,3 +464,19 @@ function restart() {
   populateTable();
   setTimeout(createBtn, 500);
 }
+
+// Function share button
+const shareButton = document.querySelector(".shareButton");
+shareButton.addEventListener("click", () => {
+  if (navigator.share) {
+    navigator.share({
+      title: "Titre de partage",
+      text: "Description de la page à partager",
+      url: window.location.href,
+    })
+      .then(() => console.log("Successful sharing"))
+      .catch((error) => console.error("Failled sharing: ", error));
+  } else {
+    console.log("The sharing function is not supported in this browser.");
+  }
+});
