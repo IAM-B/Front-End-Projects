@@ -398,10 +398,11 @@ function checkAnswers() {
         let allWordsCorrect = true;
 
         userWords.forEach((userWord, userWordIndex) => {
+          const arabicDigitsRegex = /[\u0660-\u0669]/;
+          userWord = userWord.replace(arabicDigitsRegex, "!");
+          const errorAyah = "!";
           const verseWord = verseWords[userWordIndex];
           const wordSpan = document.createElement("span");
-          const arabicDigitsRegex = /[\u0660-\u0669]/;
-          const isArabicDigitPresent = arabicDigitsRegex.test(userWord);
           const removeHarakatVerseWord = removeHarakat(verseWord)
             .trim()
             .toLowerCase();
@@ -409,8 +410,9 @@ function checkAnswers() {
             .trim()
             .toLowerCase();
 
-          if (isArabicDigitPresent) {
-            wordSpan.classList.add("ayah-num");
+          if (userWord.match(errorAyah)) {
+            wordSpan.textContent = " ";
+            wordSpan.classList.add("ayah-error");
           } else if (
             removeHarakat(verseWord).trim().toLowerCase() ===
             userWord.trim().toLowerCase()
