@@ -71,7 +71,7 @@ switchInput.addEventListener("change", function () {
   if (body.classList.contains("dark")) {
     localStorage.setItem("preferredTheme", "dark");
   } else {
-    localStorage.setItem("preferredTheme", "");
+    localStorage.setItem("preferredTheme", "light");
   }
 });
 

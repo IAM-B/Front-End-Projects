@@ -347,9 +347,6 @@ function checkAnswers() {
       const wordWithoutHarakat = removeHarakat(word);
       const userAnswersWithoutHarakat = userAnswers.map(removeHarakat);
 
-      console.log("wordWithoutHarakat:" + wordWithoutHarakat);
-      console.log("userAnswersWithoutHarakat:" + userAnswersWithoutHarakat);
-
       if (
         !userAnswers.includes(word) &&
         !userAnswers.includes(wordWithoutHarakat)
@@ -368,8 +365,7 @@ function checkAnswers() {
           errorWordSpan.classList.add("kalam", "error");
           errorWordSpan.textContent = word + " ";
           ayahDiv.replaceChild(errorWordSpan, wordElement);
-        } 
-        
+        }
       } else {
         const correctWordSpan = document.createElement("span");
         correctWordSpan.classList.add("correct");
@@ -466,17 +462,76 @@ function restart() {
 }
 
 // Function share button
-const shareButton = document.querySelector(".shareButton");
-shareButton.addEventListener("click", () => {
+const shareButtonOne = document.getElementById("shareButtonOne");
+const shareButtonTow = document.getElementById("shareButtonTow");
+
+shareButtonOne.onclick = function () {
+  shareSocialMedia()
+}
+shareButtonTow.onclick = function () {
+  shareSocialMedia()
+}
+
+function shareSocialMedia() {
+
   if (navigator.share) {
-    navigator.share({
-      title: "Titre de partage",
-      text: "Description de la page à partager",
-      url: window.location.href,
-    })
-      .then(() => console.log("Successful sharing"))
-      .catch((error) => console.error("Failled sharing: ", error));
+    navigator
+      .share({
+        title: "Iلعam",
+        url: window.location.href,
+      })
+      .then(() => console.log("Sharing succefull"))
+      .catch((error) => console.error("Failed sharing: ", error));
   } else {
-    console.log("The sharing function is not supported in this browser.");
+    const shareOptions = {
+      title: "Iلعam",
+      url: window.location.href,
+    };
+
+    const socialMedia = [
+      {
+        name: "Facebook",
+        url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+          shareOptions.url
+        )}`,
+      },
+      {
+        name: "Twitter",
+        url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+          shareOptions.url
+        )}&text=${encodeURIComponent(shareOptions.text)}`,
+      },
+      {
+        name: "Telegram",
+        url: `https://t.me/share/url?url=${encodeURIComponent(
+          shareOptions.url
+        )}&text=${encodeURIComponent(shareOptions.text)}`,
+      },
+      {
+        name: "WhatsApp",
+        url: `whatsapp://send?text=${encodeURIComponent(
+          shareOptions.text + " " + shareOptions.url
+        )}`,
+      },
+      {
+        name: "LinkedIn",
+        url: `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
+          shareOptions.url
+        )}&title=${encodeURIComponent(shareOptions.title)}`,
+      },
+    ];
+
+    const shareMenu = document.createElement("div");
+    shareMenu.classList.add("share-menu");
+
+    socialMedia.forEach((platform) => {
+      const shareLink = document.createElement("a");
+      shareLink.textContent = `Partager sur ${platform.name}`;
+      shareLink.href = platform.url;
+      shareLink.target = "_blank";
+      shareMenu.appendChild(shareLink);
+    });
+
+    document.body.appendChild(shareMenu);
   }
-});
+};
