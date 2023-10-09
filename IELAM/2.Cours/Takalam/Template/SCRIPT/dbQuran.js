@@ -46,6 +46,7 @@ const populateTable = async () => {
 
     const rowDiv = document.createElement("div");
     rowDiv.classList.add("row-container");
+    rowDiv.setAttribute("translate", "no");
     const juzSpan = document.createElement("span");
     juzSpan.classList.add("juz", "row");
     juzSpan.textContent = ` جزء ${juz}`;
@@ -116,6 +117,7 @@ const populateTable = async () => {
           if (lineNumber !== currentLineNumber) {
             lineDiv = document.createElement("div");
             lineDiv.classList.add("line" + `${lineNumber}`, "ayah");
+            lineDiv.setAttribute("translate", "no");
             mushafWrapperDiv.appendChild(lineDiv);
             currentLineNumber = lineNumber;
           }
@@ -223,6 +225,7 @@ function hideTextAndShowInput() {
     separatedLine = line;
     const inputContainer = document.createElement("div");
     inputContainer.classList.add("line" + lineNumber, "input-container");
+    inputContainer.setAttribute("translate", "no");
 
     const kalamElement = document.querySelectorAll(".kalam");
 
