@@ -8,20 +8,6 @@
   <body>
     <!--TEMPLATE-->
     <div id="template-content"></div>
-    <script>
-      const contentDivTemplate = document.getElementById("template-content");
-      fetch("../Template/HTML-CSS/Template.html")
-        .then((response) => response.text())
-        .then((htmlContent) => {
-          contentDivTemplate.innerHTML = htmlContent;
-        })
-        .catch((error) => {
-          console.error(
-            "Une erreur s'est produite lors du chargement de la page:",
-            error
-          );
-        });
-    </script>
     <!--QURAN-->
     <div id="quran-content"></div>
     <script>
@@ -95,7 +81,6 @@
               </g>
             </svg>
           </div>
-
           <div class="sidemenu-overlay"></div>
           <div class="sidemenu">
             <div class="sidemenu-content">

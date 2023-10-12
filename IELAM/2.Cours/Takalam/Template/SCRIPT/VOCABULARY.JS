@@ -5,8 +5,8 @@ function createVocabularySection(vocabulary) {
   vocabDiv.classList.add("vocabulary");
 
   const label = document.createElement("label");
-  label.classList.add("vocab-fr");
-  label.textContent = vocabulary.fr;
+  label.classList.add("vocab-en");
+  label.textContent = vocabulary.en;
   vocabDiv.appendChild(label);
 
   const inlineVocabDiv = document.createElement("div");
@@ -147,8 +147,8 @@ function processVocabularies(vocabularies) {
     vocabularyDiv.classList.add("vocabulary");
 
     const vocabLabel = document.createElement("label");
-    vocabLabel.classList.add("vocab-fr");
-    vocabLabel.textContent = vocab.fr;
+    vocabLabel.classList.add("vocab-en");
+    vocabLabel.textContent = vocab.en;
 
     const inputDiv = document.createElement("div");
     inputDiv.classList.add("inline-input");

@@ -75,7 +75,7 @@ switchInput.addEventListener("change", function () {
   }
 });
 
-// Menu Integration Script
+// Menu Integration sidemenu-content
 function executeScriptBelow992() {
   const progressBar = document.querySelector(".course-info__progress-bar");
   const modules = document.querySelector(".course-info__modules");
@@ -106,3 +106,76 @@ function redirectToSection() {
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 2000);
 }
+
+// Function share button
+const shareButtonOne = document.getElementById("shareButtonOne");
+const shareButtonTow = document.getElementById("shareButtonTow");
+shareButtonOne.onclick = function () {
+  shareSocialMedia()
+}
+shareButtonTow.onclick = function () {
+  shareSocialMedia()
+}
+function shareSocialMedia() {
+
+  if (navigator.share) {
+    navigator
+      .share({
+        title: "Iلعam",
+        url: window.location.href,
+      })
+      .then(() => console.log("Sharing succefull"))
+      .catch((error) => console.error("Failed sharing: ", error));
+  } else {
+    const shareOptions = {
+      title: "Iلعam",
+      url: window.location.href,
+    };
+
+    const socialMedia = [
+      {
+        name: "Facebook",
+        url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+          shareOptions.url
+        )}`,
+      },
+      {
+        name: "Twitter",
+        url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+          shareOptions.url
+        )}&text=${encodeURIComponent(shareOptions.text)}`,
+      },
+      {
+        name: "Telegram",
+        url: `https://t.me/share/url?url=${encodeURIComponent(
+          shareOptions.url
+        )}&text=${encodeURIComponent(shareOptions.text)}`,
+      },
+      {
+        name: "WhatsApp",
+        url: `whatsapp://send?text=${encodeURIComponent(
+          shareOptions.text + " " + shareOptions.url
+        )}`,
+      },
+      {
+        name: "LinkedIn",
+        url: `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
+          shareOptions.url
+        )}&title=${encodeURIComponent(shareOptions.title)}`,
+      },
+    ];
+
+    const shareMenu = document.createElement("div");
+    shareMenu.classList.add("share-menu");
+
+    socialMedia.forEach((platform) => {
+      const shareLink = document.createElement("a");
+      shareLink.textContent = `Partager sur ${platform.name}`;
+      shareLink.href = platform.url;
+      shareLink.target = "_blank";
+      shareMenu.appendChild(shareLink);
+    });
+
+    document.body.appendChild(shareMenu);
+  }
+};

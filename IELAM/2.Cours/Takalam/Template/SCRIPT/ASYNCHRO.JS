@@ -3,11 +3,11 @@ const exerciceIds = ["exercice-1", "exercice-2", "exercice-3"];
 
 const scriptUrls = {
   "exercice-1":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/Vocabulary1.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/Introduction/Vocabulary1.json",
   "exercice-2":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/Vocabulary2.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/Introduction/Vocabulary2.json",
   "exercice-3":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/Vocabulary3.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/Introduction/Vocabulary3.json",
 };
 
 function loadInitialExercice() {
@@ -73,7 +73,7 @@ const buttonPageContent = document.createElement("div");
 buttonPageContent.classList.add("button-page-container");
 exerciseButtonsContainer.appendChild(buttonPageContent);
 
-exerciceIds.forEach((exerciceId, index) => {
+exerciceIds.forEach((index) => {
   const button = document.createElement("button");
   button.textContent = `${index + 1}`;
   button.classList.add("exercise-button");

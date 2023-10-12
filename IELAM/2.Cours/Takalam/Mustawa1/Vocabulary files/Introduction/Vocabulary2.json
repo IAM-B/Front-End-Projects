@@ -1,61 +1,61 @@
 [
   {
-    "fr": "Sunday:",
+    "en": "Sunday:",
     "ar": ["الْأَحَدُ"],
       "context":[""]
   },
   {
-    "fr": "Monday:",
+    "en": "Monday:",
     "ar": ["الْإِثْنَيْنِ"],
     "context":[""]
   },
   {
-    "fr": "Tuesday:",
+    "en": "Tuesday:",
     "ar": ["الثُّلَاثَاءُ"],
     "context":[""]
   },
   {
-    "fr": "Wednesday:",
+    "en": "Wednesday:",
     "ar": ["الْأَرْبِعَاءُ"],
     "context":[""]
   },
   {
-    "fr": "Thursday:",
+    "en": "Thursday:",
     "ar": ["الْخَمِيسُ"],
     "context":[""]
   },
   {
-    "fr": "Friday:",
+    "en": "eniday:",
     "ar": ["الْجُمُعَةُ"],
     "context":[""]
   },
   {
-    "fr": "Saturday:",
+    "en": "Saturday:",
     "ar": ["السَّبْتُ"],
     "context":[""]
   },
   {
-    "fr": "Seasons of year:",
+    "en": "Seasons of year:",
     "ar": ["فُصُولُ السَّنَةِ"],
     "context":[""]
   },
   {
-    "fr": "Summer:",
+    "en": "Summer:",
     "ar": ["الصَّيْفُ"],
     "context":[""]
   },
   {
-    "fr": "Spring:",
+    "en": "Spring:",
     "ar": ["الرَّبِيعُ"],
     "context":[""]
   },
   {
-    "fr": "Winter:",
+    "en": "Winter:",
     "ar": ["الشِّتَاءُ"],
     "context":[""]
   },
   {
-    "fr": "Autumn:",
+    "en": "Autumn:",
     "ar": ["الْخَرِيفُ"],
     "context":[""]
   }

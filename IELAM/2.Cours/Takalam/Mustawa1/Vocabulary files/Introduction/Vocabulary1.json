@@ -1,66 +1,66 @@
 [
     {
-      "fr": "Read:",
+      "en": "Read:",
       "ar": ["اِقْرَأْ"],
       "context": ["ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ"]
     },
     {
-      "fr": "Write:",
+      "en": "Write:",
       "ar": ["اُكْتُبْ"],
       "context": ["اُكْتُبْ فِي دَّفْتَرٌ"]
     },
     {
-      "fr": "Look:",
+      "en": "Look:",
       "ar": ["اُنْظُرْ"],
       "context": ["اُنْظُرْ اِلَى اَلِِِْشَاشَةُ"]
     },
     {
-      "fr": "Listen:",
+      "en": "Listen:",
       "ar": ["اِسْتَمِعْ"],
       "context": ["اِسْتَمِعْ يَاشَبَابٌ"]
     },
     {
-      "fr": "Repeat:",
+      "en": "Repeat:",
       "ar": ["كَرِّرْ"],
       "context": ["كَرِّرْ مَرَه اَخْرَ"]
     },
     {
-      "fr": "Ask:",
+      "en": "Ask:",
       "ar": ["اِسْأَلْ"],
       "context": [""]
     },
     {
-      "fr": "Answer:",
+      "en": "Answer:",
       "ar": ["أَجِبْ"],
       "context": [""]
     },
     {
-      "fr": "Speak:",
+      "en": "Speak:",
       "ar": ["تَحَدَّثْ"],
       "context": [""]
     },
     {
-      "fr": "Complete:",
+      "en": "Complete:",
       "ar": ["أَكْمِلْ"],
       "context": [""]
     },
     {
-      "fr": "Connect:",
+      "en": "Connect:",
       "ar": ["صِلْ"],
       "context": [""]
     },
     {
-      "fr": "Mark:",
+      "en": "Mark:",
       "ar": ["ضَعْ عَلَامَةَ"],
       "context": [""]
     },
     {
-      "fr": "Practice dialogue with:",
+      "en": "Practice dialogue with:",
       "ar": ["مَارِسِ الْحِوارَ مَعَ"],
       "context": [""]
     },
     {
-      "fr": "Copy:",
+      "en": "Copy:",
       "ar": ["اِنْسَخْ"],
       "context": [""]
     }
