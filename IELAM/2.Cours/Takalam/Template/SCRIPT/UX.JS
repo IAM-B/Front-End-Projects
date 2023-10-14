@@ -98,11 +98,11 @@ function checkScreenWidth() {
 window.addEventListener("DOMContentLoaded", checkScreenWidth);
 window.addEventListener("resize", checkScreenWidth);
 
-// Function that redirects to the vocabulary section after loading
+// Function that redirects to the main-section section after loading
 function redirectToSection() {
   setTimeout(function () {
     const section = document.querySelector("#main-section");
-    const offset = section.offsetTop + 600;
+    const offset = section.offsetTop;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 2000);
 }

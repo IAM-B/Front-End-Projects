@@ -54,12 +54,32 @@
     </footer>
     <!---->
 
-    <!--SCRIPT-->
-    <!--KEYBOARD-->
-    <script src="../Template/SCRIPT/KEYBOARD.JS"></script>
-    <!--UX-->
-    <script src="../Template/SCRIPT/UX.JS"></script>
-    <!--SCRIPT DB-->
-    <script src="../Template/SCRIPT/dbQuran.js"></script>
+    <!-- SCRIPT -->
+    <script>
+      function insertScript(code) {
+        const script = document.createElement("script");
+        script.text = code;
+        document.body.appendChild(script);
+      }
+
+      const scriptUrls = [
+        "../Template/SCRIPT/KEYBOARD.JS",
+        "../Template/SCRIPT/UX.JS",
+        "../Template/SCRIPT/dbQuran.js",
+      ];
+
+      scriptUrls.forEach((url) => {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            insertScript(data);
+          })
+          .catch((error) => {
+            console.error("Une erreur s'est produite lors du chargement du script:", error);
+          });
+      });
+    </script>
+    <!---->
+
   </body>
 </html>
