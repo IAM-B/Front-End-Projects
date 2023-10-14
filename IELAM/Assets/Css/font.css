@@ -1,101 +1,101 @@
 @font-face {
-  font-family: "quran";
+  font-family: "1";
   src: url("https://cdn.jsdelivr.net/gh/ShakesVision/QuranFont/pdms-saleem-quranfont.ttf")
     format("truetype");
 }
 @font-face {
-  font-family: "warsh10";
+  font-family: "2";
   src: url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/warsh/font/warsh.10.woff2")
       format("woff2"),
     url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/warsh/font/warsh.10.ttf")
       format("truetype");
 }
 @font-face {
-  font-family: "qaloon10";
+  font-family: "3";
   src: url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/qaloon/font/qaloon.10.woff2")
       format("woff2"),
     url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/qaloon/font/qaloon.10.ttf")
       format("truetype");
 }
 @font-face {
-  font-family: "doori9";
+  font-family: "4";
   src: url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/doori/font/doori.9.woff2")
       format("woff2"),
     url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/doori/font/doori.9.ttf")
       format("truetype");
 }
 @font-face {
-  font-family: "qumbul7";
+  font-family: "5";
   src: url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/qumbul/font/qumbul.7.woff2")
       format("woff2"),
     url("https://cdn.jsdelivr.net/gh/thetruetruth/quran-data-kfgqpc@main/qumbul/font/qumbul.7.ttf")
       format("truetype");
 }
 @font-face {
-  font-family: "1";
+  font-family: "6";
   src: url("../../1.Quran/Assets/Tajweed/KFGQPCHAFSColored-Bold.ttf")
     format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "2";
+  font-family: "7";
   src: url("../../1.Quran/Assets/Tajweed/KFGQPCHAFSColored-Bold.woff")
     format("woff");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "3";
+  font-family: "8";
   src: url("../../1.Quran/Assets/Tajweed/KFGQPCHAFSColored-Bold.woff2")
     format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "4";
+  font-family: "9";
   src: url("../../1.Quran/Assets/Tajweed/KFGQPCHAFSColored-Extrabold.ttf")
     format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "5";
+  font-family: "10";
   src: url("../../1.Quran/Assets/Tajweed/KFGQPCHAFSColored-Extrabold.woff")
     format("woff");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "6";
+  font-family: "11";
   src: url("../../1.Quran/Assets/Tajweed/KFGQPCHAFSColored-Extrabold.woff2")
     format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "7";
+  font-family: "12";
   src: url("../../1.Quran/Assets/Tajweed/KFGQPCHAFSColored_B2-Ultrabold.ttf")
     format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "8";
+  font-family: "13";
   src: url("../../1.Quran/Assets/Tajweed/KFGQPCHAFSColored_B2-Ultrabold.woff")
     format("woff");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "9";
+  font-family: "14";
   src: url("../../1.Quran/Assets/Tajweed/KFGQPCHAFSColored_B2-Ultrabold.woff2")
     format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "ScriptHAFS";
+  font-family: "15";
   src: url("../../1.Quran/Assets/Font/alfont_com_Hafs-Font-v0.09-2.otf")
     format("opentype");
   font-weight: normal;

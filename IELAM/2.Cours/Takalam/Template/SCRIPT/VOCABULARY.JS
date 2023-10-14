@@ -37,7 +37,7 @@ function createVocabularySection(vocabulary) {
 
   for (let j = 0; j < vocabulary.ar.length; j++) {
     const span = document.createElement("span");
-    span.classList.add("vocabAR");
+    span.classList.add("vocab-ar");
     span.setAttribute("translate", "no");
     span.textContent = vocabulary.ar[j];
 

@@ -7,13 +7,27 @@
   </head>
   <body>
     <!--TEMPLATE-->
-    <div id="template-content"></div>
+    <div id="html-content"></div>
+    <div id="css-content"></div>
     <script>
-      const contentDiv = document.getElementById("template-content");
-      fetch("../Template/HTML-CSS/Template.html")
+      const contentDivHtml = document.getElementById("html-content");
+      fetch("../Template/HTML-CSS/innerHtml.html")
         .then((response) => response.text())
         .then((htmlContent) => {
-          contentDiv.innerHTML = htmlContent;
+          contentDivHtml.innerHTML = htmlContent;
+        })
+        .catch((error) => {
+          console.error(
+            "Une erreur s'est produite lors du chargement de la page:",
+            error
+          );
+        });
+
+      const contentDivCss = document.getElementById("css-content");
+      fetch("../Template/HTML-CSS/innerCss.html")
+        .then((response) => response.text())
+        .then((htmlContent) => {
+          contentDivCss.innerHTML = htmlContent;
         })
         .catch((error) => {
           console.error(
@@ -25,99 +39,22 @@
     <!---->
 
     <!--CONTENT-->
-    <!--HEADER-->
-    <header class="page">
-      <div class="header">
-        <nav class="navwrapper">
-          <div class="logo">
-            <h1 class="brand-logo"><a href="#" translate="no">Iلعam</a></h1>
-          </div>
-          <div class="showPub"></div>
-          <div class="menu">
-            <ol>
-              <li class="menu-item">
-                <a id="shareButtonOne">Share</a>
-              </li>
-              <li class="menu-item"><a href="https://t.me/+8qRnShMCe1NiY2Vk" target="_blank">Group</a></li>
-              <li class="menu-item"><a href="https://t.me/Salamualyk" target="_blank">Contact</a></li>
-            </ol>
-          </div>
-          <div class="switch-container">
-            <input type="checkbox" id="theme-switch" />
-            <label for="theme-switch" class="switch"></label>
-          </div>
-          <div class="burger toggleMenu">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <g class="burger-lines">
-                <line
-                  class="line1"
-                  x1="25"
-                  y1="35"
-                  x2="80"
-                  y2="35"
-                  stroke-width="10"
-                  stroke-linecap="round"
-                />
-                <line
-                  class="line2"
-                  x1="25"
-                  y1="50"
-                  x2="80"
-                  y2="50"
-                  stroke-width="10"
-                  stroke-linecap="round"
-                />
-                <line
-                  class="line3"
-                  x1="25"
-                  y1="65"
-                  x2="80"
-                  y2="65"
-                  stroke-width="10"
-                  stroke-linecap="round"
-                />
-              </g>
-            </svg>
-          </div>
-          <div class="sidemenu-overlay"></div>
-          <div class="sidemenu">
-            <div class="sidemenu-content">
-              <h1 class="brand-pub"><a href="#" translate="no">Iلعam</a></h1>
-              <div class="menuscreen">
-                <ol>
-                  <li class="menu-item">
-                    <a id="shareButtonTow">Share</a>
-                  </li>
-                  <li class="menu-item"><a href="https://t.me/+8qRnShMCe1NiY2Vk" target="_blank">Group</a></li>
-                  <li class="menu-item"><a href="https://t.me/Salamualyk" target="_blank">Contact</a></li>
-                </ol>
-              </div>
-              <!--<div class="pub"></div>
-                  <div class="pub"></div>
-                  <div class="pub"></div>
-                  <h1 class="signup"><a href="#">CONTACT</a></h1>-->
-            </div>
-          </div>
-        </nav>
-      </div>
-      <div class="page-content"></div>
-    </header>
     <!--MAIN-->
     <main id="main-section">
       <div class="main-bg-img">
         <section class="section-exercices">
           <div id="vocab-section" class="exercice">
             <fieldset>
-              <legend class="vocab-fr">
+              <legend class="vocab-en">
                 <div class="ticket">Memorization</div>
               </legend>
-              <form id="vocab" name="exo"></form> 
+              <form id="vocab" name="exo"></form>
             </fieldset>
           </div>
           <div id="exercice-section">
             <div class="exercice">
               <fieldset class="exercices-fieldset">
-                <legend class="vocab-fr">
+                <legend class="vocab-en">
                   <div class="ticket">Exercises</div>
                 </legend>
                 <div id="Aff"></div>
