@@ -1,13 +1,14 @@
 <!--TEMPLATE-->
 <!--DESIGN-->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Amiri+Quran&family=Nothing+You+Could+Do&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@500&display=swap');
-@import url('');
-@font-face {
-  font-family: 'ayah-num';
-  src: url('https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/1.Quran/Assets/Font/alfont_com_Hafs-Font-v0.09-2.otf?inline=true') format('opentype');
-}
+  @import url("https://fonts.googleapis.com/css2?family=Amiri&family=Amiri+Quran&family=Nothing+You+Could+Do&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@500&display=swap");
+  @import url("");
+  @font-face {
+    font-family: "ayah-num";
+    src: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/1.Quran/Assets/Font/alfont_com_Hafs-Font-v0.09-2.otf?inline=true")
+      format("opentype");
+  }
 
   :root {
     --couleur-fond: #e4ebf5;
@@ -23,10 +24,10 @@
     --couleur-switch: #ffffff;
     --couleur-fond-bg: radial-gradient(circle, #e4ebf5, #e4ebf580 50%);
     --couleur-fond-row: linear-gradient(#e4ebf550, #e4ebf5);
-    --font-arabic1: 'Amiri', serif;
-    --font-arabic2: 'Amiri Quran', serif;
-    --font-latin: 'Nothing You Could Do', cursive;
-    --font-ayah: 'ayah-num', cursive;
+    --font-arabic1: "Amiri", serif;
+    --font-arabic2: "Amiri Quran", serif;
+    --font-latin: "Nothing You Could Do", cursive;
+    --font-ayah: "ayah-num", cursive;
     --font-logo: "Noto Nastaliq Urdu";
 
     --bg-Quran: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/1.Quran/Assets/IMG/paterne.svg");
@@ -502,12 +503,12 @@
     cursor: pointer;
   }
 
-  @media screen and (min-width: 801px) {
+  @media screen and (min-width: 993px) {
     .burger.toggleMenu {
       display: none;
     }
   }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 992px) {
     .btn-exo.hidden {
       display: none;
     }
@@ -626,6 +627,13 @@
     }
     .burger.toggleMenu {
       margin: 0 1%;
+    }
+    .switch {
+      margin: 0;
+      margin-left: 0;
+    }
+    .switch-container {
+      margin-right: 0;
     }
     .logo {
       transition: all 0.3s ease-in-out;
@@ -993,7 +1001,7 @@
     font-family: "Cairo", sans-serif;
     font-weight: bolder;
   }
-  @media (min-width: 801px) {
+  @media (min-width: 993px) {
     .menuscreen {
       display: none;
     }
@@ -10451,7 +10459,7 @@
       transition-delay: 1650ms;
     }
   }
-  @media (max-width: 800px) {
+  @media (max-width: 992px) {
     .menu {
       display: none;
     }
@@ -10506,6 +10514,52 @@
     }
     .menu-item {
       list-style-type: none;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .burger.toggleMenu.active svg {
+      stroke: var(--couleur-btn);
+      background-color: var(--couleur-fond);
+      box-shadow: var(--couleur-box-shadow-int);
+      transition: all 0.5s ease;
+    }
+    .burger.toggleMenu {
+      margin: 0 1%;
+    }
+    .logo {
+      transition: all 0.3s ease-in-out;
+    }
+    .navwrapper {
+      transition: all 0.3s ease-in-out;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      background: transparent;
+      transition: all 0.3s ease-in-out;
+    }
+    .navlist {
+      display: flex;
+      right: 3%;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+    .navlist li {
+      flex-grow: 1;
+      font-size: 1.13rem;
+    }
+    .navlist li a {
+      padding: 20%;
+    }
+  }
+  @media screen and (max-width: 290px) {
+    .switch {
+      margin: 0;
+    }
+    .switch-container {
+      margin: 0;
+    }
+    .ayah, .kalam, .input-fill, .input-container {
+    font-size: 1rem;
     }
   }
 </style>
@@ -10844,7 +10898,7 @@
     .user-answers {
       font-size: 1.5rem;
       color: var(--couleur-text);
-      font-family: var(--font-ayah);    }
+      font-family: var(--font-ayah);
+    }
   }
 </style>
-

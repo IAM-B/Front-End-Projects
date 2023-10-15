@@ -101,7 +101,7 @@ window.addEventListener("resize", checkScreenWidth);
 // Function that redirects to the main-section section after loading
 function redirectToSection() {
   setTimeout(function () {
-    const section = document.querySelector("#main-section");
+    const section = document.getElementById("main-section");
     const offset = section.offsetTop;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 2000);
