@@ -73,7 +73,7 @@ const buttonPageContent = document.createElement("div");
 buttonPageContent.classList.add("button-page-container");
 exerciseButtonsContainer.appendChild(buttonPageContent);
 
-exerciceIds.forEach((index) => {
+exerciceIds.forEach((exerciceId, index) => {
   const button = document.createElement("button");
   button.textContent = `${index + 1}`;
   button.classList.add("exercise-button");
