@@ -1,5 +1,5 @@
 const section = document.querySelector("section");
-const exerciceIds = ["exercice-1", "exercice-2", "exercice-3"];
+const exerciceIds = ["exercice-1", "exercice-2", "exercice-3",];
 
 const scriptUrls = {
   "exercice-1":
@@ -11,9 +11,7 @@ const scriptUrls = {
 };
 
 function loadInitialExercice() {
-  const lastExerciceIndex = parseInt(
-    localStorage.getItem("lastExerciceIndex")
-  );
+  const lastExerciceIndex = parseInt(localStorage.getItem("lastExerciceIndex"));
   if (
     !isNaN(lastExerciceIndex) &&
     lastExerciceIndex >= 0 &&
