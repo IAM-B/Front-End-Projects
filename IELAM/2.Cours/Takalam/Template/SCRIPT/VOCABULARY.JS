@@ -133,7 +133,6 @@ function createBtnExercice() {
   exerciceBTN.innerHTML = "EXERCICES";
 
   exerciceBTN.addEventListener("click", function () {
-    exerciceBTN.classList.add("hidden");
     showExerciseSection();
   });
   exoForm.appendChild(exerciceBTN);
@@ -307,6 +306,12 @@ const vocab = (vocabularies) => {
     const offset = section.offsetTop + 600;
     window.scrollTo({ top: offset, behavior: "smooth" });
     if (score == n) {
+      const completedExercice = document.querySelectorAll("a.btn.btn-course-secondary.membership-layout__complete-lecture-button");
+      if (completedExercice) {
+        completedExercice.click();
+      } else {
+        console.log("Bouton not found");
+      }
       ChampTxt.innerHTML =
         '<p class="alert p1">الله بارك<br/>All answers are correct.</p>';
     } else {
@@ -426,22 +431,4 @@ const showVocabularySection = () => {
   }, 500);
 };
 
-// Function that hides the exercise and displays the vocabulary section
-const showVocab = () => {
-  const vocabSection = document.querySelector("#vocab-section");
-  const exerciseSection = document.querySelector("#exercice-section");
-  const section = document.querySelector("#main-section");
-
-  vocabSection.classList.add("fade-in");
-  exerciseSection.classList.add("fade-out");
-
-  setTimeout(() => {
-    vocabSection.style.display = "block";
-    exerciseSection.style.display = "none";
-  }, 200);
-  setTimeout(() => {
-    const offset = section.offsetTop + 600;
-    window.scrollTo({ top: offset, behavior: "smooth" });
-  }, 800);
-};
 
