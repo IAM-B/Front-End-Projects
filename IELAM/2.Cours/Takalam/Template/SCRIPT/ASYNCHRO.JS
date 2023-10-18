@@ -25,6 +25,16 @@ function loadInitialExercice() {
   }
 }
 
+function reloadScript(src) {
+  const script = document.querySelector(`script[src="${src}"]`);
+  if (script) {
+    script.parentNode.removeChild(script);
+  }
+  const newScript = document.createElement('script');
+  newScript.src = src;
+  document.head.appendChild(newScript);
+}
+
 let ExerciceIndex = [];
 function loadScriptAndData(exerciceIndex) {
   const existingScript = document.querySelector("#exercise-script");
@@ -87,7 +97,6 @@ exerciceIds.forEach((exerciceId, index) => {
       vocabularyForm.innerHTML = "";
       exerciceForm.innerHTML = "";
       loadScriptAndData(index);
-      showVocab();
       sectionVocabulary.classList.remove("fade-out-vocab");
       sectionVocabulary.classList.add("fade-in-vocab");
     }, 725);
