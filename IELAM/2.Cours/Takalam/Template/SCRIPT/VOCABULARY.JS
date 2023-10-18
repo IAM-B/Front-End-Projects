@@ -247,7 +247,7 @@ const removePunctuation = (str) => {
   if (!str) {
     return false;
   }
-  return str.replace(/[.,-\/#!?$%\^&\*;:{}=\-_`~()\b ]/g, "");
+  return str.replace(/[.,-\/#!?$%\^&\*;:{}=\-_`~()\b]/g, "");
 };
 
 // Function that check the answers
