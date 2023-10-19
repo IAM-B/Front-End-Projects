@@ -242,9 +242,9 @@
   }
   .ticket {
     border-radius: 10px;
-    padding: 0 10px;
+    padding: 20px;
     box-shadow: var(--couleur-box-shadow-out);
-    font-family: var(--font-latin);
+    font-family: var(--font-arabic1);
   }
   .fade-out-vocab {
     opacity: 0;
@@ -401,7 +401,7 @@
   .modal-container.one .modal-background .modal {
     transform: scale(0);
     animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-    font-family: var(--font-arabic1);
+    font-family: var(--font-arabic2);
   }
   .modal-container.one.out {
     transform: scaleY(1) scaleX(1);
@@ -741,6 +741,9 @@
   .navwrapper.notonhomepage {
     transform: translateY(-120%);
     transition: transform 0.3s ease;
+  }
+  a#shareButtonOne {
+    color: var(--couleur-btn);
   }
   .switch-container {
     display: flex;

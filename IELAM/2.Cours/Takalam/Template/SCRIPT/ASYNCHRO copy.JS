@@ -3,13 +3,13 @@ const exerciceIds = ["exercice-1", "exercice-2", "exercice-3", "exercice-4",];
 
 const scriptUrls = {
   "exercice-1":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary-files/1-Introduction/Vocabulary1.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/1-Introduction/Vocabulary1.json",
   "exercice-2":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary-files/1-Introduction/Vocabulary2.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/1-Introduction/Vocabulary2.json",
   "exercice-3":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary-files/1-Introduction/Vocabulary3.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/1-Introduction/Vocabulary3.json",
   "exercice-4":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary-files/1-Introduction/Vocabulary4.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/1-Introduction/Vocabulary4.json",
 };
 
 function loadInitialExercice() {
@@ -60,10 +60,17 @@ function loadScriptAndData(exerciceIndex) {
 
       localStorage.setItem("lastExerciceIndex", exerciceIndex.toString());
     })
+    .catch((error) => {
+      console.error(
+        "Une erreur s'est produite lors du chargement du fichier JSON:",
+        error
+      );
+    });
 }
 
 const exerciseButtonsContainer = document.querySelector(".btn-content");
 const exerciseButtons = [];
+const currentPage = 0; // Vous devez définir la page actuelle (0 pour commencer)
 
 const buttonPageContent = document.createElement("div");
 buttonPageContent.classList.add("button-page-container");
@@ -74,7 +81,7 @@ exerciceIds.forEach((exerciceId, index) => {
   button.textContent = `${index + 1}`;
   button.classList.add("exercise-button");
   button.addEventListener("click", () => {
-    counter = -1;
+    currentPage = index;
     const vocabularyForm = document.querySelector("#vocab");
     const exerciceForm = document.querySelector("#exo");
     const sectionVocabulary = document.getElementById("main-section");
@@ -93,36 +100,35 @@ exerciceIds.forEach((exerciceId, index) => {
   buttonPageContent.appendChild(button);
 });
 
-// Créez le bouton "Suivant"
+// Ajouter le bouton "Suivant" avec un chevron
 const nextButton = document.createElement("button");
 nextButton.classList.add("exercise-button");
 nextButton.innerHTML = "&rarr;"; // Utilisez une icône de chevron vers la droite
 nextButton.addEventListener("click", () => {
-  if (counter < exerciceIds.length - 1) {
-    counter++;
+  if (currentPage < exerciceIds.length - 1) {
+    currentPage++;
     // Mettez à jour le contenu de la page
-    updatePageContent(counter);
+    updatePageContent(currentPage);
   }
 });
-exerciseButtons.push(nextButton); // Ajoutez le bouton à l'array exerciseButtons
+exerciseButtons.push(nextButton);
 buttonPageContent.appendChild(nextButton);
 
-// Créez le bouton "Précédent"
+// Ajouter le bouton "Précédent" avec un chevron
 const prevButton = document.createElement("button");
 prevButton.classList.add("exercise-button");
 prevButton.innerHTML = "&larr;"; // Utilisez une icône de chevron vers la gauche
 prevButton.addEventListener("click", () => {
-  if (counter > 0) {
-    counter--;
+  if (currentPage > 0) {
+    currentPage--;
     // Mettez à jour le contenu de la page
-    updatePageContent(counter);
+    updatePageContent(currentPage);
   }
 });
-exerciseButtons.push(prevButton); // Ajoutez le bouton à l'array exerciseButtons
+exerciseButtons.push(prevButton);
 buttonPageContent.appendChild(prevButton);
-// ...
 
-// Fonction pour mettre à jour le contenu de la page en fonction de counter
+// Fonction pour mettre à jour le contenu de la page en fonction de currentPage
 function updatePageContent(pageIndex) {
   const vocabularyForm = document.querySelector("#vocab");
   const exerciceForm = document.querySelector("#exo");
@@ -138,5 +144,6 @@ function updatePageContent(pageIndex) {
     sectionVocabulary.classList.add("fade-in-vocab");
   }, 725);
 }
+
 
 loadInitialExercice();

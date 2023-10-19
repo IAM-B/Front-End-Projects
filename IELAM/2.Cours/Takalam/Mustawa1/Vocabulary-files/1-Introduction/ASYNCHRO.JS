@@ -1,13 +1,15 @@
 const section = document.querySelector("section");
-const exerciceIds = ["exercice-1", "exercice-2", "exercice-3"];
+const exerciceIds = ["exercice-1", "exercice-2", "exercice-3", "exercice-4",];
 
 const scriptUrls = {
   "exercice-1":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/1-Introduction/Vocabulary1.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary-files/1-Introduction/Vocabulary1.json",
   "exercice-2":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/1-Introduction/Vocabulary2.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary-files/1-Introduction/Vocabulary2.json",
   "exercice-3":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary%20files/1-Introduction/Vocabulary3.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary-files/1-Introduction/Vocabulary3.json",
+  "exercice-4":
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary-files/1-Introduction/Vocabulary4.json",
 };
 
 function loadInitialExercice() {
@@ -39,7 +41,7 @@ function loadScriptAndData(exerciceIndex) {
       const ticketListe = data.ticket;
 
       generateVocabularies(vocabularies, ticketListe);
-      processVocabularies(vocabularies);
+      processVocabularies(vocabularies, ticketListe);
 
       const script = document.createElement("script");
       script.id = "exercise-script";
