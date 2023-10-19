@@ -26,7 +26,6 @@ function loadInitialExercice() {
 }
 
 let ExerciceIndex = [];
-let ticketListe;
 function loadScriptAndData(exerciceIndex) {
   const existingScript = document.querySelector("#exercise-script");
   if (existingScript) {

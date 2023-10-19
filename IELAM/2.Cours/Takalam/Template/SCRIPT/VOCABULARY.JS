@@ -117,8 +117,12 @@ function createVocabularySection(vocabulary) {
 // Function to generate HTML elements for all vocabulary sections
 function generateVocabularies(vocabularies, ticketListe) {
   const exoForm = document.getElementById("vocab");
-  console.log("Ticket:", ticketListe);
-
+  const ticketElements = document.querySelectorAll(".ticket");
+  
+  ticketElements.forEach((ticketElement) => {
+    ticketElement.textContent = ticketListe;
+  });
+  
   for (let i = 0; i < vocabularies.length; i++) {
     const vocabSection = createVocabularySection(vocabularies[i]);
     exoForm.appendChild(vocabSection);
