@@ -10563,6 +10563,7 @@
     }
     .ayah, .kalam, .input-fill, .input-container {
     font-size: 1rem;
+    line-height: 50px;
     }
   }
 </style>
@@ -10781,10 +10782,17 @@
     color: var(--couleur-btn);
     font-family: var(--font-arabic1);
   }
+  .input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
   .ayahNum,
   .ayah-num,
   .user-answers {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--couleur-text);
     font-family: var(--font-ayah);
   }
@@ -10894,12 +10902,13 @@
     .input-fill,
     .input-container {
       font-size: 1.5rem;
-      line-height: 50px;
+      line-height: 60px;
     }
     .ayahNum,
     .ayah-num,
     .user-answers {
-      font-size: 1.5rem;
+      margin: 0 5px;
+      font-size: 2rem;
       color: var(--couleur-text);
       font-family: var(--font-ayah);
     }

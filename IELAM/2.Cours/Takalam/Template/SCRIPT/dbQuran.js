@@ -2,7 +2,7 @@
 const fetchData = async () => {
   try {
     const response = await fetch(
-      "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/1.Quran/Assets/Words%20order/1.json"
+      "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/1.Quran/Assets/Words-order/1.json"
     );
     const data = await response.json();
     return data;
@@ -279,16 +279,15 @@ function hideTextAndShowInput() {
 }
 
 // Function to get the width of a text
-function getTextWidth(text, fontClass) {
+function getTextWidth(text) {
   const element = document.createElement("span");
-  element.classList.add(fontClass);
   element.textContent = text;
   document.body.appendChild(element);
   const averageCharacterWidth = element.offsetWidth / text.length;
   const spaceWidth = averageCharacterWidth;
-  const spaceCount = (text.match(/ /g) || []).length;
+  const spaceCount = (text.match(/ /g)).length;
   const totalSpaceWidth = spaceWidth * spaceCount;
-  const width = element.offsetWidth + totalSpaceWidth;
+  const width = element.offsetWidth + totalSpaceWidth + 20;
   document.body.removeChild(element);
   return width;
 }
