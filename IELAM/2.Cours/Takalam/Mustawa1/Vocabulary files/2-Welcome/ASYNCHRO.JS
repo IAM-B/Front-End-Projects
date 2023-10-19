@@ -33,7 +33,6 @@ function loadScriptAndData(exerciceIndex) {
     .then((data) => {
       const vocabularies = data;
 
-      console.log(vocabularies);
       generateVocabularies(vocabularies);
       processVocabularies(vocabularies);
 
@@ -74,6 +73,7 @@ exerciceIds.forEach((exerciceId, index) => {
   button.textContent = `${index + 1}`;
   button.classList.add("exercise-button");
   button.addEventListener("click", () => {
+    counter = -1;
     const vocabularyForm = document.querySelector("#vocab");
     const exerciceForm = document.querySelector("#exo");
     const sectionVocabulary = document.getElementById("main-section");
@@ -83,7 +83,7 @@ exerciceIds.forEach((exerciceId, index) => {
       vocabularyForm.innerHTML = "";
       exerciceForm.innerHTML = "";
       loadScriptAndData(index);
-      showVocab();
+      showVocabularySection();
       sectionVocabulary.classList.remove("fade-out-vocab");
       sectionVocabulary.classList.add("fade-in-vocab");
     }, 725);

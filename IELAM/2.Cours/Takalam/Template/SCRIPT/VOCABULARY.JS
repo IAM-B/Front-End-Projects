@@ -79,7 +79,7 @@ function createVocabularySection(vocabulary) {
     modal.appendChild(h2);
     validIndex++;
 
-    if(h2.textContent.length === 0) {
+    if (h2.textContent.length === 0) {
       buttonModalDiv.style.display = "none";
     } else {
       buttonModalDiv.style.display = "inline-block";
@@ -242,23 +242,12 @@ function createBtn(vocabularies) {
   exerciceWrapperDiv.appendChild(btnContainer);
 }
 
-// Function that removes special characters
-const removePunctuation = (str) => {
-  if (!str) {
-    return false;
-  }
-  return str.replace(/[.,-\/#!?$%\^&\*;:{}=\-_`~()\b]/g, "");
-};
-
 // Function that check the answers
 const vocab = (vocabularies) => {
   const results = [];
   for (let i = 0; i <= counter; i++) {
-    results.push(
-      removePunctuation(document.getElementById(i).value.toUpperCase())
-    );
+    results.push(document.getElementById(i).value.toUpperCase());
   }
-
   const ChampTxt = document.getElementById("Aff");
   ChampTxt.style.display = "block";
 
@@ -284,7 +273,9 @@ const vocab = (vocabularies) => {
     if (!results[i]) {
       allAnswersProvided = false;
     } else {
-      const isCorrect = results[i] === goodRep[i] || results[i] === goodRep2[i];
+      const isCorrect =
+        results[i].replace(/\s/g, "") === goodRep[i].replace(/\s/g, "") ||
+        results[i].replace(/\s/g, "") === goodRep2[i].replace(/\s/g, "");
       if (!isCorrect) {
         const section = document.querySelector("#main-section");
         const offset = section.offsetTop + 600;
@@ -306,11 +297,15 @@ const vocab = (vocabularies) => {
     const offset = section.offsetTop + 600;
     window.scrollTo({ top: offset, behavior: "smooth" });
     if (score == n) {
-      const completedExercice = document.querySelectorAll("a.btn.btn-course-secondary.membership-layout__complete-lecture-button");
+      const completedExercice = document.querySelector(
+        ".membership-layout__complete-lecture-button"
+      );
       if (completedExercice) {
         completedExercice.click();
       } else {
-        console.log("Bouton not found");
+        console.error(
+          "L'élément avec la classe 'membership-layout__complete-lecture-button' n'a pas été trouvé."
+        );
       }
       ChampTxt.innerHTML =
         '<p class="alert p1">الله بارك<br/>All answers are correct.</p>';
@@ -318,6 +313,8 @@ const vocab = (vocabularies) => {
       ChampTxt.innerHTML =
         '<p class="alert p2">الله يسهل عليك<br/>Correct the wrong answers in red and try again.</p>';
     }
+  } else {
+    console.log("allAnswersProvided is false.");
   }
 };
 
@@ -325,9 +322,7 @@ const vocab = (vocabularies) => {
 const showCorrections = (vocabularies) => {
   const results = [];
   for (let i = 0; i <= counter; i++) {
-    results.push(
-      removePunctuation(document.getElementById(i).value.toUpperCase())
-    );
+    results.push(document.getElementById(i).value.toUpperCase());
   }
   const section = document.querySelector("#main-section");
   const offset = section.offsetTop + 600;
@@ -430,5 +425,3 @@ const showVocabularySection = () => {
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 500);
 };
-
-
