@@ -1,6 +1,7 @@
 // Function to create HTML span elements for the vocabulary section
 let buttonModalCounter = 1;
 function createVocabularySection(vocabulary) {
+
   const vocabDiv = document.createElement("div");
   vocabDiv.classList.add("vocabulary");
 
@@ -114,8 +115,9 @@ function createVocabularySection(vocabulary) {
 }
 
 // Function to generate HTML elements for all vocabulary sections
-function generateVocabularies(vocabularies) {
+function generateVocabularies(vocabularies, ticketListe) {
   const exoForm = document.getElementById("vocab");
+  console.log("Ticket:", ticketListe);
 
   for (let i = 0; i < vocabularies.length; i++) {
     const vocabSection = createVocabularySection(vocabularies[i]);

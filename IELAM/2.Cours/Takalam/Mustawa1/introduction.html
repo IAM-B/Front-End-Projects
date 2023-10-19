@@ -7,11 +7,29 @@
   </head>
   <body>
     <!--TEMPLATE-->
-    <div id="css-content"></div>
+    <div id="setings-content"></div>
     <div id="html-content"></div>
+    <div id="css-content"></div>
     <script>
+      const contentDivSeting = document.getElementById("setings-content");
+      fetch(
+        "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Template/HTML-CSS/setings.html"
+      )
+        .then((response) => response.text())
+        .then((htmlContent) => {
+          contentDivSeting.innerHTML = htmlContent;
+        })
+        .catch((error) => {
+          console.error(
+            "Une erreur s'est produite lors du chargement de la page:",
+            error
+          );
+        });
+
       const contentDivHtml = document.getElementById("html-content");
-      fetch("../Template/HTML-CSS/innerHtml.html")
+      fetch(
+        "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Template/HTML-CSS/innerHtml.html"
+      )
         .then((response) => response.text())
         .then((htmlContent) => {
           contentDivHtml.innerHTML = htmlContent;
@@ -24,7 +42,9 @@
         });
 
       const contentDivCss = document.getElementById("css-content");
-      fetch("../Template/HTML-CSS/innerCss.html")
+      fetch(
+        "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Template/HTML-CSS/innerCss.html"
+      )
         .then((response) => response.text())
         .then((htmlContent) => {
           contentDivCss.innerHTML = htmlContent;
@@ -89,7 +109,7 @@
         "../Template/SCRIPT/ASYNCHRO.JS",
         "../Template/SCRIPT/VOCABULARY.JS",
       ];
-      
+
       scriptUrlsInstructions.forEach((url) => {
         fetch(url)
           .then((response) => response.text())
@@ -97,7 +117,10 @@
             insertScript(data);
           })
           .catch((error) => {
-            console.error("Une erreur s'est produite lors du chargement du script:", error);
+            console.error(
+              "Une erreur s'est produite lors du chargement du script:",
+              error
+            );
           });
       });
     </script>

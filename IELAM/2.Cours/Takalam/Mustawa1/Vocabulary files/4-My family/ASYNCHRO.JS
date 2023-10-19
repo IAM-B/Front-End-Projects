@@ -26,6 +26,7 @@ function loadInitialExercice() {
 }
 
 let ExerciceIndex = [];
+let ticketListe;
 function loadScriptAndData(exerciceIndex) {
   const existingScript = document.querySelector("#exercise-script");
   if (existingScript) {
@@ -35,9 +36,10 @@ function loadScriptAndData(exerciceIndex) {
   fetch(scriptUrls[exerciceIds[exerciceIndex]])
     .then((response) => response.json())
     .then((data) => {
-      const vocabularies = data;
+      const vocabularies = data.vocabulary;
+      const ticketListe = data.ticket;
 
-      generateVocabularies(vocabularies);
+      generateVocabularies(vocabularies, ticketListe);
       processVocabularies(vocabularies);
 
       const script = document.createElement("script");

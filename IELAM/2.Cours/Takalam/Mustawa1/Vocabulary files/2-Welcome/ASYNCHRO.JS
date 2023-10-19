@@ -31,10 +31,11 @@ function loadScriptAndData(exerciceIndex) {
   fetch(scriptUrls[exerciceIds[exerciceIndex]])
     .then((response) => response.json())
     .then((data) => {
-      const vocabularies = data;
+      const vocabularies = data.vocabulary;
+      const ticketListe = data.ticket;
 
-      generateVocabularies(vocabularies);
-      processVocabularies(vocabularies);
+      generateVocabularies(vocabularies, ticketListe);
+      processVocabularies(vocabularies, ticketListe);
 
       const script = document.createElement("script");
       script.id = "exercise-script";
