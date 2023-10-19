@@ -1,112 +1,115 @@
-[
-  {
-    "en": "Peace be upon you:",
-    "ar": ["لسَّلَامُ عَلَيْكُمْ"],
-    "context": [""]
-  },
-  {
-    "en": "Good morning:",
-    "ar": ["صَبَاحُ الخَيْرِ"],
-    "context": [""]
-  },
-  {
-    "en": "Morning of light:",
-    "ar": ["صَبَاحُ النُّورِ"],
-    "context": [""]
-  },
-  {
-    "en": "Good evening:",
-    "ar": ["مَسَاءُ الخَيْرِ"],
-    "context": [""]
-  },
-  {
-    "en": "Evening of light:",
-    "ar": ["مَسَاءُ النُّورِ"],
-    "context": [""]
-  },
-  {
-    "en": "Welcome:",
-    "ar": ["أَهْلًا وَسَهْلًا"],
-    "context": [""]
-  },
-  {
-    "en": "Welcome to you:",
-    "ar": ["أَهْلًا بِكَ"],
-    "context": [""]
-  },
-  {
-    "en": "Hello:",
-    "ar": ["مَرْحَبًا"],
-    "context": [""]
-  },
-  {
-    "en": "Welcome to you:",
-    "ar": ["مَرْحَبًا بِكَ"],
-    "context": [""]
-  },
-  {
-    "en": "How are you?:",
-    "ar": ["كَيْفَ حَالُكَ"],
-    "context": [""]
-  },
-  {
-    "en": "How's it going?:",
-    "ar": ["كَيْفَ الْحَالُ"],
-    "context": [""]
-  },
-  {
-    "en": "I'm fine, thanks be to God:",
-    "ar": ["بِخَيْرٍ وَالْحَمْدُ لِلَّهِ"],
-    "context": [""]
-  },
-  {
-    "en": "What is your name?:",
-    "ar": ["مَا اسْمُكَ؟"],
-    "context": [""]
-  },
-  {
-    "en": "My name is...:",
-    "ar": ["اِسْمِي"],
-    "context":[""]
-  },
-  {
-    "en": "It's our pleasure:",
-    "ar": ["تَشَرَّفْنَا"],
-    "context":[""]
-  },
-  {
-    "en": "It's our pleasure with you:",
-    "ar": ["تَشَرَّفْنَا بِكَ"],
-    "context":[""]
-  },
-  {
-    "en": "A good opportunity:",
-    "ar": ["فُرْصَةٌ طِيِّبَةٌ"],
-    "context":[""]
-  },
-  {
-    "en": "A happy opportunity:",
-    "ar": ["فُرْصَةٌ سَعِيدَةٌ"],
-    "context":[""]
-  },
-  {
-    "en": "What is your nationality?:",
-    "ar": ["مَا جِنْسِيَّتُكَ؟"],
-    "context":[""]
-  },
-  {
-    "en": "I am Egyptian:",
-    "ar": ["أَنَا مِصْرِيٌّ"],
-    "context":[""]
-  },
-  {
-    "en": "Where are you from?:",
-    "ar": ["مِنْ أَيْنَ أَنْتَ؟"],
-    "context":[""]
-  },
-  {
-    "en": "I am from Egypt:",
-    "ar": ["أَنَا مِنْ مِصْرَ"],
-    "context":[""]
-  }
-]
+{
+  "ticket": "لسَّلَامُ عَلَيْكُمْ",
+  "vocabulary": [
+    {
+      "en": "Peace be upon you:",
+      "ar": ["لسَّلَامُ عَلَيْكُمْ"],
+      "context": [""]
+    },
+    {
+      "en": "Good morning:",
+      "ar": ["صَبَاحُ الخَيْرِ"],
+      "context": [""]
+    },
+    {
+      "en": "Morning of light:",
+      "ar": ["صَبَاحُ النُّورِ"],
+      "context": [""]
+    },
+    {
+      "en": "Good evening:",
+      "ar": ["مَسَاءُ الخَيْرِ"],
+      "context": [""]
+    },
+    {
+      "en": "Evening of light:",
+      "ar": ["مَسَاءُ النُّورِ"],
+      "context": [""]
+    },
+    {
+      "en": "Welcome:",
+      "ar": ["أَهْلًا وَسَهْلًا"],
+      "context": [""]
+    },
+    {
+      "en": "Welcome to you:",
+      "ar": ["أَهْلًا بِكَ"],
+      "context": [""]
+    },
+    {
+      "en": "Hello:",
+      "ar": ["مَرْحَبًا"],
+      "context": [""]
+    },
+    {
+      "en": "Welcome to you:",
+      "ar": ["مَرْحَبًا بِكَ"],
+      "context": [""]
+    },
+    {
+      "en": "How are you?:",
+      "ar": ["كَيْفَ حَالُكَ"],
+      "context": [""]
+    },
+    {
+      "en": "How's it going?:",
+      "ar": ["كَيْفَ الْحَالُ"],
+      "context": [""]
+    },
+    {
+      "en": "I'm fine, thanks be to God:",
+      "ar": ["بِخَيْرٍ وَالْحَمْدُ لِلَّهِ"],
+      "context": [""]
+    },
+    {
+      "en": "What is your name?:",
+      "ar": ["مَا اسْمُكَ؟"],
+      "context": [""]
+    },
+    {
+      "en": "My name is...:",
+      "ar": ["اِسْمِي"],
+      "context": [""]
+    },
+    {
+      "en": "It's our pleasure:",
+      "ar": ["تَشَرَّفْنَا"],
+      "context": [""]
+    },
+    {
+      "en": "It's our pleasure with you:",
+      "ar": ["تَشَرَّفْنَا بِكَ"],
+      "context": [""]
+    },
+    {
+      "en": "A good opportunity:",
+      "ar": ["فُرْصَةٌ طِيِّبَةٌ"],
+      "context": [""]
+    },
+    {
+      "en": "A happy opportunity:",
+      "ar": ["فُرْصَةٌ سَعِيدَةٌ"],
+      "context": [""]
+    },
+    {
+      "en": "What is your nationality?:",
+      "ar": ["مَا جِنْسِيَّتُكَ؟"],
+      "context": [""]
+    },
+    {
+      "en": "I am Egyptian:",
+      "ar": ["أَنَا مِصْرِيٌّ"],
+      "context": [""]
+    },
+    {
+      "en": "Where are you from?:",
+      "ar": ["مِنْ أَيْنَ أَنْتَ؟"],
+      "context": [""]
+    },
+    {
+      "en": "I am from Egypt:",
+      "ar": ["أَنَا مِنْ مِصْرَ"],
+      "context": [""]
+    }
+  ]
+}
