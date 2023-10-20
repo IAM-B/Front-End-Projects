@@ -247,28 +247,46 @@ function createBtn(vocabularies) {
   exerciceWrapperDiv.appendChild(btnContainer);
 }
 
-// Function that check the answers
+// Attachez un délégué d'événement à un élément existant qui englobe le bouton
+document.addEventListener("click", function (event) {
+  const outsideBtn = event.target.closest(".outside-btn");
+  if (outsideBtn) {
+    // Le clic s'est produit sur un élément avec la classe outside-btn
+    const modalContainer = outsideBtn.closest(".modal-container");
+    if (modalContainer) {
+      modalContainer.classList.add("out");
+      modalContainer.classList.remove("one");
+    }
+  }
+});
+
+// Function that checks the answers
 const vocab = (vocabularies) => {
   const results = [];
   for (let i = 0; i <= counter; i++) {
     results.push(document.getElementById(i).value.toUpperCase());
   }
+
   const ChampTxt = document.getElementById("Aff");
   ChampTxt.style.display = "block";
 
   let score = 0;
-  let goodRep = [];
-  let goodRep2 = [];
-  for (let i = 0; i < vocabularies.length; i++) {
-    const arVocabulary = vocabularies[i].ar;
-    const filteredArVocabulary = arVocabulary
+  const goodRep = [];
+  const goodRep2 = [];
+
+  // Helper function to process Arabic vocabulary
+  const processArabicVocabulary = (arVocabulary) => {
+    return arVocabulary
       .filter((word) => !["أو", "(ج)"].includes(word))
       .map((word) => word.replace(/[ًٌٍَُِّْ]/g, ""));
-    goodRep = goodRep.concat(filteredArVocabulary);
-    const filteredArVocabulary2 = arVocabulary.filter(
-      (word) => !["أو", "(ج)"].includes(word)
+  };
+
+  for (let i = 0; i < vocabularies.length; i++) {
+    const arVocabulary = vocabularies[i].ar;
+    goodRep.push(...processArabicVocabulary(arVocabulary));
+    goodRep2.push(
+      ...arVocabulary.filter((word) => !["أو", "(ج)"].includes(word))
     );
-    goodRep2 = goodRep2.concat(filteredArVocabulary2);
   }
 
   const n = goodRep.length;
@@ -281,18 +299,32 @@ const vocab = (vocabularies) => {
       const isCorrect =
         results[i].replace(/\s/g, "") === goodRep[i].replace(/\s/g, "") ||
         results[i].replace(/\s/g, "") === goodRep2[i].replace(/\s/g, "");
+
       if (!isCorrect) {
         const section = document.querySelector("#main-section");
         const offset = section.offsetTop + 600;
         window.scrollTo({ top: offset, behavior: "smooth" });
-        document.getElementById(i).style.color = "#ff0000";
-        document.getElementById(i).classList.remove("correct-answer");
-        ChampTxt.innerHTML =
-          '<p class="alert p2">الله يسهل عليك<br/>Correct the wrong answers in red and try again.</p>';
+        const inputElement = document.getElementById(i);
+        inputElement.style.color = "#ff0000";
+        inputElement.classList.remove("correct-answer");
+        ChampTxt.innerHTML = `<div class="modal-container one">
+            <div class="modal-background">
+              <div class="modal">
+                <div class="outside-modal">
+                  <button class="outside-btn">
+                  <i class="fi fi-br-cross"></i>
+                  </button>
+                </div>
+                <h1 translate="no">الله يسهل لك</h1>
+                <h2>Correct the wrong answers in red and try again.</h2>
+              </div>
+            </div>
+          </div>`;
       } else {
         score++;
-        document.getElementById(i).style.color = "#00ff00";
-        document.getElementById(i).classList.add("correct-answer");
+        const inputElement = document.getElementById(i);
+        inputElement.style.color = "#00ff00";
+        inputElement.classList.add("correct-answer");
       }
     }
   }
@@ -301,13 +333,36 @@ const vocab = (vocabularies) => {
     const section = document.querySelector("#main-section");
     const offset = section.offsetTop + 600;
     window.scrollTo({ top: offset, behavior: "smooth" });
-    if (score == n) {
-      ChampTxt.innerHTML =
-        '<p class="alert p1">الله بارك<br/>All answers are correct.</p>';
+
+    if (score === n) {
+      ChampTxt.innerHTML = `<div class="modal-container one">
+          <div class="modal-background">
+            <div class="modal">
+              <div class="outside-modal">
+                <button class="outside-btn">
+                <i class="fi fi-br-cross"></i>
+                </button>
+              </div>
+              <h1 translate="no">الله بارك</h1>
+              <h2>All answers are correct.</h2>
+            </div>
+          </div>
+        </div>`;
       goToNextExercise();
     } else {
-      ChampTxt.innerHTML =
-        '<p class="alert p2">الله يسهل عليك<br/>Correct the wrong answers in red and try again.</p>';
+      ChampTxt.innerHTML = `<div class="modal-container one">
+          <div class="modal-background">
+            <div class="modal">
+             <div class="outside-modal">
+               <button class="outside-btn">
+               <i class="fi fi-br-cross"></i>
+               </button>
+              </div>
+              <h1 translate="no">الله يسهل لك</h1>
+              <h2>Correct the wrong answers in red and try again.</h2>
+            </div>
+          </div>
+        </div>`;
     }
   } else {
     console.log("allAnswersProvided is false.");
@@ -323,14 +378,18 @@ function goToNextExercise() {
     console.log("nextIndex" + nextIndex);
     const nextExercice = document.querySelector("#btn" + `${nextIndex}`);
     if (nextExercice) {
-      nextExercice.click();
+      setTimeout(() => {
+        nextExercice.click();
+      }, 10000);
     }
   } else {
     const completedExercice = document.querySelector(
       ".membership-layout__complete-lecture-button"
     );
     if (completedExercice) {
-      completedExercice.click();
+      setTimeout(() => {
+        completedExercice.click();
+      }, 10000);
     } else {
       console.error(
         "L'élément avec la classe 'membership-layout__complete-lecture-button' n'a pas été trouvé."

@@ -1,6 +1,7 @@
 <!--TEMPLATE-->
 <!--DESIGN-->
 <style>
+  @import url("https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css");
   @import url("https://fonts.googleapis.com/css2?family=Amiri&family=Amiri+Quran&family=Nothing+You+Could+Do&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@500&display=swap");
   @import url("");
@@ -370,14 +371,7 @@
     transition: 0.2s ease-in-out;
   }
   #Aff {
-    color: var(--couleur-text);
-    font-weight: bold;
-    margin-top: 10px;
-    margin-left: 50%;
-    transform: translate(-50%);
-    width: 350px;
-    border-radius: 10px;
-    box-shadow: var(--couleur-box-shadow-out);
+    color: var(--couleur-btn);
   }
   .oVYRo::before,
   .oVYRo::after {
@@ -432,6 +426,7 @@
     font-size: 25px;
     line-height: 50px;
     margin: 45px;
+    font-family: var(--font-latin);
   }
   .modal-container .modal-background .modal p {
     font-size: 18px;
@@ -466,6 +461,7 @@
     font-size: 30px;
     line-height: 30px;
   }
+
   .content .buttons .buttonModal {
     display: inline-block;
     cursor: pointer;
@@ -473,6 +469,24 @@
   .content .buttons .buttonModal:hover {
     color: white;
     box-shadow: -10px -10px -20px #fff;
+  }
+  .outside-modal {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .outside-btn {
+    background-color: var(--couleur-fond);
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--couleur-contrast);
+    box-shadow: var(--couleur-box-shadow-out);
+  }
+  i.fi.fi-br-cross {
+    color: var(--couleur-btn);
+    font-weight: bolder;
+  }
+  .outside-btn:hover {
+    box-shadow: var(--couleur-box-shadow-int);
   }
   .button-page-container {
     display: flex;
@@ -10561,9 +10575,12 @@
     .switch-container {
       margin: 0;
     }
-    .ayah, .kalam, .input-fill, .input-container {
-    font-size: 1rem;
-    line-height: 50px;
+    .ayah,
+    .kalam,
+    .input-fill,
+    .input-container {
+      font-size: 1rem;
+      line-height: 50px;
     }
   }
 </style>
