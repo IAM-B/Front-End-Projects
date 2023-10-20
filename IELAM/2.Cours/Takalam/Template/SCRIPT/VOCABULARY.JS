@@ -1,7 +1,6 @@
 // Function to create HTML span elements for the vocabulary section
 let buttonModalCounter = 1;
 function createVocabularySection(vocabulary) {
-
   const vocabDiv = document.createElement("div");
   vocabDiv.classList.add("vocabulary");
 
@@ -118,11 +117,11 @@ function createVocabularySection(vocabulary) {
 function generateVocabularies(vocabularies, ticketListe) {
   const exoForm = document.getElementById("vocab");
   const ticketElements = document.querySelectorAll(".ticket");
-  
+
   ticketElements.forEach((ticketElement) => {
     ticketElement.textContent = ticketListe;
   });
-  
+
   for (let i = 0; i < vocabularies.length; i++) {
     const vocabSection = createVocabularySection(vocabularies[i]);
     exoForm.appendChild(vocabSection);
@@ -303,18 +302,9 @@ const vocab = (vocabularies) => {
     const offset = section.offsetTop + 600;
     window.scrollTo({ top: offset, behavior: "smooth" });
     if (score == n) {
-      const completedExercice = document.querySelector(
-        ".membership-layout__complete-lecture-button"
-      );
-      if (completedExercice) {
-        completedExercice.click();
-      } else {
-        console.error(
-          "L'élément avec la classe 'membership-layout__complete-lecture-button' n'a pas été trouvé."
-        );
-      }
       ChampTxt.innerHTML =
         '<p class="alert p1">الله بارك<br/>All answers are correct.</p>';
+      goToNextExercise();
     } else {
       ChampTxt.innerHTML =
         '<p class="alert p2">الله يسهل عليك<br/>Correct the wrong answers in red and try again.</p>';
@@ -323,6 +313,31 @@ const vocab = (vocabularies) => {
     console.log("allAnswersProvided is false.");
   }
 };
+
+// Function to move to the next exercise if validated
+function goToNextExercise() {
+  const currentIndex = exerciceIds.indexOf(section.id);
+
+  if (currentIndex >= 0 && currentIndex < exerciceIds.length - 1) {
+    const nextIndex = currentIndex + 2;
+    console.log("nextIndex" + nextIndex);
+    const nextExercice = document.querySelector("#btn" + `${nextIndex}`);
+    if (nextExercice) {
+      nextExercice.click();
+    }
+  } else {
+    const completedExercice = document.querySelector(
+      ".membership-layout__complete-lecture-button"
+    );
+    if (completedExercice) {
+      completedExercice.click();
+    } else {
+      console.error(
+        "L'élément avec la classe 'membership-layout__complete-lecture-button' n'a pas été trouvé."
+      );
+    }
+  }
+}
 
 // Function that displays the corrections
 const showCorrections = (vocabularies) => {

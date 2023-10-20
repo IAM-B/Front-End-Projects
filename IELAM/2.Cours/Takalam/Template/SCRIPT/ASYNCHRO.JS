@@ -1,5 +1,5 @@
 const section = document.querySelector("section");
-const exerciceIds = ["exercice-1", "exercice-2", "exercice-3", "exercice-4",];
+const exerciceIds = ["exercice-1", "exercice-2", "exercice-3", "exercice-4"];
 
 const scriptUrls = {
   "exercice-1":
@@ -13,9 +13,7 @@ const scriptUrls = {
 };
 
 function loadInitialExercice() {
-  const lastExerciceIndex = parseInt(
-    localStorage.getItem("lastExerciceIndex")
-  );
+  const lastExerciceIndex = parseInt(localStorage.getItem("lastExerciceIndex"));
   if (
     !isNaN(lastExerciceIndex) &&
     lastExerciceIndex >= 0 &&
@@ -59,7 +57,7 @@ function loadScriptAndData(exerciceIndex) {
       exerciseButtons[exerciceIndex].classList.add("active");
 
       localStorage.setItem("lastExerciceIndex", exerciceIndex.toString());
-    })
+    });
 }
 
 const exerciseButtonsContainer = document.querySelector(".btn-content");
@@ -72,6 +70,7 @@ exerciseButtonsContainer.appendChild(buttonPageContent);
 exerciceIds.forEach((exerciceId, index) => {
   const button = document.createElement("button");
   button.textContent = `${index + 1}`;
+  button.id = "btn" + `${index + 1}`;
   button.classList.add("exercise-button");
   button.addEventListener("click", () => {
     counter = -1;
@@ -92,51 +91,5 @@ exerciceIds.forEach((exerciceId, index) => {
   exerciseButtons.push(button);
   buttonPageContent.appendChild(button);
 });
-
-// Créez le bouton "Suivant"
-const nextButton = document.createElement("button");
-nextButton.classList.add("exercise-button");
-nextButton.innerHTML = "&rarr;"; // Utilisez une icône de chevron vers la droite
-nextButton.addEventListener("click", () => {
-  if (counter < exerciceIds.length - 1) {
-    counter++;
-    // Mettez à jour le contenu de la page
-    updatePageContent(counter);
-  }
-});
-exerciseButtons.push(nextButton); // Ajoutez le bouton à l'array exerciseButtons
-buttonPageContent.appendChild(nextButton);
-
-// Créez le bouton "Précédent"
-const prevButton = document.createElement("button");
-prevButton.classList.add("exercise-button");
-prevButton.innerHTML = "&larr;"; // Utilisez une icône de chevron vers la gauche
-prevButton.addEventListener("click", () => {
-  if (counter > 0) {
-    counter--;
-    // Mettez à jour le contenu de la page
-    updatePageContent(counter);
-  }
-});
-exerciseButtons.push(prevButton); // Ajoutez le bouton à l'array exerciseButtons
-buttonPageContent.appendChild(prevButton);
-// ...
-
-// Fonction pour mettre à jour le contenu de la page en fonction de counter
-function updatePageContent(pageIndex) {
-  const vocabularyForm = document.querySelector("#vocab");
-  const exerciceForm = document.querySelector("#exo");
-  const sectionVocabulary = document.getElementById("main-section");
-  sectionVocabulary.classList.remove("fade-in-vocab");
-  sectionVocabulary.classList.add("fade-out-vocab");
-  setTimeout(() => {
-    vocabularyForm.innerHTML = "";
-    exerciceForm.innerHTML = "";
-    loadScriptAndData(pageIndex);
-    showVocabularySection();
-    sectionVocabulary.classList.remove("fade-out-vocab");
-    sectionVocabulary.classList.add("fade-in-vocab");
-  }, 725);
-}
 
 loadInitialExercice();
