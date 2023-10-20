@@ -95,7 +95,7 @@ function checkScreenWidth() {
     executeScriptBelow992();
   }
 }
-window.addEventListener("DOMContentLoaded", checkScreenWidth);
+checkScreenWidth();
 window.addEventListener("resize", checkScreenWidth);
 
 // Function that redirects to the main-section section after loading
