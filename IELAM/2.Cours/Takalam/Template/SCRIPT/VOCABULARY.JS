@@ -41,11 +41,9 @@ function createVocabularySection(vocabulary) {
     span.setAttribute("translate", "no");
     span.textContent = vocabulary.ar[j];
 
-    if (vocabulary.ar[j] === "(ج)") {
+    if (vocabulary.ar[j] === "/" || vocabulary.ar[j] === "ج") {
       span.classList.add("or");
-    } else if (vocabulary.ar[j] === "أو") {
-      span.classList.add("and");
-    }
+    } 
 
     buttonsDiv.appendChild(span);
   }
@@ -66,7 +64,7 @@ function createVocabularySection(vocabulary) {
 
   let validIndex = 0;
   for (let j = vocabulary.ar.length - 1; j >= 0; j--) {
-    if (/أو|\(ج\)/.test(vocabulary.ar[j])) {
+    if (/[\/ou]/.test(vocabulary.ar[j])) {
       continue;
     }
 
@@ -78,12 +76,6 @@ function createVocabularySection(vocabulary) {
     h2.textContent = vocabulary.context[validIndex];
     modal.appendChild(h2);
     validIndex++;
-
-    if (h2.textContent.length === 0) {
-      buttonModalDiv.style.display = "none";
-    } else {
-      buttonModalDiv.style.display = "inline-block";
-    }
   }
 
   modalBackground.appendChild(modal);
@@ -158,7 +150,7 @@ function processVocabularies(vocabularies) {
     inputDiv.classList.add("inline-input");
 
     vocab.ar.reverse().forEach((word, i) => {
-      if (word !== "(ج)" && word !== "أو") {
+      if (word !== "ج" && word !== "/") {
         const vocabInput = document.createElement("input");
         vocabInput.setAttribute("type", "search");
         vocabInput.setAttribute("translate", "no");
@@ -171,11 +163,16 @@ function processVocabularies(vocabularies) {
         counter++;
         attachKeyboardEvents(vocabInput);
 
-        if (i > 0 && (vocab.ar[i - 1] === "(ج)" || vocab.ar[i - 1] === "أو")) {
-          if (vocab.ar[i - 1] === "(ج)") {
+        if (i > 0 && (vocab.ar[i - 1] === "ج" || vocab.ar[i - 1] === "/")) {
+          if (vocab.ar[i - 1] === "ج") {
             vocabInput.setAttribute("placeholder", `اَلْجَمْعُ...`);
             console.log(
               `input-${counter} correspond à : اَلْجَمْعُ/... ${word}`
+            );
+          } else if (vocab.ar[i - 1] === "/") {
+            vocabInput.setAttribute("placeholder", `/...`);
+            console.log(
+              `input-${counter} correspond à : /... ${word}`
             );
           } else {
             vocabInput.setAttribute("placeholder", `${vocab.ar[i - 1]}...`);
@@ -277,7 +274,7 @@ const vocab = (vocabularies) => {
   // Helper function to process Arabic vocabulary
   const processArabicVocabulary = (arVocabulary) => {
     return arVocabulary
-      .filter((word) => !["أو", "(ج)"].includes(word))
+      .filter((word) => !["/", "ج"].includes(word))
       .map((word) => word.replace(/[ًٌٍَُِّْ]/g, ""));
   };
 
@@ -285,7 +282,7 @@ const vocab = (vocabularies) => {
     const arVocabulary = vocabularies[i].ar;
     goodRep.push(...processArabicVocabulary(arVocabulary));
     goodRep2.push(
-      ...arVocabulary.filter((word) => !["أو", "(ج)"].includes(word))
+      ...arVocabulary.filter((word) => !["/", "ج"].includes(word))
     );
   }
 
@@ -416,11 +413,11 @@ const showCorrections = (vocabularies) => {
   for (let i = 0; i < vocabularies.length; i++) {
     const arVocabulary = vocabularies[i].ar;
     const filteredArVocabulary = arVocabulary
-      .filter((word) => !["أو", "(ج)"].includes(word))
+      .filter((word) => !["/"].includes(word))
       .map((word) => word.replace(/[ًٌٍَُِّْ]/g, ""));
     goodRep = goodRep.concat(filteredArVocabulary);
     const filteredArVocabulary2 = arVocabulary.filter(
-      (word) => !["أو", "(ج)"].includes(word)
+      (word) => !["/"].includes(word)
     );
     goodRep2 = goodRep2.concat(filteredArVocabulary2);
   }
