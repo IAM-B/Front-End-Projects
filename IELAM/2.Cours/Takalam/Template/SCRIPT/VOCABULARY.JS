@@ -60,7 +60,6 @@ function createVocabularySection(vocabulary) {
 
   const modal = document.createElement("div");
   modal.classList.add("modal");
-  modal.setAttribute("translate", "no");
 
   let validIndex = 0;
   for (let j = vocabulary.ar.length - 1; j >= 0; j--) {
@@ -69,17 +68,23 @@ function createVocabularySection(vocabulary) {
     }
 
     const h1 = document.createElement("h1");
+    h1.classList.add("h1-modal");
+    h1.setAttribute("translate", "no");
     h1.textContent = vocabulary.ar[j];
-    modal.appendChild(h1);
 
     const h2 = document.createElement("h2");
-    const h3 = document.createElement("h3");
     h2.classList.add("context");
-    h3.classList.add("translation");
+    h2.setAttribute("translate", "no");
     h2.textContent = vocabulary.context[validIndex];
+
+    const h3 = document.createElement("h3");
+    h3.classList.add("translation");
     h3.textContent = vocabulary.translations[validIndex];
+
+    modal.appendChild(h1);
     modal.appendChild(h2);
     h2.appendChild(h3);
+
     validIndex++;
   }
 
