@@ -73,8 +73,13 @@ function createVocabularySection(vocabulary) {
     modal.appendChild(h1);
 
     const h2 = document.createElement("h2");
+    const h3 = document.createElement("h3");
+    h2.classList.add("context");
+    h3.classList.add("translation");
     h2.textContent = vocabulary.context[validIndex];
+    h3.textContent = vocabulary.translations[validIndex];
     modal.appendChild(h2);
+    h2.appendChild(h3);
     validIndex++;
   }
 
@@ -244,11 +249,10 @@ function createBtn(vocabularies) {
   exerciceWrapperDiv.appendChild(btnContainer);
 }
 
-// Attachez un délégué d'événement à un élément existant qui englobe le bouton
+// Function click outside modal
 document.addEventListener("click", function (event) {
   const outsideBtn = event.target.closest(".outside-btn");
   if (outsideBtn) {
-    // Le clic s'est produit sur un élément avec la classe outside-btn
     const modalContainer = outsideBtn.closest(".modal-container");
     if (modalContainer) {
       modalContainer.classList.add("out");

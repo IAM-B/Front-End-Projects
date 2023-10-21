@@ -4,47 +4,60 @@
     {
       "en": "Instructions:",
       "ar": ["تَعْلِيمَاتٌ"],
-      "context": ["يُعْطَى الطَّلَّاب تَعْلِيمَاتٌ عَن كَيْفِيَّةِ القِيَامِ بِالوَاجِبَات."]
+      "context": [
+        "يُعْطَى الطَّلَّاب تَعْلِيمَاتٌ عَن كَيْفِيَّةِ القِيَامِ بِالوَاجِبَات"
+      ],
+      "translations": [
+        "The students are given instructions on how to complete the assignments"
+      ]
     },
     {
       "en": "Ask:",
       "ar": ["اِسْأَلْ"],
-      "context": ["اِسْأَلْ سُؤَالًا."]
+      "context": ["اِسْألْ سُؤَالًا"],
+      "translations": ["Ask a question"]
     },
     {
       "en": "Answer:",
       "ar": ["أَجِبْ"],
-      "context": ["أَجِبْ بالإِجَابَةِ الصَّحِيحَةِ."]
+      "context": ["أَجِبْ بالإِجَابَةِ الصَّحِيحَةِ"],
+      "translations": ["Answer with the correct response"]
     },
     {
       "en": "Speak:",
       "ar": ["تَحَدَّثْ"],
-      "context": ["تَحَدَّثْ بوضوح."]
+      "context": ["تَحَدَّثْ بوضوح"],
+      "translations": ["Speak clearly"]
     },
     {
       "en": "Complete:",
       "ar": ["أَكْمِلْ"],
-      "context": ["أَكْمِلْ الوَاجِبَ."]
+      "context": ["أَكْمِلْ الوَاجِبَ"],
+      "translations": ["Complete the assignment"]
     },
     {
       "en": "Connect:",
       "ar": ["صِلْ"],
-      "context": ["صِلْ الأَفْكَارَ."]
+      "context": ["صِلْ الأَفْكَارَ"],
+      "translations": ["Connect the ideas"]
     },
     {
       "en": "Mark:",
       "ar": ["ضَعْ عَلَامَةً"],
-      "context": ["ضَعْ عَلَامَةً عَلَى الجَوَابِ الصَّحِيحِ."]
+      "context": ["ضَعْ عَلَامَةً عَلَى الجَوَابِ الصَّحِيحِ"],
+      "translations": ["Mark the correct answer"]
     },
     {
       "en": "Practice dialogue with:",
       "ar": ["مَارِسِ الْحِوَارَ مَعَ"],
-      "context": ["مَارِسِ الحِوَارَ مَعَ زَمِيلِك."]
+      "context": ["مَارِسِ الحِوَارَ مَعَ زَمِيلِك"],
+      "translations": ["Practice dialogue with your classmate"]
     },
     {
       "en": "Copy:",
       "ar": ["اِنْسَخْ"],
-      "context": ["اِنْسَخْ النَّصَّ."]
+      "context": ["اِنْسَخْ النَّصَّ"],
+      "translations": ["Copy the text"]
     }
   ]
 }

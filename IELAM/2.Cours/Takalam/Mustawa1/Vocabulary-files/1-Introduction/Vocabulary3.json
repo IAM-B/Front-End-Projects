@@ -4,29 +4,34 @@
     {
       "en": "Seasons of year:",
       "ar": ["فُصُولُ السَّنَةِ"],
-      "context": ["فُصُولُ السَّنَةِ مهِمَّةٌ لِلزِرَاعَةِ."]
+      "context": ["فُصُولُ السَّنَةِ مهِمَّةٌ لِلزِرَاعَةِ"],
+      "translations": ["Seasons of the year are important for agriculture"]
     },
     {
       "en": "Summer:",
       "ar": ["الصَّيْفُ"],
-      "context": ["الصَّيْفُ حَارٌّ جِدًّا فِي بَعْض الْأَمَاكِن."]
+      "context": ["الصَّيْفُ حَارٌّ جِدًّا فِي بَعْض الْأَمَاكِن"],
+      "translations": ["Summer is very hot in some places"]
     },
     {
       "en": "Spring:",
       "ar": ["الرَّبِيعُ"],
-      "context": ["الرَّبِيعُ يُجْلِبُ مَعَهُ الْأَزْهَارَ الْجَمِيلَةِ."]
+      "context": ["الرَّبِيعُ يُجْلِبُ مَعَهُ الْأَزْهَارَ الْجَمِيلَةِ"],
+      "translations": ["Spring brings beautiful flowers with it"]
     },
     {
       "en": "Winter:",
       "ar": ["الشِّتَاءُ"],
-      "context": ["الشِّتَاءُ يَأْتِي مَعَ الثَّلُوجِ وَالْبَرُودَةِ."]
+      "context": ["الشِّتَاءُ يَأْتِي مَعَ الثَّلُوجِ وَالْبَرُودَةِ"],
+      "translations": ["Winter comes with snow and cold weather"]
     },
     {
       "en": "Autumn:",
       "ar": ["الْخَرِيفُ"],
       "context": [
-        "الْخَرِيفُ يَتَسَمُّ بِأَلْوَانِ الْأَوْرَاقِ الْمُتَغَيِّرَةِ."
-      ]
+        "الْخَرِيفُ يَتَسَمُّ بِأَلْوَانِ الْأَوْرَاقِ الْمُتَغَيِّرَةِ"
+      ],
+      "translations": ["Autumn is characterized by changing leaf colors"]
     }
   ]
 }

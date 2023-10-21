@@ -416,16 +416,20 @@
     height: inherit;
     background-color: var(--couleur-fond);
     box-shadow: var(--couleur-box-shadow-out);
-    padding: 50px;
+    padding: 50px 5px;
     display: inline-block;
     border-radius: 10px;
     font-weight: 300;
     position: relative;
   }
-  .modal-container .modal-background .modal h2 {
+  h2.context {
     font-size: 25px;
     line-height: 50px;
-    margin: 45px;
+    margin: 45px 0;
+    font-family: var(--font-arabic1);
+    font-weight: 100;
+  }
+  h3.translation {
     font-family: var(--font-latin);
   }
   .modal-container .modal-background .modal p {
@@ -475,10 +479,11 @@
     flex-direction: row-reverse;
   }
   .outside-btn {
-    background-color: var(--couleur-fond);
     padding: 10px;
     border-radius: 5px;
+    font-family: var(--font-latin);
     color: var(--couleur-contrast);
+    background-color: var(--couleur-fond);
     box-shadow: var(--couleur-box-shadow-out);
   }
   i.fi.fi-br-cross {

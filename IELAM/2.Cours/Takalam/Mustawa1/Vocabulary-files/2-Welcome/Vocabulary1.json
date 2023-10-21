@@ -1,115 +1,143 @@
 {
-  "ticket": "لسَّلَامُ عَلَيْكُمْ",
+  "ticket": "لِسُلَامٍ عَلَيْكُمْ",
   "vocabulary": [
     {
       "en": "Peace be upon you:",
-      "ar": ["لسَّلَامُ عَلَيْكُمْ"],
-      "context": [""]
+      "ar": ["السَلَامٍُ عَلَيْكُمْ"],
+      "context": ["السَلَامُ عَلَيْكُمْ هِي تَحِيَّةٌ رَائِعَةٌ"],
+      "translation": "Peace be upon you is a wonderful greeting"
     },
     {
       "en": "Good morning:",
-      "ar": ["صَبَاحُ الخَيْرِ"],
-      "context": [""]
+      "ar": ["صَبَاحُ الْخَيْرِ"],
+      "context": ["صَبَاحُ الْخَيْرِ هُوَ التَّحِيَّةُ فِي الصَّبَاحِ"],
+      "translation": "Good morning is the greeting in the morning"
     },
     {
       "en": "Morning light:",
       "ar": ["صَبَاحُ النُّورِ"],
-      "context": [""]
+      "context": ["صَبَاحُ النُّورِ يُضِيءُ يَوْمَكَ"],
+      "translation": "Morning light brightens your day"
     },
     {
       "en": "Good evening:",
-      "ar": ["مَسَاءُ الخَيْرِ"],
-      "context": [""]
+      "ar": ["مَسَاءُ الْخَيْرِ"],
+      "context": ["مَسَاءُ الْخَيْرِ هُوَ التَّحِيَّةُ فِي الْمَسَاءِ"],
+      "translation": "Good evening is the greeting in the evening"
     },
     {
       "en": "Evening light:",
       "ar": ["مَسَاءُ النُّورِ"],
-      "context": [""]
+      "context": ["مَسَاءُ النُّورِ يُضِيءُ لَيْلَتَكَ"],
+      "translation": "Evening light illuminates your night"
     },
     {
       "en": "Welcome:",
       "ar": ["أَهْلًا وَسَهْلًا"],
-      "context": [""]
+      "context": ["أَهْلًا وَسَهْلًا هُوَ تَرْحِيبٌ بِالضُّيُوفِ"],
+      "translation": "Welcome is a greeting for guests"
     },
     {
       "en": "Welcome to you:",
       "ar": ["أَهْلًا بِكَ"],
-      "context": [""]
+      "context": ["أَهْلًا بِكَ هُوَ تَرْحِيبٌ أَكْثَرُ شَدَّةً"],
+      "translation": "Welcome to you is a more emphatic greeting"
     },
     {
       "en": "Hello:",
       "ar": ["مَرْحَبًا"],
-      "context": [""]
+      "context": ["مَرْحَبًا هُوَ تَحِيَّةٌ بَسِيطَةٌ"],
+      "translation": "Hello is a simple greeting"
     },
     {
       "en": "Welcome to you:",
       "ar": ["مَرْحَبًا بِكَ"],
-      "context": [""]
+      "context": ["مَرْحَبًا بِكَ هُوَ تَرْحِيبٌ أَكْثَرُ شَدَّةً"],
+      "translation": "Welcome to you is a more emphatic greeting"
     },
     {
       "en": "How are you?:",
       "ar": ["كَيْفَ حَالُكَ"],
-      "context": [""]
+      "context": ["كَيْفَ حَالُكَ هُوَ سُؤَالٌ عَنْ حَالَةِ الشَّخْصِ"],
+      "translation": "How are you is a question about someone's well-being"
     },
     {
       "en": "How's it going?:",
       "ar": ["كَيْفَ الْحَالُ"],
-      "context": [""]
+      "context": ["كَيْفَ الْحَالُ هُوَ سُؤَالٌ عَنْ حَالَةِ شَخْصٍ آخَرِ"],
+      "translation": "How's it going is a question about another person's well-being"
     },
     {
       "en": "I'm fine, thanks be to God:",
       "ar": ["بِخَيْرٍ وَالْحَمْدُ لِلَّهِ"],
-      "context": [""]
+      "context": [
+        "بِخَيْرٍ وَالْحَمْدُ لِلَّهِ هُوَ الرَّدُّ عَلَى كَيْفَ حَالُكَ"
+      ],
+      "translation": "I'm fine, thanks be to God is the response to How are you"
     },
     {
       "en": "What is your name?:",
       "ar": ["مَا اسْمُكَ؟"],
-      "context": [""]
+      "context": ["مَا اسْمُكَ هُوَ سُؤَالٌ عَنْ اسْمِ الشَّخْصِ"],
+      "translation": "What is your name is a question about a person's name"
     },
     {
-      "en": "My name is...:",
+      "en": "My name is:",
       "ar": ["اِسْمِي"],
-      "context": [""]
+      "context": ["اِسْمِي تَلَاوَةُ اسْمِ الشَّخْصِ"],
+      "translation": "My name is is the pronunciation of a person's name"
     },
     {
       "en": "It's our pleasure:",
       "ar": ["تَشَرَّفْنَا"],
-      "context": [""]
+      "context": [
+        "تَشَرَّفْنَا تَعْبِيرٌ عَنِ السَّعَادَةِ بِلِقَاءِ شَخْصٍ مَا"
+      ],
+      "translation": "It's our pleasure is an expression of happiness at meeting someone"
     },
     {
       "en": "It's our pleasure with you:",
       "ar": ["تَشَرَّفْنَا بِكَ"],
-      "context": [""]
+      "context": [
+        "تَشَرَّفْنَا بِكَ تَعْبِيرٌ عَنِ السَّعَادَةِ بِلِقَاءِ شَخْصٍ مَعِينٍ"
+      ],
+      "translation": "It's our pleasure with you is an expression of happiness at meeting a specific person"
     },
     {
       "en": "A good opportunity:",
       "ar": ["فُرْصَةٌ طِيِّبَةٌ"],
-      "context": [""]
+      "context": ["فُرْصَةٌ طِيِّبَةٌ تَعْبِيرٌ عَنْ فُرْصَةٍ جَيِّدَةٍ"],
+      "translation": "A good opportunity is an expression of a good chance"
     },
     {
       "en": "A happy opportunity:",
       "ar": ["فُرْصَةٌ سَعِيدَةٌ"],
-      "context": [""]
+      "context": ["فُرْصَةٌ سَعِيدَةٌ تَعْبِيرٌ عَنْ فُرْصَةٍ سَعِيدَةٍ"],
+      "translation": "A happy opportunity is an expression of a joyful chance"
     },
     {
       "en": "What is your nationality?:",
       "ar": ["مَا جِنْسِيَّتُكَ؟"],
-      "context": [""]
+      "context": ["مَا جِنْسِيَّتُكَ سُؤَالٌ عَنْ الجِنْسِيَّةِ"],
+      "translation": "What is your nationality is a question about one's nationality"
     },
     {
       "en": "I am Egyptian:",
       "ar": ["أَنَا مِصْرِيٌّ"],
-      "context": [""]
+      "context": ["أَنَا مِصْرِيٌّ تَعْبِيرٌ عَنِ الجِنْسِيَّةِ"],
+      "translation": "I am Egyptian is an expression of nationality"
     },
     {
       "en": "Where are you from?:",
       "ar": ["مِنْ أَيْنَ أَنْتَ؟"],
-      "context": [""]
+      "context": ["مِنْ أَيْنَ أَنْتَ سُؤَالٌ عَنْ مَكَانِ الْمِيلَادِ"],
+      "translation": "Where are you from is a question about the place of birth"
     },
     {
       "en": "I am from Egypt:",
       "ar": ["أَنَا مِنْ مِصْرَ"],
-      "context": [""]
+      "context": ["أَنَا مِنْ مِصْرَ تَعْبِيرٌ عَنْ مَكَانِ الْمِيلَادِ"],
+      "translation": "I am from Egypt is an expression of the place of birth"
     }
   ]
 }
