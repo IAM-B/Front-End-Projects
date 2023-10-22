@@ -3,11 +3,13 @@ const exerciceIds = ["exercice-1"];
 
 const scriptUrls = {
   "exercice-1":
-    "../../Takalam/Mustawa1/Vocabulary-files/5-All-About-The-Classeroom/Vocabulary1.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary-files/5-All-About-The-Classeroom/Vocabulary1.json",
 };
 
 function loadInitialExercice() {
-  const lastExerciceIndex = parseInt(localStorage.getItem("lastExerciceIndex"));
+  const lastExerciceIndex = parseInt(
+    localStorage.getItem("lastExerciceIndex")
+  );
   if (
     !isNaN(lastExerciceIndex) &&
     lastExerciceIndex >= 0 &&
@@ -33,7 +35,7 @@ function loadScriptAndData(exerciceIndex) {
       const ticketListe = data.ticket;
 
       generateVocabularies(vocabularies, ticketListe);
-      processVocabularies(vocabularies, ticketListe);
+      processVocabularies(vocabularies);
 
       const script = document.createElement("script");
       script.id = "exercise-script";
@@ -51,6 +53,12 @@ function loadScriptAndData(exerciceIndex) {
       exerciseButtons[exerciceIndex].classList.add("active");
 
       localStorage.setItem("lastExerciceIndex", exerciceIndex.toString());
+    })
+    .catch((error) => {
+      console.error(
+        "Une erreur s'est produite lors du chargement du fichier JSON:",
+        error
+      );
     });
 }
 
@@ -64,7 +72,6 @@ exerciseButtonsContainer.appendChild(buttonPageContent);
 exerciceIds.forEach((exerciceId, index) => {
   const button = document.createElement("button");
   button.textContent = `${index + 1}`;
-  button.id = "btn" + `${index + 1}`;
   button.classList.add("exercise-button");
   button.addEventListener("click", () => {
     counter = -1;

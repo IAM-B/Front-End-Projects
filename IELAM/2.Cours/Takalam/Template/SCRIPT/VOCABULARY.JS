@@ -43,7 +43,9 @@ function createVocabularySection(vocabulary) {
 
     if (vocabulary.ar[j] === "/" || vocabulary.ar[j] === "ج") {
       span.classList.add("or");
-    } 
+    } else if (vocabulary.ar[j] === "x") {
+      span.classList.add("or-x");
+    }
 
     buttonsDiv.appendChild(span);
   }
@@ -63,30 +65,50 @@ function createVocabularySection(vocabulary) {
 
   let validIndex = 0;
   for (let j = vocabulary.ar.length - 1; j >= 0; j--) {
-    if (/[\/ou]/.test(vocabulary.ar[j])) {
-      continue;
+    const arElement = vocabulary.ar[j];
+    if (/[x]/.test(arElement)) {
+      const h1 = document.createElement("h1");
+      h1.classList.add("h1-modal");
+      h1.setAttribute("translate", "no");
+      h1.textContent = arElement;
+  
+      const h2 = document.createElement("h2");
+      h2.classList.add("definition");
+      h2.setAttribute("translate", "no");
+      h2.textContent = vocabulary.definition[validIndex];
+  
+      const h3 = document.createElement("h3");
+      h3.classList.add("translation");
+      h3.textContent = vocabulary.translation[validIndex];
+  
+      modal.appendChild(h1);
+      modal.appendChild(h2);
+      modal.appendChild(h3);
+  
+      validIndex++;
+    } else if (/[\/ج]/.test(arElement)) {
+      const h1 = document.createElement("h1");
+      h1.classList.add("h1-modal");
+      h1.setAttribute("translate", "no");
+      h1.textContent = vocabulary.ar.slice(0, j + 2).join(' ');
+  
+      const h2 = document.createElement("h2");
+      h2.classList.add("definition");
+      h2.setAttribute("translate", "no");
+      h2.textContent = vocabulary.definition[validIndex];
+  
+      const h3 = document.createElement("h3");
+      h3.classList.add("translation");
+      h3.textContent = vocabulary.translation[validIndex];
+  
+      modal.appendChild(h1);
+      modal.appendChild(h2);
+      modal.appendChild(h3);
+  
+      validIndex++;
     }
-
-    const h1 = document.createElement("h1");
-    h1.classList.add("h1-modal");
-    h1.setAttribute("translate", "no");
-    h1.textContent = vocabulary.ar[j];
-
-    const h2 = document.createElement("h2");
-    h2.classList.add("context");
-    h2.setAttribute("translate", "no");
-    h2.textContent = vocabulary.context[validIndex];
-
-    const h3 = document.createElement("h3");
-    h3.classList.add("translation");
-    h3.textContent = vocabulary.translations[validIndex];
-
-    modal.appendChild(h1);
-    modal.appendChild(h2);
-    h2.appendChild(h3);
-
-    validIndex++;
   }
+  
 
   modalBackground.appendChild(modal);
   modalContainer.appendChild(modalBackground);
@@ -160,7 +182,7 @@ function processVocabularies(vocabularies) {
     inputDiv.classList.add("inline-input");
 
     vocab.ar.reverse().forEach((word, i) => {
-      if (word !== "ج" && word !== "/") {
+      if (word !== "ج" && word !== "/" && word !== "x") {
         const vocabInput = document.createElement("input");
         vocabInput.setAttribute("type", "search");
         vocabInput.setAttribute("translate", "no");
@@ -173,17 +195,21 @@ function processVocabularies(vocabularies) {
         counter++;
         attachKeyboardEvents(vocabInput);
 
-        if (i > 0 && (vocab.ar[i - 1] === "ج" || vocab.ar[i - 1] === "/")) {
+        if (
+          i > 0 &&
+          (vocab.ar[i - 1] === "ج" ||
+            vocab.ar[i - 1] === "/" ||
+            vocab.ar[i - 1] === "x")
+        ) {
           if (vocab.ar[i - 1] === "ج") {
-            vocabInput.setAttribute("placeholder", `اَلْجَمْعُ...`);
-            console.log(
-              `input-${counter} correspond à : اَلْجَمْعُ/... ${word}`
-            );
+            vocabInput.setAttribute("placeholder", `جَمْعٌ...`);
+            console.log(`input-${counter} correspond à : جَمْعٌ/... ${word}`);
           } else if (vocab.ar[i - 1] === "/") {
-            vocabInput.setAttribute("placeholder", `/...`);
-            console.log(
-              `input-${counter} correspond à : /... ${word}`
-            );
+            vocabInput.setAttribute("placeholder", `أو/...`);
+            console.log(`input-${counter} correspond à : أو/... ${word}`);
+          } else if (vocab.ar[i - 1] === "x") {
+            vocabInput.setAttribute("placeholder", `عَاكْسٌ/...`);
+            console.log(`input-${counter} correspond à : عَاكْسٌ/... ${word}`);
           } else {
             vocabInput.setAttribute("placeholder", `${vocab.ar[i - 1]}...`);
             console.log(
@@ -283,7 +309,7 @@ const vocab = (vocabularies) => {
   // Helper function to process Arabic vocabulary
   const processArabicVocabulary = (arVocabulary) => {
     return arVocabulary
-      .filter((word) => !["/", "ج"].includes(word))
+      .filter((word) => !["/", "ج", "x"].includes(word))
       .map((word) => word.replace(/[ًٌٍَُِّْ]/g, ""));
   };
 
@@ -291,7 +317,7 @@ const vocab = (vocabularies) => {
     const arVocabulary = vocabularies[i].ar;
     goodRep.push(...processArabicVocabulary(arVocabulary));
     goodRep2.push(
-      ...arVocabulary.filter((word) => !["/", "ج"].includes(word))
+      ...arVocabulary.filter((word) => !["/", "ج", "x"].includes(word))
     );
   }
 
@@ -422,11 +448,11 @@ const showCorrections = (vocabularies) => {
   for (let i = 0; i < vocabularies.length; i++) {
     const arVocabulary = vocabularies[i].ar;
     const filteredArVocabulary = arVocabulary
-      .filter((word) => !["/"].includes(word))
+      .filter((word) => !["/", "ج", "x"].includes(word))
       .map((word) => word.replace(/[ًٌٍَُِّْ]/g, ""));
     goodRep = goodRep.concat(filteredArVocabulary);
     const filteredArVocabulary2 = arVocabulary.filter(
-      (word) => !["/"].includes(word)
+      (word) => !["/", "ج", "x"].includes(word)
     );
     goodRep2 = goodRep2.concat(filteredArVocabulary2);
   }
