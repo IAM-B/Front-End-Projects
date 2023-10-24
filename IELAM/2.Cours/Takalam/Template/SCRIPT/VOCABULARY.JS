@@ -67,48 +67,28 @@ function createVocabularySection(vocabulary) {
   for (let j = vocabulary.ar.length - 1; j >= 0; j--) {
     const arElement = vocabulary.ar[j];
     if (/[x]/.test(arElement)) {
-      const h1 = document.createElement("h1");
-      h1.classList.add("h1-modal");
-      h1.setAttribute("translate", "no");
-      h1.textContent = arElement;
-  
-      const h2 = document.createElement("h2");
-      h2.classList.add("definition");
-      h2.setAttribute("translate", "no");
-      h2.textContent = vocabulary.definition[validIndex];
-  
-      const h3 = document.createElement("h3");
-      h3.classList.add("translation");
-      h3.textContent = vocabulary.translation[validIndex];
-  
-      modal.appendChild(h1);
-      modal.appendChild(h2);
-      modal.appendChild(h3);
-  
-      validIndex++;
-    } else if (/[\/ج]/.test(arElement)) {
-      const h1 = document.createElement("h1");
-      h1.classList.add("h1-modal");
-      h1.setAttribute("translate", "no");
-      h1.textContent = vocabulary.ar.slice(0, j + 2).join(' ');
-  
-      const h2 = document.createElement("h2");
-      h2.classList.add("definition");
-      h2.setAttribute("translate", "no");
-      h2.textContent = vocabulary.definition[validIndex];
-  
-      const h3 = document.createElement("h3");
-      h3.classList.add("translation");
-      h3.textContent = vocabulary.translation[validIndex];
-  
-      modal.appendChild(h1);
-      modal.appendChild(h2);
-      modal.appendChild(h3);
-  
-      validIndex++;
+      continue;
     }
+    const h1 = document.createElement("h1");
+    h1.classList.add("h1-modal");
+    h1.setAttribute("translate", "no");
+    h1.textContent = arElement;
+
+    const h2 = document.createElement("h2");
+    h2.classList.add("definition");
+    h2.setAttribute("translate", "no");
+    h2.textContent = vocabulary.definition[validIndex];
+
+    const h3 = document.createElement("h3");
+    h3.classList.add("translation");
+    h3.textContent = vocabulary.translation[validIndex];
+
+    modal.appendChild(h1);
+    modal.appendChild(h2);
+    modal.appendChild(h3);
+
+    validIndex++;
   }
-  
 
   modalBackground.appendChild(modal);
   modalContainer.appendChild(modalBackground);

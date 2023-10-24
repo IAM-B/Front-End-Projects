@@ -10,12 +10,12 @@
     {
       "en": "Projection screen:",
       "ar": ["الشَّاشَةُ العَرْضِ"],
-      "definition": ["شاشة تُستخدم لعرض العروض والشرائح"],
+      "definition": ["شاشة تُستخدم لعرض العروض والشرائح"], 
       "translation": ["A screen used to display presentations and slides"]
     },
     {
       "en": "Erasers (plural):",
-      "ar": ["مِمْحَاةُ", "ج", "مِمْحَا"],
+      "ar": ["مِمْحَا"],
       "definition": ["أدوات تُستخدم لإزالة العلامات القلم أو الحبر من الورق"],
       "translation": ["Tools used to remove pencil or ink marks from paper"]
     },
@@ -49,7 +49,7 @@
     },
     {
       "en": "Dictionary (bilingual):",
-      "ar": ["قَامُوسُ", "/", "مَعْجَمُ"],
+      "ar": ["قَامُوسُ / مَعْجَمُ"],
       "definition": ["كتاب مرجعي يوفر معاني وترجمات الكلمات بين لغتين"],
       "translation": [
         "A reference book that provides meanings and translations of words between two languages"
@@ -71,7 +71,7 @@
     },
     {
       "en": "Behind:",
-      "ar": ["خَلْفَ", "/", "وَرَاءَ"],
+      "ar": ["خَلْفَ / وَرَاءَ"],
       "definition": ["في الخلف أو الجزء الخلفي من شيء ما"],
       "translation": ["At the rear or back of something"]
     },
@@ -131,7 +131,7 @@
     },
     {
       "en": "Take:",
-      "ar": ["خُذ", "/", "تَفَضَل"],
+      "ar": ["خُذ / تَفَضَل"],
       "definition": ["قبول أو الحصول على شيء من شخص ما"],
       "translation": ["To accept or obtain something from someone"]
     },
