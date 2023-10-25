@@ -4,52 +4,50 @@
     {
       "en": "Days of the week:",
       "ar": ["أَيَّامُ الأُسْبُوعِ"],
-      "context": [
-        "أَيَّامُ الأُسْبُوعِ هِيَ الأَيَّام التِي نَعِيشُهَا ونَعْمَلُ فيهَا"
-      ],
-      "translations": ["Days of the week are the days we live and work in"]
+      "meaning": ["الأيام السبعة المعترف بها في أسبوع وتُستخدم للتنظيم الزمني"],
+      "translation": ["The seven days recognized in a week, used for chronological organization"]
     },
     {
       "en": "Sunday:",
       "ar": ["الْأَحَدُ"],
-      "context": ["الْأَحَدُ هو يوم الرَاحَة"],
-      "translations": ["Sunday is the day of rest"]
+      "meaning": ["أَوَّلُ يَوْمٍ مِنْ الْأُسْبُوعِ بِالتَّقْوِيم الْمِيلَادِي"],
+      "translation": ["The first day of the week in the Gregorian calendar"]
     },
     {
       "en": "Monday:",
       "ar": ["الْإِثْنَيْنِ"],
-      "context": ["الْإِثْنَيْنِ هو يوم الدِرَاسَة"],
-      "translations": ["Monday is the day of study"]
+      "meaning": ["اليَوْمُ الثَّانِي مِنْ أَيَّامِ الْأُسْبُوعِ"],
+      "translation": ["The second day of the week"]
     },
     {
       "en": "Tuesday:",
       "ar": ["الثُّلَاثَاءُ"],
-      "context": ["الثُّلَاثَاءُ هو يوم اللُغَةِ العَرَبِيَّةِ"],
-      "translations": ["Tuesday is the day of Arabic language"]
+      "meaning": ["اليَوْمُ الثَّالِثُ مِنْ أَيَّامِ الْأُسْبُوعِ"],
+      "translation": ["The third day of the week"]
     },
     {
       "en": "Wednesday:",
       "ar": ["الْأَرْبِعَاءُ"],
-      "context": ["الْأَرْبِعَاءُ هو يوم الرِيَاضَة"],
-      "translations": ["Wednesday is the day of sports"]
+      "meaning": ["اليَوْمُ الرَّابِعُ مِنْ أَيَّامِ الْأُسْبُوعِ"],
+      "translation": ["The fourth day of the week"]
     },
     {
       "en": "Thursday:",
       "ar": ["الْخَمِيسُ"],
-      "context": ["الْخَمِيسُ هو يوم الاِجْتِمَاعَات"],
-      "translations": ["Thursday is the day of meetings"]
+      "meaning": ["اليَوْمُ الخَامِسُ مِنْ أَيَّامِ الْأُسْبُوعِ"],
+      "translation": ["The fifth day of the week"]
     },
     {
       "en": "Friday:",
       "ar": ["الْجُمُعَةُ"],
-      "context": ["الْجُمُعَةُ هو يوم الصَلَاةِ فِي الْمَسْجِدِ"],
-      "translations": ["Friday is the day of prayer at the mosque"]
+      "meaning": ["اليَوْمُ السَّادِسُ مِنْ أَيَّامِ الْأُسْبُوعِ وَهُو يَوْم الْجُمُعَةِ الدِّينِيّ"],
+      "translation": ["The sixth day of the week and the religious Friday"]
     },
     {
       "en": "Saturday:",
       "ar": ["السَّبْتُ"],
-      "context": ["السَّبْتُ هو يوم الْعُطْلَةِ"],
-      "translations": ["Saturday is the day of holiday"]
+      "meaning": ["اليَوْمُ السَّابِعُ مِنْ أَيَّامِ الْأُسْبُوعِ وَهُو يَوْم السَّبْتِ الدِّينِيّ"],
+      "translation": ["The seventh day of the week and the religious Saturday"]
     }
   ]
 }

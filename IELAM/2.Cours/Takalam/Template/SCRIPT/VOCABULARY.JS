@@ -94,9 +94,9 @@ function createVocabularySection(vocabulary) {
     }
 
     const h2 = document.createElement("h2");
-    h2.classList.add("definition");
+    h2.classList.add("meaning");
     h2.setAttribute("translate", "no");
-    h2.textContent = vocabulary.definition[validIndex];
+    h2.textContent = vocabulary.meaning[validIndex];
 
     const h3 = document.createElement("h3");
     h3.classList.add("translation");
@@ -120,9 +120,9 @@ function createVocabularySection(vocabulary) {
       h1.textContent = arElement;
 
       const h2 = document.createElement("h2");
-      h2.classList.add("definition");
+      h2.classList.add("meaning");
       h2.setAttribute("translate", "no");
-      h2.textContent = vocabulary.definition[validIndex];
+      h2.textContent = vocabulary.meaning[validIndex];
 
       const h3 = document.createElement("h3");
       h3.classList.add("translation");

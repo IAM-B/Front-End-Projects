@@ -4,132 +4,98 @@
     {
       "en": "Job/Profession/Work:",
       "ar": ["عَمَلٌ", "/", "مِهْنَةٌ", "/", "وَظِيفَةٌ"],
-      "context": [
-        "الوَظِيفَةُ هي مَهْنَتُه الجَديدَة",
-        "المِهْنَةُ هي مَجَالِ عَمَلِه",
-        "العَمَلُ يَعْنِي الأَنشِطَة والوَظَائِفِ"
-      ],
-      "translation": [
-        "Job is his new profession",
-        "Profession is his field of work",
-        "Work refers to activities and jobs"
-      ]
+      "meaning": ["نَشَاطٌ يُقَوِّمُ الشَّخْصُ لِلْكَسْبِ وَلِكِسْبِ العِيشِ"],
+      "translation": ["An activity a person engages in for income and livelihood"]
     },
     {
       "en": "Translator:",
       "ar": ["مُتَرجِمٌ"],
-      "context": ["المُتَرجِم يَعْمل مِنْ أَجْلِ اللُغَات"],
-      "translation": "The translator works with languages"
+      "meaning": ["شَخْصٌ يُحَوِّلُ النَّصُوصَ مِن لُغَةٍ إِلَى أُخْرَى"],
+      "translation": ["A person who translates texts from one language to another"]
     },
     {
       "en": "Worker:",
       "ar": ["عَامِلٌ"],
-      "context": ["العامل يُساهم في تَطوير المشروع"],
-      "translation": "The worker contributes to project development"
+      "meaning": ["شَخْصٌ يَقُومُ بِعَمَلٍ مُحَدَّدٍ لِكِسْبِ الرِّزْقِ"],
+      "translation": ["A person who performs a specific job for income"]
     },
     {
       "en": "Student/Scholar:",
       "ar": ["تِلميذٌ", "/", "طالبٌ"],
-      "context": [
-        "الطالب يَذْهب إلى المدرسة يوميًا",
-        "التلميذ يجلس في الصف"
-      ],
-      "translation": [
-        "The student goes to school daily",
-        "The student sits in the classroom"
-      ]
+      "meaning": ["شَخْصٌ يَتَعَلَّمُ ويُدرَسُ فِي مَدْرَسَةٍ أَو جَامِعَةٍ"],
+      "translation": ["A person who learns and studies in a school or university"]
     },
     {
       "en": "Teacher/Instructor/Professor:",
-      "ar": ["أُستاذٌ", "/", "مُدرسٌ", "/", "معلمٌ"],
-      "context": [
-        "المعلم يُعلم الطلاب العلم",
-        "المدرس يقوم بشرح الدروس",
-        "الأستاذ يقدم المحاضرات"
-      ],
-      "translation": [
-        "The teacher instructs students in knowledge",
-        "The instructor explains the lessons",
-        "The professor gives lectures"
-      ]
+      "ar": ["أُستاذٌ", "/", "مُدرسٌ", "/", "مُعَلِّمٌ"],
+      "meaning": ["شَخْصٌ يُعَلِّمُ الآخَرِين في مَدْرَسَةٍ أَو جَامِعَةٍ"],
+      "translation": ["A person who teaches others in a school or university"]
     },
     {
       "en": "Friend/Colleague:",
-      "ar": ["زميلةٌ", "/", "صديقةٌ"],
-      "context": [
-        "الصديقة تُشاركها الأوقات الجميلة",
-        "الزملاء يعملون سويًا في المكتب"
-      ],
-      "translation": [
-        "The friend shares beautiful moments with her",
-        "Colleagues work together in the office"
-      ]
+      "ar": ["زَمِيلٌ", "/", "صَدِيقٌ"],
+      "meaning": ["شَخْصٌ يَتَوَاصَلُ مَعَكَ ويَشْتَرِكُ مَعَكَ فِي العَمَلِ أَو النَّشَاطِ"],
+      "translation": ["A person who interacts and collaborates with you in work or activities"]
     },
     {
       "en": "Carpenter:",
-      "ar": ["نجارٌ"],
-      "context": ["النجار يُصنع الأثاث الخشبي"],
-      "translation": "The carpenter makes wooden furniture"
+      "ar": ["نَجَّارٌ"],
+      "meaning": ["شَخْصٌ يَعْمَلُ بِالنَّجَارَةِ ويَبْنِي أَشِيَاءً مِن الْخَشَبِ"],
+      "translation": ["A person who works in carpentry and builds things from wood"]
     },
     {
       "en": "Retired Person:",
-      "ar": ["متقاعدٌ"],
-      "context": ["المتقاعد يستمتع بالوقت الحر"],
-      "translation": "The retired person enjoys free time"
+      "ar": ["مُتَقَاعِدٌ"],
+      "meaning": ["شَخْصٌ انْسَحَبَ مِن العَمَلِ بَعْد التَّقَاعُدِ"],
+      "translation": ["A person who has withdrawn from work after retirement"]
     },
     {
       "en": "Journalist:",
-      "ar": ["صحفيٌّ"],
-      "context": ["الصحفي يكتب تقارير الأخبار"],
-      "translation": "The journalist writes news reports"
+      "ar": ["صَحَفِيٌّ"],
+      "meaning": ["شَخْصٌ يَعْمَلُ فِي الصَّحَافَةِ ويَكْتُبُ أَخْبَارًا وتَقَارِيرَ"],
+      "translation": ["A person who works in journalism and writes news and reports"]
     },
     {
       "en": "Mobile Phone:",
-      "ar": ["هاتفٌ محمولٌ"],
-      "context": ["الهاتف المحمول يُسهِّل التواصل"],
-      "translation": "The mobile phone facilitates communication"
+      "ar": ["هَاتِفٌ مُحْمَولٌ"],
+      "meaning": ["جِهَازٌ لِلاتِّصَال يُمْكِنُ حَمْلُهُ واِسْتِخْدَامُهُ بِسُهُوْلَة"],
+      "translation": ["A communication device that can be carried and used easily"]
     },
     {
       "en": "Landline Phone:",
-      "ar": ["أرضيٌّ", "/", "هاتفٌ ثابتٌ"],
-      "context": [
-        "الهاتف الثابت متصل بالخط الأرضي",
-        "الهاتف الأرضيُّ يُستخدم في المكالمات الثابتة"
-      ],
-      "translation": [
-        "The landline phone is connected to the landline",
-        "The landline phone is used for fixed calls"
-      ]
+      "ar": ["هَاتِفٌ أَرْضِيٌّ", "/", "هَاتِفٌ ثَابِتٌ"],
+      "meaning": ["جِهَازٌ لِلاتِّصَال ثَابِتٌ فِي مَكَانٍ مُعَيَّنٍ"],
+      "translation": ["A fixed communication device in a specific location"]
     },
     {
       "en": "Accountant:",
-      "ar": ["محاسبٌ"],
-      "context": ["المحاسب يدير حسابات الشركة"],
-      "translation": "The accountant manages the company's accounts"
+      "ar": ["مُحَاسِبٌ"],
+      "meaning": ["شَخْصٌ يَعْمَلُ فِي مِجَالِ المُحَاسَبَةِ والأَرْقَام"],
+      "translation": ["A person who works in the field of accounting and numbers"]
     },
     {
       "en": "Email:",
-      "ar": ["بريدٌ إلكترونيٌّ"],
-      "context": ["البريد الإلكتروني يُساعد على التواصل"],
-      "translation": "Email helps with communication"
+      "ar": ["بَرِيدٌ إِلِكْتْرُونِيٌّ"],
+      "meaning": ["وَسِيلَةٌ إِلِكْتْرُونِيَّةٌ لِلتَّوَاصُل وإِرْسَال الرِّسَائِل الإِلِكْتْرُونِيَّةِ"],
+      "translation": ["An electronic means of communication and sending emails"]
     },
     {
       "en": "Address:",
-      "ar": ["عنوانٌ"],
-      "context": ["العنوان يُحدِّد مكان الإقامة"],
-      "translation": "The address specifies the place of residence"
+      "ar": ["عُنْوَانٌ"],
+      "meaning": ["المَكَانُ الَّذِي يُشِيْرُ إِلَيْهِ لِلوُصُوْلِ أَو الاِتِّصَالِ"],
+      "translation": ["The location referred to for delivery or contact"]
     },
     {
       "en": "Unemployed:",
-      "ar": ["عاطلٌ"],
-      "context": ["العاطل يبحث عن عمل جديد"],
-      "translation": "The unemployed person is looking for a new job"
+      "ar": ["عَاطِلٌ"],
+      "meaning": ["شَخْصٌ لَيْسَ لَدَيْهِ وَظِيفَةٌ ولَيْسَ يَعْمَلُ"],
+      "translation": ["A person without a job and not employed"]
     },
     {
       "en": "Works:",
-      "ar": ["يعملُ"],
-      "context": ["هو يعمل بجد واجتهاد في مهنته"],
-      "translation": "He works diligently in his profession"
+      "ar": ["يَعْمَلُ"],
+      "meaning": ["الفِعْلُ يُشِيْرُ إِلَى أَنَّ الشَّخْصَ يَعْمَلُ حَالِيًا"],
+      "translation": ["The verb indicates that the person is currently working"]
     }
   ]
 }

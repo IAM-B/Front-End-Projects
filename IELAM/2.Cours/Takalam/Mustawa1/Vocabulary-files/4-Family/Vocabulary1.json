@@ -4,158 +4,158 @@
     {
       "en": "Family:",
       "ar": ["عَائِلَةٌ", "/", "أُسْرَةٌ"],
-      "context": ["العائِلَةُ هِيَ مَجْمُوعَةُ الأَفْرَادِ الَّذِين يَعِيشُونَ مَعًا", "الأُسْرَةُ هِيَ أَسَاسِ المُجْتَمَعِ والحَيَاةِ الاجْتِمَاعِيَّة"],
-      "translations": ["The family is a group of individuals living together", "The family is the foundation of society and social life"]
+      "meaning": ["مَجْمُوعَةٌ مِنَ الْأَفْرَادِ الَّذِينَ لَهُم صِلَةٌ قَرَابَةٌ بَعْضُهُم بَعْضًا"],
+      "translation": ["A group of individuals related to each other"]
     },
     {
       "en": "Grandfather:",
       "ar": ["جَدٌّ"],
-      "context": ["الجَدّ يُحِبُّ أَحْفَادَهُ كَثِيرًا"],
-      "translations": ["The grandfather loves his grandchildren very much"]
+      "meaning": ["الْوَالِدُ الأَبُّ أَوْ الْأُمُّ الَّذِي هُوَ أَبُو الْوَالِدِ"],
+      "translation": ["The father of one's parent (father or mother)"]
     },
     {
       "en": "Grandmother:",
       "ar": ["جَدَّةٌ"],
-      "context": ["الجَدَّة تُحَبُّ قِضَاءَ الوَقْت مَع أَحْفَادِهَا"],
-      "translations": ["The grandmother loves spending time with her grandchildren"]
+      "meaning": ["الْوَالِدَةُ الأَبُّ أَوْ الْأُمُّ الَّذِي هِيَ أُمّ الْوَالِدِ"],
+      "translation": ["The mother of one's parent (father or mother)"]
     },
     {
       "en": "Father:",
       "ar": ["وَالِدٌ", "/", "أَبٌ"],
-      "context": ["الأَبُ يُحبُّ أَبْنَائه كثيرًا", "الوَالِدُ يُعْطِي أَفْضَلَ النَصَائِحِ لأَبْنَائِهِ"],
-      "translations": ["The father loves his children very much", "The father gives the best advice to his children"]
+      "meaning": ["الْوَالِدُ الَّذِي يَكُون الْأَبُ"],
+      "translation": ["The parent who is the father"]
     },
     {
       "en": "Mother:",
       "ar": ["وَالِدَةٌ", "/", "أُمٌ"],
-      "context": ["الأُمُّ هي أهم شخص في حياة الأطفال", "الوَالِدَة تُحِبّ أَطْفَالِهَا بِشِدَّةٍ"],
-      "translations": ["The mother is the most important person in a child's life", "The mother loves her children very much"]
+      "meaning": ["الْوَالِدَةُ الَّذِي يَكُون الْأُمّ"],
+      "translation": ["The parent who is the mother"]
     },
     {
       "en": "Sister:",
       "ar": ["أُخْتٌ"],
-      "context": ["الأُخْت تَكُون عادةً أَقَرَبَ إلَى الأَخِ الصَغِيرِ"],
-      "translations": ["Sisters are usually closer to the younger brother"]
+      "meaning": ["الْأُخْتُ الْأُنْثَى الشَّقِيقَة"],
+      "translation": ["The female sibling"]
     },
     {
       "en": "Brother:",
       "ar": ["أُخٌ"],
-      "context": ["الأُخُ يَقُدِّمُ الدَعْمَ لأَخَتِهِ في العُسْرِ والضِّيقِ"],
-      "translations": ["The brother provides support to his sister in times of ease and hardship"]
+      "meaning": ["الْأُخُّ الذَّكَرُ الشَّقِيق"],
+      "translation": ["The male sibling"]
     },
     {
       "en": "Grandchild:",
       "ar": ["حَفِيدَةٌ", "/", "حَفِيدٌ"],
-      "context": ["الحَفِيدُ هوَ ابْنٌ أَوْ بِنْتُ الأَبْنِ أَو البِنْتِ", "الأجَدَاد يُستَمْتَعُونَ بِالأَوْقَات مَع الأَحْفَادِ"],
-      "translations": ["The grandchild is the son or daughter of the son or daughter", "Grandparents enjoy their time with their grandchildren"]
+      "meaning": ["الِابْنُ أَوْ الِابْنَةُ لِلْأَبْنِ أَوْ الْأَبْنَةِ"],
+      "translation": ["The son or daughter of one's son or daughter"]
     },
     {
       "en": "Twin Brother:",
       "ar": ["أُخْتٌ تَوْأَمَةٌ", "/", "أُخٌ تَوْأَمٌ"],
-      "context": ["الأُخُّ التَوْأَمُ هوَ أُخٌ مُتَشَابِهٌ فِي العُمْرِ", "الأُخْتٌ تَوْأَمَةٌ غَالِبًا يَشْتَرِكُ فِي الكَثِير مِن الأَشِيَاءِ"],
-      "translations": ["The twin brother is a brother of similar age", "Twin sisters often share many things"]
+      "meaning": ["الشَّقِيقُ الذَّكَرُ الَّذِي يَكُون مِنْ مَخْلُوقَاتٍ مُتَطَابِقَةِ الشَّكْلِ وَالتَّكْوِينِ"],
+      "translation": ["The male sibling who is of identical shape and formation"]
     },
     {
       "en": "Uncle:",
       "ar": ["عَمٌّ"],
-      "context": ["العَمُّ هو أُخُ الوَالِدِ"],
-      "translations": ["The uncle is the brother of the father"]
+      "meaning": ["الْأُخُّ الشَّقِيقُ لِلْأَبِّ أَوْ الْأُمِّ"],
+      "translation": ["The male sibling of one's father or mother"]
     },
     {
       "en": "Uncle (maternal):",
       "ar": ["خَالٌ"],
-      "context": ["الخَالُ هو أُخُ الأُمِّ"],
-      "translations": ["The maternal uncle is the brother of the mother"]
+      "meaning": ["الْأُخُّ الشَّقِيقُ لِلْأُمِّ"],
+      "translation": ["The male sibling of one's mother"]
     },
     {
       "en": "Aunt:",
       "ar": ["عَمَّةٌ"],
-      "context": ["العَمَّةُ هي أُخْتُ الوَالِدِ أَو الوَالِدَةِ", "العَمَّة تَهْتَم بِرَعَايَةِ أَبْنَاءِ أُخِتِهَا"],
-      "translations": ["The aunt is the sister of the father"]
+      "meaning": ["الْأُخْتُ الشَّقِيقَةُ لِلْأَبِّ أَوْ الْأُمِّ"],
+      "translation": ["The female sibling of one's father or mother"]
     },
     {
       "en": "Aunt (maternal):",
       "ar": ["خَالَةٌ"],
-      "context": ["الخَالَةُ هي أُخْتُ الأُمِّ"],
-      "translations": ["The maternal aunt is the sister of the mother"]
+      "meaning": ["الْأُخْتُ الشَّقِيقَةُ لِلْأُمِّ"],
+      "translation": ["The female sibling of one's mother"]
     },
     {
       "en": "Husband:",
       "ar": ["زَوْجٌ"],
-      "context": ["الزَوْجُ هو الشَخْصُ الَّذِي تَزَوَّجَت مِنه الزَوْجَةُ"],
-      "translations": ["The husband is the man married to the wife"]
+      "meaning": ["الرَّجُلُ الَّذِي يُتَزَوِّجُ بِامْرَأَةٍ"],
+      "translation": ["The man who is married to a woman"]
     },
     {
       "en": "Wife:",
       "ar": ["زَوْجَةٌ"],
-      "context": ["الزَوْجَةُ هي الشَخْصَةُ الَّتِي تَزَوَّجَت مِنها الزَوْجُ"],
-      "translations": ["The wife is the woman married to the husband"]
+      "meaning": ["الِامْرَأَةُ الَّتِي يُتَزَوِّجُهَا الرَّجُلُ"],
+      "translation": ["The woman who is married to a man"]
     },
     {
       "en": "Lives (resides):",
       "ar": ["يَسْكُنُ"],
-      "context": ["هُوَ يَسْكُنُ في مَنْزِلٍ كَبِيرٍ"],
-      "translations": ["He lives in a big house"]
+      "meaning": ["الْإِقَامَةُ فِي مَكَانٍ مُعَيَّنٍ"],
+      "translation": ["To reside in a specific place"]
     },
     {
       "en": "Studies:",
       "ar": ["تَدْرُسُ"],
-      "context": ["هِيَ تَدْرُسُ فِي الجَامِعَةِ"],
-      "translations": ["She studies at the university"]
+      "meaning": ["التَّعْلِمُ وَاكْتِسَابُ المَعْرِفَةِ عَنْ طَرِيقِ الدِّرَاسَةِ"],
+      "translation": ["Learning and acquiring knowledge through study"]
     },
     {
       "en": "Loves:",
       "ar": ["يُحِبُّ"],
-      "context": ["هُوَ يُحِبُّ الرِحْلَاتِ والمُغَامَرَاتِ"],
-      "translations": ["He loves travels and adventures"]
+      "meaning": ["الْإِعْجَابُ وَالْمَشَاعِرُ الإِيجَابِيَّةُ تَجَاهَ شَخْصٍ أَوْ شَيْءٍ"],
+      "translation": ["Positive feelings of admiration and affection towards a person or thing"]
     },
     {
       "en": "Son/Daughter:",
-      "ar": ["أَبْنَاءٌ", "ج", "ابْنٌ"],
-      "context": ["الابْنُ يُحبُ مُمارَسَةً الرِياضَةِ في الهَواءِ الطَلقِ", "الأَبْنَاءُ هُم فِي طَريقِهِم إِلى المَدْرَسَةِ اليَومِ"],
-      "translations": ["The son enjoys outdoor sports", "The children are on their way to school today"]
+      "ar": ["ابْنٌ"],
+      "meaning": ["الْوَلَدُ الذَّكَرُ أَوْ الْأُنْثَى"],
+      "translation": ["The male or female child"]
     },
-      {
-        "en": "In-laws (Parents of the Husband and Wife):",
-        "ar": ["أَصْهَارٌ", "ج", "صَهْرٌ"],
-        "context": ["الصَهْرُ هُمْ أَهْلُ الزَوْجِ وَالزَوْجَة", "عَادَاتُ الاحْتِفَالِ بِزَوَاجِ الْأَصْهَارِ تَخْتَلِفُ مِنْ ثَقَافَةٍ إلَى أُخْرَى"],
-        "translations": ["In-laws are the family of the husband and wife", "Customs of celebrating in-laws marriage differ from one culture to another"]
-      },
+    {
+      "en": "In-laws (Parents of the Husband and Wife):",
+      "ar": ["صَهْرٌ"],
+      "meaning": ["وَالِدَا الزَّوْجِ وَالزَّوْجَةِ"],
+      "translation": ["The parents of the husband and wife"]
+    },
     {
       "en": "Relative (family):",
-      "ar": ["أَقَارِبٌ", "ج", "قَرِيبٌ"],
-      "context": ["القَرِيبُ هُوَ الفَرْدُ مِن العَائِلَة", "يُعَزَّزُ التَوَاصُلُ بَيْنَ الأَقَارِب"],
-      "translations": ["The relative is a family member", "Communication among relatives is encouraged"]
+      "ar": ["قَرِيبٌ"],
+      "meaning": ["الشَّخْصُ الَّذِي لَهُ صِلَةٌ قَرَابَةٌ بِالْعَائِلَة"],
+      "translation": ["A person related to the family"]
     },
     {
       "en": "Title (honorific):",
-      "ar": ["أَلْقَابٌ", "ج", "لَقَبٌ"],
-      "context": ["اللُقْبُ هُوَ الاسِمُ الشَرَفِيُّ أَو العَرَفِيُّ", "الألُقُابُ تُسْتَخْدَمُ لِلإشَارَةِ إلَى الاحْتِرَامِ وَالتَقْدِيرِ"],
-      "translations": ["The title is the honorific or customary name", "Titles are used to show respect and appreciation"]
+      "ar": ["لَقَبٌ"],
+      "meaning": ["كَلِمَةٌ أَوْ لَقَبٌ يُسْتَخْدَمُ لِتَوْجِيهِ الِاحْتِرَامِ أَوْ التَّقْدِيْرِ لِشَخْصٍ مُعَيَّنٍ"],
+      "translation": ["A word or title used to show respect or honor to a specific person"]
     },
     {
       "en": "Single (unmarried):",
       "ar": ["عَزَبٌ"],
-      "context": ["هوَ عَزَبٌ ولَم يَتَزَوَّج بَعد"],
-      "translations": ["He is single and has not married yet"]
+      "meaning": ["الشَّخْصُ الَّذِي لَمْ يَتَزَوَّجْ بَعْدُ"],
+      "translation": ["A person who is not yet married"]
     },
     {
       "en": "Miss (unmarried woman):",
       "ar": ["آنِسَةٌ"],
-      "context": ["آنِسَةُ سَارَةِ هِيَ طَالِبَةٌ فِي الجَامِعَةِ"],
-      "translations": ["Miss Sarah is a university student"]
+      "meaning": ["الْمَرْأَةُ غَيْرُ الْمُتَزَوِّجَةِ"],
+      "translation": ["An unmarried woman"]
     },
     {
       "en": "Married (woman/man):",
       "ar": ["مَتْزَوِّجَةٌ", "/", "مَتْزَوِّجٌ"],
-      "context": ["هُوَ مَتْزَوِّجٌ وَلَدَيْهِ أَوْلادٌ", "المَرأة مَتْزَوِّجَةٌ مِن رَجُلٍ طيبٍ"],
-      "translations": ["He is married and has children", "The woman is married to a kind man"]
+      "meaning": ["الشَّخْصُ الَّذِي تُمْتَ زَّوَاجُهُ"],
+      "translation": ["A person who is married"]
     },
     {
       "en": "Engaged (woman/man):",
       "ar": ["مُخْطُوبَةٌ", "/", "خَاطِبٌ"],
-      "context": ["هُمَا خَاطِبَانِ وَسَيَتَزَوَّجَانِ قَرِيبًا", "الخُطُوبَةُ خُطْوَةٌ مُهِمَّةٌ قَبْلَ الزَوَاجِ"],
-      "translations": ["They are engaged and will marry soon", "Engagement is an important step before marriage"]
+      "meaning": ["الشَّخْصُ الَّذِي تُمْ خِطبَتُهُ"],
+      "translation": ["A person who is engaged"]
     }
   ]
 }

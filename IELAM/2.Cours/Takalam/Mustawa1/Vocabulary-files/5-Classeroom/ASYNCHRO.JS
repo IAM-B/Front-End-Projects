@@ -3,7 +3,7 @@ const exerciceIds = ["exercice-1"];
 
 const scriptUrls = {
   "exercice-1":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary-files/5-All-About-The-Classeroom/Vocabulary1.json",
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/2.Cours/Takalam/Mustawa1/Vocabulary-files/5-Classeroom/Vocabulary1.json",
 };
 
 function loadInitialExercice() {

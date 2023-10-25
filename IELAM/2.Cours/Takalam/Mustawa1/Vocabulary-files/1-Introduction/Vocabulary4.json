@@ -4,90 +4,80 @@
     {
       "en": "Months of the year:",
       "ar": ["شُهُورُ السَّنَةِ"],
-      "context": ["شُهُورُ السَّنَةِ هُيَ اثْنَا عَشْرُ شَهْرًا فِي السَنَةِ"],
-      "translations": ["Months of the year are twelve months in the year"]
+      "meaning": ["الْأَشْهُرُ الْاثْنَا عَشَرَ الَّتِي تُسْتَخْدَمُ فِي التَّقْوِيمِ الهِجْرِيِّ وَتَبْدَأُ بِشَهْرِ مُحَرَّمٍ"],
+      "translation": ["The twelve months used in the Hijri calendar, starting with the month of Muharram"]
     },
     {
       "en": "1:",
       "ar": ["الْمُحَرَّمُ"],
-      "context": [
-        "الْمُحَرَّمُ هُوَ الشَهْرُ الأَوَّلُ فِي السَنَةِ الهِجْرِيَّةِ"
-      ],
-      "translations": ["Muharram is the first month in the Hijri year"]
+      "meaning": ["أَوَّلُ شَهْرٍ فِي التَّقْوِيمِ الهِجْرِي"],
+      "translation": ["The first month in the Hijri calendar"]
     },
     {
       "en": "2:",
       "ar": ["صَفَرٌ"],
-      "context": ["صَفَرٌ هُوَ الشَهرُ الثاني فِي السَنةِ الهِجْريَّةِ"],
-      "translations": ["Safar is the second month in the Hijri year"]
+      "meaning": ["ثَانِي شَهْرٍ فِي التَّقْوِيمِ الهِجْرِي"],
+      "translation": ["The second month in the Hijri calendar"]
     },
     {
       "en": "3:",
       "ar": ["رَبِيعٌ الْأَوَّلُ"],
-      "context": [
-        "رَبِيعٌ الْأَوَّلُ هُوَ الشَهرُ الثالث فِي السنةِ الهِجريَّةِ"
-      ],
-      "translations": ["Rabi' al-Awwal is the third month in the Hijri year"]
+      "meaning": ["ثَالِثُ شَهْرٍ فِي التَّقْوِيمِ الهِجْرِي"],
+      "translation": ["The third month in the Hijri calendar"]
     },
     {
       "en": "4:",
       "ar": ["رَبِيعٌ الْآخِرُ"],
-      "context": [
-        "رَبِيعٌ الْآخِرُ هُوَ الشهرُ الرابع فِي السنةِ الهِجريَّةِ"
-      ],
-      "translations": ["Rabi' al-Thani is the fourth month in the Hijri year"]
+      "meaning": ["رَابِعُ شَهْرٍ فِي التَّقْوِيمِ الهِجْرِي"],
+      "translation": ["The fourth month in the Hijri calendar"]
     },
     {
       "en": "5:",
       "ar": ["جُمَادَى الْأُوْلَى"],
-      "context": [
-        "جُمَادَى الْأُوْلَى هُوَ الشهرُ الخامس فِي السنةِ الهِجريَّةِ"
-      ],
-      "translations": ["Jumada al-Ula is the fifth month in the Hijri year"]
+      "meaning": ["خَامِسُ شَهْرٍ فِي التَّقْوِيمِ الهِجري"],
+      "translation": ["The fifth month in the Hijri calendar"]
     },
     {
       "en": "6:",
       "ar": ["جُمَادَى الثَّانِيَةُ"],
-      "context": [
-        "جُمَادَى الثَّانِيَةُ هُوَ الشهرُ السادس فِي السنةِ الهِجريَّةِ"
-      ],
-      "translations": ["Jumada al-Thani is the sixth month in the Hijri year"]
+      "meaning": ["سَادِسُ شَهْرٍ فِي التَّقْوِيمِ الهِجري"],
+      "translation": ["The sixth month in the Hijri calendar"]
     },
     {
       "en": "7:",
       "ar": ["رَجَبٌ"],
-      "context": ["رَجَبٌ هُوَ الشهرُ السابع فِي السنةِ الهِجريَّةِ"],
-      "translations": ["Rajab is the seventh month in the Hijri year"]
+      "meaning": ["سَابِعُ شَهْرٍ فِي التَّقْوِيمِ الهِجري"],
+      "translation": ["The seventh month in the Hijri calendar"]
     },
     {
       "en": "8:",
       "ar": ["شَعْبَانُ"],
-      "context": ["شَعْبَانُ هُوَ الشهرُ الثامن فِي السنةِ الهِجريَّةِ"],
-      "translations": ["Sha'ban is the eighth month in the Hijri year"]
+      "meaning": ["ثَامِنُ شَهْرٍ فِي التَّقْوِيمِ الهِجري"],
+      "translation": ["The eighth month in the Hijri calendar"]
     },
     {
       "en": "9:",
       "ar": ["رَمَضَانُ"],
-      "context": ["رَمَضَانُ هو الشهرُ التاسع فِي السنةِ الهِجريَّة"],
-      "translations": ["Ramadan is the ninth month in the Hijri year"]
+      "meaning": ["تَاسِعُ شَهْرٍ فِي التَّقْوِيمِ الهِجري وهُوَ شَهْرُ الصِّيَامِ"],
+      "translation": ["The ninth month in the Hijri calendar, known as the month of fasting"]
     },
     {
       "en": "10:",
       "ar": ["شَوَّالٌ"],
-      "context": ["شَوَّالٌ هو الشهرُ العاشر فِي السنةِ الهِجريَّة"],
-      "translations": ["Shawwal is the tenth month in the Hijri year"]
+      "meaning": ["عَاشِرُ شَهْرٍ فِي التَّقْوِيمِ الهِجري"],
+      "translation": ["The tenth month in the Hijri calendar"]
     },
     {
       "en": "11:",
       "ar": ["ذُو الْقَعْدَةِ"],
-      "context": ["ذُو الْقعدةِ هو الشهرُ الحادي عشر في السنةِ الهجريّة"],
-      "translations": ["Dhu al-Qi'dah is the eleventh month in the Hijri year"]
+      "meaning": ["الحَادِي عَشَرَ مِنْ شُهُورِ التَّقْوِيمِ الهِجري"],
+      "translation": ["The eleventh month in the Hijri calendar"]
     },
     {
       "en": "12:",
       "ar": ["ذُو الْحِجَةِ"],
-      "context": ["ذُو الحجةِ هو الشهرُ الثاني عشر في السنةِ الهجريّة"],
-      "translations": ["Dhu al-Hijjah is the twelfth month in the Hijri year"]
+      "meaning": ["الثَّانِي عَشَرَ مِنْ شُهُورِ التَّقْوِيمِ الهِجري"],
+      "translation": ["The twelfth month in the Hijri calendar"]
     }
   ]
 }

@@ -4,140 +4,134 @@
     {
       "en": "Peace be upon you:",
       "ar": ["السَلَامٍُ عَلَيْكُمْ"],
-      "context": ["السَلَامُ عَلَيْكُمْ هِي تَحِيَّةٌ رَائِعَةٌ"],
-      "translation": "Peace be upon you is a wonderful greeting"
+      "meaning": ["تَحِيَّةٌ شَائِعَةٌ تُرَدُّ عَلَى النَّاسِ عِنْدَ التَّرَحْيب"],
+      "translation": ["A common greeting exchanged among people as a form of welcome"]
     },
     {
       "en": "Good morning:",
       "ar": ["صَبَاحُ الْخَيْرِ"],
-      "context": ["صَبَاحُ الْخَيْرِ هُوَ التَّحِيَّةُ فِي الصَّبَاحِ"],
-      "translation": "Good morning is the greeting in the morning"
+      "meaning": ["تَحِيَّةٌ تُقَالُ عِنْدَ اللُّقْاءِ فِي الصَّبَاحِ"],
+      "translation": ["A greeting said when meeting in the morning"]
     },
     {
       "en": "Morning light:",
       "ar": ["صَبَاحُ النُّورِ"],
-      "context": ["صَبَاحُ النُّورِ يُضِيءُ يَوْمَكَ"],
-      "translation": "Morning light brightens your day"
+      "meaning": ["تَحِيَّةٌ تُقَالُ لِلشَّخْصِ الَّذِي تُضِيءُ حَيَاتُهُ وَتُفَرِّحُهُ"],
+      "translation": ["A greeting said to someone who brightens your life and makes you happy"]
     },
     {
       "en": "Good evening:",
       "ar": ["مَسَاءُ الْخَيْرِ"],
-      "context": ["مَسَاءُ الْخَيْرِ هُوَ التَّحِيَّةُ فِي الْمَسَاءِ"],
-      "translation": "Good evening is the greeting in the evening"
+      "meaning": ["تَحِيَّةٌ تُقَالُ عِنْدَ اللُّقْاءِ فِي الْمَسَاءِ"],
+      "translation": ["A greeting said when meeting in the evening"]
     },
     {
       "en": "Evening light:",
       "ar": ["مَسَاءُ النُّورِ"],
-      "context": ["مَسَاءُ النُّورِ يُضِيءُ لَيْلَتَكَ"],
-      "translation": "Evening light illuminates your night"
+      "meaning": ["تَحِيَّةٌ تُقَالُ لِلشَّخْصِ الَّذِي يُضِيءُ لَكَ اللَّيْلَ وَيَفْرِحُكَ"],
+      "translation": ["A greeting said to someone who brightens your night and makes you happy"]
     },
     {
       "en": "Welcome:",
       "ar": ["أَهْلًا وَسَهْلًا"],
-      "context": ["أَهْلًا وَسَهْلًا هُوَ تَرْحِيبٌ بِالضُّيُوفِ"],
-      "translation": "Welcome is a greeting for guests"
+      "meaning": ["تَرَحُّبٌ بِشَخْصٍ مَا عِنْدَ قِدُومِهِ أَو تَوَاجُدِهِ"],
+      "translation": ["A welcome to someone upon their arrival or presence"]
     },
     {
       "en": "Welcome to you:",
       "ar": ["أَهْلًا بِكَ"],
-      "context": ["أَهْلًا بِكَ هُوَ تَرْحِيبٌ أَكْثَرُ شَدَّةً"],
-      "translation": "Welcome to you is a more emphatic greeting"
+      "meaning": ["تَرَحُّبٌ بِشَخْصٍ مَا عِنْدَ قِدُومِهِ أَو تَوَاجُدِهِ"],
+      "translation": ["A welcome to someone upon their arrival or presence"]
     },
     {
       "en": "Hello:",
       "ar": ["مَرْحَبًا"],
-      "context": ["مَرْحَبًا هُوَ تَحِيَّةٌ بَسِيطَةٌ"],
-      "translation": "Hello is a simple greeting"
+      "meaning": ["تَحِيَّةٌ تُرَدُّ عِنْدَ لُقَاءِ شَخْصٍ"],
+      "translation": ["A greeting said when meeting someone"]
     },
     {
       "en": "Welcome to you:",
       "ar": ["مَرْحَبًا بِكَ"],
-      "context": ["مَرْحَبًا بِكَ هُوَ تَرْحِيبٌ أَكْثَرُ شَدَّةً"],
-      "translation": "Welcome to you is a more emphatic greeting"
+      "meaning": ["تَرَحُّبٌ بِشَخْصٍ عِنْدَ قِدُومِهِ أَو تَوَاجُدِهِ"],
+      "translation": ["A welcome to someone upon their arrival or presence"]
     },
     {
       "en": "How are you?:",
       "ar": ["كَيْفَ حَالُكَ"],
-      "context": ["كَيْفَ حَالُكَ هُوَ سُؤَالٌ عَنْ حَالَةِ الشَّخْصِ"],
-      "translation": "How are you is a question about someone's well-being"
+      "meaning": ["سُؤَالٌ عَنْ حَالَةِ الشَّخْص"],
+      "translation": ["A question about someone's well-being"]
     },
     {
       "en": "How's it going?:",
       "ar": ["كَيْفَ الْحَالُ"],
-      "context": ["كَيْفَ الْحَالُ هُوَ سُؤَالٌ عَنْ حَالَةِ شَخْصٍ آخَرِ"],
-      "translation": "How's it going is a question about another person's well-being"
+      "meaning": ["سُؤَالٌ عَنْ حَالَةِ الشَّخْص"],
+      "translation": ["A question about someone's well-being"]
     },
     {
       "en": "I'm fine, thanks be to God:",
       "ar": ["بِخَيْرٍ وَالْحَمْدُ لِلَّهِ"],
-      "context": [
-        "بِخَيْرٍ وَالْحَمْدُ لِلَّهِ هُوَ الرَّدُّ عَلَى كَيْفَ حَالُكَ"
-      ],
-      "translation": "I'm fine, thanks be to God is the response to How are you"
+      "meaning": ["جَوَابٌ يُقَالُ لِلدَّلَالَةِ عَلَى أَنَّ الشَّخْص بِخَيْرٍ وَمُمْتِنٌ"],
+      "translation": ["A response indicating that the person is fine and thankful"]
     },
     {
       "en": "What is your name?:",
       "ar": ["مَا اسْمُكَ؟"],
-      "context": ["مَا اسْمُكَ هُوَ سُؤَالٌ عَنْ اسْمِ الشَّخْصِ"],
-      "translation": "What is your name is a question about a person's name"
+      "meaning": ["سُؤَالٌ عَنِ الاسْمِ الشَّخْصِي"],
+      "translation": ["A question about the person's name"]
     },
     {
       "en": "My name is:",
       "ar": ["اِسْمِي"],
-      "context": ["اِسْمِي تَلَاوَةُ اسْمِ الشَّخْصِ"],
-      "translation": "My name is is the pronunciation of a person's name"
+      "meaning": ["جَوَابٌ يُقَالُ لِلدَّلَالَةِ عَلَى اسْمِ الشَّخْص"],
+      "translation": ["A response indicating the person's name"]
     },
     {
       "en": "It's our pleasure:",
       "ar": ["تَشَرَّفْنَا"],
-      "context": [
-        "تَشَرَّفْنَا تَعْبِيرٌ عَنِ السَّعَادَةِ بِلِقَاءِ شَخْصٍ مَا"
-      ],
-      "translation": "It's our pleasure is an expression of happiness at meeting someone"
+      "meaning": ["إِعْرَابٌ عَنِ امْتِنَانٍ وَسُرُورٍ لِلْقَاءِ الشَّخْص"],
+      "translation": ["An expression of gratitude and joy for meeting the person"]
     },
     {
       "en": "It's our pleasure with you:",
       "ar": ["تَشَرَّفْنَا بِكَ"],
-      "context": [
-        "تَشَرَّفْنَا بِكَ تَعْبِيرٌ عَنِ السَّعَادَةِ بِلِقَاءِ شَخْصٍ مَعِينٍ"
-      ],
-      "translation": "It's our pleasure with you is an expression of happiness at meeting a specific person"
+      "meaning": ["إِعْرَابٌ عَنِ امْتِنَانٍ وَسُرُورٍ لِلْقَاءِ الشَّخْص"],
+      "translation": ["An expression of gratitude and joy for meeting the person"]
     },
     {
       "en": "A good opportunity:",
       "ar": ["فُرْصَةٌ طِيِّبَةٌ"],
-      "context": ["فُرْصَةٌ طِيِّبَةٌ تَعْبِيرٌ عَنْ فُرْصَةٍ جَيِّدَةٍ"],
-      "translation": "A good opportunity is an expression of a good chance"
+      "meaning": ["فُرْصَةٌ جَيِّدَةٌ لِشَيْءٍ مَعِيِّن"],
+      "translation": ["A good chance or opportunity for something specific"]
     },
     {
       "en": "A happy opportunity:",
       "ar": ["فُرْصَةٌ سَعِيدَةٌ"],
-      "context": ["فُرْصَةٌ سَعِيدَةٌ تَعْبِيرٌ عَنْ فُرْصَةٍ سَعِيدَةٍ"],
-      "translation": "A happy opportunity is an expression of a joyful chance"
+      "meaning": ["فُرْصَةٌ تَجْلِبُ السَّعَادَة"],
+      "translation": ["An opportunity that brings happiness"]
     },
     {
       "en": "What is your nationality?:",
       "ar": ["مَا جِنْسِيَّتُكَ؟"],
-      "context": ["مَا جِنْسِيَّتُكَ سُؤَالٌ عَنْ الجِنْسِيَّةِ"],
-      "translation": "What is your nationality is a question about one's nationality"
+      "meaning": ["سُؤَالٌ عَن جِنْسِيَّةِ الشَّخْص"],
+      "translation": ["A question about a person's nationality"]
     },
     {
       "en": "I am Egyptian:",
       "ar": ["أَنَا مِصْرِيٌّ"],
-      "context": ["أَنَا مِصْرِيٌّ تَعْبِيرٌ عَنِ الجِنْسِيَّةِ"],
-      "translation": "I am Egyptian is an expression of nationality"
+      "meaning": ["إِعْلَانٌ عَن الجِنْسِيَّةِ الشَّخْصِيَّة"],
+      "translation": ["A declaration of personal nationality"]
     },
     {
       "en": "Where are you from?:",
       "ar": ["مِنْ أَيْنَ أَنْتَ؟"],
-      "context": ["مِنْ أَيْنَ أَنْتَ سُؤَالٌ عَنْ مَكَانِ الْمِيلَادِ"],
-      "translation": "Where are you from is a question about the place of birth"
+      "meaning": ["سُؤَالٌ عَن مَكَانِ النَّشْأَةِ"],
+      "translation": ["A question about a person's place of origin"]
     },
     {
       "en": "I am from Egypt:",
       "ar": ["أَنَا مِنْ مِصْرَ"],
-      "context": ["أَنَا مِنْ مِصْرَ تَعْبِيرٌ عَنْ مَكَانِ الْمِيلَادِ"],
-      "translation": "I am from Egypt is an expression of the place of birth"
+      "meaning": ["إِعْلَانٌ عَن مَكَانِ النَّشْأَةِ"],
+      "translation": ["A declaration of place of origin"]
     }
   ]
 }

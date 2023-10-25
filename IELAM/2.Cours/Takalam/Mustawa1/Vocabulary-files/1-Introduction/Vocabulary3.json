@@ -4,34 +4,32 @@
     {
       "en": "Seasons of year:",
       "ar": ["فُصُولُ السَّنَةِ"],
-      "context": ["فُصُولُ السَّنَةِ مهِمَّةٌ لِلزِرَاعَةِ"],
-      "translations": ["Seasons of the year are important for agriculture"]
+      "meaning": ["أَرْبَعُةُ مَوَاسِم تَتَبَدَّلُ طَوِال السَّنَة وَهِيَ الصَّيْفُ، وَالرَّبِيعُ، وَالشِّتَاءُ، وَالْخَرِيفُ"],
+      "translation": ["The four seasons that change throughout the year, which are summer, spring, winter, and autumn"]
     },
     {
       "en": "Summer:",
       "ar": ["الصَّيْفُ"],
-      "context": ["الصَّيْفُ حَارٌّ جِدًّا فِي بَعْض الْأَمَاكِن"],
-      "translations": ["Summer is very hot in some places"]
+      "meaning": ["الْمَوْسِمُ الَّذِي تَكُونُ فِيهِ الْأَيَّامُ حَارَّةً وَطَوِيلَةً وَتَكُونُ الشَّمْس مُشْرِقَةً"],
+      "translation": ["The season when days are hot and long, and the sun shines brightly"]
     },
     {
       "en": "Spring:",
       "ar": ["الرَّبِيعُ"],
-      "context": ["الرَّبِيعُ يُجْلِبُ مَعَهُ الْأَزْهَارَ الْجَمِيلَةِ"],
-      "translations": ["Spring brings beautiful flowers with it"]
+      "meaning": ["الْمَوْسِمُ الَّذِي تَتَفَتَّح فِيهِ الزُّهُور وَتَكُونُ الأَيَّام دَافِئَةً"],
+      "translation": ["The season when flowers bloom, and the days are warm"]
     },
     {
       "en": "Winter:",
       "ar": ["الشِّتَاءُ"],
-      "context": ["الشِّتَاءُ يَأْتِي مَعَ الثَّلُوجِ وَالْبَرُودَةِ"],
-      "translations": ["Winter comes with snow and cold weather"]
+      "meaning": ["الْمَوْسِمُ الَّذِي تَكُونُ فِيهِ الْأَيَّام بَارِدَةً وَقَصِيرَةً وَتُسَاقِطُ الثَّلُوج"],
+      "translation": ["The season when days are cold and short, and snowfall occurs"]
     },
     {
       "en": "Autumn:",
       "ar": ["الْخَرِيفُ"],
-      "context": [
-        "الْخَرِيفُ يَتَسَمُّ بِأَلْوَانِ الْأَوْرَاقِ الْمُتَغَيِّرَةِ"
-      ],
-      "translations": ["Autumn is characterized by changing leaf colors"]
+      "meaning": ["الْمَوْسِمُ الَّذِي تَسْقُط فِيهِ الْأَشْجَار أَوَرَاقَهَا وَيَصِبِح الْجَو بَارِدًا"],
+      "translation": ["The season when trees shed their leaves, and the weather becomes cool"]
     }
   ]
 }

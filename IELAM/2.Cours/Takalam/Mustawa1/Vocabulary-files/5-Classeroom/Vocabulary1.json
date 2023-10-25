@@ -1,0 +1,131 @@
+{
+  "ticket": "مَاذَا فِي الصَّفِّ",
+  "vocabulary": [
+    {
+      "en": "Row / Class:",
+      "ar": ["صَفٌّ"],
+      "meaning": ["مَجْمُوعَة مِن مَكْتَبَات الطُلَّاب في المَدْرَسَة أو الصَّفِّ"],
+      "translation": ["A group of students' desks in a school or classroom"]
+    },
+    {
+      "en": "Projection screen:",
+      "ar": ["الشَّاشَةُ العَرْضِ"],
+      "meaning": ["شَاشَة تُسْتَخْدَم لِعَرْض العُروض والشُّرُائِح"], 
+      "translation": ["A screen used to display presentations and slides"]
+    },
+    {
+      "en": "Erasers (plural):",
+      "ar": ["مِمْحَا"],
+      "meaning": ["أَدَوَات تُسْتَخْدَم لِإِزَالَة العَلامَات بِالقَلَم أو الحِبْر عَن الوَرَق"],
+      "translation": ["Tools used to remove pencil or ink marks from paper"]
+    },
+    {
+      "en": "Fail (x) Pass:",
+      "ar": ["رَسَبَ", "x", "ناجِحٌ"],
+      "meaning": ["إِكْمَال الاختبار أو الامْتحان بِنَجَاح", "عَدَم النَجَاح في الاخْتِبَار أو الامْتِحَان"],
+      "translation": ["To successfully complete an exam or test", "To not succeed in an exam or test"]
+    },
+    {
+      "en": "Trash basket:",
+      "ar": ["سَلَّةُ مَهْمُلاتٍ"],
+      "meaning": ["وَعَاء للمَوَاد والأَشَيَاء الزَّائِدَة والمُلْقَاة"],
+      "translation": ["A container for waste materials and items that are no longer needed"]
+    },
+    {
+      "en": "School:",
+      "ar": ["مَدْرَسَةٌ"],
+      "meaning": ["مُؤَسَّسَة للتَّعْلِيم والتَّعْلُم"],
+      "translation": ["An institution for education and learning"]
+    },
+    {
+      "en": "Library:",
+      "ar": ["مَكْتَبَةٌ"],
+      "meaning": ["مَكَان هَادِئ للقِرَاءَة والدِرَاسَة والبَحْث"],
+      "translation": ["A quiet place for reading, studying, and researching"]
+    },
+    {
+      "en": "Dictionary (bilingual):",
+      "ar": ["قَامُوسُ", "/", "مَعْجَمُ"],
+      "meaning": ["كِتَاب مرجِعِي يوفِر مَعَانِي وتَرْجَمَة للكَلِمَات بَين لُغَتَين"],
+      "translation": ["A reference book that provides meanings and translations of words between two languages"]
+    },
+    {
+      "en": "Present (x) Absent:",
+      "ar": ["حَاضِرٌ", "x", "غَائِبٌ"],
+      "meaning": ["غَيَاب حَالِيًا أو عَدَم المُشَارَكَة", "حَاضِر حَالِيًا أو مُشَارِك في الصَّف أو الفَعَّالِيَّة"],
+      "translation": ["Not currently attending or participating", "Currently attending or participating in a class or event"]
+    },
+    {
+      "en": "Behind:",
+      "ar": ["خَلْفَ", "/", "وَرَاءَ"],
+      "meaning": ["في الخَلف أو الجُزء الخَلفِي لشَيء ما"],
+      "translation": ["At the rear or back of something"]
+    },
+    {
+      "en": "Between:",
+      "ar": ["بَيْنَ"],
+      "meaning": ["في الفَرَاغ الذي يَفْصل بَيْن جَسْمَيْن أو مَنَاطِق مُخْتَلِفَتَيْن"],
+      "translation": ["In the space separating two objects or regions"]
+    },
+    {
+      "en": "Next to:",
+      "ar": ["بِجَانِبِ"],
+      "meaning": ["في الاقتِراب الفَوْرِي أو القُرْب مِن شَيء ما"],
+      "translation": ["In immediate proximity or adjacency to something"]
+    },
+    {
+      "en": "Under:",
+      "ar": ["تَحْتَ"],
+      "meaning": ["تَحْت أو بَجَوَار شَيء ما"],
+      "translation": ["Beneath or below something"]
+    },
+    {
+      "en": "Below:",
+      "ar": ["أَسْفَل"],
+      "meaning": ["في مَكانٍ أَدنَى أو مُنَخَفِضٍ"],
+      "translation": ["At a lower level or position"]
+    },
+    {
+      "en": "To the right of:",
+      "ar": ["عَنْ يَمِينِ"],
+      "meaning": ["مُوَجَّه لِلجِهَة اليَمِنَى مِن شَيء ما"],
+      "translation": ["Located on the right side of something"]
+    },
+    {
+      "en": "To the left of:",
+      "ar": ["عَنْ يَسَارِ"],
+      "meaning": ["مُوَجَّه لِلجِهَة اليَسَارِى مِن شَيء ما"],
+      "translation": ["Located on the left side of something"]
+    },
+    {
+      "en": "Pick up:",
+      "ar": ["هاتِ"],
+      "meaning": ["أَخذ شَيء ما بيَن اليَدَيْن"],
+      "translation": ["To take something into your hand or hands"]
+    },
+    {
+      "en": "Lower:",
+      "ar": ["اخْفِض"],
+      "meaning": ["تَخْفِيض ارتِفاع شَيء ما أو مُسْتوىه"],
+      "translation": ["To reduce the height or level of something"]
+    },
+    {
+      "en": "Raise:",
+      "ar": ["ارْفَع"],
+      "meaning": ["رَفْع أو رُفَع شَيء ما إلى مَكانٍ أَعلى"],
+      "translation": ["To lift or elevate something to a higher position"]
+    },
+    {
+      "en": "Take:",
+      "ar": ["خُذ", "/", "تَفَضَل"],
+      "meaning": ["قَبُول أو الحُصول عَلى شَيء ما مِن شَخْص ما"],
+      "translation": ["To accept or obtain something from someone"]
+    },
+    {
+      "en": "Page (of a book or document):",
+      "ar": ["صَفْحَةٌ"],
+      "meaning": ["جَهَة واحِدَة مِن وَرَقَة كِتَاب أو وَثيقَة"],
+      "translation": ["A single side of a leaf of a book or document"]
+    }
+  ]
+}

@@ -4,60 +4,56 @@
     {
       "en": "Instructions:",
       "ar": ["تَعْلِيمَاتٌ"],
-      "context": [
-        "يُعْطَى الطَّلَّاب تَعْلِيمَاتٌ عَن كَيْفِيَّةِ القِيَامِ بِالوَاجِبَات"
-      ],
-      "translations": [
-        "The students are given instructions on how to complete the assignments"
-      ]
+      "meaning": ["إِرْشَادَاتٌ أَوْ دَلَائِلٌ تَوْجِيهِيَّةٌ لِلْقِيَامِ بِمِهَامٍ مُعَيَّنَةٍ"],
+      "translation": ["Guidelines or directive indications for performing specific tasks"]
     },
     {
       "en": "Ask:",
       "ar": ["اِسْأَلْ"],
-      "context": ["اِسْألْ سُؤَالًا"],
-      "translations": ["Ask a question"]
+      "meaning": ["اِطْلُبْ مِنْ شَخْصٍ مَعِيَّنٍ إِعْطَائَكَ مَعْلُومَاتٍ أَوْ تَوْضِيحَاتٍ بِسُؤَالٍ"],
+      "translation": ["Request information or clarification from a specific person by posing a question"]
     },
     {
       "en": "Answer:",
       "ar": ["أَجِبْ"],
-      "context": ["أَجِبْ بالإِجَابَةِ الصَّحِيحَةِ"],
-      "translations": ["Answer with the correct response"]
+      "meaning": ["رُدَّ بِمَعْلُومَاتٍ أَوْ تَوْضِيحًا بَعْدَ أَنْ يُطْرَحَ سُؤَالٌ"],
+      "translation": ["Respond with information or an explanation after a question is posed"]
     },
     {
       "en": "Speak:",
       "ar": ["تَحَدَّثْ"],
-      "context": ["تَحَدَّثْ بوضوح"],
-      "translations": ["Speak clearly"]
+      "meaning": ["الْتَعَبِيْرُ عَنِ الْأَفْكَارِ وَالْأَفْعَالِ بِاِسْتِخْدَامِ الْكَلَامِ"],
+      "translation": ["Expressing thoughts and actions using speech"]
     },
     {
       "en": "Complete:",
       "ar": ["أَكْمِلْ"],
-      "context": ["أَكْمِلْ الوَاجِبَ"],
-      "translations": ["Complete the assignment"]
+      "meaning": ["اِنْتَهِي مِنْ مِهَمَّةٍ أَوْ نَشَاطٍ بِشَكْلٍ مُنْتَهٍ"],
+      "translation": ["Finish a task or activity in a completed manner"]
     },
     {
       "en": "Connect:",
       "ar": ["صِلْ"],
-      "context": ["صِلْ الأَفْكَارَ"],
-      "translations": ["Connect the ideas"]
+      "meaning": ["قُمْ بِرَبْطِ شَيْءٍ بِشَيْءٍ آخَرَ بِوَسَائِلَ الرَّبْطِ"],
+      "translation": ["Link one thing to another using connecting means"]
     },
     {
       "en": "Mark:",
       "ar": ["ضَعْ عَلَامَةً"],
-      "context": ["ضَعْ عَلَامَةً عَلَى الجَوَابِ الصَّحِيحِ"],
-      "translations": ["Mark the correct answer"]
+      "meaning": ["وَضَعُ عَلَامَةٍ أَوْ عَلَامَاتٍ لِلدَّلَالَةِ عَلَى شَيْءٍ مُعَيَّنٍ"],
+      "translation": ["Placing a mark or marks to indicate something specific"]
     },
     {
       "en": "Practice dialogue with:",
       "ar": ["مَارِسِ الْحِوَارَ مَعَ"],
-      "context": ["مَارِسِ الحِوَارَ مَعَ زَمِيلِك"],
-      "translations": ["Practice dialogue with your classmate"]
+      "meaning": ["التَّمَرُّنِ عَلَى مُحَادَثَةٍ مَعَ شَخْصٍ آخَرَ بِشَكْلٍ تَطْبِيقِيٍ"],
+      "translation": ["Engage in conversational practice with another person in an applied manner"]
     },
     {
       "en": "Copy:",
       "ar": ["اِنْسَخْ"],
-      "context": ["اِنْسَخْ النَّصَّ"],
-      "translations": ["Copy the text"]
+      "meaning": ["اِنْقَلُ وَاحِدٍ أَوْ أَكْثَرَ مِنْ الْمَعْلُومَاتِ أَوْ الْمَحْتَوَى إِلَى مَكَانٍ آخَرَ"],
+      "translation": ["Transfer one or more pieces of information or content to another location"]
     }
   ]
 }
