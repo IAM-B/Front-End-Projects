@@ -161,71 +161,52 @@ function processVocabularies(vocabularies) {
     const inputDiv = document.createElement("div");
     inputDiv.classList.add("inline-input");
 
-    const inputString = vocab.ar.join(" ");
-    const arArray = inputString.split(" ");
-    console.log("arArray=" + arArray);
+    vocab.ar.reverse().forEach((word, i) => {
+      if (word !== "ج" && word !== "/" && word !== "x") {
+        const vocabInput = document.createElement("input");
+        vocabInput.setAttribute("type", "search");
+        vocabInput.setAttribute("translate", "no");
+        vocabInput.setAttribute("required", "");
+        vocabInput.classList.add("input-fill");
+        vocabInput.setAttribute("autocomplete", "off");
+        vocabInput.setAttribute("inputmode", "none");
 
-    let currentGroup = "";
-    arArray.forEach((word, i) => {
-      if (word === "ج" || word === "/" || word === "x") {
-        if (currentGroup) {
-          const vocabInput = document.createElement("input");
-          vocabInput.setAttribute("type", "search");
-          vocabInput.setAttribute("translate", "no");
-          vocabInput.setAttribute("required", "");
-          vocabInput.classList.add("input-fill");
-          vocabInput.setAttribute("autocomplete", "off");
-          vocabInput.setAttribute("inputmode", "none");
-          vocabInput.setAttribute("id", `input-${counter}`);
-          counter++;
-          attachKeyboardEvents(vocabInput);
+        vocabInput.setAttribute("id", `input-${counter}`);
+        counter++;
+        attachKeyboardEvents(vocabInput);
 
-          if (word === "ج") {
-            vocabInput.setAttribute("placeholder", `جَمْعٌ/...`);
-          } else if (word === "/") {
-            vocabInput.setAttribute("placeholder", `أو/...`);
-          } else if (word === "x") {
-            vocabInput.setAttribute("placeholder", `عَاكْسٌ/...`);
+        if (
+          i > 0 &&
+          (vocab.ar[i - 1] === "ج" ||
+            vocab.ar[i - 1] === "/" ||
+            vocab.ar[i - 1] === "x")
+        ) {
+          if (vocab.ar[i - 1] === "ج") {
+            vocabInput.setAttribute("placeholder", `جمع...`);
+            console.log(
+              `input-${counter} correspond à : جمع/... ${word}`
+            );
+          } else if (vocab.ar[i - 1] === "/") {
+            vocabInput.setAttribute("placeholder", `أو...`);
+            console.log(`input-${counter} correspond à : أو... ${word}`);
+          } else if (vocab.ar[i - 1] === "x") {
+            vocabInput.setAttribute("placeholder", `عكس...`);
+            console.log(`input-${counter} correspond à : عكس... ${word}`);
           } else {
-            vocabInput.setAttribute("placeholder", `${word}...`);
+            vocabInput.setAttribute("placeholder", `${vocab.ar[i - 1]}...`);
+            console.log(
+              `input-${counter} correspond à : ${word} ...${vocab.ar[i - 1]}`
+            );
           }
-          console.log(
-            `input-${counter} correspond à : ${currentGroup} ...${word}`
-          );
-
-          vocabInput.setAttribute("id", `${counter}`);
-          inputDiv.insertBefore(vocabInput, inputDiv.firstChild);
-          currentGroup = ""; 
+        } else {
+          vocabInput.setAttribute("placeholder", "...");
+          console.log(`input-${counter} correspond à : ${word} ...`);
         }
-      } else {
-        currentGroup = `${currentGroup} ${word}`;
+
+        vocabInput.setAttribute("id", `${counter}`);
+        inputDiv.insertBefore(vocabInput, inputDiv.firstChild);
       }
     });
-
-    if (currentGroup) {
-      const vocabInput = document.createElement("input");
-      vocabInput.setAttribute("type", "search");
-      vocabInput.setAttribute("translate", "no");
-      vocabInput.setAttribute("required", "");
-      vocabInput.classList.add("input-fill");
-      vocabInput.setAttribute("autocomplete", "off");
-      vocabInput.setAttribute("inputmode", "none");
-      vocabInput.setAttribute("id", `input-${counter}`);
-      counter++;
-      attachKeyboardEvents(vocabInput);
-      vocabInput.setAttribute("placeholder", "...");
-      console.log(`input-${counter} correspond à : ${currentGroup} ...`);
-      vocabInput.setAttribute("id", `${counter}`);
-      inputDiv.insertBefore(vocabInput, inputDiv.firstChild);
-    }
-
-    const reversedInputs = Array.from(inputDiv.children).reverse();
-    inputDiv.innerHTML = ""; 
-    reversedInputs.forEach((input) => {
-      inputDiv.appendChild(input);
-    });
-    
-    vocabularyDiv.appendChild(inputDiv);
     vocabularyDiv.appendChild(vocabLabel);
     vocabularyDiv.appendChild(inputDiv);
     document.querySelector("#exo").appendChild(vocabularyDiv);
