@@ -73,6 +73,7 @@ const generateVirtualKeyboard = () => {
 
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("keyboard-key", "delete");
+  deleteButton.setAttribute("translate", "no")
   deleteButton.innerHTML =
     "<span class='delete-icon'><i class='fas fa-chevron-right'></i></span>";
   deleteButton.addEventListener("click", () => {
@@ -123,6 +124,7 @@ const generateVirtualKeyboard = () => {
 
   const tatweelButton = document.createElement("button");
   tatweelButton.classList.add("keyboard-key", "tatweel");
+  tatweelButton.setAttribute("translate", "no")
   tatweelButton.textContent = "ـ";
   spaceRow.appendChild(tatweelButton);
 
@@ -155,6 +157,7 @@ const generateVirtualKeyboard = () => {
 
   const spaceButton = document.createElement("button");
   spaceButton.classList.add("keyboard-key", "space");
+  spaceButton.setAttribute("translate", "no")
   spaceButton.textContent = " ";
   spaceRow.appendChild(spaceButton);
 
@@ -187,6 +190,7 @@ const generateVirtualKeyboard = () => {
 
   const leftButton = document.createElement("button");
   leftButton.classList.add("keyboard-key", "direction");
+  leftButton.setAttribute("translate", "no")
   leftButton.innerHTML = "<i class='fas fa-arrow-left'></i>";
   leftButton.addEventListener("click", () => {
     const selectedInput = document.querySelector(".input-fill.selected");
@@ -202,6 +206,7 @@ const generateVirtualKeyboard = () => {
 
   const rightButton = document.createElement("button");
   rightButton.classList.add("keyboard-key", "direction");
+  rightButton.setAttribute("translate", "no")
   rightButton.innerHTML = "<i class='fas fa-arrow-right'></i>";
   rightButton.addEventListener("click", () => {
     const selectedInput = document.querySelector(".input-fill.selected");

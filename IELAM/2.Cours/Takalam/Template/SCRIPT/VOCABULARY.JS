@@ -372,8 +372,8 @@ const vocab = (vocabularies) => {
                   <i class="fi fi-br-cross"></i>
                   </button>
                 </div>
-                <h1 translate="no">الله يسهل لك</h1>
-                <h2>Correct the wrong answers in red and try again.</h2>
+                <h1 class="h1-modal" translate="no">اللهُ يَسَهِّلُ لَكِ</h1>
+                <h3 class="translation">Correct the wrong answers in red and try again.</h3>
               </div>
             </div>
           </div>`;
@@ -400,8 +400,8 @@ const vocab = (vocabularies) => {
                 <i class="fi fi-br-cross"></i>
                 </button>
               </div>
-              <h1 translate="no">الله بارك</h1>
-              <h2>All answers are correct.</h2>
+              <h1 class="h1-modal" translate="no">اللهُ بَارِكَ</h1>
+              <h3 class="translation">All answers are correct.</h3>
             </div>
           </div>
         </div>`;
@@ -415,8 +415,8 @@ const vocab = (vocabularies) => {
                <i class="fi fi-br-cross"></i>
                </button>
               </div>
-              <h1 translate="no">الله يسهل لك</h1>
-              <h2>Correct the wrong answers in red and try again.</h2>
+              <h1 class="h1-modal" translate="no">اللهُ يَسَهِّلُ لَكِ</h1>
+              <h3 class="translation">Correct the wrong answers in red and try again.</h3>
             </div>
           </div>
         </div>`;

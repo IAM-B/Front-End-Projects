@@ -425,6 +425,7 @@
     position: relative;
   }
   .h1-modal {
+    font-family: var(--font-arabic2);
     margin-top: 10px;
   }
   h2.definition {
@@ -437,6 +438,7 @@
   h2.meaning {
     font-family: var(--font-arabic1);
     font-weight: 100;
+    line-height: 70px;
     margin-top: 25px;
   }
   h3.translation {
@@ -490,12 +492,12 @@
     flex-direction: row-reverse;
   }
   .outside-btn {
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     font-family: var(--font-latin);
     color: var(--couleur-contrast);
     background-color: var(--couleur-fond);
-    box-shadow: var(--couleur-box-shadow-out);
+    box-shadow: var(--couleur-box-shadow-out-hover);
   }
   i.fi.fi-br-cross {
     color: var(--couleur-btn);
@@ -10656,7 +10658,7 @@
   .keyboard-key.direction,
   .keyboard-key.delete {
     display: flex;
-    width: 65px;
+    width: 150px;
     margin: 0 9px;
     justify-content: center;
     align-items: center;
