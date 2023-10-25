@@ -63,16 +63,35 @@ function createVocabularySection(vocabulary) {
   const modal = document.createElement("div");
   modal.classList.add("modal");
 
-  let validIndex = 0;
-  for (let j = vocabulary.ar.length - 1; j >= 0; j--) {
-    const arElement = vocabulary.ar[j];
-    if (/[x]/.test(arElement)) {
-      continue;
+  const jointGroup = [];
+  let currentGroup = [];
+
+  vocabulary.ar.forEach((word) => {
+    if (word) {
+      currentGroup.push(word);
     }
+  });
+
+  if (currentGroup.length > 0) {
+    jointGroup.push(currentGroup.join(" "));
+  }
+
+  console.log("currentGroup=" + currentGroup);
+  console.log("jointGroup=" + jointGroup);
+
+  let validIndex = 0;
+
+  for (let j = jointGroup.length - 1; j >= 0; j--) {
+    const arElement = jointGroup[j];
     const h1 = document.createElement("h1");
     h1.classList.add("h1-modal");
     h1.setAttribute("translate", "no");
-    h1.textContent = arElement;
+
+    if (/[x]/.test(arElement)) {
+      continue;
+    } else {
+      h1.textContent = jointGroup;
+    }
 
     const h2 = document.createElement("h2");
     h2.classList.add("definition");
@@ -88,6 +107,33 @@ function createVocabularySection(vocabulary) {
     modal.appendChild(h3);
 
     validIndex++;
+  }
+  for (let j = currentGroup.length - 1; j >= 0; j--) {
+    const arElement = currentGroup[j];
+    if (currentGroup.includes("x")) {
+      if (/[x]/.test(arElement)) {
+        continue;
+      } 
+      const h1 = document.createElement("h1");
+      h1.classList.add("h1-modal");
+      h1.setAttribute("translate", "no");
+      h1.textContent = arElement;
+
+      const h2 = document.createElement("h2");
+      h2.classList.add("definition");
+      h2.setAttribute("translate", "no");
+      h2.textContent = vocabulary.definition[validIndex];
+
+      const h3 = document.createElement("h3");
+      h3.classList.add("translation");
+      h3.textContent = vocabulary.translation[validIndex];
+
+      modal.appendChild(h1);
+      modal.appendChild(h2);
+      modal.appendChild(h3);
+
+      validIndex++;
+    }
   }
 
   modalBackground.appendChild(modal);
@@ -183,9 +229,7 @@ function processVocabularies(vocabularies) {
         ) {
           if (vocab.ar[i - 1] === "ج") {
             vocabInput.setAttribute("placeholder", `جمع...`);
-            console.log(
-              `input-${counter} correspond à : جمع/... ${word}`
-            );
+            console.log(`input-${counter} correspond à : جمع/... ${word}`);
           } else if (vocab.ar[i - 1] === "/") {
             vocabInput.setAttribute("placeholder", `أو...`);
             console.log(`input-${counter} correspond à : أو... ${word}`);
@@ -269,7 +313,6 @@ document.addEventListener("click", function (event) {
     const modalContainer = outsideBtn.closest(".modal-container");
     if (modalContainer) {
       modalContainer.classList.add("out");
-      modalContainer.classList.remove("one");
     }
   }
 });
