@@ -10,13 +10,13 @@
     {
       "en": "Ask:",
       "ar": ["اِسْأَلْ"],
-      "meaning": ["اِطْلُبْ مِنْ شَخْصٍ مَعِيَّنٍ إِعْطَائَكَ مَعْلُومَاتٍ أَوْ تَوْضِيحَاتٍ بِسُؤَالٍ"],
+      "meaning": ["اُطْلُبْ مِنْ شَخْصٍ مَعِيَّنٍ إِعْطَائَكَ مَعْلُومَاتٍ أَوْ تَوْضِيحَاتٍ بِسُؤَالٍ"],
       "translation": ["Request information or clarification from a specific person by posing a question"]
     },
     {
       "en": "Answer:",
       "ar": ["أَجِبْ"],
-      "meaning": ["رُدَّ بِمَعْلُومَاتٍ أَوْ تَوْضِيحًا بَعْدَ أَنْ يُطْرَحَ سُؤَالٌ"],
+      "meaning": ["رُدْ بِمَعْلُومَاتٍ أَوْ تَوْضِيحًا بَعْدَ أَنْ يُطْرَحَ سُؤَالٌ"],
       "translation": ["Respond with information or an explanation after a question is posed"]
     },
     {
@@ -40,7 +40,7 @@
     {
       "en": "Mark:",
       "ar": ["ضَعْ عَلَامَةً"],
-      "meaning": ["وَضَعُ عَلَامَةٍ أَوْ عَلَامَاتٍ لِلدَّلَالَةِ عَلَى شَيْءٍ مُعَيَّنٍ"],
+      "meaning": ["وَضَعَ عَلَامَةٍ أَوْ عَلَامَاتٍ لِلدَّلَالَةِ عَلَى شَيْءٍ مُعَيَّنٍ"],
       "translation": ["Placing a mark or marks to indicate something specific"]
     },
     {

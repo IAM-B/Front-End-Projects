@@ -1,9 +1,9 @@
 {
-  "ticket": "لِسُلَامٍ عَلَيْكُمْ",
+  "ticket": "السَلَامُ عَلَيْكُم",
   "vocabulary": [
     {
       "en": "Peace be upon you:",
-      "ar": ["السَلَامٍُ عَلَيْكُمْ"],
+      "ar": ["السَلَامُ عَلَيْكُم"],
       "meaning": ["تَحِيَّةٌ شَائِعَةٌ تُرَدُّ عَلَى النَّاسِ عِنْدَ التَّرَحْيب"],
       "translation": ["A common greeting exchanged among people as a form of welcome"]
     },
@@ -44,7 +44,7 @@
       "translation": ["A welcome to someone upon their arrival or presence"]
     },
     {
-      "en": "Hello:",
+      "en": "Welcome:",
       "ar": ["مَرْحَبًا"],
       "meaning": ["تَحِيَّةٌ تُرَدُّ عِنْدَ لُقَاءِ شَخْصٍ"],
       "translation": ["A greeting said when meeting someone"]

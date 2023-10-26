@@ -4,7 +4,7 @@
     {
       "en": "Days of the week:",
       "ar": ["أَيَّامُ الأُسْبُوعِ"],
-      "meaning": ["الأيام السبعة المعترف بها في أسبوع وتُستخدم للتنظيم الزمني"],
+      "meaning": ["الْأَيَّامُ السَّبْعَةُ الْمُعْتَرَفُ بِهَا فِي الْأُسْبُوعِ وَتُسْتَخْدَمُ لِلتَّنْظِيمِ الزَّمَنِيِّ"],
       "translation": ["The seven days recognized in a week, used for chronological organization"]
     },
     {
@@ -46,7 +46,7 @@
     {
       "en": "Saturday:",
       "ar": ["السَّبْتُ"],
-      "meaning": ["اليَوْمُ السَّابِعُ مِنْ أَيَّامِ الْأُسْبُوعِ وَهُو يَوْم السَّبْتِ الدِّينِيّ"],
+      "meaning": ["اليَوْمُ السَّابِعُ مِنْ أَيَّامِ الْأُسْبُوعِ وَهُو يَوْم السَّبْتِ"],
       "translation": ["The seventh day of the week and the religious Saturday"]
     }
   ]

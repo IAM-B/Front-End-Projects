@@ -287,7 +287,7 @@ function getTextWidth(text) {
   const spaceWidth = averageCharacterWidth;
   const spaceCount = (text.match(/ /g)).length;
   const totalSpaceWidth = spaceWidth * spaceCount;
-  const width = element.offsetWidth + totalSpaceWidth + 20;
+  const width = element.offsetWidth + totalSpaceWidth + 30;
   document.body.removeChild(element);
   return width;
 }

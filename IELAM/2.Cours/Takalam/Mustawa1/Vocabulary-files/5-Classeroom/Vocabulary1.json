@@ -98,10 +98,10 @@
       "translation": ["Located on the left side of something"]
     },
     {
-      "en": "Pick up:",
-      "ar": ["هاتِ"],
-      "meaning": ["أَخذ شَيء ما بيَن اليَدَيْن"],
-      "translation": ["To take something into your hand or hands"]
+      "en": "Give:",
+      "ar": ["هَاتِ"],
+      "meaning": ["هَاتِ شَيْءٍ"],
+      "translation": ["Give me something"]
     },
     {
       "en": "Lower:",
@@ -117,7 +117,7 @@
     },
     {
       "en": "Take:",
-      "ar": ["خُذ", "/", "تَفَضَل"],
+      "ar": ["خُذ", "/", "تَفَضَّل"],
       "meaning": ["قَبُول أو الحُصول عَلى شَيء ما مِن شَخْص ما"],
       "translation": ["To accept or obtain something from someone"]
     },
