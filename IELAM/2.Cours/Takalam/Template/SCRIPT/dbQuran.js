@@ -285,7 +285,7 @@ function getTextWidth(text) {
   document.body.appendChild(element);
   const averageCharacterWidth = element.offsetWidth / text.length;
   const spaceWidth = averageCharacterWidth;
-  const spaceCount = (text.match(/ /g)).length;
+  const spaceCount = text.match(/ /g).length;
   const totalSpaceWidth = spaceWidth * spaceCount;
   const width = element.offsetWidth + totalSpaceWidth + 30;
   document.body.removeChild(element);
@@ -298,6 +298,11 @@ function checkAnswers() {
     "#mushaf-layout .input-container"
   );
 
+  const inputContent = document.querySelectorAll(".input-container");
+  inputContent.forEach((element) => {
+    element.classList.add("flex-content");
+  });
+  
   inputContainers.forEach((inputContainer, index) => {
     const inputChildren = Array.from(inputContainer.children);
     let userAnswers = [];
@@ -459,4 +464,3 @@ function restart() {
   populateTable();
   setTimeout(createBtn, 500);
 }
-
