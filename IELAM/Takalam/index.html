@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moustaoua 1</title>
+  </head>
+  <body>
+    <!--TEMPLATE-->
+    <div id="setings-content"></div>
+    <div id="html-content"></div>
+    <div id="css-content"></div>
+    <script>
+      const contentDivSeting = document.getElementById("setings-content");
+      fetch("Template/HTML-CSS/setings.html")
+        .then((response) => response.text())
+        .then((htmlContent) => {
+          contentDivSeting.innerHTML = htmlContent;
+        })
+        .catch((error) => {
+          console.error(
+            "Une erreur s'est produite lors du chargement de la page:",
+            error
+          );
+        });
+
+      const contentDivHtml = document.getElementById("html-content");
+      fetch("Template/HTML-CSS/inner-html.html")
+        .then((response) => response.text())
+        .then((htmlContent) => {
+          contentDivHtml.innerHTML = htmlContent;
+        })
+        .catch((error) => {
+          console.error(
+            "Une erreur s'est produite lors du chargement de la page:",
+            error
+          );
+        });
+
+      const contentDivCss = document.getElementById("css-content");
+      fetch("Template/HTML-CSS/inner-css.html")
+        .then((response) => response.text())
+        .then((htmlContent) => {
+          contentDivCss.innerHTML = htmlContent;
+        })
+        .catch((error) => {
+          console.error(
+            "Une erreur s'est produite lors du chargement de la page:",
+            error
+          );
+        });
+    </script>
+    <!---->
+
+    <!--CONTENT-->
+    <!--MAIN-->
+    <main id="main-section">
+      <div class="main-bg-img">
+        <section class="section-exercices">
+          <div id="vocab-section" class="exercice">
+            <fieldset>
+              <legend class="vocab-en">
+                <div class="ticket" translate="no"></div>
+              </legend>
+              <form id="vocab" name="exo"></form>
+            </fieldset>
+          </div>
+          <div id="exercice-section">
+            <div class="exercice">
+              <fieldset class="exercices-fieldset">
+                <legend class="vocab-en">
+                  <div class="ticket" translate="no"></div>
+                </legend>
+                <div id="Aff"></div>
+                <form id="exo" name="exo"></form>
+              </fieldset>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!--FOOTER-->
+    <footer>
+      <div class="footer">
+        <h1 id="footer"></h1>
+      </div>
+    </footer>
+    <!--PAGE BTN-->
+    <div class="btn-content"></div>
+    <!---->
+
+    <!-- SCRIPT -->
+    <script>
+      function insertScript(code) {
+        const script = document.createElement("script");
+        script.text = code;
+        document.body.appendChild(script);
+      }
+
+      const scriptUrl = [
+        "Template/SCRIPT/keyboard.js",
+        "Template/SCRIPT/ux.js",
+        "Template/SCRIPT/exercice-charger.js",
+        "Template/SCRIPT/process-vocabularies.js",
+      ];
+
+      scriptUrl.forEach((url) => {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            setTimeout(() => {
+              insertScript(data);
+            }, 100);
+          })
+          .catch((error) => {
+            console.error(
+              "Une erreur s'est produite lors du chargement du script:",
+              error
+            );
+          });
+      });
+    </script>
+    <!---->
+  </body>
+</html>
+IELAM/Quran/Assets/JS/app-quran.js

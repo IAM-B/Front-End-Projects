@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Assets/Css/font.css" />
+    <title>Quran</title>
+  </head>
+  <body>
+    <!--TEMPLATE-->
+    <div id="html-content"></div>
+    <div id="css-content"></div>
+    <script>
+      const contentDivHtml = document.getElementById("html-content");
+      fetch("../Takalam/Template/HTML-CSS/inner-html.html")
+        .then((response) => response.text())
+        .then((htmlContent) => {
+          contentDivHtml.innerHTML = htmlContent;
+        })
+        .catch((error) => {
+          console.error(
+            "Une erreur s'est produite lors du chargement de la page:",
+            error
+          );
+        });
+
+      const contentDivCss = document.getElementById("css-content");
+      fetch("../Quran/Assets/Css/inner-css.html")
+        .then((response) => response.text())
+        .then((htmlContent) => {
+          contentDivCss.innerHTML = htmlContent;
+        })
+        .catch((error) => {
+          console.error(
+            "Une erreur s'est produite lors du chargement de la page:",
+            error
+          );
+        });
+    </script>
+    <!---->
+
+    <!--CONTENT-->
+    <!--MAIN-->
+    <main id="main-section">
+      <div class="bg-img">
+        <section id="mushaf-layout"></section>
+      </div>
+    </main>
+
+    <!--FOOTER-->
+    <footer>
+      <div class="footer">
+        <h1 id="footer">PAGE FOOTER</h1>
+      </div>
+    </footer>
+    <!---->
+
+    <!-- SCRIPT -->
+    <script>
+      function insertScript(code) {
+        const script = document.createElement("script");
+        script.text = code;
+        document.body.appendChild(script);
+      }
+
+      const scriptUrls = [
+        "Assets/JS/keyboard.js",
+        "Assets/JS/ux.js",
+        "Assets/JS/app-quran.js",
+      ];
+
+      scriptUrls.forEach((url) => {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            insertScript(data);
+          })
+          .catch((error) => {
+            console.error(
+              "Une erreur s'est produite lors du chargement du script:",
+              error
+            );
+          });
+      });
+    </script>
+    <!---->
+  </body>
+</html>
