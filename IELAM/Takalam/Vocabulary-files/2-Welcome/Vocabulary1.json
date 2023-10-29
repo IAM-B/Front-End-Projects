@@ -32,28 +32,16 @@
       "translation": ["A greeting said to someone who brightens your night and makes you happy"]
     },
     {
-      "en": "Welcome:",
+      "en": "Welcome (Upon Arrival):",
       "ar": ["أَهْلًا وَسَهْلًا"],
       "meaning": ["تَرَحُّبٌ بِشَخْصٍ مَا عِنْدَ قِدُومِهِ أَو تَوَاجُدِهِ"],
       "translation": ["A welcome to someone upon their arrival or presence"]
     },
     {
-      "en": "Welcome to you:",
-      "ar": ["أَهْلًا بِكَ"],
-      "meaning": ["تَرَحُّبٌ بِشَخْصٍ مَا عِنْدَ قِدُومِهِ أَو تَوَاجُدِهِ"],
-      "translation": ["A welcome to someone upon their arrival or presence"]
-    },
-    {
-      "en": "Welcome:",
+      "en": "Welcome (Meeting Someone):",
       "ar": ["مَرْحَبًا"],
       "meaning": ["تَحِيَّةٌ تُرَدُّ عِنْدَ لُقَاءِ شَخْصٍ"],
       "translation": ["A greeting said when meeting someone"]
-    },
-    {
-      "en": "Welcome to you:",
-      "ar": ["مَرْحَبًا بِكَ"],
-      "meaning": ["تَرَحُّبٌ بِشَخْصٍ عِنْدَ قِدُومِهِ أَو تَوَاجُدِهِ"],
-      "translation": ["A welcome to someone upon their arrival or presence"]
     },
     {
       "en": "How are you?:",
