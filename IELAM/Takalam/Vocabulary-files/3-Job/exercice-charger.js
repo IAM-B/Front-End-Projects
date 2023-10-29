@@ -72,6 +72,7 @@ exerciseButtonsContainer.appendChild(buttonPageContent);
 exerciceIds.forEach((exerciceId, index) => {
   const button = document.createElement("button");
   button.textContent = `${index + 1}`;
+  button.id = "btn" + `${index + 1}`;
   button.classList.add("exercise-button");
   button.addEventListener("click", () => {
     counter = -1;

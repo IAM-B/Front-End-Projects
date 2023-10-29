@@ -76,9 +76,6 @@ function createVocabularySection(vocabulary) {
     jointGroup.push(currentGroup.join(" "));
   }
 
-  console.log("currentGroup=" + currentGroup);
-  console.log("jointGroup=" + jointGroup);
-
   let validIndex = 0;
 
   for (let j = jointGroup.length - 1; j >= 0; j--) {
