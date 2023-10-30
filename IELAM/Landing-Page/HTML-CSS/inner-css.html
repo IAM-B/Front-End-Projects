@@ -1,0 +1,212 @@
+<style>
+  @import url("https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css");
+  @import url("https://fonts.googleapis.com/css2?family=Amiri&family=Amiri+Quran&family=Nothing+You+Could+Do&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@500&display=swap");
+  @import url("");
+  @font-face {
+    font-family: "ayah-num";
+    src: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Quran/Assets/Font/alfont_com_Hafs-Font-v0.09-2.otf?inline=true")
+      format("opentype");
+  }
+
+  :root {
+    --couleur-fond: #e4ebf5;
+    --couleur-contrast: #ced4dc;
+    --couleur-btn: #031c40;
+    --couleur-text: #031c40;
+    --couleur-box-shadow-int: inset -3px -3px 3px #ffffff44,
+      inset 3px 3px 3px #898e9244;
+    --couleur-box-shadow-out: -3px -3px 3px #ffffff44, 3px 3px 3px #898e9244;
+    --couleur-box-shadow-out-hover: 0px -2px 1px #ffffff44,
+      0px 1px 1px #898e9244;
+    --couleur-text-shadow: -1px -2px 3px #ffffff77, 1px 2px 3px #898e9244;
+    --couleur-switch: #ffffff;
+    --couleur-fond-bg: radial-gradient(circle, #e4ebf5, #e4ebf580 50%);
+    --couleur-fond-row: linear-gradient(#e4ebf550, #e4ebf5);
+    --font-arabic1: "Amiri", serif;
+    --font-arabic2: "Amiri Quran", serif;
+    --font-latin: "Nothing You Could Do", cursive;
+    --font-ayah: "ayah-num", cursive;
+    --font-logo: "Noto Nastaliq Urdu";
+
+    --bg-Quran: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Quran/Assets/IMG/paterne.svg");
+    transition: all 0.3s ease-in-out;
+  }
+  body.dark {
+    --couleur-fond: #0d1117;
+    --couleur-contrast: #31363b;
+    --couleur-btn: #e4ebf5;
+    --couleur-text: #647075;
+    --couleur-box-shadow-int: inset -3px -3px 3px #30303044,
+      inset 3px 3px 3px #00000044;
+    --couleur-box-shadow-out: -3px -3px 3px #30303044, 3px 3px 3px #00000044;
+    --couleur-box-shadow-out-hover: 0px -1px 1px #30303044,
+      0px 2px 1px #00000044;
+    --couleur-text-shadow: -1px -2px 3px #30303077, 1px 2px 3px #00000044;
+    --couleur-switch: #000000;
+    --couleur-fond-bg: radial-gradient(circle, #0d1117 25%, #0d111799 100%);
+    --couleur-fond-row: linear-gradient(#0d111750 10%, #0d1117);
+    --bg-Quran: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Quran/Assets/IMG/paterne-dark.svg");
+    transition: all 0.3s ease-in-out;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--couleur-fond);
+  }
+
+  header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 5px;
+    overflow: hidden;
+  }
+
+  .slider {
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .slide {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+  }
+
+  .slide1 {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  #3d-svg {
+    z-index: 999999;
+  }
+  #3d-effect1 {
+    transition: transform 0.3s;
+  }
+
+  #3d-effect2 {
+    transition: transform 0.3s;
+  }
+
+  .slide2 {
+    width: 50%;
+    height: 50%;
+    margin-top: 5%;
+    margin-right: -10%;
+    transform: rotate(35deg);
+  }
+
+  .logo-a {
+    stroke-dasharray: 6000;
+    stroke-dashoffset: 6000;
+    animation: anime 50s ease forwards;
+  }
+
+  @keyframes anime {
+    100% {
+      stroke-dashoffset: 1000;
+    }
+  }
+
+  .header-content {
+    position: absolute;
+    width: 450px;
+    margin-top: 40%;
+    margin-left: 60%;
+    transform: translate(-50%, -50%);
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input[type="email"] {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  button {
+    background-color: #f8f8f8;
+    color: #333;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .main-sections {
+    background-color: var(--couleur-fond);
+    text-align: center;
+    min-height: 100vh;
+  }
+
+  .main-sections h2 {
+    font-size: 2rem;
+  }
+
+  .main-sections p {
+    font-size: 1rem;
+  }
+
+  #section1 {
+  }
+
+  #section2 {
+  }
+
+  #section3 {
+  }
+
+  #section4 {
+  }
+
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 450) {
+    .slide {
+      width: 50%;
+    }
+  }
+</style>
