@@ -283,11 +283,16 @@ function getTextWidth(text) {
   const element = document.createElement("span");
   element.textContent = text;
   document.body.appendChild(element);
+  let width;
   const averageCharacterWidth = element.offsetWidth / text.length;
   const spaceWidth = averageCharacterWidth;
   const spaceCount = text.match(/ /g).length;
   const totalSpaceWidth = spaceWidth * spaceCount;
-  const width = element.offsetWidth + totalSpaceWidth + 35;
+  if (window.innerWidth <= 550) {
+    width = element.offsetWidth + totalSpaceWidth + 35;
+  } else {
+    width = element.offsetWidth + totalSpaceWidth + 120;
+  }
   document.body.removeChild(element);
   return width;
 }
