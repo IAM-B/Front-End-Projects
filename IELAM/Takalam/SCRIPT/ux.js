@@ -1,3 +1,8 @@
+// Script to enforce English language (lang="en")
+if (document.documentElement.getAttribute('lang') !== 'en') {
+  document.documentElement.setAttribute('lang', 'en');
+}
+
 // Function that redirects to the top of the page on reload
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
