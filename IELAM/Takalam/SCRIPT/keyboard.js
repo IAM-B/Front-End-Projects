@@ -18,12 +18,10 @@ const generateVirtualKeyboard = () => {
       const button = document.createElement("button");
       button.classList.add("keyboard-key");
       button.textContent = key;
-      button.setAttribute("translate", "no")
+      button.setAttribute("translate", "no");
 
       button.addEventListener("click", (event) => {
-        const selectedInput = document.querySelector(
-          ".input-fill.selected"
-        );
+        const selectedInput = document.querySelector(".input-fill.selected");
         if (selectedInput) {
           const currentValue = selectedInput.value;
           const currentCursorPosition = selectedInput.selectionStart;
@@ -40,12 +38,10 @@ const generateVirtualKeyboard = () => {
           let updatedCursorPosition;
 
           if (["َّ", "ُّ", "ِّ"].includes(clickedKey)) {
-            updatedValue =
-              textBeforeCursor + clickedKey + textAfterCursor;
+            updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
             updatedCursorPosition = currentCursorPosition + 2;
           } else {
-            updatedValue =
-              textBeforeCursor + clickedKey + textAfterCursor;
+            updatedValue = textBeforeCursor + clickedKey + textAfterCursor;
             updatedCursorPosition = currentCursorPosition + 1;
           }
 
@@ -71,60 +67,65 @@ const generateVirtualKeyboard = () => {
   const spaceRow = document.createElement("div");
   spaceRow.classList.add("keyboard-row");
 
+  // Créez le bouton de suppression
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("keyboard-key", "delete");
-  deleteButton.setAttribute("translate", "no")
+  deleteButton.setAttribute("translate", "no");
   deleteButton.innerHTML =
-    "<span class='delete-icon'><i class='fas fa-chevron-right'></i></span>";
+    "<span class='delete-icon'><i class='fas fa-chevron-right'></i></span";
+
+  // Ajoutez un gestionnaire d'événements pour le clic sur le bouton
   deleteButton.addEventListener("click", () => {
     const selectedInput = document.querySelector(".input-fill.selected");
 
     if (selectedInput) {
-      const currentValue = selectedInput.value;
       const currentCursorPosition = selectedInput.selectionStart;
-      const textBeforeCursor = currentValue.substring(
+      const textBeforeCursor = selectedInput.value.substring(
         0,
         currentCursorPosition
       );
-      const textAfterCursor = currentValue.substring(
-        currentCursorPosition
+      const textAfterCursor = selectedInput.value.substring(
+        selectedInput.selectionEnd
       );
-      const clickedKey = event.target.textContent;
 
-      let updatedCursorPosition;
-
-      if (
-        textBeforeCursor.endsWith("\u0651\u064E") ||
-        textBeforeCursor.endsWith("\u0651\u064F") ||
-        textBeforeCursor.endsWith("\u0651\u0650")
-      ) {
-        const textBeforeCursorWithoutChedda = textBeforeCursor.slice(
-          0,
-          -2
-        );
-        updatedCursorPosition = currentCursorPosition - 2;
-        selectedInput.value =
-          textBeforeCursorWithoutChedda + clickedKey + textAfterCursor;
+      if (selectedInput.selectionStart !== selectedInput.selectionEnd) {
+        // Supprime la sélection
+        selectedInput.value = textBeforeCursor + textAfterCursor;
+        selectedInput.selectionStart = currentCursorPosition;
+        selectedInput.selectionEnd = currentCursorPosition;
       } else {
-        const textBeforeCursorWithoutLastCharacter =
-          textBeforeCursor.slice(0, -1);
-        selectedInput.value =
-          textBeforeCursorWithoutLastCharacter +
-          clickedKey +
-          textAfterCursor;
-        updatedCursorPosition = currentCursorPosition - 1;
+        // Si aucune sélection n'a été faite, supprime simplement le caractère précédent
+        if (
+          textBeforeCursor.endsWith("\u0651\u064E") ||
+          textBeforeCursor.endsWith("\u0651\u064F") ||
+          textBeforeCursor.endsWith("\u0651\u0650")
+        ) {
+          // Gère le cas où le texte précédent se termine par un caractère spécifique
+          const textBeforeCursorWithoutChedda = textBeforeCursor.slice(0, -2);
+          selectedInput.value = textBeforeCursorWithoutChedda + textAfterCursor;
+          selectedInput.selectionStart = currentCursorPosition - 2;
+          selectedInput.selectionEnd = currentCursorPosition - 2;
+        } else {
+          // Supprime simplement le caractère précédent
+          const textBeforeCursorWithoutLastCharacter = textBeforeCursor.slice(
+            0,
+            -1
+          );
+          selectedInput.value =
+            textBeforeCursorWithoutLastCharacter + textAfterCursor;
+          selectedInput.selectionStart = currentCursorPosition - 1;
+          selectedInput.selectionEnd = currentCursorPosition - 1;
+        }
       }
-
-      selectedInput.selectionStart = updatedCursorPosition;
-      selectedInput.selectionEnd = updatedCursorPosition;
     }
   });
 
+  // Ajoutez le bouton de suppression à l'endroit où vous le souhaitez dans votre interface utilisateur (spaceRow, d'après votre exemple)
   spaceRow.appendChild(deleteButton);
 
   const tatweelButton = document.createElement("button");
   tatweelButton.classList.add("keyboard-key", "tatweel");
-  tatweelButton.setAttribute("translate", "no")
+  tatweelButton.setAttribute("translate", "no");
   tatweelButton.textContent = "ـ";
   spaceRow.appendChild(tatweelButton);
 
@@ -133,13 +134,8 @@ const generateVirtualKeyboard = () => {
     if (selectedInput) {
       const currentValue = selectedInput.value;
       const currentCursorPosition = selectedInput.selectionStart;
-      const textBeforeCursor = currentValue.substring(
-        0,
-        currentCursorPosition
-      );
-      const textAfterCursor = currentValue.substring(
-        currentCursorPosition
-      );
+      const textBeforeCursor = currentValue.substring(0, currentCursorPosition);
+      const textAfterCursor = currentValue.substring(currentCursorPosition);
       const clickedKey = event.target.textContent;
 
       let updatedValue;
@@ -157,7 +153,7 @@ const generateVirtualKeyboard = () => {
 
   const spaceButton = document.createElement("button");
   spaceButton.classList.add("keyboard-key", "space");
-  spaceButton.setAttribute("translate", "no")
+  spaceButton.setAttribute("translate", "no");
   spaceButton.textContent = " ";
   spaceRow.appendChild(spaceButton);
 
@@ -166,13 +162,8 @@ const generateVirtualKeyboard = () => {
     if (selectedInput) {
       const currentValue = selectedInput.value;
       const currentCursorPosition = selectedInput.selectionStart;
-      const textBeforeCursor = currentValue.substring(
-        0,
-        currentCursorPosition
-      );
-      const textAfterCursor = currentValue.substring(
-        currentCursorPosition
-      );
+      const textBeforeCursor = currentValue.substring(0, currentCursorPosition);
+      const textAfterCursor = currentValue.substring(currentCursorPosition);
       const clickedKey = event.target.textContent;
 
       let updatedValue;
@@ -190,7 +181,7 @@ const generateVirtualKeyboard = () => {
 
   const leftButton = document.createElement("button");
   leftButton.classList.add("keyboard-key", "direction");
-  leftButton.setAttribute("translate", "no")
+  leftButton.setAttribute("translate", "no");
   leftButton.innerHTML = "<i class='fas fa-arrow-left'></i>";
   leftButton.addEventListener("click", () => {
     const selectedInput = document.querySelector(".input-fill.selected");
@@ -206,7 +197,7 @@ const generateVirtualKeyboard = () => {
 
   const rightButton = document.createElement("button");
   rightButton.classList.add("keyboard-key", "direction");
-  rightButton.setAttribute("translate", "no")
+  rightButton.setAttribute("translate", "no");
   rightButton.innerHTML = "<i class='fas fa-arrow-right'></i>";
   rightButton.addEventListener("click", () => {
     const selectedInput = document.querySelector(".input-fill.selected");
@@ -235,9 +226,7 @@ const attachKeyboardEvents = (input) => {
     key.addEventListener("click", () => {
       const character = key.textContent;
 
-      const selectedInput = document.querySelector(
-        ".input-fill.selected"
-      );
+      const selectedInput = document.querySelector(".input-fill.selected");
 
       if (input === selectedInput) {
         selectedInput.value;

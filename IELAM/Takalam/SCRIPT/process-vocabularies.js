@@ -356,7 +356,7 @@ const vocab = (vocabularies) => {
 
       if (!isCorrect) {
         const section = document.querySelector("#main-section");
-        const offset = section.offsetTop + 600;
+        const offset = section.offsetTop + 200;
         window.scrollTo({ top: offset, behavior: "smooth" });
         const inputElement = document.getElementById(i);
         inputElement.style.color = "#ff0000";
@@ -369,7 +369,7 @@ const vocab = (vocabularies) => {
                   <i class="fi fi-br-cross"></i>
                   </button>
                 </div>
-                <h1 class="h1-modal" translate="no">اللهُ يَسَهِّلُ لَكِ</h1>
+                <h1 class="h1-modal" translate="no">اللَّه يَسَهِّلُ لَك</h1>
                 <h3 class="translation">Correct the wrong answers in red and try again.</h3>
               </div>
             </div>
@@ -385,7 +385,7 @@ const vocab = (vocabularies) => {
 
   if (allAnswersProvided) {
     const section = document.querySelector("#main-section");
-    const offset = section.offsetTop + 600;
+    const offset = section.offsetTop + 200;
     window.scrollTo({ top: offset, behavior: "smooth" });
 
     if (score === n) {
@@ -397,7 +397,7 @@ const vocab = (vocabularies) => {
                 <i class="fi fi-br-cross"></i>
                 </button>
               </div>
-              <h1 class="h1-modal" translate="no">اللهُ بَارِكَ</h1>
+              <h1 class="h1-modal" translate="no">اللَّه بَارِك</h1>
               <h3 class="translation">All answers are correct.</h3>
             </div>
           </div>
@@ -412,7 +412,7 @@ const vocab = (vocabularies) => {
                <i class="fi fi-br-cross"></i>
                </button>
               </div>
-              <h1 class="h1-modal" translate="no">اللهُ يَسَهِّلُ لَكِ</h1>
+              <h1 class="h1-modal" translate="no">اللَّه يَسَهِّلُ لَك</h1>
               <h3 class="translation">Correct the wrong answers in red and try again.</h3>
             </div>
           </div>
@@ -434,7 +434,7 @@ function goToNextExercise() {
     if (nextExercice) {
       setTimeout(() => {
         nextExercice.click();
-      }, 10000);
+      }, 5000);
     }
   } else {
     const completedExercice = document.querySelector(
@@ -443,7 +443,7 @@ function goToNextExercise() {
     if (completedExercice) {
       setTimeout(() => {
         completedExercice.click();
-      }, 10000);
+      }, 5000);
     } else {
       console.error(
         "L'élément avec la classe 'membership-layout__complete-lecture-button' n'a pas été trouvé."
@@ -459,7 +459,7 @@ const showCorrections = (vocabularies) => {
     results.push(document.getElementById(i).value.toUpperCase());
   }
   const section = document.querySelector("#main-section");
-  const offset = section.offsetTop + 600;
+  const offset = section.offsetTop + 200;
   window.scrollTo({ top: offset, behavior: "smooth" });
 
   const ChampTxt = document.getElementById("Aff");
@@ -536,7 +536,7 @@ const showExerciseSection = () => {
   setTimeout(() => {
     vocabSection.style.display = "none";
     exerciseSection.style.display = "block";
-    const offset = section.offsetTop + 600;
+    const offset = section.offsetTop + 200;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 500);
 };
@@ -555,7 +555,7 @@ const showVocabularySection = () => {
   setTimeout(() => {
     vocabSection.style.display = "block";
     exerciseSection.style.display = "none";
-    const offset = section.offsetTop + 600;
+    const offset = section.offsetTop + 200;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 500);
 };

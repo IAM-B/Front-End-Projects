@@ -16,9 +16,9 @@ setTimeout(function () {
     const imgBG = document.querySelector(".loader-wrapper");
     if (imgBG) {
       imgBG.remove();
-      setTimeout(function () {
+      /*setTimeout(function () {
         redirectToSection();
-      }, 1000);
+      }, 1000);*/
     }
   }, 1000);
 }, 5000);
