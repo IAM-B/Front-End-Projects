@@ -104,13 +104,13 @@ checkScreenWidth();
 window.addEventListener("resize", checkScreenWidth);
 
 // Function that redirects to the main-section section after loading
-function redirectToSection() {
+/*function redirectToSection() {
   setTimeout(function () {
     const section = document.getElementById("main-section");
     const offset = section.offsetTop;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 2000);
-}
+}*/
 
 // Function share button
 const shareButtonOne = document.getElementById("shareButtonOne");
