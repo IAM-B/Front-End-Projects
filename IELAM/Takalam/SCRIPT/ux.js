@@ -8,21 +8,6 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
-// Function that makes the loader disappear
-setTimeout(function () {
-  const loader = document.querySelector(".loader-wrapper");
-  loader.classList.add("hide");
-  setTimeout(function () {
-    const imgBG = document.querySelector(".loader-wrapper");
-    if (imgBG) {
-      imgBG.remove();
-      /*setTimeout(function () {
-        redirectToSection();
-      }, 1000);*/
-    }
-  }, 1000);
-}, 5000);
-
 // Event listener for scroll on the nav bar
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navwrapper");
