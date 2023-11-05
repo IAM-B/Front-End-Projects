@@ -10,8 +10,8 @@
     {
       "en": "Sunday:",
       "ar": ["الْأَحَدُ"],
-      "meaning": ["أَوَّلُ يَوْمٍ مِنْ الْأُسْبُوعِ بِالتَّقْوِيم الْمِيلَادِي"],
-      "translation": ["The first day of the week in the Gregorian calendar"]
+      "meaning": ["أَوَّلُ يَوْمٍ مِنْ الْأُسْبُوعِ بِالتَّقْوِيم الْهِجْرِيِّ"],
+      "translation": ["The first day of the week in the Hégirien calendar"]
     },
     {
       "en": "Monday:",
@@ -40,14 +40,14 @@
     {
       "en": "Friday:",
       "ar": ["الْجُمُعَةُ"],
-      "meaning": ["اليَوْمُ السَّادِسُ مِنْ أَيَّامِ الْأُسْبُوعِ وَهُو يَوْم الْجُمُعَةِ الدِّينِيّ"],
-      "translation": ["The sixth day of the week and the religious Friday"]
+      "meaning": ["اليَوْمُ السَّادِسُ مِنْ أَيَّامِ الْأُسْبُوعِ وَهُو يَوم الصَّلَاةِ"],
+      "translation": ["The sixth day of the week and the day of the Friday prayer"]
     },
     {
       "en": "Saturday:",
       "ar": ["السَّبْتُ"],
       "meaning": ["اليَوْمُ السَّابِعُ مِنْ أَيَّامِ الْأُسْبُوعِ وَهُو يَوْم السَّبْتِ"],
-      "translation": ["The seventh day of the week and the religious Saturday"]
+      "translation": ["The seventh day of the week"]
     }
   ]
 }
