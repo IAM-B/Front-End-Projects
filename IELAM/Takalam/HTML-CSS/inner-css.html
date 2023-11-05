@@ -10633,11 +10633,10 @@
   }
   .keyboard-key {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     width: 65px;
     height: 60px;
-    padding: 5px;
     font-size: 3vh;
     font-weight: 100;
     font-family: var(--font-arabic2);
@@ -10659,39 +10658,24 @@
   .keyboard-key.direction,
   .keyboard-key.delete {
     display: flex;
-    width: 150px;
+    width: 90px;
     margin: 0 9px;
     justify-content: center;
     align-items: center;
   }
+  .keyboard-key.tatweel {
+    width: 90px;
+  }
   .keyboard-key.space {
-    width: 730px;
+    width: 550px;
     margin: 0 9px;
   }
-  @media screen and (max-width: 1023px) and (min-width: 769px) {
-    .keyboard {
-      padding: 8px 0;
-    }
-    .keyboard-key {
-      height: 42px;
-      margin: 5px 3px;
-    }
 
-    .keyboard-key.direction,
-    .keyboard-key.delete {
-      margin: 5px 3px;
-    }
-
-    .keyboard-key.space {
-      margin: 0 3px;
-    }
-  }
   @media screen and (max-width: 768px) {
     .keyboard {
       padding: 5px 0;
     }
     .keyboard-key {
-      height: 35px;
       margin: 4px 3px;
     }
 
@@ -10709,9 +10693,9 @@
       padding: 5px 0;
     }
     .keyboard-key {
-      height: 45px;
+      height: 50px;
       margin: 3px 2px;
-      font-size: 2.5vh;
+      font-size: 5vw;
     }
     .keyboard-key.direction,
     .keyboard-key.delete {
@@ -10719,6 +10703,18 @@
     }
     .keyboard-key.space {
       margin: 0 2px;
+    }
+  }
+  @media screen and (max-width: 395px) {
+    .keyboard-key {
+      height: 45px;
+    }
+  }
+  @media screen and (max-width: 340px) {
+    .keyboard-key {
+      display: flex;
+      align-items: stretch;
+      height: 40px;
     }
   }
 </style>
