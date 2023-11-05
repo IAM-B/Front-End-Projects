@@ -110,7 +110,7 @@ function createVocabularySection(vocabulary) {
     if (currentGroup.includes("x")) {
       if (/[x]/.test(arElement)) {
         continue;
-      } 
+      }
       const h1 = document.createElement("h1");
       h1.classList.add("h1-modal");
       h1.setAttribute("translate", "no");
@@ -320,7 +320,6 @@ const vocab = (vocabularies) => {
   for (let i = 0; i <= counter; i++) {
     results.push(document.getElementById(i).value.toUpperCase());
   }
-
   const ChampTxt = document.getElementById("Aff");
   ChampTxt.style.display = "block";
 
@@ -332,14 +331,16 @@ const vocab = (vocabularies) => {
   const processArabicVocabulary = (arVocabulary) => {
     return arVocabulary
       .filter((word) => !["/", "ج", "x"].includes(word))
-      .map((word) => word.replace(/[ًٌٍَُِّْ]/g, ""));
+      .map((word) => word.replace(/[ًٌٍَُِّْ؟]/g, ""));
   };
 
   for (let i = 0; i < vocabularies.length; i++) {
     const arVocabulary = vocabularies[i].ar;
     goodRep.push(...processArabicVocabulary(arVocabulary));
     goodRep2.push(
-      ...arVocabulary.filter((word) => !["/", "ج", "x"].includes(word))
+      ...arVocabulary
+        .map((word) => word.replace(/؟/g, ""))
+        .filter((word) => !["/", "ج", "x"].includes(word))
     );
   }
 
@@ -351,9 +352,9 @@ const vocab = (vocabularies) => {
       allAnswersProvided = false;
     } else {
       const isCorrect =
-        results[i].replace(/\s/g, "") === goodRep[i].replace(/\s/g, "") ||
-        results[i].replace(/\s/g, "") === goodRep2[i].replace(/\s/g, "");
-
+      results[i].replace(/[؟\s]/g, "") === goodRep[i].replace(/[؟\s]/g, "") ||
+      results[i].replace(/[؟\s]/g, "") === goodRep2[i].replace(/[؟\s]/g, "");         
+      console.log("results:" + results);
       if (!isCorrect) {
         const section = document.querySelector("#main-section");
         const offset = section.offsetTop + 200;
