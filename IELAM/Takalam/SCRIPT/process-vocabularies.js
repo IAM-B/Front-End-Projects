@@ -433,8 +433,16 @@ function goToNextExercise() {
     const nextExercice = document.querySelector("#btn" + `${nextIndex}`);
     if (nextExercice) {
       setTimeout(() => {
-        nextExercice.click();
-      }, 5000);
+        const modalClosure = document.getElementById("Aff");
+        if (modalClosure) {
+          nextExercice.click();
+          setTimeout(() => {
+            modalClosure.innerHTML = "";
+          }, 1000);
+        } else {
+          console.error("L'élément .modal-container n'a pas été trouvé.");
+        }
+      }, 3000);
     }
   } else {
     const completedExercice = document.querySelector(
@@ -443,7 +451,7 @@ function goToNextExercise() {
     if (completedExercice) {
       setTimeout(() => {
         completedExercice.click();
-      }, 5000);
+      }, 3000);
     } else {
       console.error(
         "L'élément avec la classe 'membership-layout__complete-lecture-button' n'a pas été trouvé."
