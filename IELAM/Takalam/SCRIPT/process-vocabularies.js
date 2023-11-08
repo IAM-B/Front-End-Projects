@@ -324,7 +324,7 @@ const vocab = (vocabularies) => {
   ChampTxt.style.display = "block";
 
   let score = 0;
-  const goodRep = [];
+  const goodRep1 = [];
   const goodRep2 = [];
 
   // Helper function to process Arabic vocabulary
@@ -336,7 +336,7 @@ const vocab = (vocabularies) => {
 
   for (let i = 0; i < vocabularies.length; i++) {
     const arVocabulary = vocabularies[i].ar;
-    goodRep.push(...processArabicVocabulary(arVocabulary));
+    goodRep1.push(...processArabicVocabulary(arVocabulary));
     goodRep2.push(
       ...arVocabulary
         .map((word) => word.replace(/؟/g, ""))
@@ -344,7 +344,7 @@ const vocab = (vocabularies) => {
     );
   }
 
-  const n = goodRep.length;
+  const n = goodRep1.length;
   let allAnswersProvided = true;
 
   for (let i = 0; i < results.length; i++) {
@@ -352,7 +352,7 @@ const vocab = (vocabularies) => {
       allAnswersProvided = false;
     } else {
       const isCorrect =
-      results[i].replace(/[؟\s]/g, "") === goodRep[i].replace(/[؟\s]/g, "") ||
+      results[i].replace(/[؟\s]/g, "") === goodRep1[i].replace(/[؟\s]/g, "") ||
       results[i].replace(/[؟\s]/g, "") === goodRep2[i].replace(/[؟\s]/g, "");         
       console.log("results:" + results);
       if (!isCorrect) {
@@ -473,33 +473,33 @@ const showCorrections = (vocabularies) => {
 
   const ChampTxt = document.getElementById("Aff");
   let score = 0;
-  let goodRep = [];
+  let goodRep1 = [];
   let goodRep2 = [];
 
   for (let i = 0; i < vocabularies.length; i++) {
     const arVocabulary = vocabularies[i].ar;
-    const filteredArVocabulary = arVocabulary
+    const filteredArVocabulary1 = arVocabulary
       .filter((word) => !["/", "ج", "x"].includes(word))
-      .map((word) => word.replace(/[ًٌٍَُِّْ]/g, ""));
-    goodRep = goodRep.concat(filteredArVocabulary);
-    const filteredArVocabulary2 = arVocabulary.filter(
-      (word) => !["/", "ج", "x"].includes(word)
-    );
+      .map((word) => word.replace(/[ًٌٍَُِّ؟ْ]/g, ""));
+    goodRep1 = goodRep1.concat(filteredArVocabulary1);
+    const filteredArVocabulary2 = arVocabulary
+      .filter((word) => !["/", "ج", "x"].includes(word))
+      .map((word) => word.replace(/[؟]/g, ""));
     goodRep2 = goodRep2.concat(filteredArVocabulary2);
   }
   const corrections = [];
 
-  for (let i = 0; i < goodRep.length && i < goodRep2.length; i++) {
-    corrections.push(goodRep[i] + " / " + goodRep2[i]);
+  for (let i = 0; i < goodRep1.length && i < goodRep2.length; i++) {
+    corrections.push(goodRep1[i] + " / " + goodRep2[i]);
   }
   console.log(`corrections=[${corrections}]`);
 
-  const n = goodRep.length;
+  const n = goodRep1.length;
 
   for (let i = 0; i < n; i++) {
-    if (goodRep[i] !== results[i] && goodRep2[i] !== results[i]) {
+    if (goodRep1[i] !== results[i] && goodRep2[i] !== results[i]) {
       const isCorrect = false;
-      for (const correctAnswer of [goodRep[i], goodRep2[i]]) {
+      for (const correctAnswer of [goodRep1[i], goodRep2[i]]) {
         if (correctAnswer === results[i]) {
           isCorrect = true;
           break;
