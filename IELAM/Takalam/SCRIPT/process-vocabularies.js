@@ -280,7 +280,7 @@ function createBtn(vocabularies) {
 
   const btnCheck = document.createElement("button");
   btnCheck.innerHTML = "Check";
-  btnCheck.classList.add("hidden", "btn-exo", "correct");
+  btnCheck.classList.add("hidden", "btn-exo", "correct-answer");
   btnCheck.onclick = function () {
     btnCheck.classList.add("hidden");
     btnRestart.classList.remove("hidden");
@@ -324,14 +324,21 @@ const vocab = (vocabularies) => {
   ChampTxt.style.display = "block";
 
   let score = 0;
+  let isCorrect = false;
+  let allAnswersProvided = true;
+
   const goodRep1 = [];
   const goodRep2 = [];
+
+  const removeHarakat = (text) => {
+    return text.replace(/[ًٌٍَُِّْ\s]/g, "");
+  };
 
   // Helper function to process Arabic vocabulary
   const processArabicVocabulary = (arVocabulary) => {
     return arVocabulary
       .filter((word) => !["/", "ج", "x"].includes(word))
-      .map((word) => word.replace(/[ًٌٍَُِّْ؟]/g, ""));
+      .map((word) => removeHarakat(word));
   };
 
   for (let i = 0; i < vocabularies.length; i++) {
@@ -345,23 +352,40 @@ const vocab = (vocabularies) => {
   }
 
   const n = goodRep1.length;
-  let allAnswersProvided = true;
 
   for (let i = 0; i < results.length; i++) {
+    const inputElement = document.getElementById(i);
     if (!results[i]) {
       allAnswersProvided = false;
     } else {
-      const isCorrect =
-      results[i].replace(/[؟\s]/g, "") === goodRep1[i].replace(/[؟\s]/g, "") ||
-      results[i].replace(/[؟\s]/g, "") === goodRep2[i].replace(/[؟\s]/g, "");         
-      console.log("results:" + results);
+      const normalizedResult = results[i].replace(/[؟\s]/g, "");
+      const normalizedGoodRep1 = goodRep1[i].replace(/[؟\s]/g, "");
+      const normalizedGoodRep2 = goodRep2[i].replace(/[؟\s]/g, "");
+
+      const correctHarakat = normalizedResult === normalizedGoodRep2;
+      const correctWithoutHarakat = normalizedResult === normalizedGoodRep1;
+      const resultWithoutHarakat = removeHarakat(normalizedResult);
+      const errorWithoutHarakat = resultWithoutHarakat === normalizedGoodRep1;
+
+      if (correctHarakat || correctWithoutHarakat) {
+        score++;
+        isCorrect = true;
+        inputElement.classList.add("correct-answer", "correct");
+        inputElement.classList.remove("error", "error-harakat");
+      } else if (errorWithoutHarakat) {
+        isCorrect = false;
+        inputElement.classList.add("error-harakat", "error");
+        inputElement.classList.remove("correct-answer", "kalam", "correct");
+      } else {
+        isCorrect = false;
+        inputElement.classList.add("kalam", "error");
+        inputElement.classList.remove("correct-answer", "correct", "error-harakat");
+      }
+
       if (!isCorrect) {
         const section = document.querySelector("#main-section");
         const offset = section.offsetTop + 200;
         window.scrollTo({ top: offset, behavior: "smooth" });
-        const inputElement = document.getElementById(i);
-        inputElement.style.color = "#ff0000";
-        inputElement.classList.remove("correct-answer");
         ChampTxt.innerHTML = `<div class="modal-container one">
             <div class="modal-background">
               <div class="modal">
@@ -375,11 +399,6 @@ const vocab = (vocabularies) => {
               </div>
             </div>
           </div>`;
-      } else {
-        score++;
-        const inputElement = document.getElementById(i);
-        inputElement.style.color = "#00ff00";
-        inputElement.classList.add("correct-answer");
       }
     }
   }
@@ -414,7 +433,7 @@ const vocab = (vocabularies) => {
                </button>
               </div>
               <h1 class="h1-modal" translate="no">اللَّه يَسَهِّلُ لَك</h1>
-              <h3 class="translation">Correct the wrong answers in red and try again.</h3>
+              <h3 class="translation">Correct the errors in red and try again.</h3>
             </div>
           </div>
         </div>`;
@@ -472,7 +491,6 @@ const showCorrections = (vocabularies) => {
   window.scrollTo({ top: offset, behavior: "smooth" });
 
   const ChampTxt = document.getElementById("Aff");
-  let score = 0;
   let goodRep1 = [];
   let goodRep2 = [];
 
@@ -506,8 +524,8 @@ const showCorrections = (vocabularies) => {
         }
       }
       if (!isCorrect) {
-        document.getElementById(i).style.color = "var(--couleur-btn)";
-        document.getElementById(i).classList.remove("correct-answer");
+        document.getElementById(i).classList.add("show-corrections");
+        document.getElementById(i).classList.remove("correct-answer", "kalam", "error-harakat");
         document.getElementById(i).value = corrections[i];
       }
     }
@@ -517,14 +535,13 @@ const showCorrections = (vocabularies) => {
 // Function that resets the form
 let nbAttempts = 0;
 const resetForm = () => {
+  const allInputs = document.querySelectorAll(".input-fill");
+  allInputs.forEach((input) => {
+    input.classList.remove("show-corrections", "kalam", "error-harakat", "correct-answer");
+  });
   for (let i = 0; i <= counter; i++) {
     document.getElementById(i).value = "";
   }
-  const allInputs = document.querySelectorAll("input[type='text']");
-  allInputs.forEach((input) => {
-    input.style.color = "var(--couleur-btn)";
-    input.classList.add("correct-answer");
-  });
   const affDiv = document.getElementById("Aff");
   if (affDiv) {
     affDiv.style.display = "none";

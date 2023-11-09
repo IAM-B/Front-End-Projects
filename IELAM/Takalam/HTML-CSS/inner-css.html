@@ -85,9 +85,6 @@
     flex-direction: row-reverse;
     text-align: right;
   }
-  .inline-input {
-    flex-direction: row;
-  }
   #exercice-section {
     display: none;
   }
@@ -200,22 +197,6 @@
     width: 0px;
     margin: 0 35px 0 15px;
   }
-  .input-fill {
-    direction: rtl;
-    font-family: var(--font-arabic1);
-    text-align: right !important;
-    font-size: 1.1em;
-    font-weight: bold;
-    color: var(--couleur-btn);
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    width: 100%;
-    height: 15%;
-    padding: 2px 5px;
-    background: var(--couleur-fond);
-    transition: all 0.3s ease-in-out;
-  }
   input:focus {
     caret-color: var(--couleur-text);
     outline: none;
@@ -317,7 +298,8 @@
     position: relative;
   }
   .h1-modal {
-    font-family: var(--font-arabic2);
+    font-weight: 100;
+    font-family: var(--font-arabic1);
     margin-top: 10px;
   }
   h2.definition {
@@ -384,7 +366,7 @@
     flex-direction: row-reverse;
   }
   .outside-btn {
-    padding: 5px;
+    padding: 5px 5px 0 5px;
     border-radius: 5px;
     font-family: var(--font-latin);
     color: var(--couleur-contrast);
@@ -498,14 +480,6 @@
     }
     .inline-input > div:nth-child(3) {
       order: 3;
-    }
-
-    input.input-fill {
-      color: var(--couleur-btn);
-      font-weight: 500;
-      width: 100%;
-      height: 100%;
-      margin-top: 5px;
     }
   }
   @media screen and (min-width: 481px) and (max-width: 799px) {
@@ -10486,13 +10460,6 @@
     .switch-container {
       margin: 0;
     }
-    .ayah,
-    .kalam,
-    .input-fill,
-    .input-container {
-      font-size: 1rem;
-      line-height: 50px;
-    }
   }
 </style>
 
@@ -10727,7 +10694,8 @@
   }
   .harakat,
   .error-harakat {
-    font-family: var(--font-arabic2);
+    color: green;
+    font-family: var(--font-arabic2) !important;
   }
   .mushaf-button {
     position: relative;
@@ -10756,10 +10724,11 @@
   .input-fill {
     direction: rtl;
     text-align: right;
+    width: 100%;
     border: none;
     border-bottom: 1px solid var(--couleur-btn);
     background-color: transparent;
-    font-family: var(--font-arabic2);
+    font-family: var(--font-arabic1);
   }
   input[type="search"]::-webkit-search-cancel-button,
   input[type="search"]::-webkit-search-decoration {
@@ -10769,12 +10738,19 @@
   .kalam.error {
     color: #700;
   }
+  .correct-answer {
+    color: green;
+  }
   .error {
     border-radius: 10px;
     border-bottom: 0.1px solid #700;
   }
   .correct {
-    color: green;
+    border-bottom: 0.1px solid green;
+  }
+  .show-corrections {
+    color: var(--couleur-btn);
+    font-family: var(--font-arabic2);
   }
   .user-answers {
     display: block;

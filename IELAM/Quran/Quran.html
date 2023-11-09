@@ -7,6 +7,186 @@
     <title>Quran</title>
   </head>
   <body>
+    <style>
+      @import url("https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css");
+      @import url("https://fonts.googleapis.com/css2?family=Amiri&family=Amiri+Quran&family=Nothing+You+Could+Do&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@500&display=swap");
+      @import url("");
+      @font-face {
+        font-family: "ayah-num";
+        src: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Quran/Assets/Font/alfont_com_Hafs-Font-v0.09-2.otf?inline=true")
+          format("opentype");
+      }
+
+      body.light {
+        --couleur-fond: #e4ebf5;
+        --couleur-contrast: #ced4dc;
+        --couleur-btn: #031c40;
+        --couleur-text: #031c40;
+        --couleur-box-shadow-int: inset -3px -3px 3px #ffffff44,
+          inset 3px 3px 3px #898e9244;
+        --couleur-box-shadow-out: -3px -3px 3px #ffffff44, 3px 3px 3px #898e9244;
+        --couleur-box-shadow-out-hover: 0px -2px 1px #ffffff44,
+          0px 1px 1px #898e9244;
+        --couleur-text-shadow: -1px -2px 3px #ffffff77, 1px 2px 3px #898e9244;
+        --couleur-switch: #ffffff;
+        --couleur-fond-bg: radial-gradient(circle, #e4ebf5, #e4ebf580 50%);
+        --couleur-fond-row: linear-gradient(#e4ebf550, #e4ebf5);
+        --font-arabic1: "Amiri", serif;
+        --font-arabic2: "Amiri Quran", serif;
+        --font-latin: "Nothing You Could Do", cursive;
+        --font-ayah: "ayah-num", cursive;
+        --font-logo: "Noto Nastaliq Urdu";
+        --bg-Quran: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Quran/Assets/IMG/paterne.svg");
+        transition: all 0.3s ease-in-out;
+      }
+      body.dark {
+        --couleur-fond: #0d1117;
+        --couleur-contrast: #31363b;
+        --couleur-btn: #e4ebf5;
+        --couleur-text: #647075;
+        --couleur-box-shadow-int: inset -3px -3px 3px #30303044,
+          inset 3px 3px 3px #00000044;
+        --couleur-box-shadow-out: -3px -3px 3px #30303044, 3px 3px 3px #00000044;
+        --couleur-box-shadow-out-hover: 0px -1px 1px #30303044,
+          0px 2px 1px #00000044;
+        --couleur-text-shadow: -1px -2px 3px #30303077, 1px 2px 3px #00000044;
+        --couleur-switch: #000000;
+        --couleur-fond-bg: radial-gradient(circle, #0d1117 25%, #0d111799 100%);
+        --couleur-fond-row: linear-gradient(#0d111750 10%, #0d1117);
+        --font-arabic1: "Amiri", serif;
+        --font-arabic2: "Amiri Quran", serif;
+        --font-latin: "Nothing You Could Do", cursive;
+        --font-ayah: "ayah-num", cursive;
+        --font-logo: "Noto Nastaliq Urdu";
+        --bg-Quran: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Quran/Assets/IMG/paterne-dark.svg");
+        transition: all 0.3s ease-in-out;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: var(--couleur-fond);
+        transition: all 0.3s ease-in-out;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Loader */
+      #loader {
+        display: flex;
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--couleur-fond);
+        z-index: 9999;
+      }
+
+      .loader-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 5%;
+      }
+
+      #progress {
+        display: none;
+      }
+
+      .progress-bar {
+        display: flex;
+        justify-content: center;
+        box-shadow: none !important;
+        background-color: var(--couleur-fond) !important;
+      }
+
+      .progress {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 0 !important;
+        margin: 0 !important;
+        border-radius: 5px;
+        box-shadow: var(--couleur-box-shadow-out) !important;
+        background-color: var(--couleur-contrast) !important;
+      }
+
+      #progress-text {
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+        color: var(--couleur-contrast);
+        background-color: var(--couleur-fond);
+        font-weight: 100;
+        font-size: 50px;
+        font-family: var(--font-arabic1);
+      }
+
+      .loading {
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+        font-weight: 100;
+        font-size: 5vh;
+        color: var(--couleur-contrast);
+        font-family: var(--font-arabic2);
+      }
+
+      #logo {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        height: 100vh;
+        position: fixed;
+        background-color: transparent;
+        z-index: 99999;
+        animation: fill 2s ease forwards 2.2s;
+      }
+      #logo-a {
+        stroke-dasharray: 6000;
+        stroke-dashoffset: 6000;
+        animation: anime 4s ease forwards;
+      }
+      #logo path:nth-child(2) {
+        stroke-dasharray: (3 1);
+        stroke-dashoffset: (1);
+        animation: anime 4s ease forwards 0.5s;
+      }
+      #logo path:nth-child(3) {
+        stroke-dasharray: (3 1);
+        stroke-dashoffset: (1);
+        animation: anime 4s ease forwards 1s;
+      }
+      #logo path:nth-child(4) {
+        stroke-dasharray: (3 1);
+        stroke-dashoffset: (1);
+        animation: anime 4s ease forwards 1.5s;
+      }
+
+      .load {
+        color: var(--couleur-btn) !important;
+        transition: 0.3s ease;
+      }
+
+      .upload {
+        color: var(--couleur-btn);
+        transition: 0.3s ease;
+      }
+
+      .fade-out {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+    </style>
+    
     <!--TEMPLATE-->
     <div id="html-content"></div>
     <div id="css-content"></div>
@@ -25,7 +205,7 @@
         });
 
       const contentDivCss = document.getElementById("css-content");
-      fetch("../Quran/Assets/Css/inner-css.html")
+      fetch("../Takalam/HTML-CSS/inner-css.html")
         .then((response) => response.text())
         .then((htmlContent) => {
           contentDivCss.innerHTML = htmlContent;
