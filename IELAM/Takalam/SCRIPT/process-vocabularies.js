@@ -507,8 +507,8 @@ const showCorrections = (vocabularies) => {
   }
   const corrections = [];
 
-  for (let i = 0; i < goodRep1.length && i < goodRep2.length; i++) {
-    corrections.push(goodRep1[i] + " / " + goodRep2[i]);
+  for (let i = 0; i < goodRep2.length; i++) {
+    corrections.push(goodRep2[i]);
   }
   console.log(`corrections=[${corrections}]`);
 
