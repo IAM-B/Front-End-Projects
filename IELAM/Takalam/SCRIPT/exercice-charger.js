@@ -3,7 +3,7 @@ const exerciceIds = ["exercice-1"];
 
 const scriptUrls = {
   "exercice-1":
-    "../Takalam/Vocabulary-files/2-Welcome/Vocabulary1.json",
+    "../Takalam/Vocabulary-files/5-Classeroom/Vocabulary1.json",
 };
 
 function loadInitialExercice() {

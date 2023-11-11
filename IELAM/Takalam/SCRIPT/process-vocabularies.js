@@ -42,8 +42,12 @@ function createVocabularySection(vocabulary) {
     span.textContent = vocabulary.ar[j];
 
     if (vocabulary.ar[j] === "/" || vocabulary.ar[j] === "ج") {
+    span.classList.remove("vocab-ar");
+    span.classList.add("vocab-an");
       span.classList.add("or");
     } else if (vocabulary.ar[j] === "x") {
+      span.classList.remove("vocab-ar");
+      span.classList.add("vocab-an");
       span.classList.add("or-x");
     }
 

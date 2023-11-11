@@ -2,8 +2,8 @@
   "ticket": "وَظِيفَةٌ",
   "vocabulary": [
     {
-      "en": "Job/Profession/Work:",
-      "ar": ["عَمَلٌ", "/", "مِهْنَةٌ", "/", "وَظِيفَةٌ"],
+      "en": "Job / Profession:",
+      "ar": ["مِهْنَةٌ", "/", "وَظِيفَةٌ"],
       "meaning": ["نَشَاطٌ يُقَوِّمُ الشَّخْصُ لِلْكَسْبِ وَلِكِسْبِ العِيشِ"],
       "translation": ["An activity a person engages in for income and livelihood"]
     },
@@ -20,19 +20,19 @@
       "translation": ["A person who performs a specific job for income"]
     },
     {
-      "en": "Student/Scholar:",
+      "en": "Student / Scholar:",
       "ar": ["تِلميذٌ", "/", "طالبٌ"],
       "meaning": ["شَخْصٌ يَتَعَلَّمُ ويُدرَسُ فِي مَدْرَسَةٍ أَو جَامِعَةٍ"],
       "translation": ["A person who learns and studies in a school or university"]
     },
     {
-      "en": "Teacher/Instructor/Professor:",
-      "ar": ["أُستاذٌ", "/", "مُدرسٌ", "/", "مُعَلِّمٌ"],
+      "en": "Teacher / Instructor:",
+      "ar": ["مُدرسٌ", "/", "مُعَلِّمٌ"],
       "meaning": ["شَخْصٌ يُعَلِّمُ الآخَرِين في مَدْرَسَةٍ أَو جَامِعَةٍ"],
       "translation": ["A person who teaches others in a school or university"]
     },
     {
-      "en": "Friend/Colleague:",
+      "en": "Friend / Colleague:",
       "ar": ["زَمِيلٌ", "/", "صَدِيقٌ"],
       "meaning": ["شَخْصٌ يَتَوَاصَلُ مَعَكَ ويَشْتَرِكُ مَعَكَ فِي العَمَلِ أَو النَّشَاطِ"],
       "translation": ["A person who interacts and collaborates with you in work or activities"]

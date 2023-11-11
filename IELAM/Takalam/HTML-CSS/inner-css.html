@@ -150,7 +150,7 @@
   .vocabulary {
     color: var(--couleur-btn);
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin: 50px 0;
     padding: 25px;
     border-radius: 10px;
@@ -189,10 +189,12 @@
   .vocab-en {
     font-family: var(--font-latin);
   }
-  span.vocab-ar.or,
-  .or-x {
+  span.vocab-an.or,
+  span.vocab-an.or-x {
     width: 0px;
-    margin: 0 25px 0 10px;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    font-family: var(--font-latin);
   }
   .or-x {
     font-family: var(--font-latin);
@@ -471,6 +473,7 @@
     .inline-input {
       width: 100%;
       display: flex;
+      flex-direction: row;
       flex-wrap: nowrap;
       justify-content: flex-end;
     }

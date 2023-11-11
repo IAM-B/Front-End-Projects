@@ -20,7 +20,7 @@
       "translation": ["Tools used to remove pencil or ink marks from paper"]
     },
     {
-      "en": "Fail (x) Pass:",
+      "en": "Fail x Pass:",
       "ar": ["رَسَبَ", "x", "ناجِحٌ"],
       "meaning": ["إِكْمَال الاختبار أو الامْتحان بِنَجَاح", "عَدَم النَجَاح في الاخْتِبَار أو الامْتِحَان"],
       "translation": ["To successfully complete an exam or test", "To not succeed in an exam or test"]
@@ -50,7 +50,7 @@
       "translation": ["A reference book that provides meanings and translations of words between two languages"]
     },
     {
-      "en": "Present (x) Absent:",
+      "en": "Present x Absent:",
       "ar": ["حَاضِرٌ", "x", "غَائِبٌ"],
       "meaning": ["غَيَاب حَالِيًا أو عَدَم المُشَارَكَة", "حَاضِر حَالِيًا أو مُشَارِك في الصَّف أو الفَعَّالِيَّة"],
       "translation": ["Not currently attending or participating", "Currently attending or participating in a class or event"]
