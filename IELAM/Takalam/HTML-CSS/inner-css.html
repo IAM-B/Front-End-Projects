@@ -39,7 +39,8 @@
     justify-content: center;
     width: 100%;
   }
-  #vocab-section, #exercice-section {
+  #vocab-section,
+  #exercice-section {
     width: 100%;
   }
   .section-exercices {
@@ -411,6 +412,9 @@
   li.menu-item {
     cursor: pointer;
   }
+  footer.show {
+    margin: 450px;
+  }
 
   @media screen and (min-width: 993px) {
     .burger.toggleMenu {
@@ -519,6 +523,9 @@
     .navlist li a {
       padding: 20%;
     }
+    footer.show {
+      margin: 350px;
+    }
   }
   @media screen and (max-width: 480px) {
     .burger.toggleMenu.active svg {
@@ -563,6 +570,9 @@
     }
     .modal-background .modal {
       width: 90%;
+    }
+    footer.show {
+      margin: 250px;
     }
   }
   @keyframes unfoldIn {
@@ -10770,38 +10780,6 @@
   }
   .row {
     margin: 0 15px;
-  }
-
-  /*FOOTER*/
-  footer {
-    display: none;
-    position: relative;
-    width: 100%;
-    height: 500px;
-    border-radius: 10px;
-    background-color: var(--couleur-fond);
-    box-shadow: var(--couleur-box-shadow-int);
-    transform: translateY(100%);
-    transition: transform 0.3s ease-out;
-  }
-  footer.show {
-    display: block;
-    transform: translateY(0);
-  }
-  .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    box-shadow: var(--couleur-box-shadow-out);
-  }
-  #footer {
-    font-family: var(--font-grec);
-    font-weight: 100;
-    color: var(--couleur-contrast);
-    text-shadow: var(--couleur-text-shadow);
   }
   @media screen and (max-width: 550px) {
     .ayah,

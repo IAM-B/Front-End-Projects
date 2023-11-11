@@ -219,8 +219,6 @@ const generateVirtualKeyboard = () => {
 // Function attach keyboard events
 const attachKeyboardEvents = (input) => {
   const keyboardKeys = document.querySelectorAll(".keyboard-key");
-  const keyboard = document.querySelector(".keyboard");
-  const footer = document.querySelector("footer");
 
   keyboardKeys.forEach((key) => {
     key.addEventListener("click", () => {
@@ -246,21 +244,31 @@ const attachKeyboardEvents = (input) => {
 
   input.addEventListener("focus", () => {
     const keyboard = document.querySelector(".keyboard");
-    const footer = document.querySelector("footer");
+    const footerContainer = document.querySelector("footer");
 
     keyboard.classList.add("show");
-    footer.classList.add("show");
+    footerContainer.classList.add("show");
+
+    input.scrollIntoView({ behavior: "smooth", block: "center" });
 
     const inputLength = input.value.length;
     input.setSelectionRange(inputLength, inputLength);
+
+    document.body.style.overflow = "hidden";
   });
 
   input.addEventListener("blur", () => {
     const keyboard = document.querySelector(".keyboard");
-    const footer = document.querySelector("footer");
 
     keyboard.classList.remove("show");
-    footer.classList.remove("show");
+    setTimeout(() => {
+      const keyboardShow = document.querySelector(".keyboard.show");
+      if (!keyboardShow) {
+        const footerContainer = document.querySelector("footer");
+        footerContainer.classList.remove("show");
+      }
+    }, 10);
+    document.body.style.overflow = "visible";
   });
 
   input.addEventListener("keydown", (event) => {
