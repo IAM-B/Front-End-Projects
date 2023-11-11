@@ -1,0 +1,137 @@
+{
+  "ticket": "عَائِلَةٌ",
+  "vocabulary": [
+    {
+      "en": "Families:",
+      "ar": ["عائلاتٌ", "ج", "عَائِلَةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Grandfathers:",
+      "ar": ["جِدَّانٌ", "ج", "جَدٌّ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Grandmothers:",
+      "ar": ["جِدَّاتٌ", "ج", "جَدَّةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Fathers:",
+      "ar": ["آبَاءٌ", "ج", "وَالِدٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Mothers:",
+      "ar": ["أُمَّهَاتٌ", "ج", "وَالِدَةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Sisters:",
+      "ar": ["أُخَوَاتٌ", "ج", "أُخْتٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Brothers:",
+      "ar": ["إِخْوَةٌ", "ج", "أَخٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Grandchildren:",
+      "ar": ["أَحْفَادٌ", "ج", "حَفَدَةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Twin Brothers:",
+      "ar": ["تَوْائِمٌ", "ج", "تَوْأَمَةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Uncles:",
+      "ar": ["أَعْمَامٌ", "ج", "عَمٌّ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Maternal Uncles:",
+      "ar": ["أَخَالٌ", "ج", "خَالٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Aunts:",
+      "ar": ["عَمَّاتٌ", "ج", "عَمَّةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Maternal Aunts:",
+      "ar": ["خَالَاتٌ", "ج", "خَالَةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Husbands:",
+      "ar": ["أَزْوَاجٌ", "ج", "زَوْجٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Wives:",
+      "ar": ["زَوْجَاتٌ", "ج", "زَوْجَةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Live (reside):",
+      "ar": ["يَعِيشُونَ", "ج", "يَعِيشُ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Study:",
+      "ar": ["يَدْرُسُونَ", "ج", "يَدْرُسُ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Love:",
+      "ar": ["يُحِبُّونَ", "ج", "يُحِبُّ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Sons/Daughters:",
+      "ar": ["أَبْنَاءٌ", "ج", "ابْنٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "In-laws (Parents of the Husband and Wife):",
+      "ar": ["صِهْرَانٌ", "ج", "صِهْرٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Relatives (family):",
+      "ar": ["أَقَارِبٌ", "ج", "قَرِيبٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Single (unmarried):",
+      "ar": ["عَزْبَاءٌ", "ج", "عَزْبٌ"],
+      "meaning": [""],
+      "translation": [""]
+    }
+  ]
+}

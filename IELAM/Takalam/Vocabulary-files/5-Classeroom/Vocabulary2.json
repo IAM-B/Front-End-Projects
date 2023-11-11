@@ -1,0 +1,47 @@
+{
+  "ticket": "مَاذَا فِي الصَّفِّ",
+  "vocabulary": [
+    {
+      "en": "Row / Class:",
+      "ar": ["صُفُوفٌ", "ج", "صَفٌّ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Projection screen:",
+      "ar": ["شَاشَات العَرْضِ", "ج", "الشَّاشَةُ العَرْضِ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Erasers (plural):",
+      "ar": ["مَمْحَاةٌ", "ج", "مِمْحَا"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Trash basket:",
+      "ar": ["سَلَالِيْمُ القِمَامَةِ", "ج", "سَلَّةُ مَهْمُلاتٍ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "School:",
+      "ar": ["مَدَارِسُ", "ج", "مَدْرَسَةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Library:",
+      "ar": ["مَكَتِبَاتٌ", "ج", "مَكْتَبَةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Page (of a book or document):",
+      "ar": ["صَفَحَاتٌ", "ج", "صَفْحَةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    }
+  ]
+}

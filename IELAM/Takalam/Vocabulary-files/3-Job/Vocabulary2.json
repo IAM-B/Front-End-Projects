@@ -1,0 +1,125 @@
+{
+  "ticket": "وَظِيفَةٌ",
+  "vocabulary": [
+    {
+      "en": "Jobs:",
+      "ar": ["وَظائِفُ", "ج", "وَظِيفَةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Professions:",
+      "ar": ["مِهْنٌ", "ج", "مِهْنَةٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Translators:",
+      "ar": ["مُترجِمُونَ", "ج", "مُتَرجِمٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Workers:",
+      "ar": ["عُمّالٌ", "ج", "عَامِلٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Students:",
+      "ar": ["طُلَّابٌ", "ج", "طالِبٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Scholars:",
+      "ar": ["تِلاميذٌ", "ج", "تِلميذٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Teachers:",
+      "ar": ["مُعلِّمُونَ", "ج", "مُعلِّمٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Instructors:",
+      "ar": ["مُدرِّسُونَ", "ج", "مُدرسٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Friends:",
+      "ar": ["أَصْدِقَاءُ", "ج", "صَدِيقٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Colleagues:",
+      "ar": ["زُمَلاءٌ", "ج", "زَمِيلٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Carpenters:",
+      "ar": ["نَجَّارُونَ", "ج", "نَجَّارٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Retired Persons:",
+      "ar": ["مُتقاعِدُونَ", "ج", "مُتقاعِدٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Journalists:",
+      "ar": ["صُحَفاءُ", "ج", "صَحفِيٌّ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Mobile Phones:",
+      "ar": ["هُوَاتِفُ مُحمَّلَةٌ", "ج", "هاتِفٌ مُحمَّلٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Landline Phones:",
+      "ar": ["هُوَاتِفُ أَرضِيَّةٌ", "ج", "هاتِفٌ أَرضِيٌّ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Accountants:",
+      "ar": ["مُحاسِبُونَ", "ج", "مُحاسِبٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Emails:",
+      "ar": ["رُسائِلُ إلكترونِيَّةٌ", "ج", "بَرِيدٌ إلكترونِيٌّ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Addresses:",
+      "ar": ["عُناوينٌ", "ج", "عُنوانٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Unemployed Persons:",
+      "ar": ["عاطِلُونَ", "ج", "عاطِلٌ"],
+      "meaning": [""],
+      "translation": [""]
+    },
+    {
+      "en": "Working:",
+      "ar": ["يَعمَلُونَ", "ج", "يَعمَلُ"],
+      "meaning": [""],
+      "translation": [""]
+    }
+  ]
+}

@@ -41,14 +41,14 @@ function createVocabularySection(vocabulary) {
     span.setAttribute("translate", "no");
     span.textContent = vocabulary.ar[j];
 
-    if (vocabulary.ar[j] === "/" || vocabulary.ar[j] === "ج") {
+    if (vocabulary.ar[j] === "/" || vocabulary.ar[j] === "x") {
     span.classList.remove("vocab-ar");
-    span.classList.add("vocab-an");
+    span.classList.add("vocab-en");
       span.classList.add("or");
-    } else if (vocabulary.ar[j] === "x") {
-      span.classList.remove("vocab-ar");
-      span.classList.add("vocab-an");
-      span.classList.add("or-x");
+    } else if (vocabulary.ar[j] === "ج") {
+      buttonModalDiv.style.display = "none";
+      span.classList.remove("vocab-en");
+      span.classList.add("vocab-ar-and");
     }
 
     buttonsDiv.appendChild(span);

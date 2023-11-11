@@ -184,24 +184,21 @@
     font-weight: bold;
     display: inline-block;
     font-family: var(--font-arabic2);
-    font-size: 1.3em;
+    font-size: 2em;
   }
   .vocab-en {
+    font-size: 1.5em;
     font-family: var(--font-latin);
   }
-  span.vocab-an.or,
-  span.vocab-an.or-x {
-    width: 0px;
+  span.vocab-en.or {
     margin: 0 10px;
     font-size: 1.5rem;
     font-family: var(--font-latin);
   }
-  .or-x {
-    font-family: var(--font-latin);
-  }
-  span.vocab-ar.and {
-    width: 0px;
-    margin: 0 35px 0 15px;
+  span.vocab-ar-and {
+    margin: 0 15px;
+    font-size: 1.5rem;
+    font-family: var(--font-arabic1);
   }
   input:focus {
     caret-color: var(--couleur-text);
@@ -408,8 +405,8 @@
     box-shadow: var(--couleur-box-shadow-int);
   }
   button.exercise-button.active {
-    color: var(--couleur-contrast);
-    box-shadow: var(--couleur-box-shadow-int);
+    color: var(--couleur-text);
+    box-shadow: var(--couleur-box-shadow-out-hover);
   }
   li.menu-item {
     cursor: pointer;
@@ -526,6 +523,12 @@
     .navlist li a {
       padding: 20%;
     }
+    .vocab-ar {
+      font-size: 1.5em;
+    }
+    .vocab-en  {
+      font-size: 1em;
+    }
     footer.show {
       margin: 350px;
     }
@@ -573,6 +576,12 @@
     }
     .modal-background .modal {
       width: 90%;
+    }
+    .vocab-ar {
+      font-size: 1em;
+    }
+    .vocab-en  {
+      font-size: 0.9em;
     }
     footer.show {
       margin: 250px;

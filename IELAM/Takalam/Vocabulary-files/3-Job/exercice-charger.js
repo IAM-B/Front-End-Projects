@@ -1,9 +1,11 @@
 const section = document.querySelector("section");
-const exerciceIds = ["exercice-1"];
+const exerciceIds = ["exercice-1", "exercice-2"];
 
 const scriptUrls = {
   "exercice-1":
     "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/Vocabulary-files/3-Job/Vocabulary1.json",
+  "exercice-2":
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/Vocabulary-files/3-Job/Vocabulary2.json",
 };
 
 function loadInitialExercice() {

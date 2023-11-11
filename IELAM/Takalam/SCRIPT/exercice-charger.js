@@ -1,9 +1,9 @@
 const section = document.querySelector("section");
-const exerciceIds = ["exercice-1"];
+const exerciceIds = ["exercice-1", "exercice-2"];
 
 const scriptUrls = {
-  "exercice-1":
-    "../Takalam/Vocabulary-files/5-Classeroom/Vocabulary1.json",
+  "exercice-1": "../Takalam/Vocabulary-files/4-Family/Vocabulary1.json",
+  "exercice-2": "../Takalam/Vocabulary-files/4-Family/Vocabulary2.json",
 };
 
 function loadInitialExercice() {

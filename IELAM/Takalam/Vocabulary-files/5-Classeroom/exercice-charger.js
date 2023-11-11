@@ -1,15 +1,15 @@
 const section = document.querySelector("section");
-const exerciceIds = ["exercice-1"];
+const exerciceIds = ["exercice-1", "exercice-2"];
 
 const scriptUrls = {
   "exercice-1":
     "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/Vocabulary-files/5-Classeroom/Vocabulary1.json",
+  "exercice-2":
+    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/Vocabulary-files/5-Classeroom/Vocabulary2.json",
 };
 
 function loadInitialExercice() {
-  const lastExerciceIndex = parseInt(
-    localStorage.getItem("lastExerciceIndex")
-  );
+  const lastExerciceIndex = parseInt(localStorage.getItem("lastExerciceIndex"));
   if (
     !isNaN(lastExerciceIndex) &&
     lastExerciceIndex >= 0 &&
