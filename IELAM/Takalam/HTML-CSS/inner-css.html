@@ -85,9 +85,11 @@
   }
   .inline-vocabulary,
   .inline-input {
+    width: 100%;
     display: flex;
-    flex-direction: row-reverse;
-    text-align: right;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
   }
   #exercice-section {
     display: none;
@@ -465,14 +467,6 @@
     }
     .inline-vocabulary {
       width: 100%;
-      display: inline-table;
-    }
-    .inline-input {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: flex-end;
     }
     .correction,
     #button-d2607e45,
@@ -526,7 +520,7 @@
     .vocab-ar {
       font-size: 1.5em;
     }
-    .vocab-en  {
+    .vocab-en {
       font-size: 1em;
     }
     footer.show {
@@ -580,7 +574,7 @@
     .vocab-ar {
       font-size: 1em;
     }
-    .vocab-en  {
+    .vocab-en {
       font-size: 0.9em;
     }
     footer.show {

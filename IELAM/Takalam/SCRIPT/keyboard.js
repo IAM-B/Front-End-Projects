@@ -249,7 +249,20 @@ const attachKeyboardEvents = (input) => {
     keyboard.classList.add("show");
     footerContainer.classList.add("show");
 
-    input.scrollIntoView({ behavior: "smooth", block: "center" });
+    const keyboardHeight = keyboard.offsetHeight;
+    const viewportHeight = window.innerHeight;
+
+    const inputRect = input.getBoundingClientRect();
+    const inputTopPosition = inputRect.top;
+    const inputHeight = inputRect.height;
+    const availableSpace = viewportHeight - keyboardHeight;
+    const scrollPosition =
+      window.scrollY + inputTopPosition - availableSpace / 2 + inputHeight / 2;
+
+    window.scrollTo({
+      top: scrollPosition,
+      behavior: "smooth",
+    });
 
     const inputLength = input.value.length;
     input.setSelectionRange(inputLength, inputLength);
