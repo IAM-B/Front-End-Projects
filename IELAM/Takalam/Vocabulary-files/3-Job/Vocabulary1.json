@@ -90,12 +90,6 @@
       "ar": ["عَاطِلٌ"],
       "meaning": ["شَخْصٌ لَيْسَ لَدَيْهِ وَظِيفَةٌ ولَيْسَ يَعْمَلُ"],
       "translation": ["A person without a job and not employed"]
-    },
-    {
-      "en": "Works:",
-      "ar": ["يَعْمَلُ"],
-      "meaning": ["الفِعْلُ يُشِيْرُ إِلَى أَنَّ الشَّخْصَ يَعْمَلُ حَالِيًا"],
-      "translation": ["The verb indicates that the person is currently working"]
     }
   ]
 }

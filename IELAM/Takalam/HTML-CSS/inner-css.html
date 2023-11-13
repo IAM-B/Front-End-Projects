@@ -215,8 +215,10 @@
     margin-top: 50px;
   }
   .btn-exo {
+    display: block;
     padding: 10px;
-    margin: 5px 5px;
+    width: 25%;
+    margin: 50px auto 0;
     border-radius: 5px;
     border: none;
     box-shadow: var(--couleur-box-shadow-out);
@@ -468,19 +470,18 @@
     .inline-vocabulary {
       width: 100%;
     }
+    .inline-input > div:nth-child(3) {
+      order: 3;
+    }
+  }
+  @media screen and (max-width: 550px) {
     .correction,
     #button-d2607e45,
-    .btn-exo {
+    .btn-exo,
+    .btn-vocab {
       width: 100%;
       display: flex;
       justify-content: center;
-    }
-    .btn-vocab {
-      width: auto;
-      padding: 10px 20px;
-    }
-    .inline-input > div:nth-child(3) {
-      order: 3;
     }
   }
   @media screen and (min-width: 481px) and (max-width: 799px) {

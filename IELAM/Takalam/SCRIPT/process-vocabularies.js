@@ -275,15 +275,15 @@ function createBtn(vocabularies) {
 
   const btnSubmit = document.createElement("button");
   btnSubmit.classList.add("btn-exo", "submit");
-  btnSubmit.innerHTML = "Submit";
+  btnSubmit.innerHTML = "SUBMIT";
   btnSubmit.onclick = function () {
     btnCheck.classList.remove("hidden");
-    btnRestart.classList.add("hidden");
+    btnSubmit.classList.add("hidden");
     vocab(vocabularies);
   };
 
   const btnCheck = document.createElement("button");
-  btnCheck.innerHTML = "Check";
+  btnCheck.innerHTML = "CHECK";
   btnCheck.classList.add("hidden", "btn-exo", "correct-answer");
   btnCheck.onclick = function () {
     btnCheck.classList.add("hidden");
@@ -292,11 +292,12 @@ function createBtn(vocabularies) {
   };
 
   const btnRestart = document.createElement("button");
-  btnRestart.innerHTML = "Retry";
+  btnRestart.innerHTML = "RETRY";
   btnRestart.classList.add("hidden", "btn-exo", "reset");
   btnRestart.onclick = function () {
     btnCheck.classList.add("hidden");
     btnRestart.classList.add("hidden");
+    btnSubmit.classList.remove("hidden");
     resetForm();
     showVocabularySection();
   };
@@ -388,7 +389,7 @@ const vocab = (vocabularies) => {
 
       if (!isCorrect) {
         const section = document.querySelector("#main-section");
-        const offset = section.offsetTop + 200;
+        const offset = section.offsetTop;
         window.scrollTo({ top: offset, behavior: "smooth" });
         ChampTxt.innerHTML = `<div class="modal-container one">
             <div class="modal-background">
@@ -409,7 +410,7 @@ const vocab = (vocabularies) => {
 
   if (allAnswersProvided) {
     const section = document.querySelector("#main-section");
-    const offset = section.offsetTop + 200;
+    const offset = section.offsetTop;
     window.scrollTo({ top: offset, behavior: "smooth" });
 
     if (score === n) {
@@ -491,7 +492,7 @@ const showCorrections = (vocabularies) => {
     results.push(document.getElementById(i).value.toUpperCase());
   }
   const section = document.querySelector("#main-section");
-  const offset = section.offsetTop + 200;
+  const offset = section.offsetTop;
   window.scrollTo({ top: offset, behavior: "smooth" });
 
   const ChampTxt = document.getElementById("Aff");
@@ -566,7 +567,7 @@ const showExerciseSection = () => {
   setTimeout(() => {
     vocabSection.style.display = "none";
     exerciseSection.style.display = "block";
-    const offset = section.offsetTop + 200;
+    const offset = section.offsetTop;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 500);
 };
@@ -585,7 +586,7 @@ const showVocabularySection = () => {
   setTimeout(() => {
     vocabSection.style.display = "block";
     exerciseSection.style.display = "none";
-    const offset = section.offsetTop + 200;
+    const offset = section.offsetTop;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }, 500);
 };
