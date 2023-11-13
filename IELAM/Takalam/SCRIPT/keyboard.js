@@ -307,12 +307,9 @@ const observer = new MutationObserver((mutationsList) => {
     }
   });
 });
-
 const config = {
   childList: true,
   subtree: true,
 };
-
 observer.observe(document, config);
-
 generateVirtualKeyboard();

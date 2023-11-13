@@ -101,11 +101,11 @@ window.addEventListener("resize", checkScreenWidth);
 const shareButtonOne = document.getElementById("shareButtonOne");
 const shareButtonTow = document.getElementById("shareButtonTow");
 shareButtonOne.onclick = function () {
-  shareSocialMedia()
-}
+  shareSocialMedia();
+};
 shareButtonTow.onclick = function () {
-  shareSocialMedia()
-}
+  shareSocialMedia();
+};
 function shareSocialMedia() {
 
   if (navigator.share) {
@@ -168,4 +168,4 @@ function shareSocialMedia() {
 
     document.body.appendChild(shareMenu);
   }
-};
+}
