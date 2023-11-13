@@ -34,8 +34,13 @@ function loadScriptAndData(exerciceIndex) {
       const vocabularies = data.vocabulary;
       const ticketListe = data.ticket;
 
-      generateVocabularies(vocabularies, ticketListe);
-      processVocabularies(vocabularies, ticketListe);
+      if (typeof generateVocabularies === "function") {
+        generateVocabularies(vocabularies, ticketListe);
+        processVocabularies(vocabularies, ticketListe);
+      } else {
+        window.location.reload();
+        return;
+      }
 
       const script = document.createElement("script");
       script.id = "exercise-script";
