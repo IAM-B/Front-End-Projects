@@ -6,13 +6,13 @@
     <title>Moustaoua 1</title>
   </head>
   <body>
+    <!--LOADER-->
     <style>
       body {
         display: none;
         background-color: var(--couleur-fond);
       }
     </style>
-    <!--LOADER-->
     <div id="loader">
       <div class="loader-content">
         <svg
@@ -49,9 +49,9 @@
 
         <div class="progress-content">
           <div class="inline-progress">
-            <div id="progress-text">0</div>
-            <div class="string">%&nbsp;</div>
-            <div class="loading">تَحْمِيل الصَّفْحَة</div>
+            <div id="progress-text" translate="no">0</div>
+            <div class="string" translate="no">%&nbsp;</div>
+            <div class="loading" translate="no">تَحْمِيل الصَّفْحَة</div>
             <div class="progress-content">
               <div class="progress-line" id="progress"></div>
             </div>
@@ -90,10 +90,6 @@
         const upload = document.querySelector(".loading");
         const stringLoad = document.querySelector(".string");
 
-        setTimeout(() => {
-          document.body.style.display = "block";
-        },400)
-        
         let width = 0;
         let percent = 0;
         const interval = setInterval(() => {
@@ -108,14 +104,12 @@
             upload.classList.add("load");
             progressText.classList.add("load");
             stringLoad.classList.add("load");
+            loader.classList.add("fade-out");
             setTimeout(() => {
-              loader.classList.add("fade-out");
-              setTimeout(() => {
-                loader.style.display = "none";
-              }, 500);
-            }, 2500);
+              loader.style.display = "none";
+            }, 3000);
           }
-        }, 25);
+        }, 75);
       });
       const contentDivSeting = document.getElementById("setings-content");
       fetch("HTML-CSS/setings.html")
@@ -148,6 +142,11 @@
         .then((response) => response.text())
         .then((htmlContent) => {
           contentDivCss.innerHTML = htmlContent;
+          if (contentDivSeting) {
+            setTimeout(() => {
+              document.body.style.display = "block";
+            }, 400);
+          }
         })
         .catch((error) => {
           console.error(

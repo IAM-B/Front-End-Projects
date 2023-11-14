@@ -113,35 +113,20 @@
     width: 50%;
     margin: 15px 0;
     background-color: transparent;
-    animation: fill 4s ease forwards 2.2s;
+    animation: fill 4s ease forwards 7s;
   }
   #logo-a {
     stroke-dasharray: 6000;
     stroke-dashoffset: 6000;
-    animation: anime 4s ease forwards;
-  }
-  #logo path:nth-child(2) {
-    stroke-dasharray: (3 1);
-    stroke-dashoffset: (1);
-    animation: anime 4s ease forwards 0.5s;
-  }
-  #logo path:nth-child(3) {
-    stroke-dasharray: (3 1);
-    stroke-dashoffset: (1);
-    animation: anime 4s ease forwards 1s;
-  }
-  #logo path:nth-child(4) {
-    stroke-dasharray: (3 1);
-    stroke-dashoffset: (1);
-    animation: anime 4s ease forwards 1.5s;
+    animation: anime 10s ease;
   }
   .load {
     color: var(--couleur-btn) !important;
-    transition: 4s ease;
+    transition: 3s ease;
   }
   .fade-out {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 3s ease-in-out;
   }
 
   /* HEADER */
@@ -239,10 +224,6 @@
   }
   .hidden {
     display: none;
-  }
-  .fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
   }
   .fade-in {
     opacity: 1;
@@ -449,7 +430,7 @@
   }
   .h1-modal {
     font-weight: 100;
-    font-family: var(--font-arabic1);
+    font-family: var(--font-arabic2);
     margin-top: 10px;
   }
   h2.definition {
@@ -614,12 +595,13 @@
       width: 90%;
     }
     .correction,
-    #button-d2607e45,
     .btn-exo,
     .btn-vocab {
       width: 100%;
       display: flex;
       justify-content: center;
+      flex-direction: column;
+      align-items: center;
     }
   }
   @media screen and (min-width: 481px) and (max-width: 799px) {

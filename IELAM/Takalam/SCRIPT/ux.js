@@ -1,6 +1,6 @@
 // Script to enforce English language (lang="en")
-if (document.documentElement.getAttribute('lang') !== 'en') {
-  document.documentElement.setAttribute('lang', 'en');
+if (document.documentElement.getAttribute("lang") !== "en") {
+  document.documentElement.setAttribute("lang", "en");
 }
 
 // Function that redirects to the top of the page on reload
@@ -99,7 +99,7 @@ window.addEventListener("resize", checkScreenWidth);
 
 // Function share button
 const shareButtonOne = document.getElementById("shareButtonOne");
-const shareButtonTow = document.getElementById("shareButtonTow");
+const shareButtonTow = document.getElementById("shareButtonTwo");
 shareButtonOne.onclick = function () {
   shareSocialMedia();
 };
@@ -107,21 +107,16 @@ shareButtonTow.onclick = function () {
   shareSocialMedia();
 };
 function shareSocialMedia() {
-
   if (navigator.share) {
     navigator
       .share({
         title: "Iلعam",
-        url: window.location.href,
+        url: "https://www.i3lam.net/",
+        text: "Iلعam est un programme d'apprentissage de vocabulaire en arabe facile et gratuit !",
       })
       .then(() => console.log("Sharing succefull"))
       .catch((error) => console.error("Failed sharing: ", error));
   } else {
-    const shareOptions = {
-      title: "Iلعam",
-      url: window.location.href,
-    };
-
     const socialMedia = [
       {
         name: "Facebook",

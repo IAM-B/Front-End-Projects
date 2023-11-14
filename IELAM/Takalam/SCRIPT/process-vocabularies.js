@@ -278,7 +278,6 @@ function createBtn(vocabularies) {
   btnSubmit.innerHTML = "SUBMIT";
   btnSubmit.onclick = function () {
     btnCheck.classList.remove("hidden");
-    btnSubmit.classList.add("hidden");
     vocab(vocabularies);
   };
 
@@ -287,6 +286,7 @@ function createBtn(vocabularies) {
   btnCheck.classList.add("hidden", "btn-exo", "correct-answer");
   btnCheck.onclick = function () {
     btnCheck.classList.add("hidden");
+    btnSubmit.classList.add("hidden");
     btnRestart.classList.remove("hidden");
     showCorrections(vocabularies);
   };
