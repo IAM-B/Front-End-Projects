@@ -65,29 +65,6 @@ switchInput.addEventListener("change", function () {
   }
 });
 
-// Menu Integration sidemenu-content
-function executeScriptBelow992() {
-  const progressBar = document.querySelector(".course-info__progress-bar");
-  const modules = document.querySelector(".course-info__modules");
-  const sideMenu = document.querySelector(".sidemenu-content");
-
-  if (progressBar && modules && sideMenu) {
-    const menuModule = document.createElement("div");
-    menuModule.classList.add("menu-modules");
-
-    sideMenu.appendChild(menuModule);
-    menuModule.appendChild(progressBar);
-    menuModule.appendChild(modules);
-  }
-}
-function checkScreenWidth() {
-  if (window.innerWidth < 992.98) {
-    executeScriptBelow992();
-  }
-}
-checkScreenWidth();
-window.addEventListener("resize", checkScreenWidth);
-
 // Function that redirects to the main-section section after loading
 /*function redirectToSection() {
   setTimeout(function () {

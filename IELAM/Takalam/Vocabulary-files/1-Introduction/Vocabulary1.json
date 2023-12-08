@@ -4,56 +4,56 @@
     {
       "en": "Instructions:",
       "ar": ["تَعْلِيمَاتٌ"],
-      "meaning": ["إِرْشَادَاتٌ أَوْ دَلَائِلٌ تَوْجِيهِيَّةٌ لِلْقِيَامِ بِمِهَامٍ مُعَيَّنَةٍ"],
-      "translation": ["Guidelines or directive indications for performing specific tasks"]
+      "meaning": ["أنت فقط تحتاج الى التعليمات الصحيحة، وكيفية القيام بذلك"],
+      "translation": ["You just need the right instruction on how to do it"]
     },
     {
       "en": "Ask:",
       "ar": ["اِسْأَلْ"],
-      "meaning": ["اُطْلُبْ مِنْ شَخْصٍ مَعِيَّنٍ إِعْطَائَكَ مَعْلُومَاتٍ أَوْ تَوْضِيحَاتٍ بِسُؤَالٍ"],
-      "translation": ["Request information or clarification from a specific person by posing a question"]
+      "meaning": ["أعتقد أنني يجب أن اسأل أمين المكتبة في أن واحد"],
+      "translation": ["Guess I will have to ask the librarian on that one"]
     },
     {
       "en": "Answer:",
       "ar": ["أَجِبْ"],
-      "meaning": ["رُدْ بِمَعْلُومَاتٍ أَوْ تَوْضِيحًا بَعْدَ أَنْ يُطْرَحَ سُؤَالٌ"],
-      "translation": ["Respond with information or an explanation after a question is posed"]
+      "meaning": ["في أوقات مثل هذه، أجب فقط عمّا يتمّ سؤالك عنه"],
+      "translation": ["At times like this, only answer what you're asked"]
     },
     {
       "en": "Speak:",
       "ar": ["تَحَدَّثْ"],
-      "meaning": ["الْتَعَبِيْرُ عَنِ الْأَفْكَارِ وَالْأَفْعَالِ بِاِسْتِخْدَامِ الْكَلَامِ"],
-      "translation": ["Expressing thoughts and actions using speech"]
+      "meaning": ["يا صاح، يسرّني أنّ بوسعنا التحدث عن هذا الآن"],
+      "translation": ["Dude, I love that we can talk about this now"]
     },
     {
       "en": "Complete:",
       "ar": ["أَكْمِلْ"],
-      "meaning": ["اِنْتَهِي مِنْ مِهَمَّةٍ أَوْ نَشَاطٍ بِشَكْلٍ مُنْتَهٍ"],
-      "translation": ["Finish a task or activity in a completed manner"]
+      "meaning": ["وأكمل سبعة من الموظفين دورة تدريبية مدتها يومان على إدارة المشاريع"],
+      "translation": ["Seven staff members completed a two-day course on project management"]
     },
     {
       "en": "Connect:",
-      "ar": ["صِلْ"],
-      "meaning": ["قُمْ بِرَبْطِ شَيْءٍ بِشَيْءٍ آخَرَ بِوَسَائِلَ الرَّبْطِ"],
-      "translation": ["Link one thing to another using connecting means"]
+      "ar": ["تَصِلْ"],
+      "meaning": ["ولذلك قمنا ببناء الطرق التي تصل كل هذا مع بعضه البعض"],
+      "translation": ["And so we build roads that connect them all together"]
     },
     {
       "en": "Mark:",
       "ar": ["ضَعْ عَلَامَةً"],
-      "meaning": ["وَضَعَ عَلَامَةٍ أَوْ عَلَامَاتٍ لِلدَّلَالَةِ عَلَى شَيْءٍ مُعَيَّنٍ"],
-      "translation": ["Placing a mark or marks to indicate something specific"]
+      "meaning": ["ضع علامة الرجاء عدم الإزعاج"],
+      "translation": ["Put a sign up please do not disturb"]
     },
     {
       "en": "Practice dialogue with:",
       "ar": ["مَارِسِ الْحِوَارَ مَعَ"],
-      "meaning": ["التَّمَرُّنِ عَلَى مُحَادَثَةٍ مَعَ شَخْصٍ آخَرَ بِشَكْلٍ تَطْبِيقِيٍ"],
-      "translation": ["Engage in conversational practice with another person in an applied manner"]
+      "meaning": ["مَارِسِ الْحِوَارَ مَعَ أَصْدِقَاءُ"],
+      "translation": ["Practice dialogue with friends"]
     },
     {
       "en": "Copy:",
       "ar": ["اِنْسَخْ"],
-      "meaning": ["اِنْقَلُ وَاحِدٍ أَوْ أَكْثَرَ مِنْ الْمَعْلُومَاتِ أَوْ الْمَحْتَوَى إِلَى مَكَانٍ آخَرَ"],
-      "translation": ["Transfer one or more pieces of information or content to another location"]
+      "meaning": ["ال انسخ الرابطوقد أنقذني الخيار وحده طن من الوقت"],
+      "translation": ["The copy link option alone has saved me tons of time"]
     }
   ]
 }
