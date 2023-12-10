@@ -1,23 +1,23 @@
 // Menu Integration sidemenu-content
-function executeScriptBelow992() {
-  const modules = document.querySelector(".shrink-0");
-  const sideMenu = document.querySelector(".sidemenu-content");
+// function executeScriptBelow992() {
+//   const modules = document.querySelector(".shrink-0");
+//   const sideMenu = document.querySelector(".sidemenu-content");
 
-  if (modules && sideMenu) {
-    const menuModule = document.createElement("div");
-    menuModule.classList.add("menu-modules");
+//   if (modules && sideMenu) {
+//     const menuModule = document.createElement("div");
+//     menuModule.classList.add("menu-modules");
 
-    sideMenu.appendChild(menuModule);
-    menuModule.appendChild(modules);
-  }
-}
-function checkScreenWidth() {
-  if (window.innerWidth < 992.98) {
-    executeScriptBelow992();
-  }
-}
-checkScreenWidth();
-window.addEventListener("resize", checkScreenWidth);
+//     sideMenu.appendChild(menuModule);
+//     menuModule.appendChild(modules);
+//   }
+// }
+// function checkScreenWidth() {
+//   if (window.innerWidth < 992.98) {
+//     executeScriptBelow992();
+//   }
+// }
+// checkScreenWidth();
+// window.addEventListener("resize", checkScreenWidth);
 
 // Function to move to the next exercise if validated
 function goToNextExercise() {
