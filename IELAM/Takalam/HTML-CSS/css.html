@@ -952,6 +952,57 @@
     transition: 0.3s ease-in-out;
     z-index: 2;
   }
+  .app-nav {
+    margin: 100px 20px 0;
+    text-align: left; 
+  }
+  .app-menu {
+    list-style: none;
+    padding: 0;
+  }
+  .app-menu-item {
+    color: var(--couleur-btn);
+    font-family: "Cairo", sans-serif;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  .has-submenu .submenu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0 20px;
+    background-color: var(--couleur-fond);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1;
+  }
+  li.app-menu-item.has-submenu:hover {
+    color: var(--couleur-contrast);
+  }
+  .has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+  }
+  .submenu {
+    list-style: none;
+    padding: 0;
+  }
+  .submenu .app-menu-item {
+    color: var(--couleur-btn);
+    font-family: "Cairo", sans-serif;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    font-weight: normal;
+    transition: color 0.3s ease;
+  }
+  .submenu .app-menu-item:hover {
+    color: var(--couleur-contrast);
+  }
   .showPub {
     width: 100vw;
   }
@@ -10502,7 +10553,7 @@
     }
     .menuscreen {
       background: var(--couleur-fond);
-      margin: 100px 0 0 15px;
+      margin: 100px 20px 0;
     }
     .menuscreen a {
       font-family: "Cairo", sans-serif;
