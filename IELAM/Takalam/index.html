@@ -59,10 +59,6 @@
         </div>
       </div>
     </div>
-    <!--TEMPLATE-->
-    <div id="setings-content"></div>
-    <div id="html-content"></div>
-    <div id="css-content"></div>
     <script>
       function convertToArabicNumber(number) {
         const arabicNumbers = [
@@ -111,21 +107,14 @@
           }
         }, 75);
       });
-      const contentDivSeting = document.getElementById("setings-content");
-      fetch("HTML-CSS/setings.html")
-        .then((response) => response.text())
-        .then((htmlContent) => {
-          contentDivSeting.innerHTML = htmlContent;
-        })
-        .catch((error) => {
-          console.error(
-            "Une erreur s'est produite lors du chargement de la page:",
-            error
-          );
-        });
+    </script>
 
+    <!--TEMPLATE-->
+    <div id="html-content"></div>
+    <div id="css-content"></div>
+    <script>
       const contentDivHtml = document.getElementById("html-content");
-      fetch("HTML-CSS/inner-html.html")
+      fetch("HTML-CSS/header.html")
         .then((response) => response.text())
         .then((htmlContent) => {
           contentDivHtml.innerHTML = htmlContent;
@@ -138,11 +127,11 @@
         });
 
       const contentDivCss = document.getElementById("css-content");
-      fetch("HTML-CSS/inner-css.html")
+      fetch("HTML-CSS/css.html")
         .then((response) => response.text())
         .then((htmlContent) => {
           contentDivCss.innerHTML = htmlContent;
-          if (contentDivSeting) {
+          if (contentDivHtml) {
             setTimeout(() => {
               document.body.style.display = "block";
             }, 400);
@@ -184,14 +173,14 @@
         </section>
       </div>
     </main>
+
     <!--FOOTER-->
     <footer>
       <div class="footer">
         <h1 id="footer"></h1>
+        <div class="btn-content"></div>
       </div>
     </footer>
-    <!--PAGE BTN-->
-    <div class="btn-content"></div>
 
     <!-- SCRIPT -->
     <script>
