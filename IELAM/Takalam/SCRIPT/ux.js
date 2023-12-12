@@ -33,13 +33,12 @@ toggleMenu.addEventListener("click", () => {
   if (!toggleMenu.classList.contains("active")) {
     sidemenu.classList.add("showmenu");
     toggleMenu.classList.add("active");
-    overlay.style.display = "block";
-    overlay.style.opacity = "1";
+    overlay.classList.add("visible");
   } else {
     sidemenu.classList.remove("showmenu");
     toggleMenu.classList.remove("active");
-    overlay.style.display = "none";
-    overlay.style.opacity = "0";
+    overlay.classList.remove("visible");
+
   }
 });
 
