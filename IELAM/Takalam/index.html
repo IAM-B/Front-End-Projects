@@ -92,7 +92,7 @@
         "SCRIPT/keyboard.js",
         "SCRIPT/ux.js",
         "SCRIPT/CMSHtmlElementMappings.js",
-        "SCRIPT/exercice-charger.js",
+        "../Takalam/Vocabulary-files/1-Introduction/exercice-charger.js",
         "SCRIPT/process-vocabularies.js",
       ];
 
@@ -104,65 +104,99 @@
         "script-process-vocabularies",
       ];
 
-      scriptUrl.forEach((url, index) => {
-        fetch(url)
-          .then((response) => response.text())
-          .then((data) => {
-            setTimeout(() => {
-              insertScript(data, scriptIds[index]);
-            }, 100);
-          })
-          .catch((error) => {
-            console.error(
-              "Une erreur s'est produite lors du chargement du script:",
-              error
-            );
-          });
-      });
-
-      document.addEventListener("DOMContentLoaded", function () {
-        setTimeout(function () {
-          const scriptLinks = document.querySelectorAll(".script-link");
-
-          console.log("Script links:", scriptLinks);
-
-          scriptLinks.forEach((link, index) => {
-            link.addEventListener("click", function (event) {
-              event.preventDefault();
-              console.log(`Link clicked: ${index}`);
-              updateScriptContent(index);
+      function loadInitialScripts() {
+        scriptUrl.forEach((url, index) => {
+          fetch(url)
+            .then((response) => response.text())
+            .then((data) => {
+              setTimeout(() => {
+                insertScript(data, scriptIds[index]);
+              }, 100);
+            })
+            .catch((error) => {
+              console.error(
+                "An error occurred while loading the script:",
+                error
+              );
             });
-          });
-        }, 1000);
-      });
+        });
+      }
 
       function updateScriptContent(linkIndex) {
         const scriptUrl = document
           .getElementById(`link-${linkIndex}`)
           .getAttribute("data-script-url");
 
-        console.log("Script URL:", scriptUrl);
-
         fetch(scriptUrl)
           .then((response) => response.text())
           .then((data) => {
+            const scriptContent = `
+        function dynamicallyLoadedScript() {
+          ${data}
+        }
+      `;
+
             const newScriptElement = document.createElement("script");
             newScriptElement.id = "script-exercice-charger";
-            newScriptElement.text = data;
+            newScriptElement.text = scriptContent;
 
-            const oldScriptElement = document.getElementById("script-exercice-charger");
-
-            console.log("oldScriptElement", oldScriptElement);
-
-            oldScriptElement.parentNode.replaceChild(
-              newScriptElement,
-              oldScriptElement
+            const oldScriptElement = document.getElementById(
+              "script-exercice-charger"
             );
+
+            if (oldScriptElement) {
+              oldScriptElement.parentNode.replaceChild(
+                newScriptElement,
+                oldScriptElement
+              );
+            } else {
+              document.body.appendChild(newScriptElement);
+            }
+
+            dynamicallyLoadedScript();
           })
           .catch((error) => {
             console.error("An error occurred while loading the script:", error);
           });
       }
+
+      function handleLinkClick(event, index) {
+        event.preventDefault();
+
+        const btnDiv = document.querySelector(".btn-content");
+        const vocabularyForm = document.getElementById("vocab");
+        const exerciceForm = document.getElementById("exo");
+        const sectionVocabulary = document.getElementById("main-section");
+
+        sectionVocabulary.classList.remove("fade-in-vocab");
+        sectionVocabulary.classList.add("fade-out-vocab");
+
+        setTimeout(() => {
+          btnDiv.innerHTML = "";
+          vocabularyForm.innerHTML = "";
+          exerciceForm.innerHTML = "";
+          updateScriptContent(index);
+          sectionVocabulary.classList.remove("fade-out-vocab");
+          sectionVocabulary.classList.add("fade-in-vocab");
+        }, 725);
+      }
+
+      function addScriptLinkListeners() {
+        const scriptLinks = document.querySelectorAll(".script-link");
+
+        scriptLinks.forEach((link, index) => {
+          link.addEventListener("click", (event) => {
+            handleLinkClick(event, index);
+          });
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+          loadInitialScripts();
+          addScriptLinkListeners();
+        }, 1000);
+      });
     </script>
   </body>
 </html>
