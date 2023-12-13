@@ -388,7 +388,7 @@ const vocab = (vocabularies) => {
       }
 
       if (!isCorrect) {
-        const section = document.querySelector("#main-section");
+        const section = document.querySelector("#main-section-vocabulary");
         const offset = section.offsetTop;
         window.scrollTo({ top: offset, behavior: "smooth" });
         ChampTxt.innerHTML = `<div class="modal-container one">
@@ -409,7 +409,7 @@ const vocab = (vocabularies) => {
   }
 
   if (allAnswersProvided) {
-    const section = document.querySelector("#main-section");
+    const section = document.querySelector("#main-section-vocabulary");
     const offset = section.offsetTop;
     window.scrollTo({ top: offset, behavior: "smooth" });
 
@@ -454,7 +454,7 @@ const showCorrections = (vocabularies) => {
   for (let i = 0; i <= counter; i++) {
     results.push(document.getElementById(i).value.toUpperCase());
   }
-  const section = document.querySelector("#main-section");
+  const section = document.querySelector("#main-section-vocabulary");
   const offset = section.offsetTop;
   window.scrollTo({ top: offset, behavior: "smooth" });
 
@@ -520,7 +520,7 @@ const resetForm = () => {
 const showExerciseSection = () => {
   const vocabSection = document.querySelector("#vocab-section");
   const exerciseSection = document.querySelector("#exercice-section");
-  const section = document.querySelector("#main-section");
+  const section = document.querySelector("#main-section-vocabulary");
 
   vocabSection.classList.remove("fade-in");
   vocabSection.classList.add("fade-out");
@@ -539,7 +539,7 @@ const showExerciseSection = () => {
 const showVocabularySection = () => {
   const vocabSection = document.querySelector("#vocab-section");
   const exerciseSection = document.querySelector("#exercice-section");
-  const section = document.querySelector("#main-section");
+  const section = document.querySelector("#main-section-vocabulary");
 
   vocabSection.classList.remove("fade-out");
   vocabSection.classList.add("fade-in");

@@ -89,7 +89,7 @@ exerciceIds.forEach((exerciceId, index) => {
     counter = -1;
     const vocabularyForm = document.querySelector("#vocab");
     const exerciceForm = document.querySelector("#exo");
-    const sectionVocabulary = document.getElementById("main-section");
+    const sectionVocabulary = document.getElementById("main-section-vocabulary");
     sectionVocabulary.classList.remove("fade-in-vocab");
     sectionVocabulary.classList.add("fade-out-vocab");
     setTimeout(() => {

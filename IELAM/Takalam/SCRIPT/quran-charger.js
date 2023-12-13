@@ -1,15 +1,15 @@
 const section = document.querySelector("section");
-const exerciceIds = ["exercice-1", "exercice-2"];
+const exerciceIds = ["exercice-1"];
 
 const scriptUrls = {
   "exercice-1":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/Vocabulary-files/5-Classeroom/Vocabulary1.json",
-  "exercice-2":
-    "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/Vocabulary-files/5-Classeroom/Vocabulary2.json",
+    "../Takalam/SCRIPT/quran-charger.js",
 };
 
 function loadInitialExercice() {
-  const lastExerciceIndex = parseInt(localStorage.getItem("lastExerciceIndex"));
+  const lastExerciceIndex = parseInt(
+    localStorage.getItem("lastExerciceIndex")
+  );
   if (
     !isNaN(lastExerciceIndex) &&
     lastExerciceIndex >= 0 &&
@@ -29,7 +29,7 @@ function loadScriptAndData(exerciceIndex) {
   }
 
   fetch(scriptUrls[exerciceIds[exerciceIndex]])
-    .then((response) => response.json())
+    .then((response) => response.text())
     .then((data) => {
       const vocabularies = data.vocabulary;
       const ticketListe = data.ticket;
@@ -83,7 +83,7 @@ exerciceIds.forEach((exerciceId, index) => {
     counter = -1;
     const vocabularyForm = document.querySelector("#vocab");
     const exerciceForm = document.querySelector("#exo");
-    const sectionVocabulary = document.getElementById("main-section-vocabulary");
+    const sectionVocabulary = document.getElementById("main-section");
     sectionVocabulary.classList.remove("fade-in-vocab");
     sectionVocabulary.classList.add("fade-out-vocab");
     setTimeout(() => {

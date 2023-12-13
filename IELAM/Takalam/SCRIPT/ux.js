@@ -11,7 +11,7 @@ window.onbeforeunload = function () {
 // Event listener for scroll on the nav bar
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navwrapper");
-  const sectionExercice1 = document.querySelector("#main-section");
+  const sectionExercice1 = document.querySelector("section");
 
   if (sectionExercice1) {
     const sectionTop = sectionExercice1.offsetTop + 30;
@@ -31,10 +31,12 @@ const sidemenu = document.querySelector(".sidemenu");
 const overlay = document.querySelector(".sidemenu-overlay");
 toggleMenu.addEventListener("click", () => {
   if (!toggleMenu.classList.contains("active")) {
+    document.body.style.overflow = 'hidden';
     sidemenu.classList.add("showmenu");
     toggleMenu.classList.add("active");
     overlay.classList.add("visible");
   } else {
+    document.body.style.overflow = '';
     sidemenu.classList.remove("showmenu");
     toggleMenu.classList.remove("active");
     overlay.classList.remove("visible");

@@ -42,33 +42,38 @@
         });
     </script>
 
-    <!--MAIN-->
+    <!--MAIN QURAN-->
     <main id="main-section">
-      <div class="main-bg-img">
-        <section class="section-exercices">
-          <div id="vocab-section">
-            <div class="exercice">
-              <fieldset>
-                <legend class="vocab-en">
-                  <div class="ticket" translate="no"></div>
-                </legend>
-                <form id="vocab" name="exo"></form>
-              </fieldset>
-            </div>
-          </div>
-          <div id="exercice-section">
-            <div class="exercice">
-              <fieldset class="exercices-fieldset">
-                <legend class="vocab-en">
-                  <div class="ticket" translate="no"></div>
-                </legend>
-                <div id="Aff"></div>
-                <form id="exo" name="exo"></form>
-              </fieldset>
-            </div>
-          </div>
-        </section>
+      <div class="bg-img">
+        <section id="mushaf-layout"></section>
       </div>
+    </main>
+
+    <!--MAIN VOCABULARY-->
+    <main id="main-section-vocabulary">
+      <section class="section-exercices">
+        <div id="vocab-section">
+          <div class="exercice">
+            <fieldset>
+              <legend class="vocab-en">
+                <div class="ticket" translate="no"></div>
+              </legend>
+              <form id="vocab" name="exo"></form>
+            </fieldset>
+          </div>
+        </div>
+        <div id="exercice-section">
+          <div class="exercice">
+            <fieldset class="exercices-fieldset">
+              <legend class="vocab-en">
+                <div class="ticket" translate="no"></div>
+              </legend>
+              <div id="Aff"></div>
+              <form id="exo" name="exo"></form>
+            </fieldset>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!--FOOTER-->
@@ -166,7 +171,7 @@
         const btnDiv = document.querySelector(".btn-content");
         const vocabularyForm = document.getElementById("vocab");
         const exerciceForm = document.getElementById("exo");
-        const sectionVocabulary = document.getElementById("main-section");
+        const sectionVocabulary = document.getElementById("main-section-vocabulary");
 
         sectionVocabulary.classList.remove("fade-in-vocab");
         sectionVocabulary.classList.add("fade-out-vocab");

@@ -9,8 +9,8 @@
       format("opentype");
   }
   :root {
-    --couleur-fond: #e4ebf5;
-    --couleur-contrast: #ced4dc;
+    --couleur-fond: #DFF3FF;
+    --couleur-contrast: #E5F6FE;
     --couleur-btn: #031c40;
     --couleur-text: #031c40;
     --couleur-box-shadow-int: inset -3px -3px 3px #ffffff44,
@@ -20,8 +20,8 @@
       0px 1px 1px #898e9244;
     --couleur-text-shadow: -1px -2px 3px #ffffff77, 1px 2px 3px #898e9244;
     --couleur-switch: #ffffff;
-    --couleur-fond-bg: radial-gradient(circle, #e4ebf5, #e4ebf580 50%);
-    --couleur-fond-row: linear-gradient(#e4ebf550, #e4ebf5);
+    --couleur-fond-bg: radial-gradient(circle, #DFF3FF, #DFF3FF80 50%);
+    --couleur-fond-row: linear-gradient(#DFF3FF50, #DFF3FF);
     --font-arabic1: "Amiri", serif;
     --font-arabic2: "Amiri Quran", serif;
     --font-latin: "Nothing You Could Do", cursive;
@@ -32,8 +32,8 @@
   }
   body.dark {
     --couleur-fond: #0d1117;
-    --couleur-contrast: #31363b;
-    --couleur-btn: #e4ebf5;
+    --couleur-contrast: #E5F6FE;
+    --couleur-btn: #DFF3FF;
     --couleur-text: #647075;
     --couleur-box-shadow-int: inset -3px -3px 3px #30303044,
       inset 3px 3px 3px #00000044;
@@ -175,6 +175,7 @@
     display: flex;
     justify-content: center;
     width: 95%;
+    margin-top: 150px;
   }
   legend {
     float: none;
@@ -267,11 +268,11 @@
   }
   .fade-out-vocab {
     opacity: 0;
-    transition: opacity 0.7s ease-in-out;
+    transition: opacity 0.7s ease;
   }
   .fade-in-vocab {
     opacity: 1;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease;
   }
   .vocabulary {
     color: var(--couleur-btn);
@@ -699,11 +700,11 @@
   @keyframes unfoldIn {
     0% {
       transform: scaleY(0.001) scaleX(0);
-      background: var(--couleur-contrast);
+      background: var(--couleur-switch);
     }
     40% {
       transform: scaleY(0.001) scaleX(95%);
-      background: var(--couleur-contrast);
+      background: var(--couleur-switch);
     }
     100% {
       transform: scaleY(1) scaleX(1);
@@ -713,15 +714,15 @@
   @keyframes unfoldOut {
     0% {
       transform: scaleY(1) scaleX(1);
-      background: var(--couleur-contrast);
+      background: var(--couleur-switch);
     }
     40% {
       transform: scaleY(0.001) scaleX(95%);
-      background: var(--couleur-contrast);
+      background: var(--couleur-switch);
     }
     100% {
       transform: scaleY(0.001) scaleX(0);
-      background: var(--couleur-contrast);
+      background: var(--couleur-switch);
     }
   }
   @keyframes zoomIn {
@@ -996,7 +997,7 @@
     list-style: none;
     padding: 0;
   }
-  .submenu .app-menu-item {
+  .submenu .app-menu-item a {
     color: var(--couleur-btn);
     font-family: "Cairo", sans-serif;
     font-size: 1.1rem;
@@ -1004,7 +1005,7 @@
     font-weight: normal;
     transition: color 0.3s ease;
   }
-  .submenu .app-menu-item:hover {
+  .submenu .app-menu-item a:hover {
     color: var(--couleur-contrast);
   }
   .showPub {
