@@ -51,4 +51,41 @@
     </div>
   </div>
 </div>
+<script>
+  function convertToArabicNumber(number) {
+    const arabicNumbers = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+    const digits = String(number).split("");
+    const arabicDigits = digits.map((digit) => arabicNumbers[digit]);
+    return arabicDigits.join("");
+  }
 
+  document.addEventListener("DOMContentLoaded", () => {
+    const domHidden = document.querySelector(".dom-hidden");
+    const loader = document.getElementById("loader");
+    const progressBar = document.getElementById("progress");
+    const progressText = document.getElementById("progress-text");
+    const upload = document.querySelector(".loading");
+    const stringLoad = document.querySelector(".string");
+
+    let width = 0;
+    let percent = 0;
+    const interval = setInterval(() => {
+      width += 1;
+      percent = width + "%";
+      progressBar.style.width = percent;
+      const arabicNum = convertToArabicNumber(percent);
+      progressText.innerText = arabicNum;
+
+      if (width > 99) {
+        clearInterval(interval);
+        upload.classList.add("load");
+        progressText.classList.add("load");
+        stringLoad.classList.add("load");
+        loader.classList.add("fade-out");
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 3000);
+      }
+    }, 75);
+  });
+</script>
