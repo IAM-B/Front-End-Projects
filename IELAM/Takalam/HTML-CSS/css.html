@@ -31,7 +31,7 @@
   }
   body.dark {
     --couleur-fond: #0d1117;
-    --couleur-contrast: #898e92;
+    --couleur-contrast: #303234;
     --couleur-btn: #C0E9FF;
     --couleur-text: #647075;
     --couleur-box-shadow-int: inset -3px -3px 3px #30303044,
@@ -76,7 +76,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: opacity 1s ease;
     z-index: 9999;
+  }
+  .fade-out {
+    opacity: 0;
+  }
+  .fade-int {
+    opacity: 1;
   }
   .loader-content {
     display: flex;
@@ -111,22 +118,30 @@
     width: 50%;
     margin: 15px 0;
     background-color: transparent;
-    animation: fill 4s ease forwards 7s;
+    animation: fill 1s ease forwards 1.5s;
   }
   #logo-a {
     stroke-dasharray: 6000;
     stroke-dashoffset: 6000;
-    animation: anime 10s ease;
+    animation: anime 3s ease;
   }
   .load {
     color: var(--couleur-btn) !important;
     transition: 3s ease;
   }
-  .fade-out {
-    opacity: 0;
-    transition: opacity 3s ease-in-out;
+  @keyframes anime {
+    100% {
+      stroke-dashoffset: 1000;
+    }
   }
-
+  @keyframes fill {
+    from {
+      fill: transparent;
+    }
+    to {
+      fill: var(--couleur-btn);
+    }
+  }
   /* HEADER */
   .header {
     position: fixed;
@@ -733,19 +748,6 @@
     }
     100% {
       transform: scale(0);
-    }
-  }
-  @keyframes anime {
-    100% {
-      stroke-dashoffset: 1000;
-    }
-  }
-  @keyframes fill {
-    from {
-      fill: transparent;
-    }
-    to {
-      fill: var(--couleur-btn);
     }
   }
 </style>

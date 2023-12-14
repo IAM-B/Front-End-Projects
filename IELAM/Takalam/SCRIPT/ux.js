@@ -26,10 +26,11 @@ window.addEventListener("scroll", () => {
 });
 
 // Listen to click event for toggling the burger menu
-const toggleMenu = document.querySelector(".toggleMenu");
-const sidemenu = document.querySelector(".sidemenu");
-const overlay = document.querySelector(".sidemenu-overlay");
-toggleMenu.addEventListener("click", () => {
+function toggleBurgerMenu() {
+  const toggleMenu = document.querySelector(".toggleMenu");
+  const sidemenu = document.querySelector(".sidemenu");
+  const overlay = document.querySelector(".sidemenu-overlay");
+
   if (!toggleMenu.classList.contains("active")) {
     document.body.style.overflow = 'hidden';
     sidemenu.classList.add("showmenu");
@@ -40,9 +41,10 @@ toggleMenu.addEventListener("click", () => {
     sidemenu.classList.remove("showmenu");
     toggleMenu.classList.remove("active");
     overlay.classList.remove("visible");
-
   }
-});
+}
+const toggleMenu = document.querySelector(".toggleMenu");
+toggleMenu.addEventListener("click", toggleBurgerMenu);
 
 // Function switch theme dark/light
 const switchInput = document.getElementById("theme-switch");

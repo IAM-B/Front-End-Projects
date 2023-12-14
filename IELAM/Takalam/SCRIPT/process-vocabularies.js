@@ -501,7 +501,6 @@ const showCorrections = (vocabularies) => {
 };
 
 // Function that resets the form
-let nbAttempts = 0;
 const resetForm = () => {
   const allInputs = document.querySelectorAll(".input-fill");
   allInputs.forEach((input) => {
