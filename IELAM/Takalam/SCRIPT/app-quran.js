@@ -35,7 +35,7 @@ function resetLineContent() {
   lineContent = {};
 }
 const populateTable = async () => {
-  const mushafLayoutDiv = document.getElementById("mushaf-layout");
+  const mushafLayoutDiv = document.querySelector(".mushaf-layout");
   resetLineContent();
   try {
     const data = await fetchData();
@@ -300,14 +300,14 @@ function getTextWidth(text) {
 // Function check answers
 function checkAnswers() {
   const inputContainers = document.querySelectorAll(
-    "#mushaf-layout .input-container"
+    ".mushaf-layout .input-container"
   );
 
   const inputContent = document.querySelectorAll(".input-container");
   inputContent.forEach((element) => {
     element.classList.add("flex-content");
   });
-  
+
   inputContainers.forEach((inputContainer, index) => {
     const inputChildren = Array.from(inputContainer.children);
     let userAnswers = [];
@@ -463,7 +463,7 @@ function checkAnswers() {
 
 // Function to restart
 function restart() {
-  section = document.getElementById("mushaf-layout");
+  section = document.querySelector(".mushaf-layout");
   section.innerHTML = "";
 
   populateTable();

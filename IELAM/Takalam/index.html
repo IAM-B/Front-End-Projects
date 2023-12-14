@@ -43,14 +43,14 @@
     </script>
 
     <!--MAIN QURAN-->
-    <main id="main-section">
+    <main id="main-section-quran" class="main-quran">
       <div class="bg-img">
-        <section id="mushaf-layout"></section>
+        <section class="mushaf-layout"></section>
       </div>
     </main>
 
     <!--MAIN VOCABULARY-->
-    <main id="main-section-vocabulary">
+    <main id="main-section-vocabulary" class="main-vocabulary">
       <section class="section-exercices">
         <div id="vocab-section">
           <div class="exercice">
@@ -74,13 +74,13 @@
           </div>
         </div>
       </section>
+      <div class="btn-content"></div>
     </main>
 
     <!--FOOTER-->
     <footer>
       <div class="footer">
         <h1 id="footer"></h1>
-        <div class="btn-content"></div>
       </div>
     </footer>
 
@@ -94,6 +94,7 @@
       }
 
       const scriptUrl = [
+        "SCRIPT/app-quran.js",
         "SCRIPT/keyboard.js",
         "SCRIPT/ux.js",
         "SCRIPT/CMSHtmlElementMappings.js",
@@ -102,6 +103,7 @@
       ];
 
       const scriptIds = [
+        "script-app-quran",
         "script-keyboard",
         "script-ux",
         "script-html-mappings",
@@ -127,63 +129,71 @@
         });
       }
 
-      function updateScriptContent(linkIndex) {
+      async function updateScriptContent(linkIndex) {
         const scriptUrl = document
           .getElementById(`link-${linkIndex}`)
           .getAttribute("data-script-url");
 
-        fetch(scriptUrl)
-          .then((response) => response.text())
-          .then((data) => {
-            const scriptContent = `
-        function dynamicallyLoadedScript() {
-          ${data}
-        }
-      `;
+        const response = await fetch(scriptUrl);
+        const data = await response.text();
 
-            const newScriptElement = document.createElement("script");
-            newScriptElement.id = "script-exercice-charger";
-            newScriptElement.text = scriptContent;
+        const scriptContent = `
+    function dynamicallyLoadedScript() {
+      ${data}
+    }
+  `;
 
-            const oldScriptElement = document.getElementById(
-              "script-exercice-charger"
-            );
+        const newScriptElement = document.createElement("script");
+        newScriptElement.id = "script-exercice-charger";
+        newScriptElement.text = scriptContent;
 
-            if (oldScriptElement) {
-              oldScriptElement.parentNode.replaceChild(
-                newScriptElement,
-                oldScriptElement
-              );
-            } else {
-              document.body.appendChild(newScriptElement);
-            }
+        const oldScriptElement = document.getElementById(
+          "script-exercice-charger"
+        );
+        oldScriptElement.parentNode.replaceChild(
+          newScriptElement,
+          oldScriptElement
+        );
 
-            dynamicallyLoadedScript();
-          })
-          .catch((error) => {
-            console.error("An error occurred while loading the script:", error);
-          });
+        // Charger le contenu de script-process-vocabularies.js
+        const processVocabulariesContent = document.getElementById(
+          "script-process-vocabularies"
+        ).textContent;
+
+        const newProcessElement = document.createElement("script");
+        newProcessElement.id = "script-process-vocabularies";
+        newProcessElement.text = processVocabulariesContent;
+
+        const oldProcessElement = document.getElementById(
+          "script-process-vocabularies"
+        );
+        oldProcessElement.parentNode.replaceChild(
+          newProcessElement,
+          oldProcessElement
+        );
+
+        dynamicallyLoadedScript();
       }
+
+      const btnDiv = document.querySelector(".btn-content");
+      const vocabularyForm = document.getElementById("vocab");
+      const exerciceForm = document.getElementById("exo");
+      const sectionVocabulary = document.getElementById(
+        "main-section-vocabulary"
+      );
+      const mainVocabulary = document.querySelector(".main-vocabulary");
 
       function handleLinkClick(event, index) {
         event.preventDefault();
 
-        const btnDiv = document.querySelector(".btn-content");
-        const vocabularyForm = document.getElementById("vocab");
-        const exerciceForm = document.getElementById("exo");
-        const sectionVocabulary = document.getElementById("main-section-vocabulary");
-
-        sectionVocabulary.classList.remove("fade-in-vocab");
-        sectionVocabulary.classList.add("fade-out-vocab");
+        btnDiv.innerHTML = "";
+        vocabularyForm.innerHTML = "";
+        exerciceForm.innerHTML = "";
+        updateScriptContent(index);
 
         setTimeout(() => {
-          btnDiv.innerHTML = "";
-          vocabularyForm.innerHTML = "";
-          exerciceForm.innerHTML = "";
-          updateScriptContent(index);
-          sectionVocabulary.classList.remove("fade-out-vocab");
-          sectionVocabulary.classList.add("fade-in-vocab");
-        }, 725);
+          mainVocabulary.classList.add("show-section");
+        }, 200);
       }
 
       function addScriptLinkListeners() {
@@ -191,7 +201,10 @@
 
         scriptLinks.forEach((link, index) => {
           link.addEventListener("click", (event) => {
-            handleLinkClick(event, index);
+            mainVocabulary.classList.remove("show-section");
+            if (sectionVocabulary) {
+              handleLinkClick(event, index);
+            }
           });
         });
       }

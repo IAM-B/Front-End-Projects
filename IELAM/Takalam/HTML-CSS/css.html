@@ -9,8 +9,8 @@
       format("opentype");
   }
   :root {
-    --couleur-fond: #DFF3FF;
-    --couleur-contrast: #E5F6FE;
+    --couleur-fond: #C0E9FF;
+    --couleur-contrast: #a4c1d6;
     --couleur-btn: #031c40;
     --couleur-text: #031c40;
     --couleur-box-shadow-int: inset -3px -3px 3px #ffffff44,
@@ -19,9 +19,8 @@
     --couleur-box-shadow-out-hover: 0px -2px 1px #ffffff44,
       0px 1px 1px #898e9244;
     --couleur-text-shadow: -1px -2px 3px #ffffff77, 1px 2px 3px #898e9244;
-    --couleur-switch: #ffffff;
-    --couleur-fond-bg: radial-gradient(circle, #DFF3FF, #DFF3FF80 50%);
-    --couleur-fond-row: linear-gradient(#DFF3FF50, #DFF3FF);
+    --couleur-fond-bg: radial-gradient(circle, #C0E9FF, #C0E9FF80 50%);
+    --couleur-fond-row: linear-gradient(#C0E9FF50, #C0E9FF);
     --font-arabic1: "Amiri", serif;
     --font-arabic2: "Amiri Quran", serif;
     --font-latin: "Nothing You Could Do", cursive;
@@ -32,8 +31,8 @@
   }
   body.dark {
     --couleur-fond: #0d1117;
-    --couleur-contrast: #E5F6FE;
-    --couleur-btn: #DFF3FF;
+    --couleur-contrast: #898e92;
+    --couleur-btn: #C0E9FF;
     --couleur-text: #647075;
     --couleur-box-shadow-int: inset -3px -3px 3px #30303044,
       inset 3px 3px 3px #00000044;
@@ -41,7 +40,6 @@
     --couleur-box-shadow-out-hover: 0px -1px 1px #30303044,
       0px 2px 1px #00000044;
     --couleur-text-shadow: -1px -2px 3px #30303077, 1px 2px 3px #00000044;
-    --couleur-switch: #000000;
     --couleur-fond-bg: radial-gradient(circle, #0d1117 25%, #0d111799 100%);
     --couleur-fond-row: linear-gradient(#0d111750 10%, #0d1117);
     --font-arabic1: "Amiri", serif;
@@ -150,17 +148,22 @@
     height: 100%;
   }
 
-  /* main */
+  /* VOCABULARY */
   main {
-    position: relative;
+    display: none;
     width: 100%;
-  }
-  #main-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    margin-top: 150px;
     z-index: 1;
+  }
+  .main-vocabulary {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  .main-vocabulary.show-section {
+    display: block;
+    opacity: 1;
+    visibility: visible
   }
   .main-bg-img {
     display: flex;
@@ -174,8 +177,7 @@
   .section-exercices {
     display: flex;
     justify-content: center;
-    width: 95%;
-    margin-top: 150px;
+    margin: auto 10px;
   }
   legend {
     float: none;
@@ -265,14 +267,6 @@
     padding: 20px;
     box-shadow: var(--couleur-box-shadow-out);
     font-family: var(--font-arabic1);
-  }
-  .fade-out-vocab {
-    opacity: 0;
-    transition: opacity 0.7s ease;
-  }
-  .fade-in-vocab {
-    opacity: 1;
-    transition: opacity 1s ease;
   }
   .vocabulary {
     color: var(--couleur-btn);
@@ -700,11 +694,11 @@
   @keyframes unfoldIn {
     0% {
       transform: scaleY(0.001) scaleX(0);
-      background: var(--couleur-switch);
+      background: var(--couleur-contrast);
     }
     40% {
       transform: scaleY(0.001) scaleX(95%);
-      background: var(--couleur-switch);
+      background: var(--couleur-contrast);
     }
     100% {
       transform: scaleY(1) scaleX(1);
@@ -714,15 +708,15 @@
   @keyframes unfoldOut {
     0% {
       transform: scaleY(1) scaleX(1);
-      background: var(--couleur-switch);
+      background: var(--couleur-contrast);
     }
     40% {
       transform: scaleY(0.001) scaleX(95%);
-      background: var(--couleur-switch);
+      background: var(--couleur-contrast);
     }
     100% {
       transform: scaleY(0.001) scaleX(0);
-      background: var(--couleur-switch);
+      background: var(--couleur-contrast);
     }
   }
   @keyframes zoomIn {
@@ -791,7 +785,7 @@
     width: 60px;
     height: 30px;
     margin-left: 30px;
-    background-color: var(--couleur-switch);
+    background-color: var(--couleur-contrast);
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -10465,12 +10459,12 @@
       padding: 1rem 0.5rem;
       font-size: 1.4vw;
       background: var(--couleur-fond);
-      box-shadow: -3px -3px 3px #ffffff44, 3px 3px 3px #898e9244;
+      box-shadow: -3px -3px 3px #88899444, 3px 3px 3px #33355444;
     }
     .menu > ol > li > ol > li > a:hover,
     .menu > ol > li > ol > li > a:focus,
     .menu > ol > li > ol > li > a:focus-within {
-      box-shadow: -3px -3px 3px #ffffff44, 3px 3px 3px #898e9244;
+      box-shadow: -3px -3px 3px #88899444, 3px 3px 3px #33355444;
       color: var(--couleur-btn);
     }
     .menu > ol > li:hover > a,
@@ -10771,7 +10765,16 @@
 
 <!--Quran-->
 <style>
-  /* HEADER */
+  .main-quran {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  .main-quran.show-section {
+    display: block;
+    opacity: 1;
+    visibility: visible
+  }
   .brand {
     display: flex;
     position: relative;
@@ -10801,14 +10804,14 @@
     transform: translate(-50%, 50%);
     padding: 0 5px;
   }
-  #mushaf-layout {
+  .mushaf-layout {
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     color: var(--couleur-btn);
     background-image: var(--couleur-fond-bg);
     background-size: cover;
@@ -10819,7 +10822,7 @@
     display: flex;
     align-content: center;
     margin: auto;
-    height: 100%;
+    height: 100vh;
   }
   .bg-img {
     display: flex;
