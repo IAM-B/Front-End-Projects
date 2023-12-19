@@ -118,7 +118,9 @@
     <div id="css-content"></div>
     <script>
       const contentDivHtml = document.getElementById("html-content");
-      fetch("HTML-CSS/header.html")
+      fetch(
+        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/HTML-CSS/header.html"
+      )
         .then((response) => response.text())
         .then((htmlContent) => {
           contentDivHtml.innerHTML = htmlContent;
@@ -131,7 +133,9 @@
         });
 
       const contentDivCss = document.getElementById("css-content");
-      fetch("HTML-CSS/css.html")
+      fetch(
+        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/HTML-CSS/css.html"
+      )
         .then((response) => response.text())
         .then((htmlContent) => {
           contentDivCss.innerHTML = htmlContent;
@@ -157,7 +161,7 @@
     </main>
 
     <!--MAIN VOCABULARY-->
-    <main id="main-section-vocabulary" class="main-vocabulary">
+    <main id="main-section-vocabulary" class="main-vocabulary show-section">
       <section class="section-exercices">
         <div id="vocab-section">
           <div class="exercice">
@@ -201,12 +205,12 @@
       }
 
       const scriptUrl = [
-        "SCRIPT/app-quran.js",
-        "SCRIPT/keyboard.js",
-        "SCRIPT/ux.js",
-        "SCRIPT/CMSHtmlElementMappings.js",
-        "../Takalam/Vocabulary-files/1-Introduction/exercice-charger.js",
-        "SCRIPT/process-vocabularies.js",
+        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/SCRIPT/app-quran.js",
+        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/SCRIPT/keyboard.js",
+        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/SCRIPT/ux.js",
+        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/SCRIPT/CMSHtmlElementMappings.js",
+        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/Vocabulary-files/1-Introduction/exercice-charger.js",
+        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/SCRIPT/process-vocabularies.js",
       ];
 
       const scriptIds = [
@@ -265,20 +269,8 @@
         dynamicallyLoadedScript();
       }
 
-      const btnDiv = document.querySelector(".btn-content");
-      const vocabularyForm = document.getElementById("vocab");
-      const exerciceForm = document.getElementById("exo");
-      const sectionVocabulary = document.getElementById(
-        "main-section-vocabulary"
-      );
-      const mainVocabulary = document.querySelector(".main-vocabulary");
-
       function handleLinkClick(event, index) {
         event.preventDefault();
-
-        btnDiv.innerHTML = "";
-        vocabularyForm.innerHTML = "";
-        exerciceForm.innerHTML = "";
         updateScriptContent(index);
       }
 
@@ -290,6 +282,7 @@
 
         scriptLinks.forEach((link, index) => {
           link.addEventListener("click", (event) => {
+            counter = -1;
             domLoadShow.style.display = "block";
             domLoadShow.classList.remove("fade-out");
             domLoadShow.classList.add("fade-int");
@@ -300,11 +293,26 @@
             mainVocabulary.classList.remove("show-section");
             mainQuran.classList.remove("show-section");
 
+            const vocabularyForm = document.querySelector("#vocab");
+            const exerciceForm = document.querySelector("#exo");
+            const btnDiv = document.querySelector(".btn-content");
+
+            const sectionVocabulary = document.getElementById(
+              "main-section-vocabulary"
+            );
+            sectionVocabulary.classList.remove("fade-in-vocab");
+            sectionVocabulary.classList.add("fade-out-vocab");
+
             if (link.classList.contains("menu-vocabulary")) {
-              setTimeout(() => {
-                mainVocabulary.classList.add("show-section");
-              }, 300);
+              vocabularyForm.innerHTML = "";
+              exerciceForm.innerHTML = "";
+              btnDiv.innerHTML = "";
+
+              sectionVocabulary.classList.remove("fade-out-vocab");
+              sectionVocabulary.classList.add("fade-in-vocab");
+              mainVocabulary.classList.add("show-section");
               handleLinkClick(event, index);
+              showVocabularySection();
             } else if (link.classList.contains("menu-quran")) {
               setTimeout(() => {
                 mainQuran.classList.add("show-section");
