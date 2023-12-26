@@ -147,8 +147,11 @@ const populateTable = async () => {
         }
       });
     });
+    const btnContainer = document.createElement("div");
+    btnContainer.classList.add("btn-container");
 
     mushafLayoutDiv.appendChild(mushafWrapperDiv);
+    mushafWrapperDiv.appendChild(btnContainer);
     mushafLayoutDiv.appendChild(rowDiv);
     createBtn();
   } catch (error) {
@@ -159,15 +162,7 @@ populateTable();
 
 // Function to create buttons
 function createBtn() {
-  const mushafWrapperDiv = document.querySelector(".mushaf-wrapper");
-  const existingBtnContainer = document.querySelector(".btn-container");
-
-  if (existingBtnContainer) {
-    mushafWrapperDiv.removeChild(existingBtnContainer);
-  }
-
-  const btnContainer = document.createElement("div");
-  btnContainer.classList.add("btn-container");
+  const btnContainer = document.querySelector(".btn-container");
 
   const btnWrite = document.createElement("button");
   btnWrite.id = "editButton";
@@ -199,13 +194,15 @@ function createBtn() {
     btnWrite.classList.remove("hidden");
     btnCheck.classList.add("hidden");
     btnRestart.classList.add("hidden");
-    restart();
+    const section = document.querySelector(".mushaf-layout");
+    section.innerHTML = "";
+  
+    populateTable();
   };
 
   btnContainer.appendChild(btnWrite);
   btnContainer.appendChild(btnCheck);
   btnContainer.appendChild(btnRestart);
-  mushafWrapperDiv.appendChild(btnContainer);
 }
 
 // Function to hide text and display text areas
@@ -459,13 +456,4 @@ function checkAnswers() {
     inputContainer.appendChild(ayahDiv);
     inputContainer.appendChild(userAnswersDiv);
   });
-}
-
-// Function to restart
-function restart() {
-  section = document.querySelector(".mushaf-layout");
-  section.innerHTML = "";
-
-  populateTable();
-  setTimeout(createBtn, 500);
 }

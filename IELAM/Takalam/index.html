@@ -119,7 +119,7 @@
     <script>
       const contentDivHtml = document.getElementById("html-content");
       fetch(
-        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/HTML-CSS/header.html"
+        "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/HTML-CSS/header.html"
       )
         .then((response) => response.text())
         .then((htmlContent) => {
@@ -134,7 +134,7 @@
 
       const contentDivCss = document.getElementById("css-content");
       fetch(
-        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/HTML-CSS/css.html"
+        "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/HTML-CSS/css.html"
       )
         .then((response) => response.text())
         .then((htmlContent) => {
@@ -205,12 +205,12 @@
       }
 
       const scriptUrl = [
-        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/SCRIPT/app-quran.js",
-        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/SCRIPT/keyboard.js",
-        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/SCRIPT/ux.js",
-        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/SCRIPT/CMSHtmlElementMappings.js",
-        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/Vocabulary-files/1-Introduction/exercice-charger.js",
-        "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Takalam/SCRIPT/process-vocabularies.js",
+        "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/SCRIPT/app-quran.js",
+        "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/SCRIPT/keyboard.js",
+        "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/SCRIPT/ux.js",
+        "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/SCRIPT/CMSHtmlElementMappings.js",
+        "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/Vocabulary-files/1-Introduction/exercice-charger.js",
+        "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/SCRIPT/process-vocabularies.js",
       ];
 
       const scriptIds = [
@@ -240,7 +240,7 @@
         });
       }
 
-      async function updateScriptContent(linkIndex) {
+      async function updateScriptVocabulary(linkIndex) {
         const scriptUrl = document
           .getElementById(`link-${linkIndex}`)
           .getAttribute("data-script-url");
@@ -269,9 +269,39 @@
         dynamicallyLoadedScript();
       }
 
-      function handleLinkClick(event, index) {
+      async function updateScriptQuran(linkIndex) {
+        const response = await fetch(
+          "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Takalam/SCRIPT/app-quran.js"
+        );
+        const data = await response.text();
+
+        const scriptContent = `
+    function dynamicallyLoadedScript() {
+      ${data}
+    }
+  `;
+
+        const newScriptElement = document.createElement("script");
+        newScriptElement.id = "script-app-quran";
+        newScriptElement.text = scriptContent;
+
+        const oldScriptElement = document.getElementById("script-app-quran");
+        oldScriptElement.parentNode.replaceChild(
+          newScriptElement,
+          oldScriptElement
+        );
+
+        dynamicallyLoadedScript();
+      }
+
+      function handleLinkClickVocabulary(event, index) {
         event.preventDefault();
-        updateScriptContent(index);
+        updateScriptVocabulary(index);
+      }
+
+      function handleLinkClickQuran(event, index) {
+        event.preventDefault();
+        updateScriptQuran(index);
       }
 
       function addScriptLinkListeners() {
@@ -296,6 +326,7 @@
             const vocabularyForm = document.querySelector("#vocab");
             const exerciceForm = document.querySelector("#exo");
             const btnDiv = document.querySelector(".btn-content");
+            const mushafLayout = document.querySelector(".mushaf-layout");
 
             const sectionVocabulary = document.getElementById(
               "main-section-vocabulary"
@@ -311,11 +342,12 @@
               sectionVocabulary.classList.remove("fade-out-vocab");
               sectionVocabulary.classList.add("fade-in-vocab");
               mainVocabulary.classList.add("show-section");
-              handleLinkClick(event, index);
-              showVocabularySection();
+              handleLinkClickVocabulary(event, index);
             } else if (link.classList.contains("menu-quran")) {
+              mushafLayout.innerHTML = "";
               setTimeout(() => {
                 mainQuran.classList.add("show-section");
+                handleLinkClickQuran(event, index);
               }, 300);
             }
           });
