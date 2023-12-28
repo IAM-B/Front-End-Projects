@@ -114,9 +114,25 @@
     </script>
 
     <!--TEMPLATE-->
+    <div id="setings-content"></div>
     <div id="html-content"></div>
     <div id="css-content"></div>
     <script>
+      const contentDivSetings = document.getElementById("setings-content");
+      fetch(
+        "../IELAM/HTML-CSS/setings.html"
+      )
+        .then((response) => response.text())
+        .then((htmlContent) => {
+          contentDivSetings.innerHTML = htmlContent;
+        })
+        .catch((error) => {
+          console.error(
+            "Une erreur s'est produite lors du chargement de la page:",
+            error
+          );
+        });
+
       const contentDivHtml = document.getElementById("html-content");
       fetch(
         "../IELAM/HTML-CSS/header.html"
