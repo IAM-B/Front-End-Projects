@@ -20,14 +20,14 @@
       0px 1px 1px #898e9244;
     --couleur-text-shadow: -1px -2px 3px #ffffff77, 1px 2px 3px #898e9244;
     --couleur-fond-bg: radial-gradient(circle, #C0E9FF, #C0E9FF80 50%);
-    --couleur-fond-row: linear-gradient(#C0E9FF50, #C0E9FF);
+    --couleur-fond-row-top: linear-gradient(#C0E9FF, #C0E9FF50);
+    --couleur-fond-row-footer: linear-gradient(#C0E9FF50, #C0E9FF);
     --font-arabic1: "Amiri", serif;
     --font-arabic2: "Amiri Quran", serif;
     --font-latin: "Nothing You Could Do", cursive;
     --font-ayah: "ayah-num", cursive;
     --font-logo: "Noto Nastaliq Urdu";
     --bg-Quran: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Data/Assets/IMG/src-Quran/paterne.svg");
-    transition: all 0.3s ease-in-out;
   }
   body.dark {
     --couleur-fond: #0d1117;
@@ -41,14 +41,14 @@
       0px 2px 1px #00000044;
     --couleur-text-shadow: -1px -2px 3px #30303077, 1px 2px 3px #00000044;
     --couleur-fond-bg: radial-gradient(circle, #0d1117 25%, #0d111799 100%);
-    --couleur-fond-row: linear-gradient(#0d111750 10%, #0d1117);
+    --couleur-fond-row-top: linear-gradient(#0d1117 10%, #0d111750);
+    --couleur-fond-row-footer: linear-gradient(#0d111750 10%, #0d1117);
     --font-arabic1: "Amiri", serif;
     --font-arabic2: "Amiri Quran", serif;
     --font-latin: "Nothing You Could Do", cursive;
     --font-ayah: "ayah-num", cursive;
     --font-logo: "Noto Nastaliq Urdu";
     --bg-Quran: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Data/Assets/IMG/src-Quran/paterne-dark.svg");
-    transition: all 0.3s ease-in-out;
   }
   * {
     margin: 0;
@@ -58,7 +58,6 @@
   }
   body {
     background-color: var(--couleur-fond);
-    transition: all 0.3s ease-in-out;
     width: 100%;
     height: 100%;
   }
@@ -143,17 +142,11 @@
     }
   }
   /* HEADER */
-  .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 3;
-  }
   header.page {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100px;
   }
   .bg-img {
     display: flex;
@@ -167,7 +160,6 @@
   main {
     display: none;
     width: 100%;
-    margin-top: 100px;
     z-index: 1;
   }
   .main-vocabulary {
@@ -10952,12 +10944,19 @@
   .kalam-wrapper {
     display: inline;
   }
-  .row-container {
+  .row-container-top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 35px 0;
+    background-image: var(--couleur-fond-row-top);
+  }
+  .row-container-footer {
     display: flex;
     justify-content: center;
     width: 100%;
     padding: 35px 0;
-    background-image: var(--couleur-fond-row);
+    background-image: var(--couleur-fond-row-footer);
   }
   .row {
     margin: 0 15px;

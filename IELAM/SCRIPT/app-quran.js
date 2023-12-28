@@ -2,7 +2,7 @@
 const fetchData = async () => {
   try {
     const response = await fetch(
-      "https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Data/Words-order/1.json"
+      "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Data/Words-order/1.json"
     );
     const data = await response.json();
     return data;
@@ -44,9 +44,9 @@ const populateTable = async () => {
     const pageNumber = data.pageNumber;
     const surahs = data.surahs;
 
-    const rowDiv = document.createElement("div");
-    rowDiv.classList.add("row-container");
-    rowDiv.setAttribute("translate", "no");
+    const rowDivFooter = document.createElement("div");
+    rowDivFooter.classList.add("row-container-footer");
+    rowDivFooter.setAttribute("translate", "no");
     const juzSpan = document.createElement("span");
     juzSpan.classList.add("juz", "row");
     juzSpan.textContent = ` جزء ${juz}`;
@@ -58,13 +58,13 @@ const populateTable = async () => {
     const pageNumberSpan = document.createElement("span");
     pageNumberSpan.classList.add("page-number", "row");
     pageNumberSpan.textContent = `صفحة ${pageNumber}`;
-    rowDiv.appendChild(pageNumberSpan);
-    rowDiv.appendChild(hizbSpan);
+    rowDivFooter.appendChild(pageNumberSpan);
+    rowDivFooter.appendChild(hizbSpan);
 
     const mushafWrapperDiv = document.createElement("div");
     mushafWrapperDiv.classList.add("mushaf-wrapper");
     mushafWrapperDiv.id = "page-" + `${pageNumber}`;
-    rowDiv.appendChild(juzSpan);
+    rowDivFooter.appendChild(juzSpan);
 
     const surahDiv = document.createElement("div");
     surahDiv.classList.add("line1");
@@ -96,11 +96,14 @@ const populateTable = async () => {
 <path d="M537.595 199.941C537.596 199.94 537.598 199.954 537.599 199.985C537.594 199.958 537.594 199.942 537.595 199.941ZM534.321 202.23C535.58 201.793 536.588 201.475 537.369 201.268C537.224 201.777 537.001 202.418 536.673 203.205C534.721 207.878 532.998 211.575 531.491 214.327C530.127 216.817 529.039 218.344 528.241 219.146C488.093 233.175 441.811 251.411 389.441 274.023C391.586 266.75 394.606 258.881 398.441 250.557C440.166 235.74 485.537 219.618 534.321 202.23ZM538.818 200.989C538.821 200.989 538.823 200.989 538.825 200.989C538.866 200.99 538.86 200.993 538.818 200.989Z" stroke="black" stroke-width="5"/>
 </svg>`;
 
+      const rowDivTop = document.createElement("div");
+      rowDivTop.classList.add("row-container-top")
+
     surahs.forEach((surah) => {
       const surahNumSpan = document.createElement("span");
       surahNumSpan.classList.add("surah", "row");
       surahNumSpan.textContent = ` سورة ${surah.surahNum} `;
-      rowDiv.appendChild(surahNumSpan);
+      rowDivFooter.appendChild(surahNumSpan);
 
       let lineDiv;
       let currentLineNumber = null;
@@ -151,8 +154,9 @@ const populateTable = async () => {
     btnContainer.classList.add("btn-container");
 
     mushafLayoutDiv.appendChild(mushafWrapperDiv);
+    mushafLayoutDiv.appendChild(rowDivTop);
+    mushafLayoutDiv.appendChild(rowDivFooter);
     mushafWrapperDiv.appendChild(btnContainer);
-    mushafLayoutDiv.appendChild(rowDiv);
     createBtn();
   } catch (error) {
     console.error("Erreur lors du peuplement du tableau :", error);
