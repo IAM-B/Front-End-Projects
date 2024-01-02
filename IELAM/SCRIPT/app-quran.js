@@ -7,9 +7,7 @@
 // Function to fetch the data from the Words-order json file
 const fetchAyahData = async () => {
   try {
-    const response = await fetch(
-      "../../structure1_modifiee.json"
-    );
+    const response = await fetch("../../structure1_modifiee.json");
     const DataAyah = await response.json();
     return DataAyah;
   } catch (error) {
@@ -115,7 +113,7 @@ const populateTable = async () => {
       let lineTranslateDiv;
       let currentLineNumber = null;
       let tempLineNumber;
-      let kalamId= 0;
+      let kalamId = 0;
       let wordId = 0;
 
       mushafWrapperDiv.appendChild(surahDiv);
@@ -129,30 +127,32 @@ const populateTable = async () => {
 
           if (lineNumber !== currentLineNumber) {
             lineAyahDiv = document.createElement("div");
-            lineAyahDiv.classList.add(
-              "line-ayah" + `${lineNumber - 1}`,
-              "ayah"
-            );
+            lineAyahDiv.id = `ayah-line-${lineNumber - 1}`;
+            lineAyahDiv.classList.add("ayah");
             lineAyahDiv.setAttribute("translate", "no");
 
             lineTranslateDiv = document.createElement("div");
-            lineTranslateDiv.id = "line-translate" + `${lineNumber - 1}`;
+            lineTranslateDiv.id = `translate-line-${lineNumber - 1}`;
 
             mushafWrapperDiv.appendChild(lineAyahDiv);
             mushafWrapperDiv.appendChild(lineTranslateDiv);
             currentLineNumber = lineNumber;
           }
-          
+
           if (text !== null && text !== undefined) {
-            const textSpan = document.createElement("span");
-            textSpan.classList.add("kalam");
-            textSpan.textContent = " " + `${text}` + " ";
-            lineAyahDiv.appendChild(textSpan);
+            const kalamSpan = document.createElement("span");
+            kalamSpan.id = `kalam-id-${kalamId}`;
+            kalamSpan.classList.add("kalam");
+            kalamSpan.textContent = " " + `${text}` + " ";
+            lineAyahDiv.appendChild(kalamSpan);
+            kalamId++;
 
             const translateSpan = document.createElement("span");
+            translateSpan.id = `word-id-${wordId}`;
             translateSpan.classList.add("word");
             translateSpan.textContent = " " + `${translate}` + " ";
             lineTranslateDiv.appendChild(translateSpan);
+            wordId++;
 
             if (!lineContent[lineNumber]) {
               lineContent[lineNumber] = [];
@@ -174,9 +174,35 @@ const populateTable = async () => {
           lineAyahDiv.appendChild(ayahNumSpanCopy1);
         
           const ayahNumSpanCopy2 = ayahNumSpan.cloneNode(true);
+          ayahNumSpanCopy2.id = `ayah-num-translate-${tempLineNumber}`;
           lineTranslateDiv.appendChild(ayahNumSpanCopy2);
         
           lineContent[tempLineNumber].push({ ayahNum });
+        
+          ayahNumSpanCopy1.addEventListener("click", function () {
+            const parentDivId = ayahNumSpanCopy1.parentElement.id;
+            const lineNumber = parentDivId.replace("ayah-line-", "");
+            const translateLine = document.getElementById(
+              `translate-line-${lineNumber}`
+            );
+        
+            if (translateLine) {
+              translateLine.classList.toggle("hidden");
+            }
+          });
+        
+          ayahNumSpanCopy2.addEventListener("click", function () {
+            const parentDivId = ayahNumSpanCopy2.parentElement.id;
+            const lineNumber = parentDivId.replace("translate-line-", "");
+        
+            const translateLine = document.getElementById(
+              `translate-line-${lineNumber}`
+            );
+        
+            if (translateLine) {
+              translateLine.classList.toggle("hidden");
+            }
+          });
         }
         
       });
@@ -241,8 +267,8 @@ function createBtn() {
 }
 
 // Function to hide text and display text areas
-const kalamText = document.getElementsByClassName("ayah");
 function hideTextAndShowInput() {
+  const kalamText = document.getElementsByClassName("ayah");
   lineContentData = lineContent;
   for (let i = 0; i < kalamText.length; i++) {
     kalamElements.push(kalamText[i].textContent.trim());
