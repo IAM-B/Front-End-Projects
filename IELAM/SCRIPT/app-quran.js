@@ -1,13 +1,19 @@
-// Function to fetch the data from the json file
-const fetchData = async () => {
+// const urlDatabase1 = 'URL_DE_LA_PREMIERE_BASE_DE_DONNEES';
+// const urlDatabase2 = 'URL_DE_LA_DEUXIEME_BASE_DE_DONNEES';
+
+// const fetchData1 = fetch(urlDatabase1).then(response => response.json());
+// const fetchData2 = fetch(urlDatabase2).then(response => response.json());
+
+// Function to fetch the data from the Words-order json file
+const fetchAyahData = async () => {
   try {
     const response = await fetch(
-      "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Data/Words-order/1.json"
+      "../../structure1_modifiee.json"
     );
-    const data = await response.json();
-    return data;
+    const DataAyah = await response.json();
+    return DataAyah;
   } catch (error) {
-    console.error("Erreur lors de la récupération des données:", error);
+    console.error("Error while retrieving data:", error);
     return {};
   }
 };
@@ -38,11 +44,11 @@ const populateTable = async () => {
   const mushafLayoutDiv = document.querySelector(".mushaf-layout");
   resetLineContent();
   try {
-    const data = await fetchData();
-    const hizb = data.hizb;
-    const juz = data.juz;
-    const pageNumber = data.pageNumber;
-    const surahs = data.surahs;
+    const DataAyah = await fetchAyahData();
+    const hizb = DataAyah.hizb;
+    const juz = DataAyah.juz;
+    const pageNumber = DataAyah.pageNumber;
+    const surahs = DataAyah.surahs;
 
     const rowDivFooter = document.createElement("div");
     rowDivFooter.classList.add("row-container-footer");
@@ -67,7 +73,7 @@ const populateTable = async () => {
     rowDivFooter.appendChild(juzSpan);
 
     const surahDiv = document.createElement("div");
-    surahDiv.classList.add("line1");
+    surahDiv.classList.add("line0");
     const surahSvg = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "svg"
@@ -96,8 +102,8 @@ const populateTable = async () => {
 <path d="M537.595 199.941C537.596 199.94 537.598 199.954 537.599 199.985C537.594 199.958 537.594 199.942 537.595 199.941ZM534.321 202.23C535.58 201.793 536.588 201.475 537.369 201.268C537.224 201.777 537.001 202.418 536.673 203.205C534.721 207.878 532.998 211.575 531.491 214.327C530.127 216.817 529.039 218.344 528.241 219.146C488.093 233.175 441.811 251.411 389.441 274.023C391.586 266.75 394.606 258.881 398.441 250.557C440.166 235.74 485.537 219.618 534.321 202.23ZM538.818 200.989C538.821 200.989 538.823 200.989 538.825 200.989C538.866 200.99 538.86 200.993 538.818 200.989Z" stroke="black" stroke-width="5"/>
 </svg>`;
 
-      const rowDivTop = document.createElement("div");
-      rowDivTop.classList.add("row-container-top")
+    const rowDivTop = document.createElement("div");
+    rowDivTop.classList.add("row-container-top");
 
     surahs.forEach((surah) => {
       const surahNumSpan = document.createElement("span");
@@ -105,7 +111,8 @@ const populateTable = async () => {
       surahNumSpan.textContent = ` سورة ${surah.surahNum} `;
       rowDivFooter.appendChild(surahNumSpan);
 
-      let lineDiv;
+      let lineAyahDiv;
+      let lineTranslateDiv;
       let currentLineNumber = null;
       let tempLineNumber;
       mushafWrapperDiv.appendChild(surahDiv);
@@ -115,27 +122,41 @@ const populateTable = async () => {
         const { ayahNum, words } = ayah;
 
         words.forEach((word) => {
-          const { text, lineNumber } = word;
+          const { text, lineNumber, translate } = word;
 
           if (lineNumber !== currentLineNumber) {
-            lineDiv = document.createElement("div");
-            lineDiv.classList.add("line" + `${lineNumber}`, "ayah");
-            lineDiv.setAttribute("translate", "no");
-            mushafWrapperDiv.appendChild(lineDiv);
+            lineAyahDiv = document.createElement("div");
+            lineAyahDiv.classList.add(
+              "line-ayah" + `${lineNumber - 1}`,
+              "ayah"
+            );
+            lineAyahDiv.setAttribute("translate", "no");
+
+            lineTranslateDiv = document.createElement("div");
+            lineTranslateDiv.id = "line-translate" + `${lineNumber - 1}`;
+
+            mushafWrapperDiv.appendChild(lineAyahDiv);
+            mushafWrapperDiv.appendChild(lineTranslateDiv);
             currentLineNumber = lineNumber;
           }
-
+          
           if (text !== null && text !== undefined) {
             const textSpan = document.createElement("span");
             textSpan.classList.add("kalam");
             textSpan.textContent = " " + `${text}` + " ";
-            lineDiv.appendChild(textSpan);
+            lineAyahDiv.appendChild(textSpan);
+
+            const translateSpan = document.createElement("span");
+            translateSpan.classList.add("translate");
+            translateSpan.textContent = " " + `${translate}` + " ";
+            lineTranslateDiv.appendChild(translateSpan);
 
             if (!lineContent[lineNumber]) {
               lineContent[lineNumber] = [];
             }
             lineContent[lineNumber].push({ text });
           }
+
           tempLineNumber = lineNumber;
         });
 
@@ -145,9 +166,16 @@ const populateTable = async () => {
           ayahNumSpan.textContent = " " + `${ayahNum}`;
           const arabicNum = convertToArabicNumber(ayahNum);
           ayahNumSpan.innerHTML = `${arabicNum}`;
-          lineDiv.appendChild(ayahNumSpan);
+        
+          const ayahNumSpanCopy1 = ayahNumSpan.cloneNode(true);
+          lineAyahDiv.appendChild(ayahNumSpanCopy1);
+        
+          const ayahNumSpanCopy2 = ayahNumSpan.cloneNode(true);
+          lineTranslateDiv.appendChild(ayahNumSpanCopy2);
+        
           lineContent[tempLineNumber].push({ ayahNum });
         }
+        
       });
     });
     const btnContainer = document.createElement("div");
@@ -200,7 +228,7 @@ function createBtn() {
     btnRestart.classList.add("hidden");
     const section = document.querySelector(".mushaf-layout");
     section.innerHTML = "";
-  
+
     populateTable();
   };
 
@@ -225,7 +253,7 @@ function hideTextAndShowInput() {
     });
     separatedLine = line;
     const inputContainer = document.createElement("div");
-    inputContainer.classList.add("line" + lineNumber, "input-container");
+    inputContainer.classList.add("line-ayah" + lineNumber, "input-container");
     inputContainer.setAttribute("translate", "no");
 
     const kalamElement = document.querySelectorAll(".kalam");
