@@ -87,6 +87,7 @@ exerciceIds.forEach((exerciceId, index) => {
   button.classList.add("exercise-button");
   button.addEventListener("click", () => {
     counter = -1;
+    buttonModalCounter = 1;
     const vocabularyForm = document.querySelector("#vocab");
     const exerciceForm = document.querySelector("#exo");
     const sectionVocabulary = document.getElementById("main-section-vocabulary");

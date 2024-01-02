@@ -327,6 +327,7 @@
         scriptLinks.forEach((link, index) => {
           link.addEventListener("click", (event) => {
             counter = -1;
+            buttonModalCounter = 1;
             domLoadShow.style.display = "block";
             domLoadShow.classList.remove("fade-out");
             domLoadShow.classList.add("fade-int");

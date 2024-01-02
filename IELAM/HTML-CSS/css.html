@@ -2,7 +2,7 @@
   @import url("https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css");
   @import url("https://fonts.googleapis.com/css2?family=Amiri&family=Amiri+Quran&family=Nothing+You+Could+Do&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@500&display=swap");
-  @import url("");
+  @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap");
   @font-face {
     font-family: "ayah-num";
     src: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Data/Assets/Font/alfont_com_Hafs-Font-v0.09-2.otf?inline=true")
@@ -24,7 +24,8 @@
     --couleur-fond-row-footer: linear-gradient(#d5ecf450, #d5ecf4);
     --font-arabic1: "Amiri", serif;
     --font-arabic2: "Amiri Quran", serif;
-    --font-latin: "Nothing You Could Do", cursive;
+    --font-latin1: "IBM Plex Sans Arabic", sans-serif;
+    --font-latin2: "Nothing You Could Do", cursive;
     --font-ayah: "ayah-num", cursive;
     --font-logo: "Noto Nastaliq Urdu";
     --bg-Quran: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Data/Assets/IMG/src-Quran/paterne.svg");
@@ -45,7 +46,8 @@
     --couleur-fond-row-footer: linear-gradient(#0d111750 10%, #0d1117);
     --font-arabic1: "Amiri", serif;
     --font-arabic2: "Amiri Quran", serif;
-    --font-latin: "Nothing You Could Do", cursive;
+    --font-latin1: "IBM Plex Sans Arabic", sans-serif;
+    --font-latin2: "Nothing You Could Do", cursive;
     --font-ayah: "ayah-num", cursive;
     --font-logo: "Noto Nastaliq Urdu";
     --bg-Quran: url("https://raw.githubusercontent.com/IAM-B/Frontend-Projects/main/IELAM/Data/Assets/IMG/src-Quran/paterne-dark.svg");
@@ -107,7 +109,7 @@
   }
   .string {
     color: var(--couleur-text);
-    font-family: var(--font-latin);
+    font-family: var(--font-latin2);
   }
   .loading {
     color: var(--couleur-text);
@@ -170,7 +172,7 @@
   .main-vocabulary.show-section {
     display: block;
     opacity: 1;
-    visibility: visible
+    visibility: visible;
   }
   .main-bg-img {
     display: flex;
@@ -316,12 +318,12 @@
   }
   .vocab-en {
     font-size: 1.5em;
-    font-family: var(--font-latin);
+    font-family: var(--font-latin2);
   }
   span.vocab-en.or {
     margin: 0 10px;
     font-size: 1.5rem;
-    font-family: var(--font-latin);
+    font-family: var(--font-latin2);
   }
   span.vocab-ar-and {
     margin: 0 15px;
@@ -449,7 +451,7 @@
     margin-top: 25px;
   }
   h3.translation {
-    font-family: var(--font-latin);
+    font-family: var(--font-latin2);
     margin: 25px;
   }
   .modal-container .modal-background .modal p {
@@ -501,7 +503,7 @@
   .outside-btn {
     padding: 5px 5px 0 5px;
     border-radius: 5px;
-    font-family: var(--font-latin);
+    font-family: var(--font-latin2);
     color: var(--couleur-contrast);
     background-color: var(--couleur-fond);
     box-shadow: var(--couleur-box-shadow-out-hover);
@@ -947,7 +949,7 @@
   }
   .app-nav {
     margin: 100px 20px 0;
-    text-align: left; 
+    text-align: left;
   }
   .app-menu {
     list-style: none;
@@ -10767,7 +10769,7 @@
   .main-quran.show-section {
     display: block;
     opacity: 1;
-    visibility: visible
+    visibility: visible;
   }
   .brand {
     display: flex;
@@ -10861,6 +10863,12 @@
     color: var(--couleur-btn);
     font-family: var(--font-arabic1);
   }
+  .word {
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--couleur-btn);
+    font-family: var(--font-latin1);
+  }
   .input-container {
     display: flex;
     justify-content: center;
@@ -10891,7 +10899,7 @@
     border: none;
     text-transform: uppercase;
     color: var(--couleur-text);
-    font-family: var(--font-latin);
+    font-family: var(--font-latin1);
     font-weight: bolder;
     border-radius: 10px;
     background-color: var(--couleur-fond);
@@ -10961,6 +10969,7 @@
   }
   .row {
     margin: 0 15px;
+    font-family: var(--font-arabic1);
   }
   @media screen and (max-width: 550px) {
     .ayah,

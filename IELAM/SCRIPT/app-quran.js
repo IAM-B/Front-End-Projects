@@ -115,6 +115,9 @@ const populateTable = async () => {
       let lineTranslateDiv;
       let currentLineNumber = null;
       let tempLineNumber;
+      let kalamId= 0;
+      let wordId = 0;
+
       mushafWrapperDiv.appendChild(surahDiv);
       surahDiv.appendChild(surahSvg);
 
@@ -147,7 +150,7 @@ const populateTable = async () => {
             lineAyahDiv.appendChild(textSpan);
 
             const translateSpan = document.createElement("span");
-            translateSpan.classList.add("translate");
+            translateSpan.classList.add("word");
             translateSpan.textContent = " " + `${translate}` + " ";
             lineTranslateDiv.appendChild(translateSpan);
 
