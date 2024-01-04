@@ -121,13 +121,13 @@ const populateTable = async () => {
 
           if (lineNumber !== currentLineNumber) {
             lineAyahDiv = document.createElement("div");
-            lineAyahDiv.id = `ayah-line-${lineNumber - 1}`;
             lineAyahDiv.classList.add("ayah");
+            lineAyahDiv.id = `ayah-line-${lineNumber - 1}`;
             lineAyahDiv.setAttribute("translate", "no");
 
             lineTranslateDiv = document.createElement("div");
+            lineTranslateDiv.classList.add("translation");
             lineTranslateDiv.id = `translate-line-${lineNumber - 1}`;
-            lineTranslateDiv.classList.add("line-translate-div");
 
             mushafWrapperDiv.appendChild(lineAyahDiv);
             mushafWrapperDiv.appendChild(lineTranslateDiv);
@@ -143,9 +143,9 @@ const populateTable = async () => {
             kalamId++;
 
             const translateSpan = document.createElement("span");
-            translateSpan.id = `word-id-${wordId}`;
-            translateSpan.classList.add("word", `ayah-translate-${ayahNum}`);
+            translateSpan.classList.add("translate", "word", `ayah-${ayahNum}`);
             translateSpan.textContent = " " + `${translate}` + " ";
+            translateSpan.id = `word-id-${wordId}`;
             lineTranslateDiv.appendChild(translateSpan);
             wordId++;
 
@@ -160,25 +160,26 @@ const populateTable = async () => {
 
         if (ayahNum !== null) {
           const ayahNumBtn = document.createElement("button");
-          ayahNumBtn.classList.add("ayahNum", `ayah-${ayahNum}`);
           ayahNumBtn.textContent = " " + `${ayahNum}`;
           const arabicNum = convertToArabicNumber(ayahNum);
           ayahNumBtn.innerHTML = `${arabicNum}`;
-
+          
           const ayahNumBtnCopy1 = ayahNumBtn.cloneNode(true);
+          ayahNumBtnCopy1.classList.add("ayahNum");
           lineAyahDiv.appendChild(ayahNumBtnCopy1);
-
+          
           const ayahNumBtnCopy2 = ayahNumBtn.cloneNode(true);
+          ayahNumBtnCopy2.classList.add("translate");
+          ayahNumBtnCopy2.classList.add("ayahNum");
+          ayahNumBtnCopy2.classList.add(`ayah-${ayahNum}`);
           ayahNumBtnCopy2.id = `line-translate-${tempLineNumber}`;
-          ayahNumBtnCopy2.classList.add(`ayah-translate-${ayahNum}`);
-          ayahNumBtnCopy2.classList.add("word");
           lineTranslateDiv.appendChild(ayahNumBtnCopy2);
 
           lineContent[tempLineNumber].push({ ayahNum });
 
           ayahNumBtnCopy1.addEventListener("click", function () {
             const translateAyah = document.querySelectorAll(
-              `.ayah-translate-${ayahNum}`
+              `.ayah-${ayahNum}`
             );
 
             translateAyah.forEach((element) => {
@@ -188,7 +189,7 @@ const populateTable = async () => {
 
           ayahNumBtnCopy2.addEventListener("click", function () {
             const translateAyah = document.querySelectorAll(
-              `.ayah-translate-${ayahNum}`
+              `.ayah-${ayahNum}`
             );
 
             translateAyah.forEach((element) => {
