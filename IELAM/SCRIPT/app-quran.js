@@ -142,14 +142,14 @@ const populateTable = async () => {
           if (text !== null && text !== undefined) {
             const kalamSpan = document.createElement("span");
             kalamSpan.id = `kalam-id-${kalamId}`;
-            kalamSpan.classList.add("kalam");
+            kalamSpan.classList.add("kalam", `ayah-${ayahNum}`);
             kalamSpan.textContent = " " + `${text}` + " ";
             lineAyahDiv.appendChild(kalamSpan);
             kalamId++;
 
             const translateSpan = document.createElement("span");
             translateSpan.id = `word-id-${wordId}`;
-            translateSpan.classList.add("word");
+            translateSpan.classList.add("word", `ayah-translate-${ayahNum}`);
             translateSpan.textContent = " " + `${translate}` + " ";
             lineTranslateDiv.appendChild(translateSpan);
             wordId++;
@@ -164,47 +164,43 @@ const populateTable = async () => {
         });
 
         if (ayahNum !== null) {
-          const ayahNumSpan = document.createElement("span");
-          ayahNumSpan.classList.add("ayahNum");
-          ayahNumSpan.textContent = " " + `${ayahNum}`;
+          const ayahNumBtn = document.createElement("button");
+          ayahNumBtn.classList.add("ayahNum", `ayah-${ayahNum}`);
+          ayahNumBtn.textContent = " " + `${ayahNum}`;
           const arabicNum = convertToArabicNumber(ayahNum);
-          ayahNumSpan.innerHTML = `${arabicNum}`;
-        
-          const ayahNumSpanCopy1 = ayahNumSpan.cloneNode(true);
-          lineAyahDiv.appendChild(ayahNumSpanCopy1);
-        
-          const ayahNumSpanCopy2 = ayahNumSpan.cloneNode(true);
-          ayahNumSpanCopy2.id = `ayah-num-translate-${tempLineNumber}`;
-          lineTranslateDiv.appendChild(ayahNumSpanCopy2);
-        
+          ayahNumBtn.innerHTML = `${arabicNum}`;
+
+          const ayahNumBtnCopy1 = ayahNumBtn.cloneNode(true);
+          lineAyahDiv.appendChild(ayahNumBtnCopy1);
+
+          const ayahNumBtnCopy2 = ayahNumBtn.cloneNode(true);
+          ayahNumBtnCopy2.id = `line-translate-${tempLineNumber}`;
+          ayahNumBtnCopy2.classList.add(`ayah-translate-${ayahNum}`);
+          ayahNumBtnCopy2.classList.add("word");
+          lineTranslateDiv.appendChild(ayahNumBtnCopy2);
+
           lineContent[tempLineNumber].push({ ayahNum });
-        
-          ayahNumSpanCopy1.addEventListener("click", function () {
-            const parentDivId = ayahNumSpanCopy1.parentElement.id;
-            const lineNumber = parentDivId.replace("ayah-line-", "");
-            const translateLine = document.getElementById(
-              `translate-line-${lineNumber}`
+
+          ayahNumBtnCopy1.addEventListener("click", function () {
+            const translateAyah = document.querySelectorAll(
+              `.ayah-translate-${ayahNum}`
             );
-        
-            if (translateLine) {
-              translateLine.classList.toggle("hidden");
-            }
+
+            translateAyah.forEach((element) => {
+              element.classList.toggle("show-translate");
+            });
           });
-        
-          ayahNumSpanCopy2.addEventListener("click", function () {
-            const parentDivId = ayahNumSpanCopy2.parentElement.id;
-            const lineNumber = parentDivId.replace("translate-line-", "");
-        
-            const translateLine = document.getElementById(
-              `translate-line-${lineNumber}`
+
+          ayahNumBtnCopy2.addEventListener("click", function () {
+            const translateAyah = document.querySelectorAll(
+              `.ayah-translate-${ayahNum}`
             );
-        
-            if (translateLine) {
-              translateLine.classList.toggle("hidden");
-            }
+
+            translateAyah.forEach((element) => {
+              element.classList.toggle("show-translate");
+            });
           });
         }
-        
       });
     });
     const btnContainer = document.createElement("div");

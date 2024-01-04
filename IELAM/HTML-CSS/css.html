@@ -10864,10 +10864,17 @@
     font-family: var(--font-arabic1);
   }
   .word {
+    opacity: 0;
+    visibility: hidden;
     font-weight: bold;
     font-size: 1rem;
     color: var(--couleur-btn);
     font-family: var(--font-latin1);
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  .show-translate {
+    opacity: 1;
+    visibility: visible;
   }
   .input-container {
     display: flex;
@@ -10879,6 +10886,16 @@
   .flex-content {
     display: flex;
     flex-direction: column;
+  }
+  .ayahNum {
+    font-weight: bold;
+    box-shadow: var(--couleur-box-shadow-out);
+    background-color: var(--couleur-fond);
+    border-radius: 50px;
+    padding: 0 15px;
+  }
+  .ayahNum:hover {
+    box-shadow: var(--couleur-box-shadow-out-hover);
   }
   .ayahNum,
   .ayah-num,
