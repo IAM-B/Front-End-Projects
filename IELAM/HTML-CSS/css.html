@@ -10781,7 +10781,7 @@
     height: 100vh;
     color: var(--couleur-btn);
     font-family: var(--font-grec);
-    background-image: var(--bg-Quran);
+    /* background-image: var(--bg-Quran); */
     background-size: contain;
     background-position: bottom;
     background-repeat: repeat;
@@ -10789,7 +10789,7 @@
   .brand-bg {
     width: 100%;
     height: 100%;
-    background-image: var(--couleur-fond-bg);
+    /* background-image: var(--couleur-fond-bg); */
   }
   .brand-h1 {
     position: absolute;
@@ -10808,7 +10808,7 @@
     flex-direction: column;
     width: 100%;
     color: var(--couleur-btn);
-    background-image: var(--couleur-fond-bg);
+    /* background-image: var(--couleur-fond-bg); */
     background-size: cover;
   }
   .mushaf-layout .mushaf-wrapper {
@@ -10824,7 +10824,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background-image: var(--bg-Quran);
+    /* background-image: var(--bg-Quran); */
     background-size: contain;
     background-position: top;
     background-repeat: repeat;
@@ -10854,7 +10854,7 @@
   .input-fill,
   .input-container {
     /* display: flex;
-    justify-content: space-evenly; */
+      justify-content: space-evenly; */
     direction: rtl;
     text-align: right;
     font-size: 2.5rem;
@@ -10863,18 +10863,28 @@
     color: var(--couleur-btn);
     font-family: var(--font-arabic1);
   }
+  .line-translate-div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+  }
   .word {
     opacity: 0;
     visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
     font-weight: bold;
     font-size: 1rem;
     color: var(--couleur-btn);
     font-family: var(--font-latin1);
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.3s ease-out, max-height 0.3s ease-out;
   }
   .show-translate {
     opacity: 1;
     visibility: visible;
+    max-height: 100px;
+    transition: opacity 0.3s ease-in, max-height 0.3s ease-in;
   }
   .input-container {
     display: flex;
@@ -10892,7 +10902,6 @@
     box-shadow: var(--couleur-box-shadow-out);
     background-color: var(--couleur-fond);
     border-radius: 50px;
-    padding: 0 15px;
   }
   .ayahNum:hover {
     box-shadow: var(--couleur-box-shadow-out-hover);
@@ -10903,6 +10912,7 @@
     font-size: 2rem;
     color: var(--couleur-text);
     font-family: var(--font-ayah);
+    padding: 0 15px;
   }
   .harakat,
   .error-harakat {
@@ -10970,19 +10980,19 @@
   .kalam-wrapper {
     display: inline;
   }
-  .row-container-top {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    padding: 35px 0;
-    background-image: var(--couleur-fond-row-top);
-  }
+  /* .row-container-top {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding: 35px 0;
+      background-image: var(--couleur-fond-row-top);
+    } */
   .row-container-footer {
     display: flex;
     justify-content: center;
     width: 100%;
     padding: 35px 0;
-    background-image: var(--couleur-fond-row-footer);
+    /* background-image: var(--couleur-fond-row-footer); */
   }
   .row {
     margin: 0 15px;

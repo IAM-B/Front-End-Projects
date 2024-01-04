@@ -1,13 +1,7 @@
-// const urlDatabase1 = 'URL_DE_LA_PREMIERE_BASE_DE_DONNEES';
-// const urlDatabase2 = 'URL_DE_LA_DEUXIEME_BASE_DE_DONNEES';
-
-// const fetchData1 = fetch(urlDatabase1).then(response => response.json());
-// const fetchData2 = fetch(urlDatabase2).then(response => response.json());
-
 // Function to fetch the data from the Words-order json file
 const fetchAyahData = async () => {
   try {
-    const response = await fetch("../../structure1_modifiee.json");
+    const response = await fetch("https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/structure1_modifiee.json");
     const DataAyah = await response.json();
     return DataAyah;
   } catch (error) {
@@ -133,6 +127,7 @@ const populateTable = async () => {
 
             lineTranslateDiv = document.createElement("div");
             lineTranslateDiv.id = `translate-line-${lineNumber - 1}`;
+            lineTranslateDiv.classList.add("line-translate-div");
 
             mushafWrapperDiv.appendChild(lineAyahDiv);
             mushafWrapperDiv.appendChild(lineTranslateDiv);
