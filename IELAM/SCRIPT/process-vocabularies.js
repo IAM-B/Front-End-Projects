@@ -283,7 +283,7 @@ function createBtn(vocabularies) {
 
   const btnCheck = document.createElement("button");
   btnCheck.innerHTML = "CHECK";
-  btnCheck.classList.add("hidden", "btn-exo", "correct-answer");
+  btnCheck.classList.add("hidden", "btn-exo", "correct");
   btnCheck.onclick = function () {
     btnCheck.classList.add("hidden");
     btnSubmit.classList.add("hidden");
