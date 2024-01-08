@@ -158,6 +158,23 @@ const populateTable = async () => {
           tempLineNumber = lineNumber;
         });
 
+        function createClickHandler(lineNumber) {
+          return function () {
+            const translateDiv = document.getElementById(`translate-line-${lineNumber}`);
+            const translateAyah = document.querySelectorAll(`.ayah-${ayahNum}`);
+
+            console.log("lineNumber=", lineNumber);
+
+            if (translateDiv) {
+              translateDiv.classList.toggle("translation");
+            }
+        
+            translateAyah.forEach((element) => {
+              element.classList.toggle("show-translate");
+            });
+          };
+        }
+
         if (ayahNum !== null) {
           const ayahNumBtn = document.createElement("button");
           ayahNumBtn.textContent = " " + `${ayahNum}`;
@@ -172,30 +189,13 @@ const populateTable = async () => {
           ayahNumBtnCopy2.classList.add("translate");
           ayahNumBtnCopy2.classList.add("ayahNum");
           ayahNumBtnCopy2.classList.add(`ayah-${ayahNum}`);
-          ayahNumBtnCopy2.id = `line-translate-${tempLineNumber}`;
+          ayahNumBtnCopy2.id = `line-translate-${tempLineNumber -1}`;
           lineTranslateDiv.appendChild(ayahNumBtnCopy2);
 
           lineContent[tempLineNumber].push({ ayahNum });
 
-          ayahNumBtnCopy1.addEventListener("click", function () {
-            const translateAyah = document.querySelectorAll(
-              `.ayah-${ayahNum}`
-            );
-
-            translateAyah.forEach((element) => {
-              element.classList.toggle("show-translate");
-            });
-          });
-
-          ayahNumBtnCopy2.addEventListener("click", function () {
-            const translateAyah = document.querySelectorAll(
-              `.ayah-${ayahNum}`
-            );
-
-            translateAyah.forEach((element) => {
-              element.classList.toggle("show-translate");
-            });
-          });
+          const clickHandler = createClickHandler(tempLineNumber - 1);
+          ayahNumBtnCopy1.addEventListener("click", clickHandler);
         }
       });
     });
