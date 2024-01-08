@@ -1,7 +1,9 @@
 // Function to fetch the data from the Words-order json file
 const fetchAyahData = async () => {
   try {
-    const response = await fetch("https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/structure1_modifiee.json");
+    const response = await fetch(
+      "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/structure1_modifiee.json"
+    );
     const DataAyah = await response.json();
     return DataAyah;
   } catch (error) {
@@ -121,7 +123,7 @@ const populateTable = async () => {
 
           if (lineNumber !== currentLineNumber) {
             lineAyahDiv = document.createElement("div");
-            lineAyahDiv.classList.add("ayah");
+            lineAyahDiv.classList.add("ayah-container");
             lineAyahDiv.id = `ayah-line-${lineNumber - 1}`;
             lineAyahDiv.setAttribute("translate", "no");
 
@@ -143,7 +145,7 @@ const populateTable = async () => {
             kalamId++;
 
             const translateSpan = document.createElement("span");
-            translateSpan.classList.add("translate", "word", `ayah-${ayahNum}`);
+            translateSpan.classList.add("translate", "hidden", `translate-ayah-${ayahNum}`);
             translateSpan.textContent = " " + `${translate}` + " ";
             translateSpan.id = `word-id-${wordId}`;
             lineTranslateDiv.appendChild(translateSpan);
@@ -158,44 +160,41 @@ const populateTable = async () => {
           tempLineNumber = lineNumber;
         });
 
-        function createClickHandler(lineNumber) {
-          return function () {
-            const translateDiv = document.getElementById(`translate-line-${lineNumber}`);
-            const translateAyah = document.querySelectorAll(`.ayah-${ayahNum}`);
-
-            console.log("lineNumber=", lineNumber);
-
-            if (translateDiv) {
-              translateDiv.classList.toggle("translation");
-            }
-        
-            translateAyah.forEach((element) => {
-              element.classList.toggle("show-translate");
-            });
-          };
-        }
-
         if (ayahNum !== null) {
           const ayahNumBtn = document.createElement("button");
           ayahNumBtn.textContent = " " + `${ayahNum}`;
           const arabicNum = convertToArabicNumber(ayahNum);
           ayahNumBtn.innerHTML = `${arabicNum}`;
-          
+
           const ayahNumBtnCopy1 = ayahNumBtn.cloneNode(true);
           ayahNumBtnCopy1.classList.add("ayahNum");
           lineAyahDiv.appendChild(ayahNumBtnCopy1);
-          
+
           const ayahNumBtnCopy2 = ayahNumBtn.cloneNode(true);
           ayahNumBtnCopy2.classList.add("translate");
           ayahNumBtnCopy2.classList.add("ayahNum");
-          ayahNumBtnCopy2.classList.add(`ayah-${ayahNum}`);
-          ayahNumBtnCopy2.id = `line-translate-${tempLineNumber -1}`;
+          ayahNumBtnCopy2.classList.add(`translate-ayah-${ayahNum}`, "hidden");
+          ayahNumBtnCopy2.id = `line-translate-${tempLineNumber - 1}`;
           lineTranslateDiv.appendChild(ayahNumBtnCopy2);
 
           lineContent[tempLineNumber].push({ ayahNum });
 
-          const clickHandler = createClickHandler(tempLineNumber - 1);
-          ayahNumBtnCopy1.addEventListener("click", clickHandler);
+          ayahNumBtnCopy1.addEventListener("click", () => {
+            const translateAyah = document.querySelectorAll(`.translate-ayah-${ayahNum}`);
+
+            translateAyah.forEach((element) => {
+              if (element) {
+                setTimeout(() => {
+                  element.classList.toggle("hidden");
+                }, 0);
+                element.classList.toggle("show-translate");
+              } else {
+                console.log("Error");
+              }
+            });
+
+
+          });
         }
       });
     });
@@ -260,7 +259,7 @@ function createBtn() {
 
 // Function to hide text and display text areas
 function hideTextAndShowInput() {
-  const kalamText = document.getElementsByClassName("ayah");
+  const kalamText = document.getElementsByClassName("ayah-container");
   lineContentData = lineContent;
   for (let i = 0; i < kalamText.length; i++) {
     kalamElements.push(kalamText[i].textContent.trim());
@@ -396,7 +395,7 @@ function checkAnswers() {
     });
 
     const ayahDiv = document.createElement("div");
-    ayahDiv.classList.add("ayah");
+    ayahDiv.classList.add("ayah-container");
     ayahDiv.innerHTML = verseHTML;
 
     const verseWords = ayahDiv.querySelectorAll(".ayah");

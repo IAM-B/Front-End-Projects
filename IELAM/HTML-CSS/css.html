@@ -10849,7 +10849,7 @@
     height: 100%;
     z-index: 1;
   }
-  .ayah,
+  .ayah-container,
   .kalam,
   .input-fill,
   .input-container {
@@ -10864,10 +10864,9 @@
     font-family: var(--font-arabic1);
   }
   .translation {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    width: 100%;
+    direction: ltr;
   }
   .translate {
     opacity: 0;
@@ -10875,7 +10874,7 @@
     max-height: 0;
     overflow: hidden;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.6rem;
     color: var(--couleur-btn);
     font-family: var(--font-latin1);
     transition: opacity 0.3s ease-out, max-height 0.3s ease-out;
@@ -10912,7 +10911,7 @@
     font-size: 2rem;
     color: var(--couleur-text);
     font-family: var(--font-ayah);
-    padding: 0 15px;
+    padding: 0 5px;
   }
   .harakat,
   .error-harakat {
@@ -10999,7 +10998,7 @@
     font-family: var(--font-arabic1);
   }
   @media screen and (max-width: 550px) {
-    .ayah,
+    .ayah-container,
     .kalam,
     .input-fill,
     .input-container {
