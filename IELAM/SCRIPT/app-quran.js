@@ -138,24 +138,42 @@ const populateTable = async () => {
 
           if (text !== null && text !== undefined) {
             const kalamSpan = document.createElement("span");
-            kalamSpan.id = `kalam-id-${kalamId}`;
             kalamSpan.classList.add("kalam", `ayah-${ayahNum}`);
             kalamSpan.textContent = " " + `${text}` + " ";
+            kalamSpan.setAttribute("data-kalam-id", kalamId);
             lineAyahDiv.appendChild(kalamSpan);
-            kalamId++;
-
+          
             const translateSpan = document.createElement("span");
             translateSpan.classList.add("translate", "hidden", `translate-ayah-${ayahNum}`);
             translateSpan.textContent = " " + `${translate}` + " ";
-            translateSpan.id = `word-id-${wordId}`;
+            translateSpan.id = `word-id-${kalamId}`;
             lineTranslateDiv.appendChild(translateSpan);
-            wordId++;
-
+          
+            kalamId++;
+          
             if (!lineContent[lineNumber]) {
               lineContent[lineNumber] = [];
             }
             lineContent[lineNumber].push({ text });
+          
+            kalamSpan.addEventListener("click", (event) => {
+              const clickedKalamId = event.target.getAttribute("data-kalam-id");
+              const wordTranslateId = document.querySelectorAll(`#word-id-${clickedKalamId}`);
+
+              
+              wordTranslateId.forEach((element) => {
+                if (element) {
+                  setTimeout(() => {
+                    element.classList.toggle("hidden");
+                  }, 200);
+                  element.classList.toggle("show-translate");
+                } else {
+                  console.log("Error");
+                }
+              });
+            });
           }
+          
 
           tempLineNumber = lineNumber;
         });
@@ -186,7 +204,7 @@ const populateTable = async () => {
               if (element) {
                 setTimeout(() => {
                   element.classList.toggle("hidden");
-                }, 0);
+                }, 200);
                 element.classList.toggle("show-translate");
               } else {
                 console.log("Error");
