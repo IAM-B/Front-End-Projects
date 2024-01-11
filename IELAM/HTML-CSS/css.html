@@ -16,7 +16,7 @@
     --couleur-box-shadow-int: inset -3px -3px 3px #ffffff44,
       inset 3px 3px 3px #898e9244;
     --couleur-box-shadow-out: -3px -3px 3px #ffffff44, 3px 3px 3px #898e9244;
-    --couleur-box-shadow-out-hover: 0px -2px 1px #ffffff44,
+    --couleur-box-shadow-out-btn: 0px -2px 1px #ffffff44,
       0px 1px 1px #898e9244;
     --couleur-text-shadow: -1px -2px 3px #ffffff77, 1px 2px 3px #898e9244;
     --couleur-fond-bg: radial-gradient(circle, #d5ecf4, #d5ecf480 50%);
@@ -38,7 +38,7 @@
     --couleur-box-shadow-int: inset -3px -3px 3px #30303044,
       inset 3px 3px 3px #00000044;
     --couleur-box-shadow-out: -3px -3px 3px #30303044, 3px 3px 3px #00000044;
-    --couleur-box-shadow-out-hover: 0px -1px 1px #30303044,
+    --couleur-box-shadow-out-btn: 0px -1px 1px #30303044,
       0px 2px 1px #00000044;
     --couleur-text-shadow: -1px -2px 3px #30303077, 1px 2px 3px #00000044;
     --couleur-fond-bg: radial-gradient(circle, #0d1117 25%, #0d111799 100%);
@@ -288,7 +288,7 @@
     box-shadow: var(--couleur-box-shadow-out);
   }
   div.buttonModal {
-    box-shadow: var(--couleur-box-shadow-out-hover);
+    box-shadow: var(--couleur-box-shadow-out-btn);
     border-radius: 10px;
     margin-left: 15px;
   }
@@ -506,7 +506,7 @@
     font-family: var(--font-latin2);
     color: var(--couleur-contrast);
     background-color: var(--couleur-fond);
-    box-shadow: var(--couleur-box-shadow-out-hover);
+    box-shadow: var(--couleur-box-shadow-out-btn);
   }
   i.fi.fi-br-cross {
     color: var(--couleur-btn);
@@ -538,7 +538,7 @@
   }
   button.exercise-button.active {
     color: var(--couleur-text);
-    box-shadow: var(--couleur-box-shadow-out-hover);
+    box-shadow: var(--couleur-box-shadow-out-btn);
   }
   li.menu-item {
     cursor: pointer;
@@ -10898,12 +10898,15 @@
   }
   .ayahNum {
     font-weight: 100;
-    box-shadow: var(--couleur-box-shadow-out);
+    box-shadow: var(--couleur-box-shadow-out-btn);
     background-color: var(--couleur-fond);
     border-radius: 50px;
   }
-  .ayahNum:hover {
-    box-shadow: var(--couleur-box-shadow-out-hover);
+  .ayahNum.active {
+    box-shadow: var(--couleur-box-shadow-int);
+  }
+  .kalam.active {
+    box-shadow: var(--couleur-box-shadow-int);
   }
   .ayahNum,
   .ayah-num,
@@ -10929,11 +10932,11 @@
     font-weight: bolder;
     border-radius: 10px;
     background-color: var(--couleur-fond);
-    box-shadow: var(--couleur-box-shadow-out);
+    box-shadow: var(--couleur-box-shadow-out-btn);
     cursor: pointer;
   }
   .mushaf-button:hover {
-    box-shadow: var(--couleur-box-shadow-out-hover);
+    box-shadow: var(--couleur-box-shadow-int);
     color: var(--couleur-btn);
   }
   .mushaf-button:active {

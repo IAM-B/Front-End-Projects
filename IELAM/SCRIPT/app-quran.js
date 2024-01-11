@@ -1,9 +1,7 @@
 // Function to fetch the data from the Words-order json file
 const fetchAyahData = async () => {
   try {
-    const response = await fetch(
-      "https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/structure1_modifiee.json"
-    );
+    const response = await fetch("https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/structure1_modifiee.json");
     const DataAyah = await response.json();
     return DataAyah;
   } catch (error) {
@@ -99,18 +97,17 @@ const populateTable = async () => {
     const rowDivTop = document.createElement("div");
     rowDivTop.classList.add("row-container-top");
 
+    let lineAyahDiv;
+    let lineTranslateDiv;
+    let currentLineNumber = null;
+    let tempLineNumber;
+    let kalamId = 0;
+
     surahs.forEach((surah) => {
       const surahNumSpan = document.createElement("span");
       surahNumSpan.classList.add("surah", "row");
       surahNumSpan.textContent = ` سورة ${surah.surahNum} `;
       rowDivFooter.appendChild(surahNumSpan);
-
-      let lineAyahDiv;
-      let lineTranslateDiv;
-      let currentLineNumber = null;
-      let tempLineNumber;
-      let kalamId = 0;
-      let wordId = 0;
 
       mushafWrapperDiv.appendChild(surahDiv);
       surahDiv.appendChild(surahSvg);
@@ -142,38 +139,42 @@ const populateTable = async () => {
             kalamSpan.textContent = " " + `${text}` + " ";
             kalamSpan.setAttribute("data-kalam-id", kalamId);
             lineAyahDiv.appendChild(kalamSpan);
-          
+
             const translateSpan = document.createElement("span");
-            translateSpan.classList.add("translate", "hidden", `translate-ayah-${ayahNum}`);
+            translateSpan.classList.add(
+              "translate",
+              "hidden",
+              `translate-ayah-${ayahNum}`
+            );
             translateSpan.textContent = " " + `${translate}` + " ";
             translateSpan.id = `word-id-${kalamId}`;
             lineTranslateDiv.appendChild(translateSpan);
-          
+
             kalamId++;
-          
+
             if (!lineContent[lineNumber]) {
               lineContent[lineNumber] = [];
             }
             lineContent[lineNumber].push({ text });
-          
+
             kalamSpan.addEventListener("click", (event) => {
               const clickedKalamId = event.target.getAttribute("data-kalam-id");
-              const wordTranslateId = document.querySelectorAll(`#word-id-${clickedKalamId}`);
+              const wordTranslateId = document.querySelectorAll(
+                `#word-id-${clickedKalamId}`
+              );
 
-              
+              // kalamSpan.classList.toggle("active");
+
               wordTranslateId.forEach((element) => {
                 if (element) {
                   setTimeout(() => {
                     element.classList.toggle("hidden");
                   }, 200);
                   element.classList.toggle("show-translate");
-                } else {
-                  console.log("Error");
                 }
               });
             });
           }
-          
 
           tempLineNumber = lineNumber;
         });
@@ -197,22 +198,42 @@ const populateTable = async () => {
 
           lineContent[tempLineNumber].push({ ayahNum });
 
-          ayahNumBtnCopy1.addEventListener("click", () => {
-            const translateAyah = document.querySelectorAll(`.translate-ayah-${ayahNum}`);
+          function createAyahNumClickHandler(tempLineNumber) {
+            return function () {
+              ayahNumBtnCopy1.classList.toggle("active");
 
-            translateAyah.forEach((element) => {
-              if (element) {
-                setTimeout(() => {
-                  element.classList.toggle("hidden");
-                }, 200);
-                element.classList.toggle("show-translate");
-              } else {
-                console.log("Error");
-              }
-            });
+              const translateLine = document.querySelectorAll(
+                `#translate-line-${tempLineNumber - 1}`
+              );
+              const translateAyah = document.querySelectorAll(
+                `.translate-ayah-${ayahNum}`
+              );
 
+              translateLine.forEach((elementLine) => {
+                elementLine.classList.toggle("show-line");
 
-          });
+                translateAyah.forEach((element) => {
+                  const showLine = elementLine.classList.contains("show-line");
+                  const showWord = element.classList.contains("show-translate");
+
+                  if (showWord && showLine) {
+                    return;
+                  }
+                  if (element) {
+                    setTimeout(() => {
+                      element.classList.toggle("hidden");
+                    }, 200);
+                    element.classList.toggle("show-translate");
+                  }
+                });
+              });
+            };
+          }
+
+          ayahNumBtnCopy1.addEventListener(
+            "click",
+            createAyahNumClickHandler(tempLineNumber)
+          );
         }
       });
     });
