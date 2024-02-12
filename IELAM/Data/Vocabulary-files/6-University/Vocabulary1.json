@@ -1,0 +1,137 @@
+{
+  "ticket": "مَاذَا فِي الصَّفِّ",
+  "vocabulary": [
+    {
+      "en": "University",
+      "ar": ["جَامِعَاتٌ", "ج", "جَامِعَةٌ"],
+      "meaning": ["تَعْلِيمٌ عَالٍ بَعْدَ الثَّانَوِيَّةِ"],
+      "translation": ["Higher education after high school"]
+    },
+    {
+      "en": "College",
+      "ar": ["كُلِّيَّاتٌ", "ج", "كُلِّيَّةٌ"],
+      "meaning": ["مُؤَسَّسَةٌ تَعْلِيمِيَّةٌ"],
+      "translation": ["An educational institution"]
+    },
+    {
+      "en": "Exactly x almost",
+      "ar": ["تَقْرِيبًا", "x", "بِالضُّبْطِ"],
+      "meaning": ["تَعْبِيرٌ عَنِ الدِّقَّةِ"],
+      "translation": ["Expression of precision"]
+    },
+    {
+      "en": "Good x bad",
+      "ar": ["سَيِّئٌ", "ج", "جَيِّدٌ"],
+      "meaning": ["نُوعِيَّةٌ عَالِيَةٌ"],
+      "translation": ["High quality"]
+    },
+    {
+      "en": "Arabic Language",
+      "ar": ["اللُّغَةُ العَرَبِيَّةُ"],
+      "meaning": ["لُغَةٌ تُسْتَخْدَمُ فِي الدُّوْلِ العَرَبِيَّةِ"],
+      "translation": ["A language used in Arab countries"]
+    },
+    {
+      "en": "Jurisprudence",
+      "ar": ["الفِقْهُ"],
+      "meaning": ["دِرَاسَةُ الأَحْكَامِ الشَّرْعِيَّةِ"],
+      "translation": ["The study of Islamic law"]
+    },
+    {
+      "en": "Recitation",
+      "ar": ["التَّجْوِيدُ"],
+      "meaning": ["تَلاَوَةُ القُرْآنِ بِالأَسْلُوبِ الصَّحِيحِ"],
+      "translation": ["Recitation of the Quran in the proper manner"]
+    },
+    {
+      "en": "Interpretation",
+      "ar": ["التَّفْسِيرُ"],
+      "meaning": ["تَفْسِيرُ الكُتُبِ وَالنُّصُوصِ"],
+      "translation": ["Interpreting books and texts"]
+    },
+    {
+      "en": "Hadith",
+      "ar": ["الحَدِيثُ", "ج", "الأَحَادِيثُ"],
+      "meaning": ["أَقْوَالُ النَّبِيِّ مُحَمَّدٍ ﷺ"],
+      "translation": ["Sayings of the Prophet Muhammad ﷺ"]
+    },
+    {
+      "en": "Psychology",
+      "ar": ["عِلْمُ النَّفْسِ"],
+      "meaning": ["دِرَاسَةُ العَقْلِ وَالسُّلُوكِ البَشَرِيِّ"],
+      "translation": ["Study of the human mind and behavior"]
+    },
+    {
+      "en": "History",
+      "ar": ["التَّارِيخُ"],
+      "meaning": ["دِرَاسَةُ الْمَاضِي وَالأَحْدَاثِ"],
+      "translation": ["Study of the past and events"]
+    },
+    {
+      "en": "Geography",
+      "ar": ["الجُغْرَافِيَا"],
+      "meaning": ["دِرَاسَةُ الأَرْضِ وَالمَنَاطِقِ"],
+      "translation": ["Study of the Earth and its regions"]
+    },
+    {
+      "en": "Holiday",
+      "ar": ["عُطَلٌ", "ج", "عُطْلَةٌ"],
+      "meaning": ["فَتْرَةٌ رَاحَةٍ مِنَ العَمَلِ أَوِ الدِّرَاسَةِ"],
+      "translation": ["A period of rest from work or study"]
+    },
+    {
+      "en": "Think",
+      "ar": ["يَظُنُّ"],
+      "meaning": ["يَظُنُّ بِشَيْءٍ مُعِينٍ"],
+      "translation": ["He think about something specific"]
+    },
+    {
+      "en": "Reflects",
+      "ar": ["يَفْكُرُونَ", "ج", "يَفْكُرُ"],
+      "meaning": ["يَفْكُرُ عَلَى شَيْءٍ"],
+      "translation": ["He reflect on something"]
+    },
+    {
+      "en": "Begin",
+      "ar": ["يَبْدَأُ"],
+      "meaning": ["يَبْدَأُ فِي القِيَامِ بِشَيْءٍ"],
+      "translation": ["He start doing something"]
+    },
+    {
+      "en": "Finish",
+      "ar": ["يَنْتَهِي"],
+      "meaning": ["يَنْتَهِي الفصل الدراسي الجامعي الأسبوع المقبل."],
+      "translation": ["The university semester ends next week."]
+    },
+    {
+      "en": "Studie",
+      "ar": ["يَدْرُسُ"],
+      "meaning": ["يَتَعَلَّمُ وَيَكْتَسِبُ الْمَعْرِفَةَ عَنْ طَرِيقِ الدِّرَاسَةِ"],
+      "translation": ["To learn and acquire knowledge through study"]
+    },
+    {
+      "en": "Lesson / Lecture",
+      "ar": ["دَرْسٌ", "/", "مُحَاضَرَةٌ"],
+      "meaning": ["سَأَحْضُرُ مُحَاضَرَةً مُهِمَّةً في مادَّةِ الرِيَاضِيَاتِ، وَبَعْدَ ذَلِكَ سَنَتَوَجَّهُ إِلَى الدَّرْسِ الثَّانِي"],
+      "translation": ["I will attend an important lecture in mathematics, and after that we will head to the second lesson"]
+    },
+    {
+      "en": "Opinion / Idea",
+      "ar": ["فِكْرَةٌ", "/", "رَأْيٌ"],
+      "meaning": ["أُحِبُّ الاستماع إلى رَأْيِكَ في هذه الفِكْرَةِ"],
+      "translation": ["I would love to hear your opinion on this idea"]
+    },
+    {
+      "en": "Subject",
+      "ar": ["مَوَادٌّ", "ج", "مَادَّةٌ"],
+      "meaning": ["هَذِهِ المَادَّةُ مُهِمَّةٌ جِدًّا لِفَهْمِ الْمَوَادِ الْعِلْمِيَّةِ بِشَكْلٍ أَفْضَل"],
+      "translation": ["This subject is very important for understanding scientific subjects better"]
+    },
+    {
+      "en": "Information",
+      "ar": ["مَعَلُومَاتٌ", "ج", "مَعْلُومَةٌ"],
+      "meaning": ["هَذِهِ المَعْلُومَةُ مُفِيدَةٌ لِفَهْمِ الْمَوَاضِيعِ بِشَكْلٍ أَعْمَق"],
+      "translation": ["This information is useful for understanding topics in a deeper way"]
+    }
+  ]
+}
