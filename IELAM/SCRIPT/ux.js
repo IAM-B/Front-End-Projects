@@ -32,12 +32,12 @@ function toggleBurgerMenu() {
   const overlay = document.querySelector(".sidemenu-overlay");
 
   if (!toggleMenu.classList.contains("active")) {
-    document.body.style.overflow = 'hidden';
+    // document.body.style.overflow = 'hidden';
     sidemenu.classList.add("showmenu");
     toggleMenu.classList.add("active");
     overlay.classList.add("visible");
   } else {
-    document.body.style.overflow = '';
+    // document.body.style.overflow = '';
     sidemenu.classList.remove("showmenu");
     toggleMenu.classList.remove("active");
     overlay.classList.remove("visible");
