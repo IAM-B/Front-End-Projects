@@ -1,0 +1,35 @@
+{
+  "ticket": "العِنايَةُ بِالصِّحَّةِ",
+  "vocabulary": [
+    {
+      "en": "Remained",
+      "ar": ["ظلت"],
+      "meaning": ["ورغم ذلك ظلت نحيفة"],
+      "translation": ["Despite this, she remained thin"]
+    },
+    {
+      "en": "Different",
+      "ar": ["تَخْتَلِفُ"],
+      "meaning": ["تختلف مشكلة مريم عن مشكلة زينب"],
+      "translation": ["Maryam's problem is different from Zainab's problem"]
+    },
+    {
+      "en": "Left",
+      "ar": ["تَرَكَتْ"],
+      "meaning": ["تركت مريم السكريات والنشويات"],
+      "translation": ["Mary left out sugars and starches"]
+    },
+    {
+      "en": "she could not",
+      "ar": ["لم تستطع"],
+      "meaning": ["لم تستطع مريم، فهي تحب الأكل"],
+      "translation": ["Maryam could not, as she loves to eat"]
+    },
+    {
+      "en": "Began",
+      "ar": ["أخذت"],
+      "meaning": ["أخذت مريم تأكل كثيرا, فزاد وزنها, ولم ينقص"],
+      "translation": ["Maryam began to eat a lot, and her weight increased, but did not decrease"]
+    }
+  ]
+}
