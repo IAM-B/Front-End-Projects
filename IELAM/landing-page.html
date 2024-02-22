@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ma Landing Page</title>
+  </head>
+  <body>
+    <style>
+        .main-sections {
+            height: 100vh;
+        }
+    </style>
+    <!--TEMPLATE-->
+    <div id="css-content"></div>
+    <script>
+      const contentDivCss = document.getElementById("css-content");
+      fetch("HTML-CSS/inner-css.html")
+        .then((response) => response.text())
+        .then((htmlContent) => {
+          contentDivCss.innerHTML = htmlContent;
+        })
+        .catch((error) => {
+          console.error(
+            "Une erreur s'est produite lors du chargement de la page:",
+            error
+          );
+        });
+    </script>
+    <!---->
+
+    <header class="main-sections scroll-sections background-image">
+      <div class="slider">
+        <div class="slide slide1">
+
+        </div>
+        <div class="slide slide2">
+
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#presentation">À propos de moi</a></li>
+          <li><a href="#informations1">Comment ça marche</a></li>
+          <li><a href="#informations2">Fonctionnalités clés</a></li>
+          <li><a href="#informations3">Témoignages</a></li>
+        </ul>
+      </nav>
+      <div class="header-content">
+        <h1>Votre Titre Accrocheur</h1>
+        <p>Inscrivez-vous pour en savoir plus !</p>
+        <form action="votre_script_de_soumission.php" method="post">
+          <input
+            type="email"
+            name="email"
+            placeholder="Entrez votre adresse e-mail"
+            required
+          />
+          <button type="submit">S'inscrire</button>
+        </form>
+      </div>
+    </header>
+
+    <section
+      id="section1"
+      class="main-sections presentation scroll-sections"
+      id="presentation"
+    >
+      <h2>À propos de moi</h2>
+      <p>Une brève description de vous et de votre programme.</p>
+    </section>
+
+    <section
+      id="section2"
+      class="main-sections informations scroll-sections"
+      id="informations1"
+    >
+      <h2>Comment ça marche</h2>
+      <p>Informations sur l'utilisation du programme.</p>
+    </section>
+
+    <section
+      id="section3"
+      class="main-sections informations scroll-sections"
+      id="informations2"
+    >
+      <h2>Fonctionnalités clés</h2>
+      <p>Plus d'informations sur les fonctionnalités du programme.</p>
+    </section>
+
+    <section
+      id="section4"
+      class="main-sections informations scroll-sections"
+      id="informations3"
+    >
+      <h2>Témoignages</h2>
+      <p>Les retours positifs des utilisateurs satisfaits.</p>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 Votre Nom</p>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+      const sections = document.querySelectorAll(".scroll-sections");
+      const scrollSpeed = 5;
+      let redirectionEnCours = false;
+      let lastScrollTop = window.scrollY;
+
+      // Options pour l'Intersection Observer
+      const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.01,
+      };
+
+      // Créez un observer avec une fonction de rappel
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            redirectionEnCours = true;
+            window.scrollTo({
+              top: entry.target.offsetTop,
+              behavior: "smooth",
+            });
+          } else {
+            redirectionEnCours = false;
+          }
+        });
+      }, options);
+
+      // Ajoutez chaque section à l'observateur
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+
+      window.addEventListener("scroll", () => {
+        const currentScrollTop = window.scrollY;
+        if (currentScrollTop > lastScrollTop) {
+          // L'utilisateur fait défiler vers le bas
+          lastScrollTop = currentScrollTop;
+          if (redirectionEnCours) {
+            window.scrollBy(0, scrollSpeed);
+          }
+        } else if (currentScrollTop < lastScrollTop) {
+          // L'utilisateur fait défiler vers le haut
+          lastScrollTop = currentScrollTop;
+          if (redirectionEnCours) {
+            window.scrollBy(0, -scrollSpeed);
+          }
+        }
+      });
+
+      // Function effect move 3d mockup
+      const svgElement1 = document.getElementById("3d-effect1");
+
+      // Sur un ordinateur de bureau, réagit au passage de la souris
+      svgElement1.addEventListener("mousemove", (e) => {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        // Calculez les rotations en fonction de la position de la souris
+        const rotationX = (mouseY / window.innerHeight - 0.5) * 30;
+        const rotationY = (mouseX / window.innerWidth - 0.5) * 30;
+
+        // Appliquez les transformations CSS
+        svgElement1.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+      });
+
+      // Sur un appareil mobile, réagit au mouvement de l'appareil
+      if (window.DeviceMotionEvent) {
+        window.addEventListener("devicemotion", (e) => {
+          const accelerationX = e.accelerationIncludingGravity.x;
+          const accelerationY = e.accelerationIncludingGravity.y;
+
+          // Calculez les rotations en fonction de l'accélération de l'appareil
+          const rotationX = (accelerationY / 9.81) * 30;
+          const rotationY = (accelerationX / 9.81) * 30;
+
+          // Appliquez les transformations CSS
+          svgElement1.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+        });
+      }
+
+      const svgElement2 = document.getElementById("3d-effect2");
+
+      // Sur un ordinateur de bureau, réagit au passage de la souris
+      svgElement2.addEventListener("mousemove", (e) => {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        // Calculez les rotations en fonction de la position de la souris
+        const rotationX = (mouseY / window.innerHeight - 0.5) * 30;
+        const rotationY = (mouseX / window.innerWidth - 0.5) * 30;
+
+        // Appliquez les transformations CSS
+        svgElement2.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+      });
+
+      // Sur un appareil mobile, réagit au mouvement de l'appareil
+      if (window.DeviceMotionEvent) {
+        window.addEventListener("devicemotion", (e) => {
+          const accelerationX = e.accelerationIncludingGravity.x;
+          const accelerationY = e.accelerationIncludingGravity.y;
+
+          // Calculez les rotations en fonction de l'accélération de l'appareil
+          const rotationX = (accelerationY / 9.81) * 30;
+          const rotationY = (accelerationX / 9.81) * 30;
+
+          // Appliquez les transformations CSS
+          svgElement2.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+        });
+      }
+    </script>
+    <!---->
+  </body>
+</html>
