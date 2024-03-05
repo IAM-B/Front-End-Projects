@@ -1,0 +1,31 @@
+ul {
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+li {
+  min-width: 700px;
+  display: flex;
+}
+li span {
+  width: 100%;
+}
+
+
+ul::-webkit-scrollbar {
+  height: 7px;
+}
+
+ul::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #333;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: #83818c;
+  border-radius: 5px;
+}
+
+ul::-webkit-scrollbar-thumb:hover {
+  background: #5d5a74;
+}
