@@ -1,8 +1,6 @@
 import * as THREE from "three";
 import gasp from 'gsap'
 
-console.log(gasp);
-
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
 
