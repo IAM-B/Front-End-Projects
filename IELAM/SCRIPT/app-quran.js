@@ -1,7 +1,7 @@
 // Function to fetch the data from the Words-order json file
 const fetchAyahData = async () => {
   try {
-    const response = await fetch("https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/structure1_modifiee.json");
+    const response = await fetch("https://raw.githubusercontent.com/IAM-B/Front-End-Projects/main/IELAM/Data/Words-order/1structure_modifiee.json");
     const DataAyah = await response.json();
     return DataAyah;
   } catch (error) {
